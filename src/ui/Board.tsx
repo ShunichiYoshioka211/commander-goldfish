@@ -1,0 +1,147 @@
+// 盤面：対戦相手・戦場・手札・左右の情報欄。
+import { canAttack, DECK, isCreature, isLand } from '../engine/core';
+import { abilitiesOf, canActivate, canPlayLand, castModes } from '../engine/play';
+import type { CardInstance, GameState } from '../engine/types';
+import { useStore } from '../store';
+import { CardView } from './CardView';
+
+const PHASE_LABEL: Record<GameState['phase'], string> = {
+  mulligan: 'マリガン',
+  main1: 'メイン1',
+  combat: '戦闘（攻撃宣言）',
+  attacking: '戦闘（ダメージ前）',
+  main2: 'メイン2',
+  over: '終了',
+};
+
+export function Opponents() {
+  const opponents = useStore((s) => s.game.opponents);
+  const editMode = useStore((s) => s.editMode);
+  const dispatch = useStore((s) => s.dispatch);
+  return (
+    <section className="opponents">
+      {opponents.map((o, i) => (
+        <div key={i} className={`opponent${o.deadTurn !== null ? ' dead' : ''}`} data-drop={`opp${i}`} data-testid={`opp${i}`}>
+          <div className="opp-name">対戦相手{i + 1}</div>
+          <div className="opp-life" key={o.life}>
+            {o.life}
+          </div>
+          <div className="opp-sub">
+            統率者ダメージ {o.commanderDamage}
+            {o.deadTurn !== null && `・${o.deadTurn}T 脱落`}
+          </div>
+          {editMode && (
+            <div className="edit-row">
+              <button onClick={() => dispatch({ type: 'oppLife', opp: i, delta: -1 })}>−1</button>
+              <button onClick={() => dispatch({ type: 'oppLife', opp: i, delta: -5 })}>−5</button>
+              <button onClick={() => dispatch({ type: 'oppLife', opp: i, delta: 1 })}>+1</button>
+              <button onClick={() => dispatch({ type: 'cmdDamage', opp: i, delta: 1 })}>統+1</button>
+              <button onClick={() => dispatch({ type: 'cmdDamage', opp: i, delta: -1 })}>統−1</button>
+            </div>
+          )}
+        </div>
+      ))}
+    </section>
+  );
+}
+
+const ready = (s: GameState, card: CardInstance) =>
+  (card.zone === 'battlefield' && s.phase === 'combat' && canAttack(card)) ||
+  canPlayLand(s, card) ||
+  castModes(s, card).length > 0 ||
+  abilitiesOf(card).some((a) => canActivate(s, card, a));
+
+function Row({ ids, label }: { ids: string[]; label: string }) {
+  const game = useStore((s) => s.game);
+  return (
+    <div className="row" aria-label={label}>
+      {ids.map((id) => (
+        <CardView key={id} card={game.cards[id]} planned={game.plan[id]} ready={ready(game, game.cards[id])} />
+      ))}
+    </div>
+  );
+}
+
+export function Battlefield() {
+  const game = useStore((s) => s.game);
+  const cards = game.zones.battlefield.map((id) => game.cards[id]);
+  const creatures = cards.filter((c) => isCreature(c)).map((c) => c.id);
+  const others = cards.filter((c) => !isCreature(c) && !isLand(c)).map((c) => c.id);
+  const lands = cards.filter((c) => isLand(c) && !isCreature(c)).map((c) => c.id);
+  return (
+    <section className="battlefield" data-drop="battlefield" data-testid="battlefield">
+      <Row ids={creatures} label="クリーチャー" />
+      <Row ids={others} label="その他のパーマネント" />
+      <Row ids={lands} label="土地" />
+    </section>
+  );
+}
+
+export function Hand() {
+  const game = useStore((s) => s.game);
+  return (
+    <section className="hand" data-drop="hand" data-testid="hand">
+      {game.zones.hand.map((id) => (
+        <CardView key={id} card={game.cards[id]} ready={ready(game, game.cards[id])} />
+      ))}
+    </section>
+  );
+}
+
+function Pile({ zone, label }: { zone: 'library' | 'graveyard' | 'exile'; label: string }) {
+  const count = useStore((s) => s.game.zones[zone].length);
+  const editMode = useStore((s) => s.editMode);
+  const set = useStore((s) => s.set);
+  const locked = zone === 'library' && !editMode;
+  return (
+    <button className="pile" data-drop={zone} data-testid={`pile-${zone}`} disabled={locked} onClick={() => set({ viewing: zone })}>
+      {label}
+      <b>{count}</b>
+    </button>
+  );
+}
+
+export function Status() {
+  const game = useStore((s) => s.game);
+  const editMode = useStore((s) => s.editMode);
+  const dispatch = useStore((s) => s.dispatch);
+  return (
+    <aside className="status">
+      <div className="me">
+        <span>ライフ</span>
+        <b data-testid="my-life">{game.life}</b>
+        {editMode && (
+          <span className="edit-row">
+            <button onClick={() => dispatch({ type: 'life', delta: -1 })}>−1</button>
+            <button onClick={() => dispatch({ type: 'life', delta: 1 })}>+1</button>
+          </span>
+        )}
+      </div>
+      <div className="turn" data-testid="turn">
+        {game.turn}ターン目・{PHASE_LABEL[game.phase]}
+      </div>
+      <div className="badges">
+        {game.monarch && <span className="badge">統治者</span>}
+        {game.speed > 0 && <span className="badge">スピード {game.speed}</span>}
+        {editMode && (
+          <span className="edit-row">
+            <button onClick={() => dispatch({ type: 'speed', delta: 1 })}>速+</button>
+            <button onClick={() => dispatch({ type: 'speed', delta: -1 })}>速−</button>
+            <button onClick={() => dispatch({ type: 'monarch' })}>統治者</button>
+          </span>
+        )}
+      </div>
+      <div className="command" data-drop="command" data-testid="command">
+        {game.zones.command.map((id) => (
+          <CardView key={id} card={game.cards[id]} ready={ready(game, game.cards[id])} />
+        ))}
+        <span className="tax">統率者税 {2 * (game.commanderCasts[DECK.commanders[0]] ?? 0)}</span>
+      </div>
+      <div className="piles">
+        <Pile zone="library" label="ライブラリー" />
+        <Pile zone="graveyard" label="墓地" />
+        <Pile zone="exile" label="追放" />
+      </div>
+    </aside>
+  );
+}

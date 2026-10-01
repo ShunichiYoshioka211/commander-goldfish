@@ -1,0 +1,2100 @@
+{
+ "name": "Ingris Stingerquill",
+ "commanders": [
+  "Ingris Stingerquill"
+ ],
+ "cards": [
+  {
+   "name": "Altar's Reap",
+   "jaName": "祭壇の刈り取り",
+   "note": "クリーチャーを生け贄にするコストで2ドロー",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "As an additional cost to cast this spell, sacrifice a creature.\nDraw two cards.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.jpg?1783936293",
+    "normal": "https://cards.scryfall.io/normal/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.jpg?1783936293",
+    "large": "https://cards.scryfall.io/large/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.jpg?1783936293",
+    "png": "https://cards.scryfall.io/png/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.png?1783936293",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.jpg?1783936293",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.jpg?1783936293",
+    "thumb": "https://cards.scryfall.io/thumb/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.webp?1783936293",
+    "grid": "https://cards.scryfall.io/grid/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.webp?1783936293",
+    "display": "https://cards.scryfall.io/display/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.webp?1783936293",
+    "art": "https://cards.scryfall.io/art/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.webp?1783936293",
+    "crop": "https://cards.scryfall.io/crop/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.webp?1783936293"
+   }
+  },
+  {
+   "name": "Arcane Signet",
+   "jaName": "秘儀の印鑑",
+   "note": "",
+   "count": 1,
+   "manaCost": "{2}",
+   "cmc": 2,
+   "typeLine": "Artifact",
+   "oracle": "{T}: Add one mana of any color in your commander's color identity.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
+    "normal": "https://cards.scryfall.io/normal/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
+    "large": "https://cards.scryfall.io/large/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
+    "png": "https://cards.scryfall.io/png/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.png?1789644435",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
+    "thumb": "https://cards.scryfall.io/thumb/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.webp?1789644435",
+    "grid": "https://cards.scryfall.io/grid/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.webp?1789644435",
+    "display": "https://cards.scryfall.io/display/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.webp?1789644435",
+    "art": "https://cards.scryfall.io/art/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.webp?1789644435",
+    "crop": "https://cards.scryfall.io/crop/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.webp?1789644435"
+   }
+  },
+  {
+   "name": "Bitter Triumph",
+   "jaName": "苦々しい勝利",
+   "note": "追加コストでカード1枚を捨てるか3ライフ支払い / クリーチャーかPWを破壊",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "As an additional cost to cast this spell, discard a card or pay 3 life.\nDestroy target creature or planeswalker.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.jpg?1783907094",
+    "normal": "https://cards.scryfall.io/normal/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.jpg?1783907094",
+    "large": "https://cards.scryfall.io/large/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.jpg?1783907094",
+    "png": "https://cards.scryfall.io/png/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.png?1783907094",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.jpg?1783907094",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.jpg?1783907094",
+    "thumb": "https://cards.scryfall.io/thumb/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.webp?1783907094",
+    "grid": "https://cards.scryfall.io/grid/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.webp?1783907094",
+    "display": "https://cards.scryfall.io/display/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.webp?1783907094",
+    "art": "https://cards.scryfall.io/art/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.webp?1783907094",
+    "crop": "https://cards.scryfall.io/crop/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.webp?1783907094"
+   }
+  },
+  {
+   "name": "Blackcleave Cliffs",
+   "jaName": "黒割れの崖",
+   "note": "フェストランド（自分の土地が2以下ならアンタップイン）",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped unless you control two or fewer other lands.\n{T}: Add {B} or {R}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.jpg?1783909578",
+    "normal": "https://cards.scryfall.io/normal/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.jpg?1783909578",
+    "large": "https://cards.scryfall.io/large/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.jpg?1783909578",
+    "png": "https://cards.scryfall.io/png/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.png?1783909578",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.jpg?1783909578",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.jpg?1783909578",
+    "thumb": "https://cards.scryfall.io/thumb/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.webp?1783909578",
+    "grid": "https://cards.scryfall.io/grid/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.webp?1783909578",
+    "display": "https://cards.scryfall.io/display/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.webp?1783909578",
+    "art": "https://cards.scryfall.io/art/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.webp?1783909578",
+    "crop": "https://cards.scryfall.io/crop/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.webp?1783909578"
+   }
+  },
+  {
+   "name": "Chandra, Acolyte of Flame",
+   "jaName": "炎の侍祭、チャンドラ",
+   "note": "0:1/1速攻エレメンタル・トークン2体生成（終了時サクる）/ -2:墓地からCMC3以下の呪文を追放前提で唱える",
+   "count": 1,
+   "manaCost": "{1}{R}{R}",
+   "cmc": 3,
+   "typeLine": "Legendary Planeswalker — Chandra",
+   "oracle": "0: Put a loyalty counter on each red planeswalker you control.\n0: Create two 1/1 red Elemental creature tokens. They gain haste. Sacrifice them at the beginning of the next end step.\n−2: You may cast target instant or sorcery card with mana value 3 or less from your graveyard. If that spell would be put into your graveyard, exile it instead.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.jpg?1783932984",
+    "normal": "https://cards.scryfall.io/normal/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.jpg?1783932984",
+    "large": "https://cards.scryfall.io/large/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.jpg?1783932984",
+    "png": "https://cards.scryfall.io/png/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.png?1783932984",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.jpg?1783932984",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.jpg?1783932984",
+    "thumb": "https://cards.scryfall.io/thumb/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.webp?1783932984",
+    "grid": "https://cards.scryfall.io/grid/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.webp?1783932984",
+    "display": "https://cards.scryfall.io/display/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.webp?1783932984",
+    "art": "https://cards.scryfall.io/art/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.webp?1783932984",
+    "crop": "https://cards.scryfall.io/crop/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.webp?1783932984"
+   }
+  },
+  {
+   "name": "Chandra's Incinerator",
+   "jaName": "チャンドラの焼却者",
+   "note": "トランプル / このターンの非戦闘ダメージ分コスト軽減 / 非戦闘ダメージを与えるたび対象のクリーチャーかPWにも同ダメージ",
+   "count": 1,
+   "manaCost": "{5}{R}",
+   "cmc": 6,
+   "typeLine": "Creature — Elemental",
+   "oracle": "This spell costs {X} less to cast, where X is the total amount of noncombat damage dealt to your opponents this turn.\nTrample\nWhenever a source you control deals noncombat damage to an opponent, this creature deals that much damage to target creature or planeswalker that player controls.",
+   "power": 6,
+   "toughness": 6,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Trample"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.jpg?1783930694",
+    "normal": "https://cards.scryfall.io/normal/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.jpg?1783930694",
+    "large": "https://cards.scryfall.io/large/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.jpg?1783930694",
+    "png": "https://cards.scryfall.io/png/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.png?1783930694",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.jpg?1783930694",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.jpg?1783930694",
+    "thumb": "https://cards.scryfall.io/thumb/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.webp?1783930694",
+    "grid": "https://cards.scryfall.io/grid/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.webp?1783930694",
+    "display": "https://cards.scryfall.io/display/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.webp?1783930694",
+    "art": "https://cards.scryfall.io/art/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.webp?1783930694",
+    "crop": "https://cards.scryfall.io/crop/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.webp?1783930694"
+   }
+  },
+  {
+   "name": "Command Tower",
+   "jaName": "統率の塔",
+   "note": "",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}: Add one mana of any color in your commander's color identity.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
+    "normal": "https://cards.scryfall.io/normal/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
+    "large": "https://cards.scryfall.io/large/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
+    "png": "https://cards.scryfall.io/png/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.png?1789644465",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
+    "thumb": "https://cards.scryfall.io/thumb/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.webp?1789644465",
+    "grid": "https://cards.scryfall.io/grid/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.webp?1789644465",
+    "display": "https://cards.scryfall.io/display/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.webp?1789644465",
+    "art": "https://cards.scryfall.io/art/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.webp?1789644465",
+    "crop": "https://cards.scryfall.io/crop/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.webp?1789644465"
+   }
+  },
+  {
+   "name": "Costly Plunder",
+   "jaName": "高くつく略奪",
+   "note": "アーティファクトかクリーチャーを生け贄にするコストで2ドロー",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "As an additional cost to cast this spell, sacrifice an artifact or creature.\nDraw two cards.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.jpg?1783930185",
+    "normal": "https://cards.scryfall.io/normal/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.jpg?1783930185",
+    "large": "https://cards.scryfall.io/large/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.jpg?1783930185",
+    "png": "https://cards.scryfall.io/png/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.png?1783930185",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.jpg?1783930185",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.jpg?1783930185",
+    "thumb": "https://cards.scryfall.io/thumb/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.webp?1783930185",
+    "grid": "https://cards.scryfall.io/grid/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.webp?1783930185",
+    "display": "https://cards.scryfall.io/display/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.webp?1783930185",
+    "art": "https://cards.scryfall.io/art/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.webp?1783930185",
+    "crop": "https://cards.scryfall.io/crop/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.webp?1783930185"
+   }
+  },
+  {
+   "name": "Court of Embereth",
+   "jaName": "エンバレスの宮廷",
+   "note": "戦場に出た時モナークになる / 自アップキープ毎に3/1ナイト・トークン生成、モナークならクリーチャー数分バーン",
+   "count": 1,
+   "manaCost": "{2}{R}{R}",
+   "cmc": 4,
+   "typeLine": "Enchantment",
+   "oracle": "When this enchantment enters, you become the monarch.\nAt the beginning of your upkeep, create a 3/1 red Knight creature token. Then if you're the monarch, this enchantment deals X damage to each opponent, where X is the number of creatures you control.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.jpg?1787701612",
+    "normal": "https://cards.scryfall.io/normal/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.jpg?1787701612",
+    "large": "https://cards.scryfall.io/large/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.jpg?1787701612",
+    "png": "https://cards.scryfall.io/png/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.png?1787701612",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.jpg?1787701612",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.jpg?1787701612",
+    "thumb": "https://cards.scryfall.io/thumb/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.webp?1787701612",
+    "grid": "https://cards.scryfall.io/grid/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.webp?1787701612",
+    "display": "https://cards.scryfall.io/display/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.webp?1787701612",
+    "art": "https://cards.scryfall.io/art/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.webp?1787701612",
+    "crop": "https://cards.scryfall.io/crop/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.webp?1787701612"
+   }
+  },
+  {
+   "name": "Daring Piracy",
+   "jaName": "果敢な海賊行為",
+   "note": "戦闘開始時1/1威迫速攻海賊トークン生成(終了時追放)",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Enchantment",
+   "oracle": "At the beginning of combat on your turn, create a 1/1 red Pirate creature token with menace and haste. Exile it at the beginning of the next end step.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.jpg?1783919183",
+    "normal": "https://cards.scryfall.io/normal/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.jpg?1783919183",
+    "large": "https://cards.scryfall.io/large/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.jpg?1783919183",
+    "png": "https://cards.scryfall.io/png/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.png?1783919183",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.jpg?1783919183",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.jpg?1783919183",
+    "thumb": "https://cards.scryfall.io/thumb/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.webp?1783919183",
+    "grid": "https://cards.scryfall.io/grid/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.webp?1783919183",
+    "display": "https://cards.scryfall.io/display/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.webp?1783919183",
+    "art": "https://cards.scryfall.io/art/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.webp?1783919183",
+    "crop": "https://cards.scryfall.io/crop/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.webp?1783919183"
+   }
+  },
+  {
+   "name": "Dark Fortress",
+   "jaName": "闇の砦",
+   "note": "このターン戦場に出たか基本土地を支配している場合のみ黒か赤を生成可",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}: Add {C}.\n{T}: Add {B} or {R}. Activate only if this land entered this turn or if you control a basic land.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "C",
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.jpg?1783902885",
+    "normal": "https://cards.scryfall.io/normal/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.jpg?1783902885",
+    "large": "https://cards.scryfall.io/large/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.jpg?1783902885",
+    "png": "https://cards.scryfall.io/png/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.png?1783902885",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.jpg?1783902885",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.jpg?1783902885",
+    "thumb": "https://cards.scryfall.io/thumb/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.webp?1783902885",
+    "grid": "https://cards.scryfall.io/grid/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.webp?1783902885",
+    "display": "https://cards.scryfall.io/display/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.webp?1783902885",
+    "art": "https://cards.scryfall.io/art/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.webp?1783902885",
+    "crop": "https://cards.scryfall.io/crop/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.webp?1783902885"
+   }
+  },
+  {
+   "name": "Deadly Dispute",
+   "jaName": "命取りの論争",
+   "note": "アーティファクトかクリーチャーを生け贄にするコストで2ドロー+トレジャー生成",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "As an additional cost to cast this spell, sacrifice an artifact or creature.\nDraw two cards and create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [
+    "Treasure"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.jpg?1783903013",
+    "normal": "https://cards.scryfall.io/normal/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.jpg?1783903013",
+    "large": "https://cards.scryfall.io/large/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.jpg?1783903013",
+    "png": "https://cards.scryfall.io/png/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.png?1783903013",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.jpg?1783903013",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.jpg?1783903013",
+    "thumb": "https://cards.scryfall.io/thumb/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.webp?1783903013",
+    "grid": "https://cards.scryfall.io/grid/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.webp?1783903013",
+    "display": "https://cards.scryfall.io/display/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.webp?1783903013",
+    "art": "https://cards.scryfall.io/art/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.webp?1783903013",
+    "crop": "https://cards.scryfall.io/crop/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.webp?1783903013"
+   }
+  },
+  {
+   "name": "Dragonskull Summit",
+   "jaName": "竜髑髏の山頂",
+   "note": "チェックランド（沼か山を支配でアンタップイン）",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped unless you control a Swamp or a Mountain.\n{T}: Add {B} or {R}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg?1783903203",
+    "normal": "https://cards.scryfall.io/normal/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg?1783903203",
+    "large": "https://cards.scryfall.io/large/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg?1783903203",
+    "png": "https://cards.scryfall.io/png/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.png?1783903203",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg?1783903203",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg?1783903203",
+    "thumb": "https://cards.scryfall.io/thumb/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.webp?1783903203",
+    "grid": "https://cards.scryfall.io/grid/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.webp?1783903203",
+    "display": "https://cards.scryfall.io/display/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.webp?1783903203",
+    "art": "https://cards.scryfall.io/art/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.webp?1783903203",
+    "crop": "https://cards.scryfall.io/crop/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.webp?1783903203"
+   }
+  },
+  {
+   "name": "Elegy Acolyte",
+   "jaName": "エレジーの見習い",
+   "note": "絆魂 / 自軍が戦闘ダメージを与えるたびドロー(1ライフ支払い) / Void達成でロボット・トークン生成",
+   "count": 1,
+   "manaCost": "{2}{B}{B}",
+   "cmc": 4,
+   "typeLine": "Creature — Human Cleric",
+   "oracle": "Lifelink\nWhenever one or more creatures you control deal combat damage to a player, you draw a card and lose 1 life.\nVoid — At the beginning of your end step, if a nonland permanent left the battlefield this turn or a spell was warped this turn, create a 2/2 colorless Robot artifact creature token.",
+   "power": 4,
+   "toughness": 4,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Lifelink",
+    "Void"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.jpg?1783905969",
+    "normal": "https://cards.scryfall.io/normal/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.jpg?1783905969",
+    "large": "https://cards.scryfall.io/large/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.jpg?1783905969",
+    "png": "https://cards.scryfall.io/png/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.png?1783905969",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.jpg?1783905969",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.jpg?1783905969",
+    "thumb": "https://cards.scryfall.io/thumb/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.webp?1783905969",
+    "grid": "https://cards.scryfall.io/grid/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.webp?1783905969",
+    "display": "https://cards.scryfall.io/display/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.webp?1783905969",
+    "art": "https://cards.scryfall.io/art/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.webp?1783905969",
+    "crop": "https://cards.scryfall.io/crop/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.webp?1783905969"
+   }
+  },
+  {
+   "name": "Eviscerator's Insight",
+   "jaName": "腸抜きの洞察",
+   "note": "アーティファクトかクリーチャーを生け贄にするコストで2ドロー / フラッシュバック{4}{B}",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "As an additional cost to cast this spell, sacrifice an artifact or creature.\nDraw two cards.\nFlashback {4}{B} (You may cast this card from your graveyard for its flashback cost and any additional costs. Then exile it.)",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flashback"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.jpg?1783911280",
+    "normal": "https://cards.scryfall.io/normal/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.jpg?1783911280",
+    "large": "https://cards.scryfall.io/large/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.jpg?1783911280",
+    "png": "https://cards.scryfall.io/png/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.png?1783911280",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.jpg?1783911280",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.jpg?1783911280",
+    "thumb": "https://cards.scryfall.io/thumb/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.webp?1783911280",
+    "grid": "https://cards.scryfall.io/grid/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.webp?1783911280",
+    "display": "https://cards.scryfall.io/display/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.webp?1783911280",
+    "art": "https://cards.scryfall.io/art/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.webp?1783911280",
+    "crop": "https://cards.scryfall.io/crop/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.webp?1783911280"
+   }
+  },
+  {
+   "name": "Fabled Passage",
+   "jaName": "寓話の小道",
+   "note": "自身をサクって基本土地をサーチ / 土地4つ以上支配でアンタップイン",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
+    "normal": "https://cards.scryfall.io/normal/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
+    "large": "https://cards.scryfall.io/large/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
+    "png": "https://cards.scryfall.io/png/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.png?1789599905",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
+    "thumb": "https://cards.scryfall.io/thumb/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.webp?1789599905",
+    "grid": "https://cards.scryfall.io/grid/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.webp?1789599905",
+    "display": "https://cards.scryfall.io/display/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.webp?1789599905",
+    "art": "https://cards.scryfall.io/art/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.webp?1789599905",
+    "crop": "https://cards.scryfall.io/crop/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.webp?1789599905"
+   }
+  },
+  {
+   "name": "Fanatical Offering",
+   "jaName": "熱狂的な献上",
+   "note": "アーティファクトかクリーチャーを生け贄にするコストで2ドロー+地図トークン生成",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "As an additional cost to cast this spell, sacrifice an artifact or creature.\nDraw two cards and create a Map token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Target creature you control explores. Activate only as a sorcery.\")",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Explore"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.jpg?1783913778",
+    "normal": "https://cards.scryfall.io/normal/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.jpg?1783913778",
+    "large": "https://cards.scryfall.io/large/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.jpg?1783913778",
+    "png": "https://cards.scryfall.io/png/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.png?1783913778",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.jpg?1783913778",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.jpg?1783913778",
+    "thumb": "https://cards.scryfall.io/thumb/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.webp?1783913778",
+    "grid": "https://cards.scryfall.io/grid/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.webp?1783913778",
+    "display": "https://cards.scryfall.io/display/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.webp?1783913778",
+    "art": "https://cards.scryfall.io/art/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.webp?1783913778",
+    "crop": "https://cards.scryfall.io/crop/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.webp?1783913778"
+   }
+  },
+  {
+   "name": "Far Fortune, End Boss",
+   "jaName": "エンドの首領、ファー・フォーチュン",
+   "note": "統率者候補 / 攻撃時1点バーン / スピード最大で自分の発生源のダメージ+1",
+   "count": 1,
+   "manaCost": "{2}{B}{R}",
+   "cmc": 4,
+   "typeLine": "Legendary Creature — Human Mercenary",
+   "oracle": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nWhenever you attack, Far Fortune deals 1 damage to each opponent.\nMax speed — If a source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 1 instead.",
+   "power": 4,
+   "toughness": 5,
+   "colors": [
+    "B",
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Max speed",
+    "Start your engines!"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.jpg?1783907858",
+    "normal": "https://cards.scryfall.io/normal/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.jpg?1783907858",
+    "large": "https://cards.scryfall.io/large/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.jpg?1783907858",
+    "png": "https://cards.scryfall.io/png/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.png?1783907858",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.jpg?1783907858",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.jpg?1783907858",
+    "thumb": "https://cards.scryfall.io/thumb/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.webp?1783907858",
+    "grid": "https://cards.scryfall.io/grid/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.webp?1783907858",
+    "display": "https://cards.scryfall.io/display/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.webp?1783907858",
+    "art": "https://cards.scryfall.io/art/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.webp?1783907858",
+    "crop": "https://cards.scryfall.io/crop/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.webp?1783907858"
+   }
+  },
+  {
+   "name": "Fated Firepower",
+   "jaName": "巡り合わせたる火の力",
+   "note": "フラッシュ / Xの数だけ火カウンターを乗せて戦場に出る / 赤の発生源のダメージがカウンター数分増加",
+   "count": 1,
+   "manaCost": "{X}{R}{R}{R}",
+   "cmc": 3,
+   "typeLine": "Enchantment",
+   "oracle": "Flash\nThis enchantment enters with X fire counters on it.\nIf a source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus an amount of damage equal to the number of fire counters on this enchantment instead.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flash"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.jpg?1783904959",
+    "normal": "https://cards.scryfall.io/normal/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.jpg?1783904959",
+    "large": "https://cards.scryfall.io/large/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.jpg?1783904959",
+    "png": "https://cards.scryfall.io/png/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.png?1783904959",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.jpg?1783904959",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.jpg?1783904959",
+    "thumb": "https://cards.scryfall.io/thumb/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.webp?1783904959",
+    "grid": "https://cards.scryfall.io/grid/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.webp?1783904959",
+    "display": "https://cards.scryfall.io/display/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.webp?1783904959",
+    "art": "https://cards.scryfall.io/art/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.webp?1783904959",
+    "crop": "https://cards.scryfall.io/crop/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.webp?1783904959"
+   }
+  },
+  {
+   "name": "Feed the Swarm",
+   "jaName": "大群への給餌",
+   "note": "対象は相手のクリーチャーかエンチャント / マナ総量分のライフを失う",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Sorcery",
+   "oracle": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1783904770",
+    "normal": "https://cards.scryfall.io/normal/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1783904770",
+    "large": "https://cards.scryfall.io/large/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1783904770",
+    "png": "https://cards.scryfall.io/png/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.png?1783904770",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1783904770",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1783904770",
+    "thumb": "https://cards.scryfall.io/thumb/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.webp?1783904770",
+    "grid": "https://cards.scryfall.io/grid/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.webp?1783904770",
+    "display": "https://cards.scryfall.io/display/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.webp?1783904770",
+    "art": "https://cards.scryfall.io/art/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.webp?1783904770",
+    "crop": "https://cards.scryfall.io/crop/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.webp?1783904770"
+   }
+  },
+  {
+   "name": "Fellwar Stone",
+   "jaName": "友なる石",
+   "note": "",
+   "count": 1,
+   "manaCost": "{2}",
+   "cmc": 2,
+   "typeLine": "Artifact",
+   "oracle": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.jpg?1785759354",
+    "normal": "https://cards.scryfall.io/normal/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.jpg?1785759354",
+    "large": "https://cards.scryfall.io/large/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.jpg?1785759354",
+    "png": "https://cards.scryfall.io/png/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.png?1785759354",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.jpg?1785759354",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.jpg?1785759354",
+    "thumb": "https://cards.scryfall.io/thumb/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.webp?1785759354",
+    "grid": "https://cards.scryfall.io/grid/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.webp?1785759354",
+    "display": "https://cards.scryfall.io/display/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.webp?1785759354",
+    "art": "https://cards.scryfall.io/art/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.webp?1785759354",
+    "crop": "https://cards.scryfall.io/crop/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.webp?1785759354"
+   }
+  },
+  {
+   "name": "Foreboding Ruins",
+   "jaName": "凶兆の廃墟",
+   "note": "沼か山を手札から公開でアンタップイン",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "As this land enters, you may reveal a Swamp or Mountain card from your hand. If you don't, this land enters tapped.\n{T}: Add {B} or {R}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1783903200",
+    "normal": "https://cards.scryfall.io/normal/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1783903200",
+    "large": "https://cards.scryfall.io/large/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1783903200",
+    "png": "https://cards.scryfall.io/png/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.png?1783903200",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1783903200",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1783903200",
+    "thumb": "https://cards.scryfall.io/thumb/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.webp?1783903200",
+    "grid": "https://cards.scryfall.io/grid/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.webp?1783903200",
+    "display": "https://cards.scryfall.io/display/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.webp?1783903200",
+    "art": "https://cards.scryfall.io/art/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.webp?1783903200",
+    "crop": "https://cards.scryfall.io/crop/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.webp?1783903200"
+   }
+  },
+  {
+   "name": "Francisco, Fowl Marauder",
+   "jaName": "鸚鵡の匪賊、フランシスコ",
+   "note": "飛行・ブロック不可 / 海賊がダメージを与えると探検 / Partner",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Legendary Creature — Bird Pirate",
+   "oracle": "Flying\nFrancisco can't block.\nWhenever one or more Pirates you control deal damage to a player, Francisco explores.\nPartner (You can have two commanders if both have partner.)",
+   "power": 0,
+   "toughness": 1,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flying",
+    "Partner",
+    "Explore"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/5/1/5182b527-739e-4523-8611-01244ced26ac.jpg?1783913911",
+    "normal": "https://cards.scryfall.io/normal/front/5/1/5182b527-739e-4523-8611-01244ced26ac.jpg?1783913911",
+    "large": "https://cards.scryfall.io/large/front/5/1/5182b527-739e-4523-8611-01244ced26ac.jpg?1783913911",
+    "png": "https://cards.scryfall.io/png/front/5/1/5182b527-739e-4523-8611-01244ced26ac.png?1783913911",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/5/1/5182b527-739e-4523-8611-01244ced26ac.jpg?1783913911",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/5/1/5182b527-739e-4523-8611-01244ced26ac.jpg?1783913911",
+    "thumb": "https://cards.scryfall.io/thumb/front/5/1/5182b527-739e-4523-8611-01244ced26ac.webp?1783913911",
+    "grid": "https://cards.scryfall.io/grid/front/5/1/5182b527-739e-4523-8611-01244ced26ac.webp?1783913911",
+    "display": "https://cards.scryfall.io/display/front/5/1/5182b527-739e-4523-8611-01244ced26ac.webp?1783913911",
+    "art": "https://cards.scryfall.io/art/front/5/1/5182b527-739e-4523-8611-01244ced26ac.webp?1783913911",
+    "crop": "https://cards.scryfall.io/crop/front/5/1/5182b527-739e-4523-8611-01244ced26ac.webp?1783913911"
+   }
+  },
+  {
+   "name": "Freya Crescent",
+   "jaName": "ブルメシアの竜騎士、フライヤ",
+   "note": "自分のターンのみ飛行 / 装備品専用のマナ能力",
+   "count": 1,
+   "manaCost": "{R}",
+   "cmc": 1,
+   "typeLine": "Legendary Creature — Rat Knight",
+   "oracle": "Jump — During your turn, Freya Crescent has flying.\n{T}: Add {R}. Spend this mana only to cast an Equipment spell or activate an equip ability.",
+   "power": 1,
+   "toughness": 1,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [
+    "R"
+   ],
+   "keywords": [
+    "Jump"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/9/9921f646-e893-44db-ac89-0633c1009788.jpg?1783906604",
+    "normal": "https://cards.scryfall.io/normal/front/9/9/9921f646-e893-44db-ac89-0633c1009788.jpg?1783906604",
+    "large": "https://cards.scryfall.io/large/front/9/9/9921f646-e893-44db-ac89-0633c1009788.jpg?1783906604",
+    "png": "https://cards.scryfall.io/png/front/9/9/9921f646-e893-44db-ac89-0633c1009788.png?1783906604",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/9/9/9921f646-e893-44db-ac89-0633c1009788.jpg?1783906604",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/9/9/9921f646-e893-44db-ac89-0633c1009788.jpg?1783906604",
+    "thumb": "https://cards.scryfall.io/thumb/front/9/9/9921f646-e893-44db-ac89-0633c1009788.webp?1783906604",
+    "grid": "https://cards.scryfall.io/grid/front/9/9/9921f646-e893-44db-ac89-0633c1009788.webp?1783906604",
+    "display": "https://cards.scryfall.io/display/front/9/9/9921f646-e893-44db-ac89-0633c1009788.webp?1783906604",
+    "art": "https://cards.scryfall.io/art/front/9/9/9921f646-e893-44db-ac89-0633c1009788.webp?1783906604",
+    "crop": "https://cards.scryfall.io/crop/front/9/9/9921f646-e893-44db-ac89-0633c1009788.webp?1783906604"
+   }
+  },
+  {
+   "name": "Garna, Bloodfist of Keld",
+   "jaName": "ケルドの血拳、ガルナ",
+   "note": "自軍クリーチャー死亡時、攻撃中だったならドロー、それ以外は1点バーン",
+   "count": 1,
+   "manaCost": "{1}{B}{R}{R}",
+   "cmc": 4,
+   "typeLine": "Legendary Creature — Human Berserker",
+   "oracle": "Whenever another creature you control dies, draw a card if it was attacking. Otherwise, Garna deals 1 damage to each opponent.",
+   "power": 4,
+   "toughness": 3,
+   "colors": [
+    "B",
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.jpg?1783908912",
+    "normal": "https://cards.scryfall.io/normal/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.jpg?1783908912",
+    "large": "https://cards.scryfall.io/large/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.jpg?1783908912",
+    "png": "https://cards.scryfall.io/png/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.png?1783908912",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.jpg?1783908912",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.jpg?1783908912",
+    "thumb": "https://cards.scryfall.io/thumb/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.webp?1783908912",
+    "grid": "https://cards.scryfall.io/grid/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.webp?1783908912",
+    "display": "https://cards.scryfall.io/display/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.webp?1783908912",
+    "art": "https://cards.scryfall.io/art/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.webp?1783908912",
+    "crop": "https://cards.scryfall.io/crop/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.webp?1783908912"
+   }
+  },
+  {
+   "name": "General Kreat, the Boltbringer",
+   "jaName": "電光の姫将軍、クレート",
+   "note": "ゴブリン攻撃時、攻撃状態のゴブリン・トークン生成 / 他クリーチャー展開時1点バーン",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Legendary Creature — Goblin Soldier",
+   "oracle": "Whenever one or more Goblins you control attack, create a 1/1 red Goblin creature token that's tapped and attacking.\nWhenever another creature you control enters, General Kreat deals 1 damage to each opponent.",
+   "power": 2,
+   "toughness": 2,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg?1783903442",
+    "normal": "https://cards.scryfall.io/normal/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg?1783903442",
+    "large": "https://cards.scryfall.io/large/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg?1783903442",
+    "png": "https://cards.scryfall.io/png/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.png?1783903442",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg?1783903442",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg?1783903442",
+    "thumb": "https://cards.scryfall.io/thumb/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.webp?1783903442",
+    "grid": "https://cards.scryfall.io/grid/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.webp?1783903442",
+    "display": "https://cards.scryfall.io/display/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.webp?1783903442",
+    "art": "https://cards.scryfall.io/art/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.webp?1783903442",
+    "crop": "https://cards.scryfall.io/crop/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.webp?1783903442"
+   }
+  },
+  {
+   "name": "Gix, Yawgmoth Praetor",
+   "jaName": "ヨーグモスの法務官、ギックス",
+   "note": "戦闘ダメージ時、双方ライフ支払いでドロー可 / 重い起動コストで相手ライブラリーをプレイ可能に",
+   "count": 1,
+   "manaCost": "{1}{B}{B}",
+   "cmc": 3,
+   "typeLine": "Legendary Creature — Phyrexian Praetor",
+   "oracle": "Whenever a creature deals combat damage to one of your opponents, its controller may pay 1 life. If they do, they draw a card.\n{4}{B}{B}{B}, Discard X cards: Exile the top X cards of target opponent's library. You may play lands and cast spells from among cards exiled this way without paying their mana costs.",
+   "power": 3,
+   "toughness": 3,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1783907088",
+    "normal": "https://cards.scryfall.io/normal/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1783907088",
+    "large": "https://cards.scryfall.io/large/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1783907088",
+    "png": "https://cards.scryfall.io/png/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.png?1783907088",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1783907088",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1783907088",
+    "thumb": "https://cards.scryfall.io/thumb/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.webp?1783907088",
+    "grid": "https://cards.scryfall.io/grid/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.webp?1783907088",
+    "display": "https://cards.scryfall.io/display/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.webp?1783907088",
+    "art": "https://cards.scryfall.io/art/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.webp?1783907088",
+    "crop": "https://cards.scryfall.io/crop/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.webp?1783907088"
+   }
+  },
+  {
+   "name": "Goblin Assault",
+   "jaName": "ゴブリンの突撃",
+   "note": "毎アップキープ速攻ゴブリン・トークン生成 / ゴブリンは可能なら攻撃必須",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Enchantment",
+   "oracle": "At the beginning of your upkeep, create a 1/1 red Goblin creature token with haste.\nGoblin creatures attack each combat if able.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.jpg?1783936647",
+    "normal": "https://cards.scryfall.io/normal/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.jpg?1783936647",
+    "large": "https://cards.scryfall.io/large/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.jpg?1783936647",
+    "png": "https://cards.scryfall.io/png/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.png?1783936647",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.jpg?1783936647",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.jpg?1783936647",
+    "thumb": "https://cards.scryfall.io/thumb/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.webp?1783936647",
+    "grid": "https://cards.scryfall.io/grid/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.webp?1783936647",
+    "display": "https://cards.scryfall.io/display/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.webp?1783936647",
+    "art": "https://cards.scryfall.io/art/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.webp?1783936647",
+    "crop": "https://cards.scryfall.io/crop/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.webp?1783936647"
+   }
+  },
+  {
+   "name": "Graven Cairns",
+   "jaName": "偶像の石塚",
+   "note": "フィルターランド",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}: Add {C}.\n{B/R}, {T}: Add {B}{B}, {B}{R}, or {R}{R}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "C",
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1783909574",
+    "normal": "https://cards.scryfall.io/normal/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1783909574",
+    "large": "https://cards.scryfall.io/large/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1783909574",
+    "png": "https://cards.scryfall.io/png/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.png?1783909574",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1783909574",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1783909574",
+    "thumb": "https://cards.scryfall.io/thumb/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.webp?1783909574",
+    "grid": "https://cards.scryfall.io/grid/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.webp?1783909574",
+    "display": "https://cards.scryfall.io/display/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.webp?1783909574",
+    "art": "https://cards.scryfall.io/art/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.webp?1783909574",
+    "crop": "https://cards.scryfall.io/crop/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.webp?1783909574"
+   }
+  },
+  {
+   "name": "Harried Dronesmith",
+   "jaName": "急かされるドローン職人",
+   "note": "戦闘開始時1/1飛行速攻トプター・トークン生成（終了時サクる）",
+   "count": 1,
+   "manaCost": "{3}{R}",
+   "cmc": 4,
+   "typeLine": "Creature — Human Artificer",
+   "oracle": "At the beginning of combat on your turn, create a 1/1 colorless Thopter artifact creature token with flying. It gains haste until end of turn. Sacrifice it at the beginning of your next end step.",
+   "power": 2,
+   "toughness": 3,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1783912879",
+    "normal": "https://cards.scryfall.io/normal/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1783912879",
+    "large": "https://cards.scryfall.io/large/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1783912879",
+    "png": "https://cards.scryfall.io/png/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.png?1783912879",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1783912879",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1783912879",
+    "thumb": "https://cards.scryfall.io/thumb/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.webp?1783912879",
+    "grid": "https://cards.scryfall.io/grid/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.webp?1783912879",
+    "display": "https://cards.scryfall.io/display/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.webp?1783912879",
+    "art": "https://cards.scryfall.io/art/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.webp?1783912879",
+    "crop": "https://cards.scryfall.io/crop/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.webp?1783912879"
+   }
+  },
+  {
+   "name": "Impact Tremors",
+   "jaName": "衝撃の震え",
+   "note": "クリーチャー展開時1点バーン(トークン展開との相性が良い)",
+   "count": 1,
+   "manaCost": "{1}{R}",
+   "cmc": 2,
+   "typeLine": "Enchantment",
+   "oracle": "Whenever a creature you control enters, this enchantment deals 1 damage to each opponent.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.jpg?1783908891",
+    "normal": "https://cards.scryfall.io/normal/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.jpg?1783908891",
+    "large": "https://cards.scryfall.io/large/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.jpg?1783908891",
+    "png": "https://cards.scryfall.io/png/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.png?1783908891",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.jpg?1783908891",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.jpg?1783908891",
+    "thumb": "https://cards.scryfall.io/thumb/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.webp?1783908891",
+    "grid": "https://cards.scryfall.io/grid/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.webp?1783908891",
+    "display": "https://cards.scryfall.io/display/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.webp?1783908891",
+    "art": "https://cards.scryfall.io/art/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.webp?1783908891",
+    "crop": "https://cards.scryfall.io/crop/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.webp?1783908891"
+   }
+  },
+  {
+   "name": "Infernal Grasp",
+   "jaName": "冥府の掌握",
+   "note": "2ライフ支払いで確定除去",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "Destroy target creature. You lose 2 life.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.jpg?1783903785",
+    "normal": "https://cards.scryfall.io/normal/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.jpg?1783903785",
+    "large": "https://cards.scryfall.io/large/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.jpg?1783903785",
+    "png": "https://cards.scryfall.io/png/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.png?1783903785",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.jpg?1783903785",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.jpg?1783903785",
+    "thumb": "https://cards.scryfall.io/thumb/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.webp?1783903785",
+    "grid": "https://cards.scryfall.io/grid/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.webp?1783903785",
+    "display": "https://cards.scryfall.io/display/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.webp?1783903785",
+    "art": "https://cards.scryfall.io/art/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.webp?1783903785",
+    "crop": "https://cards.scryfall.io/crop/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.webp?1783903785"
+   }
+  },
+  {
+   "name": "Ingris Stingerquill",
+   "jaName": "Ingris Stingerquill",
+   "note": "統率者 / 飛行 / 攻撃時、攻撃クリーチャーごとに1点バーン / {4}:2/2トークン生成、全体に速攻付与（未発売カードのため和名未定・2026-10-02発売予定）",
+   "count": 1,
+   "manaCost": "{B}{R}{R}",
+   "cmc": 3,
+   "typeLine": "Legendary Creature — Elder Sphinx",
+   "oracle": "Flying\nWhenever a creature you control attacks, that creature deals 1 damage to each opponent.\n{4}: Create a 2/2 colorless Wizard Soldier creature token named Cadet. Then creatures you control gain haste until end of turn.",
+   "power": 1,
+   "toughness": 4,
+   "colors": [
+    "B",
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flying"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg?1788878212",
+    "normal": "https://cards.scryfall.io/normal/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg?1788878212",
+    "large": "https://cards.scryfall.io/large/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg?1788878212",
+    "png": "https://cards.scryfall.io/png/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.png?1788878212",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg?1788878212",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg?1788878212",
+    "thumb": "https://cards.scryfall.io/thumb/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.webp?1788878212",
+    "grid": "https://cards.scryfall.io/grid/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.webp?1788878212",
+    "display": "https://cards.scryfall.io/display/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.webp?1788878212",
+    "art": "https://cards.scryfall.io/art/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.webp?1788878212",
+    "crop": "https://cards.scryfall.io/crop/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.webp?1788878212"
+   }
+  },
+  {
+   "name": "Lagomos, Hand of Hatred",
+   "jaName": "憎悪の手、ラゴモス",
+   "note": "統率者候補 / 戦闘開始時2/1トランプル速攻トークン生成(終了時サクる) / このターン5体以上死亡でサーチ起動可",
+   "count": 1,
+   "manaCost": "{1}{B}{R}",
+   "cmc": 3,
+   "typeLine": "Legendary Creature — Human Shaman",
+   "oracle": "At the beginning of combat on your turn, create a 2/1 red Elemental creature token with trample and haste. Sacrifice it at the beginning of the next end step.\n{T}: Search your library for a card, put it into your hand, then shuffle. Activate only if five or more creatures died this turn.",
+   "power": 1,
+   "toughness": 3,
+   "colors": [
+    "B",
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.jpg?1783921281",
+    "normal": "https://cards.scryfall.io/normal/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.jpg?1783921281",
+    "large": "https://cards.scryfall.io/large/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.jpg?1783921281",
+    "png": "https://cards.scryfall.io/png/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.png?1783921281",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.jpg?1783921281",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.jpg?1783921281",
+    "thumb": "https://cards.scryfall.io/thumb/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.webp?1783921281",
+    "grid": "https://cards.scryfall.io/grid/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.webp?1783921281",
+    "display": "https://cards.scryfall.io/display/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.webp?1783921281",
+    "art": "https://cards.scryfall.io/art/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.webp?1783921281",
+    "crop": "https://cards.scryfall.io/crop/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.webp?1783921281"
+   }
+  },
+  {
+   "name": "Lavaclaw Reaches",
+   "jaName": "溶岩爪の辺境",
+   "note": "常にタップイン（マンランド：{1}{B}{R}で2/2クリーチャー化）",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped.\n{T}: Add {B} or {R}.\n{1}{B}{R}: Until end of turn, this land becomes a 2/2 black and red Elemental creature with \"{X}: This creature gets +X/+0 until end of turn.\" It's still a land.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1783933755",
+    "normal": "https://cards.scryfall.io/normal/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1783933755",
+    "large": "https://cards.scryfall.io/large/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1783933755",
+    "png": "https://cards.scryfall.io/png/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.png?1783933755",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1783933755",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1783933755",
+    "thumb": "https://cards.scryfall.io/thumb/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.webp?1783933755",
+    "grid": "https://cards.scryfall.io/grid/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.webp?1783933755",
+    "display": "https://cards.scryfall.io/display/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.webp?1783933755",
+    "art": "https://cards.scryfall.io/art/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.webp?1783933755",
+    "crop": "https://cards.scryfall.io/crop/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.webp?1783933755"
+   }
+  },
+  {
+   "name": "Legion Warboss",
+   "jaName": "軍勢の戦親分",
+   "note": "メンター / 戦闘開始時1/1ゴブリン・トークン生成(速攻・強制攻撃)",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Creature — Goblin Soldier",
+   "oracle": "Mentor (Whenever this creature attacks, put a +1/+1 counter on target attacking creature with lesser power.)\nAt the beginning of combat on your turn, create a 1/1 red Goblin creature token. That token gains haste until end of turn and attacks this combat if able.",
+   "power": 2,
+   "toughness": 2,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Mentor"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.jpg?1783907068",
+    "normal": "https://cards.scryfall.io/normal/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.jpg?1783907068",
+    "large": "https://cards.scryfall.io/large/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.jpg?1783907068",
+    "png": "https://cards.scryfall.io/png/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.png?1783907068",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.jpg?1783907068",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.jpg?1783907068",
+    "thumb": "https://cards.scryfall.io/thumb/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.webp?1783907068",
+    "grid": "https://cards.scryfall.io/grid/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.webp?1783907068",
+    "display": "https://cards.scryfall.io/display/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.webp?1783907068",
+    "art": "https://cards.scryfall.io/art/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.webp?1783907068",
+    "crop": "https://cards.scryfall.io/crop/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.webp?1783907068"
+   }
+  },
+  {
+   "name": "Lord Skitter, Sewer King",
+   "jaName": "下水王、駆け抜け侯",
+   "note": "統率者候補 / 他のラット展開時、相手の墓地のカードを追放 / 戦闘開始時ラット・トークン生成(ブロック不可)",
+   "count": 1,
+   "manaCost": "{2}{B}",
+   "cmc": 3,
+   "typeLine": "Legendary Creature — Rat Noble",
+   "oracle": "Whenever another Rat you control enters, exile up to one target card from an opponent's graveyard.\nAt the beginning of combat on your turn, create a 1/1 black Rat creature token with \"This token can't block.\"",
+   "power": 3,
+   "toughness": 3,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.jpg?1783915106",
+    "normal": "https://cards.scryfall.io/normal/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.jpg?1783915106",
+    "large": "https://cards.scryfall.io/large/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.jpg?1783915106",
+    "png": "https://cards.scryfall.io/png/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.png?1783915106",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.jpg?1783915106",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.jpg?1783915106",
+    "thumb": "https://cards.scryfall.io/thumb/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.webp?1783915106",
+    "grid": "https://cards.scryfall.io/grid/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.webp?1783915106",
+    "display": "https://cards.scryfall.io/display/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.webp?1783915106",
+    "art": "https://cards.scryfall.io/art/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.webp?1783915106",
+    "crop": "https://cards.scryfall.io/crop/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.webp?1783915106"
+   }
+  },
+  {
+   "name": "Mechanized Warfare",
+   "jaName": "機械化戦",
+   "note": "赤かアーティファクトの発生源のダメージ+1（ダメージ増幅の要）",
+   "count": 1,
+   "manaCost": "{1}{R}{R}",
+   "cmc": 3,
+   "typeLine": "Enchantment",
+   "oracle": "If a red or artifact source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 1 instead.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.jpg?1783920064",
+    "normal": "https://cards.scryfall.io/normal/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.jpg?1783920064",
+    "large": "https://cards.scryfall.io/large/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.jpg?1783920064",
+    "png": "https://cards.scryfall.io/png/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.png?1783920064",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.jpg?1783920064",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.jpg?1783920064",
+    "thumb": "https://cards.scryfall.io/thumb/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.webp?1783920064",
+    "grid": "https://cards.scryfall.io/grid/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.webp?1783920064",
+    "display": "https://cards.scryfall.io/display/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.webp?1783920064",
+    "art": "https://cards.scryfall.io/art/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.webp?1783920064",
+    "crop": "https://cards.scryfall.io/crop/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.webp?1783920064"
+   }
+  },
+  {
+   "name": "Molten Gatekeeper",
+   "jaName": "溶鉄の門番",
+   "note": "他クリーチャー展開時1点バーン / 発掘{R}",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Artifact Creature — Golem",
+   "oracle": "Whenever another creature you control enters, this creature deals 1 damage to each opponent.\nUnearth {R} ({R}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+   "power": 2,
+   "toughness": 3,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Unearth"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.jpg?1783911269",
+    "normal": "https://cards.scryfall.io/normal/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.jpg?1783911269",
+    "large": "https://cards.scryfall.io/large/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.jpg?1783911269",
+    "png": "https://cards.scryfall.io/png/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.png?1783911269",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.jpg?1783911269",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.jpg?1783911269",
+    "thumb": "https://cards.scryfall.io/thumb/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.webp?1783911269",
+    "grid": "https://cards.scryfall.io/grid/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.webp?1783911269",
+    "display": "https://cards.scryfall.io/display/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.webp?1783911269",
+    "art": "https://cards.scryfall.io/art/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.webp?1783911269",
+    "crop": "https://cards.scryfall.io/crop/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.webp?1783911269"
+   }
+  },
+  {
+   "name": "Morbid Opportunist",
+   "jaName": "病的な日和見主義者",
+   "note": "他のクリーチャーが死亡するたび1ドロー(ターン1回)",
+   "count": 1,
+   "manaCost": "{2}{B}",
+   "cmc": 3,
+   "typeLine": "Creature — Human Rogue",
+   "oracle": "Whenever one or more other creatures die, draw a card. This ability triggers only once each turn.",
+   "power": 1,
+   "toughness": 3,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.jpg?1783903784",
+    "normal": "https://cards.scryfall.io/normal/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.jpg?1783903784",
+    "large": "https://cards.scryfall.io/large/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.jpg?1783903784",
+    "png": "https://cards.scryfall.io/png/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.png?1783903784",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.jpg?1783903784",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.jpg?1783903784",
+    "thumb": "https://cards.scryfall.io/thumb/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.webp?1783903784",
+    "grid": "https://cards.scryfall.io/grid/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.webp?1783903784",
+    "display": "https://cards.scryfall.io/display/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.webp?1783903784",
+    "art": "https://cards.scryfall.io/art/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.webp?1783903784",
+    "crop": "https://cards.scryfall.io/crop/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.webp?1783903784"
+   }
+  },
+  {
+   "name": "Mountain",
+   "jaName": "山",
+   "note": "",
+   "count": 8,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Basic Land — Mountain",
+   "oracle": "({T}: Add {R}.)",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg?1785981666",
+    "normal": "https://cards.scryfall.io/normal/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg?1785981666",
+    "large": "https://cards.scryfall.io/large/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg?1785981666",
+    "png": "https://cards.scryfall.io/png/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.png?1785981666",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg?1785981666",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg?1785981666",
+    "thumb": "https://cards.scryfall.io/thumb/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.webp?1785981666",
+    "grid": "https://cards.scryfall.io/grid/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.webp?1785981666",
+    "display": "https://cards.scryfall.io/display/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.webp?1785981666",
+    "art": "https://cards.scryfall.io/art/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.webp?1785981666",
+    "crop": "https://cards.scryfall.io/crop/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.webp?1785981666"
+   }
+  },
+  {
+   "name": "My Precious // Allure of Power",
+   "jaName": "いとしいしと",
+   "note": "装備品：呪禁+ブロック不可付与 / Adventure面「Allure of Power」：クリーチャー生け贄で2ドロー",
+   "count": 1,
+   "manaCost": "{3} // {1}{B}",
+   "cmc": 3,
+   "typeLine": "Legendary Artifact — Equipment // Instant — Adventure",
+   "oracle": "【My Precious】Equipped creature has hexproof and can't be blocked.\nEquip—{2}, Pay 2 life.\n【Allure of Power】As an additional cost to cast this spell, sacrifice a creature.\nDraw two cards.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [],
+   "keywords": [
+    "Equip"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.jpg?1783902783",
+    "normal": "https://cards.scryfall.io/normal/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.jpg?1783902783",
+    "large": "https://cards.scryfall.io/large/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.jpg?1783902783",
+    "png": "https://cards.scryfall.io/png/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.png?1783902783",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.jpg?1783902783",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.jpg?1783902783",
+    "thumb": "https://cards.scryfall.io/thumb/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.webp?1783902783",
+    "grid": "https://cards.scryfall.io/grid/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.webp?1783902783",
+    "display": "https://cards.scryfall.io/display/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.webp?1783902783",
+    "art": "https://cards.scryfall.io/art/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.webp?1783902783",
+    "crop": "https://cards.scryfall.io/crop/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.webp?1783902783"
+   }
+  },
+  {
+   "name": "Nasty End",
+   "jaName": "悲惨な最期",
+   "note": "クリーチャーを生け贄にするコストで2ドロー(伝説なら3ドロー)",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "As an additional cost to cast this spell, sacrifice a creature.\nDraw two cards. If the sacrificed creature was legendary, draw three cards instead.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.jpg?1783916302",
+    "normal": "https://cards.scryfall.io/normal/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.jpg?1783916302",
+    "large": "https://cards.scryfall.io/large/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.jpg?1783916302",
+    "png": "https://cards.scryfall.io/png/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.png?1783916302",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.jpg?1783916302",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.jpg?1783916302",
+    "thumb": "https://cards.scryfall.io/thumb/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.webp?1783916302",
+    "grid": "https://cards.scryfall.io/grid/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.webp?1783916302",
+    "display": "https://cards.scryfall.io/display/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.webp?1783916302",
+    "art": "https://cards.scryfall.io/art/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.webp?1783916302",
+    "crop": "https://cards.scryfall.io/crop/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.webp?1783916302"
+   }
+  },
+  {
+   "name": "Ophiomancer",
+   "jaName": "蛇術師",
+   "note": "毎アップキープ、蛇を支配していなければ接死蛇トークン生成",
+   "count": 1,
+   "manaCost": "{2}{B}",
+   "cmc": 3,
+   "typeLine": "Creature — Human Shaman",
+   "oracle": "At the beginning of each upkeep, if you control no Snakes, create a 1/1 black Snake creature token with deathtouch.",
+   "power": 2,
+   "toughness": 2,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.jpg?1783903820",
+    "normal": "https://cards.scryfall.io/normal/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.jpg?1783903820",
+    "large": "https://cards.scryfall.io/large/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.jpg?1783903820",
+    "png": "https://cards.scryfall.io/png/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.png?1783903820",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.jpg?1783903820",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.jpg?1783903820",
+    "thumb": "https://cards.scryfall.io/thumb/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.webp?1783903820",
+    "grid": "https://cards.scryfall.io/grid/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.webp?1783903820",
+    "display": "https://cards.scryfall.io/display/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.webp?1783903820",
+    "art": "https://cards.scryfall.io/art/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.webp?1783903820",
+    "crop": "https://cards.scryfall.io/crop/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.webp?1783903820"
+   }
+  },
+  {
+   "name": "Phoenix Chick",
+   "jaName": "フェニックスの雛",
+   "note": "飛行・速攻・ブロック不可 / 3体以上で攻撃時{R}{R}で墓地から戦場へ(+1/+1カウンター付き・攻撃状態)",
+   "count": 1,
+   "manaCost": "{R}",
+   "cmc": 1,
+   "typeLine": "Creature — Phoenix",
+   "oracle": "Flying, haste\nThis creature can't block.\nWhenever you attack with three or more creatures, you may pay {R}{R}. If you do, return this card from your graveyard to the battlefield tapped and attacking with a +1/+1 counter on it.",
+   "power": 1,
+   "toughness": 1,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flying",
+    "Haste"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1783921312",
+    "normal": "https://cards.scryfall.io/normal/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1783921312",
+    "large": "https://cards.scryfall.io/large/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1783921312",
+    "png": "https://cards.scryfall.io/png/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.png?1783921312",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1783921312",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1783921312",
+    "thumb": "https://cards.scryfall.io/thumb/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.webp?1783921312",
+    "grid": "https://cards.scryfall.io/grid/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.webp?1783921312",
+    "display": "https://cards.scryfall.io/display/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.webp?1783921312",
+    "art": "https://cards.scryfall.io/art/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.webp?1783921312",
+    "crop": "https://cards.scryfall.io/crop/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.webp?1783921312"
+   }
+  },
+  {
+   "name": "Professional Face-Breaker",
+   "jaName": "顔壊しのプロ",
+   "note": "威迫 / 戦闘ダメージ時トレジャー生成 / トレジャーを生け贄でインパルスドロー",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Creature — Human Warrior",
+   "oracle": "Menace\nWhenever one or more creatures you control deal combat damage to a player, create a Treasure token.\nSacrifice a Treasure: Exile the top card of your library. You may play that card this turn.",
+   "power": 2,
+   "toughness": 3,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Treasure",
+    "Menace"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
+    "normal": "https://cards.scryfall.io/normal/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
+    "large": "https://cards.scryfall.io/large/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
+    "png": "https://cards.scryfall.io/png/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.png?1783923119",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
+    "thumb": "https://cards.scryfall.io/thumb/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.webp?1783923119",
+    "grid": "https://cards.scryfall.io/grid/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.webp?1783923119",
+    "display": "https://cards.scryfall.io/display/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.webp?1783923119",
+    "art": "https://cards.scryfall.io/art/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.webp?1783923119",
+    "crop": "https://cards.scryfall.io/crop/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.webp?1783923119"
+   }
+  },
+  {
+   "name": "Razortrap Gorge",
+   "jaName": "剃刀罠の山峡",
+   "note": "対戦相手のライフが13以下でアンタップイン",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped unless a player has 13 or less life.\n{T}: Add {B} or {R}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.jpg?1783909427",
+    "normal": "https://cards.scryfall.io/normal/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.jpg?1783909427",
+    "large": "https://cards.scryfall.io/large/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.jpg?1783909427",
+    "png": "https://cards.scryfall.io/png/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.png?1783909427",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.jpg?1783909427",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.jpg?1783909427",
+    "thumb": "https://cards.scryfall.io/thumb/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.webp?1783909427",
+    "grid": "https://cards.scryfall.io/grid/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.webp?1783909427",
+    "display": "https://cards.scryfall.io/display/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.webp?1783909427",
+    "art": "https://cards.scryfall.io/art/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.webp?1783909427",
+    "crop": "https://cards.scryfall.io/crop/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.webp?1783909427"
+   }
+  },
+  {
+   "name": "Reckoner's Bargain",
+   "jaName": "勢団の取り引き",
+   "note": "アーティファクトかクリーチャーを生け贄にするコストで、そのマナ総量分ライフ回復+2ドロー",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "As an additional cost to cast this spell, sacrifice an artifact or creature.\nYou gain life equal to the sacrificed permanent's mana value. Draw two cards.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.jpg?1783923877",
+    "normal": "https://cards.scryfall.io/normal/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.jpg?1783923877",
+    "large": "https://cards.scryfall.io/large/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.jpg?1783923877",
+    "png": "https://cards.scryfall.io/png/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.png?1783923877",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.jpg?1783923877",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.jpg?1783923877",
+    "thumb": "https://cards.scryfall.io/thumb/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.webp?1783923877",
+    "grid": "https://cards.scryfall.io/grid/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.webp?1783923877",
+    "display": "https://cards.scryfall.io/display/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.webp?1783923877",
+    "art": "https://cards.scryfall.io/art/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.webp?1783923877",
+    "crop": "https://cards.scryfall.io/crop/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.webp?1783923877"
+   }
+  },
+  {
+   "name": "Restless Vents",
+   "jaName": "不穏な火道",
+   "note": "常にタップイン（マンランド：{1}{B}{R}で2/3メナス化・攻撃時ルーティング）",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped.\n{T}: Add {B} or {R}.\n{1}{B}{R}: Until end of turn, this land becomes a 2/3 black and red Insect creature with menace. It's still a land.\nWhenever this land attacks, you may discard a card. If you do, draw a card.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.jpg?1783913713",
+    "normal": "https://cards.scryfall.io/normal/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.jpg?1783913713",
+    "large": "https://cards.scryfall.io/large/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.jpg?1783913713",
+    "png": "https://cards.scryfall.io/png/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.png?1783913713",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.jpg?1783913713",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.jpg?1783913713",
+    "thumb": "https://cards.scryfall.io/thumb/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.webp?1783913713",
+    "grid": "https://cards.scryfall.io/grid/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.webp?1783913713",
+    "display": "https://cards.scryfall.io/display/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.webp?1783913713",
+    "art": "https://cards.scryfall.io/art/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.webp?1783913713",
+    "crop": "https://cards.scryfall.io/crop/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.webp?1783913713"
+   }
+  },
+  {
+   "name": "Return the Favor",
+   "jaName": "しっぺ返し",
+   "note": "スプリー：呪文かアビリティのコピー、または対象変更を選択(両方選択も可)",
+   "count": 1,
+   "manaCost": "{R}{R}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "Spree (Choose one or more additional costs.)\n+ {1} — Copy target instant spell, sorcery spell, activated ability, or triggered ability. You may choose new targets for the copy.\n+ {1} — Change the target of target spell or ability with a single target.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Spree"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.jpg?1783911816",
+    "normal": "https://cards.scryfall.io/normal/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.jpg?1783911816",
+    "large": "https://cards.scryfall.io/large/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.jpg?1783911816",
+    "png": "https://cards.scryfall.io/png/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.png?1783911816",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.jpg?1783911816",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.jpg?1783911816",
+    "thumb": "https://cards.scryfall.io/thumb/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.webp?1783911816",
+    "grid": "https://cards.scryfall.io/grid/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.webp?1783911816",
+    "display": "https://cards.scryfall.io/display/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.webp?1783911816",
+    "art": "https://cards.scryfall.io/art/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.webp?1783911816",
+    "crop": "https://cards.scryfall.io/crop/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.webp?1783911816"
+   }
+  },
+  {
+   "name": "Rite of the Raging Storm",
+   "jaName": "荒れ狂う嵐の儀式",
+   "note": "全員のアップキープに5/1トランプル速攻トークン生成(自分への攻撃は不可、終了時サクる)",
+   "count": 1,
+   "manaCost": "{3}{R}{R}",
+   "cmc": 5,
+   "typeLine": "Enchantment",
+   "oracle": "Creatures named Lightning Rager can't attack you or planeswalkers you control.\nAt the beginning of each player's upkeep, that player creates a 5/1 red Elemental creature token named Lightning Rager. It has trample, haste, and \"At the beginning of the end step, sacrifice this token.\"",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.jpg?1783912995",
+    "normal": "https://cards.scryfall.io/normal/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.jpg?1783912995",
+    "large": "https://cards.scryfall.io/large/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.jpg?1783912995",
+    "png": "https://cards.scryfall.io/png/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.png?1783912995",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.jpg?1783912995",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.jpg?1783912995",
+    "thumb": "https://cards.scryfall.io/thumb/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.webp?1783912995",
+    "grid": "https://cards.scryfall.io/grid/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.webp?1783912995",
+    "display": "https://cards.scryfall.io/display/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.webp?1783912995",
+    "art": "https://cards.scryfall.io/art/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.webp?1783912995",
+    "crop": "https://cards.scryfall.io/crop/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.webp?1783912995"
+   }
+  },
+  {
+   "name": "Searslicer Goblin",
+   "jaName": "焦がし切りのゴブリン",
+   "note": "略奪：このターン攻撃していれば終了時にゴブリン・トークン生成",
+   "count": 1,
+   "manaCost": "{1}{R}",
+   "cmc": 2,
+   "typeLine": "Creature — Goblin Warrior",
+   "oracle": "Raid — At the beginning of your end step, if you attacked this turn, create a 1/1 red Goblin creature token.",
+   "power": 2,
+   "toughness": 1,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Raid"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.jpg?1783909102",
+    "normal": "https://cards.scryfall.io/normal/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.jpg?1783909102",
+    "large": "https://cards.scryfall.io/large/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.jpg?1783909102",
+    "png": "https://cards.scryfall.io/png/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.png?1783909102",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.jpg?1783909102",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.jpg?1783909102",
+    "thumb": "https://cards.scryfall.io/thumb/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.webp?1783909102",
+    "grid": "https://cards.scryfall.io/grid/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.webp?1783909102",
+    "display": "https://cards.scryfall.io/display/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.webp?1783909102",
+    "art": "https://cards.scryfall.io/art/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.webp?1783909102",
+    "crop": "https://cards.scryfall.io/crop/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.webp?1783909102"
+   }
+  },
+  {
+   "name": "Siege-Gang Lieutenant",
+   "jaName": "包囲攻撃の副官",
+   "note": "リューテナント：統率者がいれば戦闘開始時ゴブリン・トークン2体生成(速攻) / ゴブリンを生け贄で1点ダメージ",
+   "count": 1,
+   "manaCost": "{3}{R}",
+   "cmc": 4,
+   "typeLine": "Creature — Goblin",
+   "oracle": "Lieutenant — At the beginning of combat on your turn, if you control your commander, create two 1/1 red Goblin creature tokens. Those tokens gain haste until end of turn.\n{2}, Sacrifice a Goblin: This creature deals 1 damage to any target.",
+   "power": 2,
+   "toughness": 2,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Lieutenant"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.jpg?1783903441",
+    "normal": "https://cards.scryfall.io/normal/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.jpg?1783903441",
+    "large": "https://cards.scryfall.io/large/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.jpg?1783903441",
+    "png": "https://cards.scryfall.io/png/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.png?1783903441",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.jpg?1783903441",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.jpg?1783903441",
+    "thumb": "https://cards.scryfall.io/thumb/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.webp?1783903441",
+    "grid": "https://cards.scryfall.io/grid/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.webp?1783903441",
+    "display": "https://cards.scryfall.io/display/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.webp?1783903441",
+    "art": "https://cards.scryfall.io/art/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.webp?1783903441",
+    "crop": "https://cards.scryfall.io/crop/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.webp?1783903441"
+   }
+  },
+  {
+   "name": "Slash, Reptile Rampager",
+   "jaName": "破天荒爬虫類、スラッシュ",
+   "note": "統率者候補 / アライアンス：他クリーチャー展開時2点バーン / 攻撃時2/2ミュータント・トークン生成",
+   "count": 1,
+   "manaCost": "{3}{R}{R}",
+   "cmc": 5,
+   "typeLine": "Legendary Creature — Mutant Berserker Turtle",
+   "oracle": "Alliance — Whenever another creature you control enters, Slash deals 2 damage to each opponent.\nWhenever Slash attacks, create a 2/2 red Mutant creature token.",
+   "power": 7,
+   "toughness": 5,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Alliance"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.jpg?1783904093",
+    "normal": "https://cards.scryfall.io/normal/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.jpg?1783904093",
+    "large": "https://cards.scryfall.io/large/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.jpg?1783904093",
+    "png": "https://cards.scryfall.io/png/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.png?1783904093",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.jpg?1783904093",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.jpg?1783904093",
+    "thumb": "https://cards.scryfall.io/thumb/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.webp?1783904093",
+    "grid": "https://cards.scryfall.io/grid/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.webp?1783904093",
+    "display": "https://cards.scryfall.io/display/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.webp?1783904093",
+    "art": "https://cards.scryfall.io/art/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.webp?1783904093",
+    "crop": "https://cards.scryfall.io/crop/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.webp?1783904093"
+   }
+  },
+  {
+   "name": "Smoldering Marsh",
+   "jaName": "燻る湿地",
+   "note": "基本土地2つ以上でアンタップイン（タンゴランド）",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land — Swamp Mountain",
+   "oracle": "({T}: Add {B} or {R}.)\nThis land enters tapped unless you control two or more basic lands.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg?1783903193",
+    "normal": "https://cards.scryfall.io/normal/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg?1783903193",
+    "large": "https://cards.scryfall.io/large/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg?1783903193",
+    "png": "https://cards.scryfall.io/png/front/d/7/d707c477-440f-417c-970a-0e7426a58045.png?1783903193",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg?1783903193",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg?1783903193",
+    "thumb": "https://cards.scryfall.io/thumb/front/d/7/d707c477-440f-417c-970a-0e7426a58045.webp?1783903193",
+    "grid": "https://cards.scryfall.io/grid/front/d/7/d707c477-440f-417c-970a-0e7426a58045.webp?1783903193",
+    "display": "https://cards.scryfall.io/display/front/d/7/d707c477-440f-417c-970a-0e7426a58045.webp?1783903193",
+    "art": "https://cards.scryfall.io/art/front/d/7/d707c477-440f-417c-970a-0e7426a58045.webp?1783903193",
+    "crop": "https://cards.scryfall.io/crop/front/d/7/d707c477-440f-417c-970a-0e7426a58045.webp?1783903193"
+   }
+  },
+  {
+   "name": "Spiked Corridor // Torture Pit",
+   "jaName": "突刺回廊+拷問部屋",
+   "note": "部屋(Room)カード / 一方は死亡時1点の1/1デビル・トークン3体を生成、他方は非戦闘ダメージ+2の増幅（和名情報未整備）",
+   "count": 1,
+   "manaCost": "{3}{R} // {3}{R}",
+   "cmc": 8,
+   "typeLine": "Enchantment — Room // Enchantment — Room",
+   "oracle": "【Spiked Corridor】When you unlock this door, create three 1/1 red Devil creature tokens with \"When this token dies, it deals 1 damage to any target.\"\n(You may cast either half. That door unlocks on the battlefield. As a sorcery, you may pay the mana cost of a locked door to unlock it.)\n【Torture Pit】If a source you control would deal noncombat damage to an opponent, it deals that much damage plus 2 instead.\n(You may cast either half. That door unlocks on the battlefield. As a sorcery, you may pay the mana cost of a locked door to unlock it.)",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.jpg?1783909656",
+    "normal": "https://cards.scryfall.io/normal/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.jpg?1783909656",
+    "large": "https://cards.scryfall.io/large/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.jpg?1783909656",
+    "png": "https://cards.scryfall.io/png/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.png?1783909656",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.jpg?1783909656",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.jpg?1783909656",
+    "thumb": "https://cards.scryfall.io/thumb/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.webp?1783909656",
+    "grid": "https://cards.scryfall.io/grid/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.webp?1783909656",
+    "display": "https://cards.scryfall.io/display/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.webp?1783909656",
+    "art": "https://cards.scryfall.io/art/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.webp?1783909656",
+    "crop": "https://cards.scryfall.io/crop/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.webp?1783909656"
+   }
+  },
+  {
+   "name": "Stensia Uprising",
+   "jaName": "ステンシアの蜂起",
+   "note": "終了時ヒューマン・トークン生成 / 永久物13個を支配していれば生け贄で7点ダメージ",
+   "count": 1,
+   "manaCost": "{2}{R}{R}",
+   "cmc": 4,
+   "typeLine": "Enchantment",
+   "oracle": "At the beginning of your end step, create a 1/1 red Human creature token. Then if you control exactly thirteen permanents, you may sacrifice this enchantment. When you do, it deals 7 damage to any target.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.jpg?1783924823",
+    "normal": "https://cards.scryfall.io/normal/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.jpg?1783924823",
+    "large": "https://cards.scryfall.io/large/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.jpg?1783924823",
+    "png": "https://cards.scryfall.io/png/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.png?1783924823",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.jpg?1783924823",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.jpg?1783924823",
+    "thumb": "https://cards.scryfall.io/thumb/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.webp?1783924823",
+    "grid": "https://cards.scryfall.io/grid/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.webp?1783924823",
+    "display": "https://cards.scryfall.io/display/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.webp?1783924823",
+    "art": "https://cards.scryfall.io/art/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.webp?1783924823",
+    "crop": "https://cards.scryfall.io/crop/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.webp?1783924823"
+   }
+  },
+  {
+   "name": "Swamp",
+   "jaName": "沼",
+   "note": "",
+   "count": 8,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Basic Land — Swamp",
+   "oracle": "({T}: Add {B}.)",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg?1785981659",
+    "normal": "https://cards.scryfall.io/normal/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg?1785981659",
+    "large": "https://cards.scryfall.io/large/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg?1785981659",
+    "png": "https://cards.scryfall.io/png/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.png?1785981659",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg?1785981659",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg?1785981659",
+    "thumb": "https://cards.scryfall.io/thumb/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.webp?1785981659",
+    "grid": "https://cards.scryfall.io/grid/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.webp?1785981659",
+    "display": "https://cards.scryfall.io/display/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.webp?1785981659",
+    "art": "https://cards.scryfall.io/art/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.webp?1785981659",
+    "crop": "https://cards.scryfall.io/crop/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.webp?1785981659"
+   }
+  },
+  {
+   "name": "Tainted Peak",
+   "jaName": "汚れた峰",
+   "note": "沼を支配している場合のみ黒か赤を生成可",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}: Add {C}.\n{T}: Add {B} or {R}. Activate only if you control a Swamp.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "C",
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.jpg?1783909566",
+    "normal": "https://cards.scryfall.io/normal/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.jpg?1783909566",
+    "large": "https://cards.scryfall.io/large/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.jpg?1783909566",
+    "png": "https://cards.scryfall.io/png/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.png?1783909566",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.jpg?1783909566",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.jpg?1783909566",
+    "thumb": "https://cards.scryfall.io/thumb/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.webp?1783909566",
+    "grid": "https://cards.scryfall.io/grid/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.webp?1783909566",
+    "display": "https://cards.scryfall.io/display/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.webp?1783909566",
+    "art": "https://cards.scryfall.io/art/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.webp?1783909566",
+    "crop": "https://cards.scryfall.io/crop/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.webp?1783909566"
+   }
+  },
+  {
+   "name": "Temple of Malice",
+   "jaName": "悪意の神殿",
+   "note": "スクライランド（占術1でタップイン）",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {B} or {R}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "R"
+   ],
+   "keywords": [
+    "Scry"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1783908896",
+    "normal": "https://cards.scryfall.io/normal/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1783908896",
+    "large": "https://cards.scryfall.io/large/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1783908896",
+    "png": "https://cards.scryfall.io/png/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.png?1783908896",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1783908896",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1783908896",
+    "thumb": "https://cards.scryfall.io/thumb/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.webp?1783908896",
+    "grid": "https://cards.scryfall.io/grid/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.webp?1783908896",
+    "display": "https://cards.scryfall.io/display/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.webp?1783908896",
+    "art": "https://cards.scryfall.io/art/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.webp?1783908896",
+    "crop": "https://cards.scryfall.io/crop/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.webp?1783908896"
+   }
+  },
+  {
+   "name": "Torbran, Thane of Red Fell",
+   "jaName": "朱地洞の族長、トーブラン",
+   "note": "統率者候補 / 自分の赤い発生源のダメージ+2（ダメージ増幅の要）",
+   "count": 1,
+   "manaCost": "{1}{R}{R}{R}",
+   "cmc": 4,
+   "typeLine": "Legendary Creature — Dwarf Noble",
+   "oracle": "If a red source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 2 instead.",
+   "power": 2,
+   "toughness": 4,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
+    "normal": "https://cards.scryfall.io/normal/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
+    "large": "https://cards.scryfall.io/large/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
+    "png": "https://cards.scryfall.io/png/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.png?1783932614",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
+    "thumb": "https://cards.scryfall.io/thumb/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.webp?1783932614",
+    "grid": "https://cards.scryfall.io/grid/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.webp?1783932614",
+    "display": "https://cards.scryfall.io/display/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.webp?1783932614",
+    "art": "https://cards.scryfall.io/art/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.webp?1783932614",
+    "crop": "https://cards.scryfall.io/crop/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.webp?1783932614"
+   }
+  },
+  {
+   "name": "Urabrask's Forge",
+   "jaName": "ウラブラスクの溶鉱炉",
+   "note": "戦闘開始時オイル・カウンターを置き、その数のX/1トークン生成(終了時サクる)",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Artifact",
+   "oracle": "At the beginning of combat on your turn, put an oil counter on this artifact, then create an X/1 red Phyrexian Horror creature token with trample and haste, where X is the number of oil counters on this artifact. Sacrifice that token at the beginning of the next end step.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.jpg?1783918022",
+    "normal": "https://cards.scryfall.io/normal/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.jpg?1783918022",
+    "large": "https://cards.scryfall.io/large/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.jpg?1783918022",
+    "png": "https://cards.scryfall.io/png/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.png?1783918022",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.jpg?1783918022",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.jpg?1783918022",
+    "thumb": "https://cards.scryfall.io/thumb/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.webp?1783918022",
+    "grid": "https://cards.scryfall.io/grid/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.webp?1783918022",
+    "display": "https://cards.scryfall.io/display/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.webp?1783918022",
+    "art": "https://cards.scryfall.io/art/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.webp?1783918022",
+    "crop": "https://cards.scryfall.io/crop/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.webp?1783918022"
+   }
+  },
+  {
+   "name": "Vampiric Rites",
+   "jaName": "吸血の儀式",
+   "note": "クリーチャーを生け贄にしてライフ+1、1ドロー（サクリファイス・アウトレット）",
+   "count": 1,
+   "manaCost": "{B}",
+   "cmc": 1,
+   "typeLine": "Enchantment",
+   "oracle": "{1}{B}, Sacrifice a creature: You gain 1 life and draw a card.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.jpg?1783908926",
+    "normal": "https://cards.scryfall.io/normal/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.jpg?1783908926",
+    "large": "https://cards.scryfall.io/large/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.jpg?1783908926",
+    "png": "https://cards.scryfall.io/png/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.png?1783908926",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.jpg?1783908926",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.jpg?1783908926",
+    "thumb": "https://cards.scryfall.io/thumb/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.webp?1783908926",
+    "grid": "https://cards.scryfall.io/grid/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.webp?1783908926",
+    "display": "https://cards.scryfall.io/display/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.webp?1783908926",
+    "art": "https://cards.scryfall.io/art/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.webp?1783908926",
+    "crop": "https://cards.scryfall.io/crop/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.webp?1783908926"
+   }
+  },
+  {
+   "name": "Village Rites",
+   "jaName": "村の儀式",
+   "note": "クリーチャーを生け贄にするコストで2ドロー(1マナ)",
+   "count": 1,
+   "manaCost": "{B}",
+   "cmc": 1,
+   "typeLine": "Instant",
+   "oracle": "As an additional cost to cast this spell, sacrifice a creature.\nDraw two cards.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.jpg?1783908135",
+    "normal": "https://cards.scryfall.io/normal/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.jpg?1783908135",
+    "large": "https://cards.scryfall.io/large/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.jpg?1783908135",
+    "png": "https://cards.scryfall.io/png/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.png?1783908135",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.jpg?1783908135",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.jpg?1783908135",
+    "thumb": "https://cards.scryfall.io/thumb/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.webp?1783908135",
+    "grid": "https://cards.scryfall.io/grid/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.webp?1783908135",
+    "display": "https://cards.scryfall.io/display/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.webp?1783908135",
+    "art": "https://cards.scryfall.io/art/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.webp?1783908135",
+    "crop": "https://cards.scryfall.io/crop/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.webp?1783908135"
+   }
+  },
+  {
+   "name": "Whip of Erebos",
+   "jaName": "エレボスの鞭",
+   "note": "自軍に絆魂付与 / 起動で墓地のクリーチャーを一時的に戦場へ(速攻付与、終了時追放)",
+   "count": 1,
+   "manaCost": "{2}{B}{B}",
+   "cmc": 4,
+   "typeLine": "Legendary Enchantment Artifact",
+   "oracle": "Creatures you control have lifelink.\n{2}{B}{B}, {T}: Return target creature card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step. If it would leave the battlefield, exile it instead of putting it anywhere else. Activate only as a sorcery.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.jpg?1783909613",
+    "normal": "https://cards.scryfall.io/normal/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.jpg?1783909613",
+    "large": "https://cards.scryfall.io/large/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.jpg?1783909613",
+    "png": "https://cards.scryfall.io/png/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.png?1783909613",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.jpg?1783909613",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.jpg?1783909613",
+    "thumb": "https://cards.scryfall.io/thumb/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.webp?1783909613",
+    "grid": "https://cards.scryfall.io/grid/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.webp?1783909613",
+    "display": "https://cards.scryfall.io/display/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.webp?1783909613",
+    "art": "https://cards.scryfall.io/art/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.webp?1783909613",
+    "crop": "https://cards.scryfall.io/crop/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.webp?1783909613"
+   }
+  },
+  {
+   "name": "Wildfire Elemental",
+   "jaName": "野火の精霊",
+   "note": "対戦相手が非戦闘ダメージを受けるたび自軍が+1/+0(ターン終了時まで)",
+   "count": 1,
+   "manaCost": "{2}{R}{R}",
+   "cmc": 4,
+   "typeLine": "Creature — Elemental",
+   "oracle": "Whenever an opponent is dealt noncombat damage, creatures you control get +1/+0 until end of turn.",
+   "power": 3,
+   "toughness": 3,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.jpg?1783932917",
+    "normal": "https://cards.scryfall.io/normal/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.jpg?1783932917",
+    "large": "https://cards.scryfall.io/large/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.jpg?1783932917",
+    "png": "https://cards.scryfall.io/png/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.png?1783932917",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.jpg?1783932917",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.jpg?1783932917",
+    "thumb": "https://cards.scryfall.io/thumb/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.webp?1783932917",
+    "grid": "https://cards.scryfall.io/grid/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.webp?1783932917",
+    "display": "https://cards.scryfall.io/display/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.webp?1783932917",
+    "art": "https://cards.scryfall.io/art/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.webp?1783932917",
+    "crop": "https://cards.scryfall.io/crop/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.webp?1783932917"
+   }
+  },
+  {
+   "name": "Witty Roastmaster",
+   "jaName": "機知ある怨怒取り",
+   "note": "アライアンス：他クリーチャー展開時1点バーン",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Creature — Devil Citizen",
+   "oracle": "Alliance — Whenever another creature you control enters, this creature deals 1 damage to each opponent.",
+   "power": 3,
+   "toughness": 2,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Alliance"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.jpg?1783923109",
+    "normal": "https://cards.scryfall.io/normal/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.jpg?1783923109",
+    "large": "https://cards.scryfall.io/large/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.jpg?1783923109",
+    "png": "https://cards.scryfall.io/png/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.png?1783923109",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.jpg?1783923109",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.jpg?1783923109",
+    "thumb": "https://cards.scryfall.io/thumb/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.webp?1783923109",
+    "grid": "https://cards.scryfall.io/grid/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.webp?1783923109",
+    "display": "https://cards.scryfall.io/display/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.webp?1783923109",
+    "art": "https://cards.scryfall.io/art/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.webp?1783923109",
+    "crop": "https://cards.scryfall.io/crop/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.webp?1783923109"
+   }
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+import { describe, expect, it } from 'vitest';
+import { deckRows, parseCsv } from '../../scripts/lib/deck-csv';
+import { toCardDef, type ScryfallCard } from '../../scripts/lib/scryfall';
+
+describe('CSV の読み込み', () => {
+  it('引用符・カンマ・改行・CRLF を扱う', () => {
+    expect(parseCsv('a,"b,c","d ""e"""\r\n1,2,3')).toEqual([
+      ['a', 'b,c', 'd "e"'],
+      ['1', '2', '3'],
+    ]);
+  });
+
+  it('投入済みの行だけを英語名で数える', () => {
+    const csv = [
+      '﻿投入済み,和名,英語名,マナコスト（色）,マナコスト（数値）,カード種別,メイン効果,サブ効果,備考,所持数',
+      'TRUE,山,Mountain,,0,土地,,,,',
+      'TRUE,山,Mountain,,0,土地,,,,',
+      'FALSE,冒涜の行動,Blasphemous Act,{R} 赤,9,ソーサリー,全体除去,,,',
+      'TRUE,,Ingris Stingerquill,{B}{R} 黒赤,3,クリーチャー,バーン,,"統率者 / 飛行",',
+      'TRUE,,,,,,,,,',
+    ].join('\n');
+    expect(deckRows(csv)).toEqual([
+      { name: 'Mountain', jaName: '山', note: '', count: 2 },
+      { name: 'Ingris Stingerquill', jaName: '', note: '統率者 / 飛行', count: 1 },
+    ]);
+  });
+
+  it('列が足りなければ止まる', () => {
+    expect(() => deckRows('和名,英語名\n山,Mountain')).toThrow('投入済み');
+  });
+});
+
+describe('Scryfall からの変換', () => {
+  const base: ScryfallCard = {
+    name: 'Torbran, Thane of Red Fell',
+    mana_cost: '{1}{R}{R}{R}',
+    cmc: 4,
+    type_line: 'Legendary Creature — Dwarf Noble',
+    oracle_text: 'text',
+    power: '2',
+    toughness: '4',
+    colors: ['R'],
+    color_identity: ['R'],
+    keywords: [],
+    image_uris: { small: 's', normal: 'n' },
+  };
+
+  it('普通のカード', () => {
+    expect(toCardDef(base, { jaName: '朱地洞の族長、トーブラン', note: '', count: 1 })).toMatchObject({
+      jaName: '朱地洞の族長、トーブラン',
+      power: 2,
+      toughness: 4,
+      image: { small: 's', normal: 'n' },
+    });
+  });
+
+  it('和名が無ければ英語名、P/T が * なら 0', () => {
+    const def = toCardDef({ ...base, power: '*', toughness: undefined, colors: undefined }, { jaName: '', note: '', count: 1 });
+    expect(def).toMatchObject({ jaName: base.name, power: 0, toughness: null, colors: ['R'] });
+  });
+
+  it('両面・分割カードは面ごとの文章をつなぐ', () => {
+    const def = toCardDef(
+      {
+        ...base,
+        name: 'A // B',
+        mana_cost: undefined,
+        type_line: undefined,
+        oracle_text: undefined,
+        power: undefined,
+        toughness: undefined,
+        image_uris: undefined,
+        card_faces: [
+          { name: 'A', mana_cost: '{3}{R}', type_line: 'Enchantment — Room', oracle_text: 'a', image_uris: { small: 'fs', normal: 'fn' } },
+          { name: 'B', mana_cost: '{3}{R}', type_line: 'Enchantment — Room' },
+        ],
+      },
+      { jaName: '', note: '', count: 1 },
+    );
+    expect(def).toMatchObject({ manaCost: '{3}{R} // {3}{R}', typeLine: 'Enchantment — Room', oracle: '【A】a\n【B】', image: { small: 'fs', normal: 'fn' } });
+  });
+});

@@ -1,0 +1,12 @@
+{
+  "include": ["src/**"],
+  "extension": [".ts", ".tsx"],
+  "reporter": ["text", "text-summary", "html"],
+  "report-dir": "coverage",
+  "temp-dir": ".nyc_output",
+  "check-coverage": true,
+  "branches": 100,
+  "functions": 100,
+  "lines": 100,
+  "statements": 100
+}

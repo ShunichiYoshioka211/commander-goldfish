@@ -1,0 +1,189 @@
+// エンジンの基本操作。カードスクリプトもここの関数だけを使って盤面を動かす。
+import { TOKENS } from '../cards/tokens';
+import { scriptOf } from '../cards/registry';
+import { shuffleWith } from './rng';
+import { DECK, defByName } from './deck';
+import type { CardDef, CardInstance, GameState, Prompt, ZoneId } from './types';
+
+export { DECK, defByName };
+export const def = (card: CardInstance): CardDef => defByName(card.name);
+export const typeOf = (card: CardInstance, t: string) => def(card).typeLine.includes(t);
+export const isCreature = (card: CardInstance) => typeOf(card, 'Creature') || card.animated !== null;
+export const isLand = (card: CardInstance) => typeOf(card, 'Land');
+export const isRed = (card: CardInstance) => def(card).colors.includes('R');
+export const isCommander = (card: CardInstance) => !card.token && DECK.commanders.includes(card.name);
+export const hasKeyword = (card: CardInstance, k: string) => def(card).keywords.includes(k);
+export const nameJa = (card: CardInstance) => def(card).jaName;
+
+export const battlefield = (s: GameState) => s.zones.battlefield.map((id) => s.cards[id]);
+export const creatures = (s: GameState) => battlefield(s).filter(isCreature);
+export const lands = (s: GameState) => battlefield(s).filter(isLand);
+export const onField = (s: GameState, name: string) => battlefield(s).filter((c) => c.name === name);
+export const aliveOpponents = (s: GameState) => s.opponents.flatMap((o, i) => (o.deadTurn === null ? [i] : []));
+
+export function power(card: CardInstance): number {
+  const base = card.animated ? card.animated.power : def(card).power!;
+  return Math.max(0, base + (card.counters['+1/+1'] ?? 0) + card.tempPower);
+}
+
+export function toughness(card: CardInstance): number {
+  const base = card.animated ? card.animated.toughness : def(card).toughness!;
+  return base + (card.counters['+1/+1'] ?? 0);
+}
+
+export const canAttack = (card: CardInstance) =>
+  isCreature(card) && !card.tapped && (!card.sick || card.haste || hasKeyword(card, 'Haste'));
+
+export function log(s: GameState, text: string) {
+  s.log.push(`T${s.turn} ${text}`);
+}
+
+/** 誘発を積む。解決中に積まれたものは、すでに待っているものより先に解決する（スタックと同じ順） */
+export function enqueue(s: GameState, label: string, run: (s: GameState) => void) {
+  s.fresh.push({ label, run });
+}
+
+export function ask(s: GameState, prompt: Prompt) {
+  s.prompt = prompt;
+}
+
+/** 誘発を順に解決する。選択が必要になったら止まり、回答後に再開する */
+export function drain(s: GameState) {
+  s.queue.unshift(...s.fresh.splice(0));
+  while (!s.prompt && s.queue.length > 0 && s.phase !== 'over') {
+    s.queue.shift()!.run(s);
+    s.queue.unshift(...s.fresh.splice(0));
+  }
+}
+
+export function shuffleLibrary(s: GameState) {
+  [s.zones.library, s.rng] = shuffleWith(s.zones.library, s.rng);
+}
+
+export function draw(s: GameState, n: number) {
+  for (let i = 0; i < n; i++) {
+    const id = s.zones.library[0];
+    if (!id) {
+      log(s, 'ライブラリが空で引けない');
+      return;
+    }
+    moveTo(s, id, 'hand');
+  }
+}
+
+export function blankInstance(id: string, name: string, token: boolean, zone: ZoneId): CardInstance {
+  return {
+    id, name, token, zone, tapped: false, counters: {}, sick: false, haste: false, attacking: null,
+    tempPower: 0, atEnd: null, animated: null, castable: false, doors: [],
+  };
+}
+
+/** 領域の移動。trigger=false なら誘発を起こさない（編集モード） */
+export function moveTo(s: GameState, id: string, to: ZoneId, opts: { trigger?: boolean; bottom?: boolean; tapped?: boolean } = {}) {
+  const trigger = opts.trigger ?? true;
+  const card = s.cards[id];
+  const from = card.zone;
+  s.zones[from] = s.zones[from].filter((x) => x !== id);
+  if (from === 'battlefield') leaveBattlefield(s, card, to, trigger);
+  // 統率者が墓地か追放に行くなら統率領域に戻す
+  const dest: ZoneId = isCommander(card) && (to === 'graveyard' || to === 'exile') ? 'command' : to;
+  if (card.token && dest !== 'battlefield') {
+    delete s.cards[id];
+    return;
+  }
+  const moved = blankInstance(id, card.name, card.token, dest);
+  s.cards[id] = moved;
+  if (opts.bottom || dest !== 'library') s.zones[dest].push(id);
+  else s.zones[dest].unshift(id);
+  if (dest === 'battlefield') enterBattlefield(s, moved, trigger, opts.tapped ?? false);
+}
+
+function leaveBattlefield(s: GameState, card: CardInstance, to: ZoneId, trigger: boolean) {
+  if (!isLand(card)) s.flags.nonlandLeft = true;
+  if (!(trigger && isCreature(card) && to === 'graveyard')) return;
+  s.flags.creaturesDied++;
+  const wasAttacking = card.attacking !== null;
+  log(s, `${nameJa(card)} が死亡`);
+  scriptOf(card).onDies?.(s, card);
+  for (const other of battlefield(s)) scriptOf(other).onCreatureDies?.(s, other, card, wasAttacking);
+}
+
+function enterBattlefield(s: GameState, card: CardInstance, trigger: boolean, tapped: boolean) {
+  const script = scriptOf(card);
+  card.sick = true;
+  card.tapped = tapped || (trigger && (script.etbTapped?.(s, card) ?? false));
+  if (!trigger) return;
+  script.onEnter?.(s, card);
+  if (!isCreature(card)) return;
+  for (const other of battlefield(s)) {
+    if (other.id !== card.id) scriptOf(other).onCreatureEnters?.(s, other, card);
+  }
+}
+
+export function createToken(s: GameState, name: string, n: number, opts: Partial<CardInstance> = {}): CardInstance[] {
+  const made: CardInstance[] = [];
+  log(s, `${TOKENS[name].jaName}トークンを${n}体生成`);
+  for (let i = 0; i < n; i++) {
+    const id = `t${s.nextToken++}`;
+    const card = blankInstance(id, name, true, 'battlefield');
+    s.cards[id] = card;
+    s.zones.battlefield.push(id);
+    Object.assign(card, opts);
+    enterBattlefield(s, card, true, opts.tapped ?? false);
+    made.push(card);
+  }
+  return made;
+}
+
+export function sacrifice(s: GameState, id: string) {
+  log(s, `${nameJa(s.cards[id])} を生け贄に`);
+  moveTo(s, id, 'graveyard');
+}
+
+/** 対戦相手を1人選ぶ。生き残りが1人なら聞かない */
+export function chooseOpponent(s: GameState, title: string, then: (s: GameState, opp: number) => void) {
+  const alive = aliveOpponents(s);
+  if (alive.length === 1) {
+    then(s, alive[0]);
+    return;
+  }
+  ask(s, {
+    title,
+    options: alive.map((i) => ({ label: `対戦相手${i + 1}（${s.opponents[i].life}）`, value: i })),
+    min: 1,
+    max: 1,
+    resolve: (st, [v]) => then(st, v as number),
+  });
+}
+
+export function chooseCards(
+  s: GameState,
+  title: string,
+  ids: string[],
+  min: number,
+  max: number,
+  then: (s: GameState, ids: string[]) => void,
+) {
+  ask(s, {
+    title,
+    options: ids.map((id) => ({ label: nameJa(s.cards[id]), value: id })),
+    min,
+    max,
+    resolve: (st, vs) => then(st, vs as string[]),
+  });
+}
+
+export function confirm(s: GameState, title: string, then: (s: GameState) => void) {
+  ask(s, {
+    title,
+    options: [
+      { label: 'はい', value: 1 },
+      { label: 'いいえ', value: 0 },
+    ],
+    min: 1,
+    max: 1,
+    resolve: (st, [v]) => {
+      if (v === 1) then(st);
+    },
+  });
+}

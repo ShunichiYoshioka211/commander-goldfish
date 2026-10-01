@@ -12,6 +12,9 @@ import { play } from './interact';
 export function PromptModal() {
   const prompt = useStore((s) => s.game.prompt);
   const dispatch = useStore((s) => s.dispatch);
+  // ひとつ前の状態も選択待ちなら「1つ戻す」で前の選択に戻れる
+  const chained = useStore((s) => s.past.at(-1)?.prompt != null);
+  const { undo, cancel } = useStore.getState();
   const [picked, setPicked] = useState<(string | number)[]>([]);
   if (!prompt) return null;
   const single = prompt.max === 1;
@@ -51,6 +54,26 @@ export function PromptModal() {
             決定
           </button>
         )}
+        <div className="prompt-back">
+          {chained && (
+            <button
+              onClick={() => {
+                setPicked([]);
+                undo();
+              }}
+            >
+              1つ戻す
+            </button>
+          )}
+          <button
+            onClick={() => {
+              setPicked([]);
+              cancel();
+            }}
+          >
+            やめる（この操作の前に戻す）
+          </button>
+        </div>
       </div>
     </div>
   );

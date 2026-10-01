@@ -429,6 +429,14 @@ button.picked {
   padding: 16px;
 }
 
+.prompt-back {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+
 /* 選択の問い合わせは常に一番上 */
 .modal-back.prompt {
   z-index: 150;

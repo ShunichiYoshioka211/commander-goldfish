@@ -56,6 +56,8 @@ interface Store {
   dispatch: (action: Action) => void;
   undo: () => void;
   redo: () => void;
+  /** 選択の途中で、その選択を出した操作の前まで戻す（唱える・起動するのを取りやめる） */
+  cancel: () => void;
   restart: (seed?: number) => void;
   set: (patch: Partial<Pick<Store, 'editMode' | 'editTriggers' | 'images' | 'selected' | 'viewing' | 'panel' | 'toast'>>) => void;
 }
@@ -96,6 +98,13 @@ export const useStore = create<Store>((set, get) => ({
   redo: () => {
     const { past, game, future } = get();
     set({ game: future[0], past: [...past, game], future: future.slice(1) });
+  },
+  cancel: () => {
+    const { past, game, future } = get();
+    // 選択待ちでない最後の状態まで戻る。間の状態はやり直しで辿れるように future に積む
+    let i = past.length - 1;
+    while (past[i].prompt) i--;
+    set({ game: past[i], past: past.slice(0, i), future: [...past.slice(i + 1), game, ...future] });
   },
   restart: (seed = randomSeed()) => set({ game: newGame(seed), past: [], future: [], selected: null, viewing: null }),
   set: (patch) => {

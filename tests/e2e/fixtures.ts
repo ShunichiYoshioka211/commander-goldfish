@@ -18,7 +18,7 @@ export const test = base.extend<{ app: App }>({
 
 export { expect };
 
-type Snapshot = Pick<GameState, 'turn' | 'phase' | 'life' | 'zones' | 'opponents' | 'pool' | 'speed' | 'monarch' | 'landPlayed'> & {
+type Snapshot = Pick<GameState, 'turn' | 'phase' | 'life' | 'zones' | 'opponents' | 'pool' | 'speed' | 'monarch' | 'landPlayed' | 'mulligans'> & {
   cards: Record<string, { name: string; zone: ZoneId; tapped: boolean; counters: Record<string, number>; token: boolean; attacking: number | null }>;
   prompt: { title: string; options: { label: string; value: string | number }[] } | null;
 };

@@ -39,10 +39,11 @@ function TopBar() {
 
 export default function App() {
   const editMode = useStore((s) => s.editMode);
-  // Esc で手前の画面を閉じる。Ctrl+Z / Ctrl+Y で Undo / Redo
+  // Esc で選択をやめる／手前の画面を閉じる。Ctrl+Z / Ctrl+Y で Undo / Redo
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      const { selected, viewing, set } = useStore.getState();
+      const { game, selected, viewing, set, cancel } = useStore.getState();
+      if (e.key === 'Escape' && game.prompt) return cancel();
       if (e.key === 'Escape') return set(selected !== null ? { selected: null } : viewing !== null ? { viewing: null } : { panel: 'none' });
       if (!(e.ctrlKey || e.metaKey)) return;
       const { past, future, undo, redo } = useStore.getState();

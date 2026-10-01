@@ -173,6 +173,10 @@ test('右クリックはブラウザのメニューを出さずに詳細を開�
   await page.keyboard.press('Escape');
   // 右ボタンで押して離してもドラッグにならない
   await app.card(id).click({ button: 'right' });
+  await page.keyboard.press('Escape');
+  // 押下なしで離す（右ボタンの離しが届くかはブラウザ次第なので、直接起こして確かめる）
+  await app.card(id).dispatchEvent('pointerup', { bubbles: true, button: 0, pointerId: 1 });
+  await expect(page.getByRole('dialog')).toHaveCount(0);
   expect((await app.state()).cards[id].zone).toBe('hand');
 });
 

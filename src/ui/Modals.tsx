@@ -99,9 +99,7 @@ export function CardDetail() {
           {d.image && <img src={d.image.normal} alt="" className="detail-image" />}
           <div>
             <h2>{d.jaName}</h2>
-            <div className="muted">
-              {d.name} {d.manaCost}
-            </div>
+            <div className="muted">{d.manaCost}</div>
             <div>{d.typeJa}</div>
             <p className="oracle">{d.textJa}</p>
             {d.tip && <p className="note">コツ：{d.tip}</p>}

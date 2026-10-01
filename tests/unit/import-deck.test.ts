@@ -67,6 +67,11 @@ describe('Scryfall からの変換', () => {
     });
   });
 
+  it('日本語版の印刷があればその画像を使う（small と normal だけ）', () => {
+    const printed = { ...base, lang: 'ja', image_uris: { small: 'js', normal: 'jn', large: 'jl' } as never };
+    expect(toCardDef(base, { jaName: '', count: 1 }, JA, printed).image).toEqual({ small: 'js', normal: 'jn' });
+  });
+
   it('和名が無ければ英語名、P/T が * なら 0', () => {
     const def = toCardDef({ ...base, power: '*', toughness: undefined, colors: undefined }, { jaName: '', count: 1 }, JA);
     expect(def).toMatchObject({ jaName: base.name, power: 0, toughness: null, colors: ['R'] });

@@ -9,7 +9,7 @@
    "jaName": "冒涜の行動",
    "typeJa": "ソーサリー",
    "textJa": "この呪文を唱えるためのコストは、戦場にあるクリーチャー１体につき{1}少なくなる。\n冒涜の行動は各クリーチャーにそれぞれ１３点のダメージを与える。",
-   "tip": "トークンを並べたあとなら{R}だけで撃てる。Garna・Morbid Opportunist を残したまま撃つと、死んだ数だけ1点・1枚が入る（Garna は同時に死んでも誘発する）。盤面を流されそうな卓では、先に撃って打ち消しを誘うより、決めに行くターンの前に撃つのが基本",
+   "tip": "トークンを並べたあとなら{R}だけで撃てる。ガルナ・病的な日和見主義者を残したまま撃つと、死んだ数だけ1点・1枚が入る（ガルナは同時に死んでも誘発する）。盤面を流されそうな卓では、先に撃って打ち消しを誘うより、決めに行くターンの前に撃つのが基本",
    "count": 1,
    "manaCost": "{8}{R}",
    "cmc": 9,
@@ -23,17 +23,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.jpg?1783903234",
-    "normal": "https://cards.scryfall.io/normal/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.jpg?1783903234",
-    "large": "https://cards.scryfall.io/large/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.jpg?1783903234",
-    "png": "https://cards.scryfall.io/png/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.png?1783903234",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.jpg?1783903234",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.jpg?1783903234",
-    "thumb": "https://cards.scryfall.io/thumb/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.webp?1783903234",
-    "grid": "https://cards.scryfall.io/grid/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.webp?1783903234",
-    "display": "https://cards.scryfall.io/display/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.webp?1783903234",
-    "art": "https://cards.scryfall.io/art/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.webp?1783903234",
-    "crop": "https://cards.scryfall.io/crop/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.webp?1783903234"
+    "small": "https://cards.scryfall.io/small/front/3/9/39fe829a-c773-45c0-bbae-b4905291d466.jpg?1785263621",
+    "normal": "https://cards.scryfall.io/normal/front/3/9/39fe829a-c773-45c0-bbae-b4905291d466.jpg?1785263621"
    }
   },
   {
@@ -55,17 +46,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.jpg?1783911834",
-    "normal": "https://cards.scryfall.io/normal/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.jpg?1783911834",
-    "large": "https://cards.scryfall.io/large/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.jpg?1783911834",
-    "png": "https://cards.scryfall.io/png/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.png?1783911834",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.jpg?1783911834",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.jpg?1783911834",
-    "thumb": "https://cards.scryfall.io/thumb/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.webp?1783911834",
-    "grid": "https://cards.scryfall.io/grid/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.webp?1783911834",
-    "display": "https://cards.scryfall.io/display/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.webp?1783911834",
-    "art": "https://cards.scryfall.io/art/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.webp?1783911834",
-    "crop": "https://cards.scryfall.io/crop/front/8/0/8046f892-3317-4ef7-9cf7-97b9060540c8.webp?1783911834"
+    "small": "https://cards.scryfall.io/small/front/3/a/3ac2ab4c-c72b-4d6a-871d-ecbe1d1f7f60.jpg?1782797206",
+    "normal": "https://cards.scryfall.io/normal/front/3/a/3ac2ab4c-c72b-4d6a-871d-ecbe1d1f7f60.jpg?1782797206"
    }
   },
   {
@@ -73,7 +55,7 @@
    "jaName": "波止場の料理人",
    "typeJa": "クリーチャー・エンチャント — 人間・市民",
    "textJa": "{1}{B}, アーティファクトやクリーチャーのうち１つを生け贄に捧げる：カード１枚を引く。",
-   "tip": "何度でも使える生け贄先。Garna と並べると、生け贄1回ごとに1点＋1枚。宝物・地図・一時トークンを最後に換金する用途にも",
+   "tip": "何度でも使える生け贄先。ガルナと並べると、生け贄1回ごとに1点＋1枚。宝物・地図・一時トークンを最後に換金する用途にも",
    "count": 1,
    "manaCost": "{B}",
    "cmc": 1,
@@ -87,17 +69,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.jpg?1783923888",
-    "normal": "https://cards.scryfall.io/normal/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.jpg?1783923888",
-    "large": "https://cards.scryfall.io/large/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.jpg?1783923888",
-    "png": "https://cards.scryfall.io/png/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.png?1783923888",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.jpg?1783923888",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.jpg?1783923888",
-    "thumb": "https://cards.scryfall.io/thumb/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.webp?1783923888",
-    "grid": "https://cards.scryfall.io/grid/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.webp?1783923888",
-    "display": "https://cards.scryfall.io/display/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.webp?1783923888",
-    "art": "https://cards.scryfall.io/art/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.webp?1783923888",
-    "crop": "https://cards.scryfall.io/crop/front/d/8/d80100c3-c81e-4084-8dfe-f8610637fd91.webp?1783923888"
+    "small": "https://cards.scryfall.io/small/front/8/7/87624a32-95bd-418e-ac6e-e14361771070.jpg?1782862525",
+    "normal": "https://cards.scryfall.io/normal/front/8/7/87624a32-95bd-418e-ac6e-e14361771070.jpg?1782862525"
    }
   },
   {
@@ -105,7 +78,7 @@
    "jaName": "咆吼部隊の重量級",
    "typeJa": "クリーチャー — ゴブリン・傭兵",
    "textJa": "エンジン始動！\nあなたがコントロールしていてこれでないすべてのゴブリンは速攻を持つ。\nあなたのターンの戦闘の開始時に、赤の１/１のゴブリン・クリーチャー・トークン１体を生成する。この戦闘で、そのトークンは可能なら攻撃する。\n最高速度 — {T}：あなたがコントロールしているゴブリン１体につき{R}を加える。",
-   "tip": "出したターンから毎ターンゴブリンが1体増え、その場で殴れる（Ingris の攻撃時1点が乗る）。最高速度になるとゴブリンの数だけ{R}が出るので、Blasphemous Act や重い呪文の燃料になる",
+   "tip": "出したターンから毎ターンゴブリンが1体増え、その場で殴れる（イングリスの攻撃時1点が乗る）。最高速度になるとゴブリンの数だけ{R}が出るので、冒涜の行動や重い呪文の燃料になる",
    "count": 1,
    "manaCost": "{2}{R}",
    "cmc": 3,
@@ -124,17 +97,8 @@
     "Start your engines!"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.jpg?1783907881",
-    "normal": "https://cards.scryfall.io/normal/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.jpg?1783907881",
-    "large": "https://cards.scryfall.io/large/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.jpg?1783907881",
-    "png": "https://cards.scryfall.io/png/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.png?1783907881",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.jpg?1783907881",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.jpg?1783907881",
-    "thumb": "https://cards.scryfall.io/thumb/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.webp?1783907881",
-    "grid": "https://cards.scryfall.io/grid/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.webp?1783907881",
-    "display": "https://cards.scryfall.io/display/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.webp?1783907881",
-    "art": "https://cards.scryfall.io/art/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.webp?1783907881",
-    "crop": "https://cards.scryfall.io/crop/front/d/f/df582f80-7b9a-4f71-95a9-70548ec7d2d7.webp?1783907881"
+    "small": "https://cards.scryfall.io/small/front/4/1/415bcf6b-4b30-46d8-8eb0-612512a8fa55.jpg?1782777998",
+    "normal": "https://cards.scryfall.io/normal/front/4/1/415bcf6b-4b30-46d8-8eb0-612512a8fa55.jpg?1782777998"
    }
   },
   {
@@ -142,7 +106,7 @@
    "jaName": "忠実な弟子",
    "typeJa": "クリーチャー — 人間・工匠",
    "textJa": "速攻\n副官 ― あなたのターンの戦闘の開始時に、あなたがあなたの統率者をコントロールしている場合、飛行を持つ無色の１/１の飛行機械・アーティファクト・クリーチャー・トークン１体を生成する。ターン終了時まで、そのトークンは速攻を得る。",
-   "tip": "Ingris を出したあとに置く。飛行機械はアーティファクトなので Mechanized Warfare と Weftstalker Ardent の両方に乗る",
+   "tip": "イングリスを出したあとに置く。飛行機械はアーティファクトなので機械化戦と虚空間追いの情熱家の両方に乗る",
    "count": 1,
    "manaCost": "{1}{R}",
    "cmc": 2,
@@ -159,17 +123,8 @@
     "Lieutenant"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.jpg?1783907066",
-    "normal": "https://cards.scryfall.io/normal/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.jpg?1783907066",
-    "large": "https://cards.scryfall.io/large/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.jpg?1783907066",
-    "png": "https://cards.scryfall.io/png/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.png?1783907066",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.jpg?1783907066",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.jpg?1783907066",
-    "thumb": "https://cards.scryfall.io/thumb/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.webp?1783907066",
-    "grid": "https://cards.scryfall.io/grid/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.webp?1783907066",
-    "display": "https://cards.scryfall.io/display/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.webp?1783907066",
-    "art": "https://cards.scryfall.io/art/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.webp?1783907066",
-    "crop": "https://cards.scryfall.io/crop/front/d/4/d4d469ea-824b-4eff-82e8-2a0b9b4c0e2d.webp?1783907066"
+    "small": "https://cards.scryfall.io/small/front/8/a/8ae52027-371b-44d5-8218-1da1d65e828c.jpg?1782773497",
+    "normal": "https://cards.scryfall.io/normal/front/8/a/8ae52027-371b-44d5-8218-1da1d65e828c.jpg?1782773497"
    }
   },
   {
@@ -191,17 +146,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg?1785981666",
-    "normal": "https://cards.scryfall.io/normal/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg?1785981666",
-    "large": "https://cards.scryfall.io/large/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg?1785981666",
-    "png": "https://cards.scryfall.io/png/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.png?1785981666",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg?1785981666",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg?1785981666",
-    "thumb": "https://cards.scryfall.io/thumb/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.webp?1785981666",
-    "grid": "https://cards.scryfall.io/grid/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.webp?1785981666",
-    "display": "https://cards.scryfall.io/display/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.webp?1785981666",
-    "art": "https://cards.scryfall.io/art/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.webp?1785981666",
-    "crop": "https://cards.scryfall.io/crop/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.webp?1785981666"
+    "small": "https://cards.scryfall.io/small/front/d/4/d47cf6fe-6ad6-4755-bd2d-1ba125419626.jpg?1790689039",
+    "normal": "https://cards.scryfall.io/normal/front/d/4/d47cf6fe-6ad6-4755-bd2d-1ba125419626.jpg?1790689039"
    }
   },
   {
@@ -223,17 +169,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.jpg?1785497515",
-    "normal": "https://cards.scryfall.io/normal/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.jpg?1785497515",
-    "large": "https://cards.scryfall.io/large/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.jpg?1785497515",
-    "png": "https://cards.scryfall.io/png/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.png?1785497515",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.jpg?1785497515",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.jpg?1785497515",
-    "thumb": "https://cards.scryfall.io/thumb/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.webp?1785497515",
-    "grid": "https://cards.scryfall.io/grid/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.webp?1785497515",
-    "display": "https://cards.scryfall.io/display/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.webp?1785497515",
-    "art": "https://cards.scryfall.io/art/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.webp?1785497515",
-    "crop": "https://cards.scryfall.io/crop/front/e/8/e8399c2e-ecc8-41c9-a690-a0eeafb27f77.webp?1785497515"
+    "small": "https://cards.scryfall.io/small/front/d/f/dff6f090-824e-482e-93ff-18998f1a91f2.jpg?1786552016",
+    "normal": "https://cards.scryfall.io/normal/front/d/f/dff6f090-824e-482e-93ff-18998f1a91f2.jpg?1786552016"
    }
   },
   {
@@ -241,7 +178,7 @@
    "jaName": "ラクドスの印鑑",
    "typeJa": "アーティファクト",
    "textJa": "{1}, {T}：{B}{R}を加える。",
-   "tip": "2ターン目に置けば3ターン目に4マナ（Court of Embereth・Garna）。このアプリの自動支払いでは「{B}か{R}を1つ出す」とみなす。{B}{R}が両方要るときは詳細から手動でタップする",
+   "tip": "2ターン目に置けば3ターン目に4マナ（エンバレスの宮廷・ガルナ）。このアプリの自動支払いでは「{B}か{R}を1つ出す」とみなす。{B}{R}が両方要るときは詳細から手動でタップする",
    "count": 1,
    "manaCost": "{2}",
    "cmc": 2,
@@ -256,17 +193,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.jpg?1789599847",
-    "normal": "https://cards.scryfall.io/normal/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.jpg?1789599847",
-    "large": "https://cards.scryfall.io/large/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.jpg?1789599847",
-    "png": "https://cards.scryfall.io/png/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.png?1789599847",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.jpg?1789599847",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.jpg?1789599847",
-    "thumb": "https://cards.scryfall.io/thumb/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.webp?1789599847",
-    "grid": "https://cards.scryfall.io/grid/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.webp?1789599847",
-    "display": "https://cards.scryfall.io/display/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.webp?1789599847",
-    "art": "https://cards.scryfall.io/art/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.webp?1789599847",
-    "crop": "https://cards.scryfall.io/crop/front/a/2/a263e71d-953f-4648-b326-33133cfa7e00.webp?1789599847"
+    "small": "https://cards.scryfall.io/small/front/8/0/80bba78f-aea7-4316-b262-bc8506a6f203.jpg?1790693926",
+    "normal": "https://cards.scryfall.io/normal/front/8/0/80bba78f-aea7-4316-b262-bc8506a6f203.jpg?1790693926"
    }
   },
   {
@@ -288,17 +216,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446",
-    "normal": "https://cards.scryfall.io/normal/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446",
-    "large": "https://cards.scryfall.io/large/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446",
-    "png": "https://cards.scryfall.io/png/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.png?1789644446",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446",
-    "thumb": "https://cards.scryfall.io/thumb/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.webp?1789644446",
-    "grid": "https://cards.scryfall.io/grid/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.webp?1789644446",
-    "display": "https://cards.scryfall.io/display/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.webp?1789644446",
-    "art": "https://cards.scryfall.io/art/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.webp?1789644446",
-    "crop": "https://cards.scryfall.io/crop/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.webp?1789644446"
+    "small": "https://cards.scryfall.io/small/front/7/f/7fd5ddd1-46c6-4931-b70a-82af956b90c8.jpg?1790692807",
+    "normal": "https://cards.scryfall.io/normal/front/7/f/7fd5ddd1-46c6-4931-b70a-82af956b90c8.jpg?1790692807"
    }
   },
   {
@@ -322,17 +241,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.jpg?1789599923",
-    "normal": "https://cards.scryfall.io/normal/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.jpg?1789599923",
-    "large": "https://cards.scryfall.io/large/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.jpg?1789599923",
-    "png": "https://cards.scryfall.io/png/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.png?1789599923",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.jpg?1789599923",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.jpg?1789599923",
-    "thumb": "https://cards.scryfall.io/thumb/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.webp?1789599923",
-    "grid": "https://cards.scryfall.io/grid/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.webp?1789599923",
-    "display": "https://cards.scryfall.io/display/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.webp?1789599923",
-    "art": "https://cards.scryfall.io/art/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.webp?1789599923",
-    "crop": "https://cards.scryfall.io/crop/front/b/e/be340a1c-f1e7-446e-ae91-86ecb884479c.webp?1789599923"
+    "small": "https://cards.scryfall.io/small/front/5/e/5ee6e4a6-165f-45c8-8a53-21728bed3113.jpg?1790694837",
+    "normal": "https://cards.scryfall.io/normal/front/5/e/5ee6e4a6-165f-45c8-8a53-21728bed3113.jpg?1790694837"
    }
   },
   {
@@ -340,7 +250,7 @@
    "jaName": "耽溺のタリスマン",
    "typeJa": "アーティファクト",
    "textJa": "{T}：{C}を加える。\n{T}：{B}か{R}を加える。このアーティファクトはあなたに１点のダメージを与える。",
-   "tip": "2マナのマナ加速。Sulfurous Springs と同じく、色を出すときだけ1点",
+   "tip": "2マナのマナ加速。硫黄泉と同じく、色を出すときだけ1点",
    "count": 1,
    "manaCost": "{2}",
    "cmc": 2,
@@ -356,17 +266,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.jpg?1789599847",
-    "normal": "https://cards.scryfall.io/normal/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.jpg?1789599847",
-    "large": "https://cards.scryfall.io/large/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.jpg?1789599847",
-    "png": "https://cards.scryfall.io/png/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.png?1789599847",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.jpg?1789599847",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.jpg?1789599847",
-    "thumb": "https://cards.scryfall.io/thumb/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.webp?1789599847",
-    "grid": "https://cards.scryfall.io/grid/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.webp?1789599847",
-    "display": "https://cards.scryfall.io/display/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.webp?1789599847",
-    "art": "https://cards.scryfall.io/art/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.webp?1789599847",
-    "crop": "https://cards.scryfall.io/crop/front/3/6/36bd614f-ab3b-4ad1-ab5c-a7ca0a641f32.webp?1789599847"
+    "small": "https://cards.scryfall.io/small/front/d/9/d9abaa49-80e2-4bb9-8e46-7aa0ded7f5d6.jpg?1790694042",
+    "normal": "https://cards.scryfall.io/normal/front/d/9/d9abaa49-80e2-4bb9-8e46-7aa0ded7f5d6.jpg?1790694042"
    }
   },
   {
@@ -374,7 +275,7 @@
    "jaName": "虚空間追いの情熱家",
    "typeJa": "クリーチャー — ドリックス・工匠",
    "textJa": "あなたがコントロールしていてこれでないクリーチャーやアーティファクト１つが戦場に出るたび、このクリーチャーは各対戦相手にそれぞれ１点のダメージを与える。\nワープ{R}（あなたはこのカードをあなたの手札からワープ・コストで唱えてもよい。次の終了ステップの開始時にこのクリーチャーを追放する。その後、後のターンにあなたはこのカードを追放領域から唱えてもよい。）",
-   "tip": "宝物・地図・飛行機械などアーティファクトでも誘発する。トークンを大量に出すターンに{R}でワープすれば1マナで数点稼げ、次のターン以降に追放から普通に唱え直せる。ワープして戻ると Elegy Acolyte の虚空も満たす",
+   "tip": "宝物・地図・飛行機械などアーティファクトでも誘発する。トークンを大量に出すターンに{R}でワープすれば1マナで数点稼げ、次のターン以降に追放から普通に唱え直せる。ワープして戻るとエレジーの見習いの虚空も満たす",
    "count": 1,
    "manaCost": "{2}{R}",
    "cmc": 3,
@@ -390,17 +291,8 @@
     "Warp"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.jpg?1783905943",
-    "normal": "https://cards.scryfall.io/normal/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.jpg?1783905943",
-    "large": "https://cards.scryfall.io/large/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.jpg?1783905943",
-    "png": "https://cards.scryfall.io/png/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.png?1783905943",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.jpg?1783905943",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.jpg?1783905943",
-    "thumb": "https://cards.scryfall.io/thumb/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.webp?1783905943",
-    "grid": "https://cards.scryfall.io/grid/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.webp?1783905943",
-    "display": "https://cards.scryfall.io/display/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.webp?1783905943",
-    "art": "https://cards.scryfall.io/art/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.webp?1783905943",
-    "crop": "https://cards.scryfall.io/crop/front/c/d/cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4.webp?1783905943"
+    "small": "https://cards.scryfall.io/small/front/c/f/cf1e5ef5-c47b-4490-b673-f21103406c01.jpg?1782767306",
+    "normal": "https://cards.scryfall.io/normal/front/c/f/cf1e5ef5-c47b-4490-b673-f21103406c01.jpg?1782767306"
    }
   },
   {
@@ -408,7 +300,7 @@
    "jaName": "萎縮させる責め苦",
    "typeJa": "インスタント",
    "textJa": "エンチャントやクリーチャーである１つを対象とする。それを破壊する。あなたは２点のライフを失う。",
-   "tip": "対戦相手の邪魔なクリーチャー・エンチャントへの除去。一人回しでは基本的に使わないが、自分のクリーチャーを壊して Garna を誘発させることはできる（編集モードで処理）",
+   "tip": "対戦相手の邪魔なクリーチャー・エンチャントへの除去。一人回しでは基本的に使わないが、自分のクリーチャーを壊してガルナを誘発させることはできる（編集モードで処理）",
    "count": 1,
    "manaCost": "{2}{B}",
    "cmc": 3,
@@ -422,17 +314,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.jpg?1783903235",
-    "normal": "https://cards.scryfall.io/normal/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.jpg?1783903235",
-    "large": "https://cards.scryfall.io/large/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.jpg?1783903235",
-    "png": "https://cards.scryfall.io/png/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.png?1783903235",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.jpg?1783903235",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.jpg?1783903235",
-    "thumb": "https://cards.scryfall.io/thumb/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.webp?1783903235",
-    "grid": "https://cards.scryfall.io/grid/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.webp?1783903235",
-    "display": "https://cards.scryfall.io/display/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.webp?1783903235",
-    "art": "https://cards.scryfall.io/art/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.webp?1783903235",
-    "crop": "https://cards.scryfall.io/crop/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.webp?1783903235"
+    "small": "https://cards.scryfall.io/small/front/7/b/7b714b74-e819-4936-b8e0-f6563425a567.jpg?1785263572",
+    "normal": "https://cards.scryfall.io/normal/front/7/b/7b714b74-e819-4936-b8e0-f6563425a567.jpg?1785263572"
    }
   },
   {
@@ -440,7 +323,7 @@
    "jaName": "祭壇の刈り取り",
    "typeJa": "インスタント",
    "textJa": "この呪文を唱えるための追加コストとして、クリーチャー１体を生け贄に捧げる。\nカード２枚を引く。",
-   "tip": "攻撃中のトークンを戦闘ダメージのあとに生け贄にすると、Garna で1枚ずつ追加で引ける。消える予定の一時トークンを食べるのが一番得",
+   "tip": "攻撃中のトークンを戦闘ダメージのあとに生け贄にすると、ガルナで1枚ずつ追加で引ける。消える予定の一時トークンを食べるのが一番得",
    "count": 1,
    "manaCost": "{1}{B}",
    "cmc": 2,
@@ -454,17 +337,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.jpg?1783936293",
-    "normal": "https://cards.scryfall.io/normal/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.jpg?1783936293",
-    "large": "https://cards.scryfall.io/large/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.jpg?1783936293",
-    "png": "https://cards.scryfall.io/png/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.png?1783936293",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.jpg?1783936293",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.jpg?1783936293",
-    "thumb": "https://cards.scryfall.io/thumb/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.webp?1783936293",
-    "grid": "https://cards.scryfall.io/grid/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.webp?1783936293",
-    "display": "https://cards.scryfall.io/display/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.webp?1783936293",
-    "art": "https://cards.scryfall.io/art/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.webp?1783936293",
-    "crop": "https://cards.scryfall.io/crop/front/1/d/1db55625-25a5-46eb-9d9c-9b3ed219359f.webp?1783936293"
+    "small": "https://cards.scryfall.io/small/front/d/4/d419dfd9-120f-491c-ad21-2bbf7885a2e4.jpg?1782949490",
+    "normal": "https://cards.scryfall.io/normal/front/d/4/d419dfd9-120f-491c-ad21-2bbf7885a2e4.jpg?1782949490"
    }
   },
   {
@@ -490,17 +364,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
-    "normal": "https://cards.scryfall.io/normal/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
-    "large": "https://cards.scryfall.io/large/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
-    "png": "https://cards.scryfall.io/png/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.png?1789644435",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
-    "thumb": "https://cards.scryfall.io/thumb/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.webp?1789644435",
-    "grid": "https://cards.scryfall.io/grid/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.webp?1789644435",
-    "display": "https://cards.scryfall.io/display/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.webp?1789644435",
-    "art": "https://cards.scryfall.io/art/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.webp?1789644435",
-    "crop": "https://cards.scryfall.io/crop/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.webp?1789644435"
+    "small": "https://cards.scryfall.io/small/front/f/7/f74a8bbd-6ce5-4288-9897-2c7893bb5df4.jpg?1790692779",
+    "normal": "https://cards.scryfall.io/normal/front/f/7/f74a8bbd-6ce5-4288-9897-2c7893bb5df4.jpg?1790692779"
    }
   },
   {
@@ -522,17 +387,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.jpg?1783907094",
-    "normal": "https://cards.scryfall.io/normal/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.jpg?1783907094",
-    "large": "https://cards.scryfall.io/large/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.jpg?1783907094",
-    "png": "https://cards.scryfall.io/png/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.png?1783907094",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.jpg?1783907094",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.jpg?1783907094",
-    "thumb": "https://cards.scryfall.io/thumb/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.webp?1783907094",
-    "grid": "https://cards.scryfall.io/grid/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.webp?1783907094",
-    "display": "https://cards.scryfall.io/display/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.webp?1783907094",
-    "art": "https://cards.scryfall.io/art/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.webp?1783907094",
-    "crop": "https://cards.scryfall.io/crop/front/c/5/c5333556-eea2-41ae-833e-007b9d540700.webp?1783907094"
+    "small": "https://cards.scryfall.io/small/front/0/4/045bd230-cb28-45b1-a580-9d037cc763b1.jpg?1782760145",
+    "normal": "https://cards.scryfall.io/normal/front/0/4/045bd230-cb28-45b1-a580-9d037cc763b1.jpg?1782760145"
    }
   },
   {
@@ -555,17 +411,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.jpg?1783909578",
-    "normal": "https://cards.scryfall.io/normal/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.jpg?1783909578",
-    "large": "https://cards.scryfall.io/large/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.jpg?1783909578",
-    "png": "https://cards.scryfall.io/png/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.png?1783909578",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.jpg?1783909578",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.jpg?1783909578",
-    "thumb": "https://cards.scryfall.io/thumb/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.webp?1783909578",
-    "grid": "https://cards.scryfall.io/grid/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.webp?1783909578",
-    "display": "https://cards.scryfall.io/display/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.webp?1783909578",
-    "art": "https://cards.scryfall.io/art/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.webp?1783909578",
-    "crop": "https://cards.scryfall.io/crop/front/f/7/f75715ce-744f-409c-aeb1-e66eb9186a74.webp?1783909578"
+    "small": "https://cards.scryfall.io/small/front/1/c/1c9433d8-8a7e-4aaa-9136-4d72e36bc6bd.jpg?1782786092",
+    "normal": "https://cards.scryfall.io/normal/front/1/c/1c9433d8-8a7e-4aaa-9136-4d72e36bc6bd.jpg?1782786092"
    }
   },
   {
@@ -573,7 +420,7 @@
    "jaName": "炎の侍祭、チャンドラ",
    "typeJa": "伝説のプレインズウォーカー — チャンドラ",
    "textJa": "0：あなたがコントロールしている赤の各プレインズウォーカーの上に忠誠カウンターをそれぞれ１個置く。\n0：赤の１/１のエレメンタル・クリーチャー・トークンを２体生成する。それらは速攻を得る。次の終了ステップの開始時に、それらを生け贄に捧げる。\n-2：あなたの墓地から点数で見たマナ・コストが３以下でインスタントかソーサリーであるカード１枚を対象とする。あなたはそれを唱えてもよい。このターン、そのカードがあなたの墓地に置かれるなら、代わりにそれを追放する。",
-   "tip": "毎ターン、速攻エレメンタル2体。展開時バーン2回＋攻撃で Ingris 2回＋終了時の生け贄で Garna 2回と、1回の起動で何度も誘発する。−2は生け贄ドロー呪文の再利用に（このアプリでは手動）",
+   "tip": "毎ターン、速攻エレメンタル2体。展開時バーン2回＋攻撃でイングリス 2回＋終了時の生け贄でガルナ 2回と、1回の起動で何度も誘発する。−2は生け贄ドロー呪文の再利用に（このアプリでは手動）",
    "count": 1,
    "manaCost": "{1}{R}{R}",
    "cmc": 3,
@@ -587,17 +434,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.jpg?1783932984",
-    "normal": "https://cards.scryfall.io/normal/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.jpg?1783932984",
-    "large": "https://cards.scryfall.io/large/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.jpg?1783932984",
-    "png": "https://cards.scryfall.io/png/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.png?1783932984",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.jpg?1783932984",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.jpg?1783932984",
-    "thumb": "https://cards.scryfall.io/thumb/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.webp?1783932984",
-    "grid": "https://cards.scryfall.io/grid/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.webp?1783932984",
-    "display": "https://cards.scryfall.io/display/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.webp?1783932984",
-    "art": "https://cards.scryfall.io/art/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.webp?1783932984",
-    "crop": "https://cards.scryfall.io/crop/front/2/c/2cabfcfe-012e-4cab-bba2-24052eac0946.webp?1783932984"
+    "small": "https://cards.scryfall.io/small/front/0/6/06168669-07ae-4b5b-9591-b3a10a42f8ca.jpg?1782917427",
+    "normal": "https://cards.scryfall.io/normal/front/0/6/06168669-07ae-4b5b-9591-b3a10a42f8ca.jpg?1782917427"
    }
   },
   {
@@ -621,17 +459,8 @@
     "Trample"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.jpg?1783930694",
-    "normal": "https://cards.scryfall.io/normal/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.jpg?1783930694",
-    "large": "https://cards.scryfall.io/large/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.jpg?1783930694",
-    "png": "https://cards.scryfall.io/png/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.png?1783930694",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.jpg?1783930694",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.jpg?1783930694",
-    "thumb": "https://cards.scryfall.io/thumb/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.webp?1783930694",
-    "grid": "https://cards.scryfall.io/grid/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.webp?1783930694",
-    "display": "https://cards.scryfall.io/display/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.webp?1783930694",
-    "art": "https://cards.scryfall.io/art/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.webp?1783930694",
-    "crop": "https://cards.scryfall.io/crop/front/e/d/ed875705-b7b6-4464-b16f-61629ffed04f.webp?1783930694"
+    "small": "https://cards.scryfall.io/small/front/5/4/548c3bdc-f203-4b7f-8e10-71de7c2df7ef.jpg?1782905186",
+    "normal": "https://cards.scryfall.io/normal/front/5/4/548c3bdc-f203-4b7f-8e10-71de7c2df7ef.jpg?1782905186"
    }
   },
   {
@@ -657,17 +486,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
-    "normal": "https://cards.scryfall.io/normal/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
-    "large": "https://cards.scryfall.io/large/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
-    "png": "https://cards.scryfall.io/png/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.png?1789644465",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
-    "thumb": "https://cards.scryfall.io/thumb/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.webp?1789644465",
-    "grid": "https://cards.scryfall.io/grid/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.webp?1789644465",
-    "display": "https://cards.scryfall.io/display/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.webp?1789644465",
-    "art": "https://cards.scryfall.io/art/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.webp?1789644465",
-    "crop": "https://cards.scryfall.io/crop/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.webp?1789644465"
+    "small": "https://cards.scryfall.io/small/front/8/5/85de77c8-c0b5-4107-8c5e-081042e13b0f.jpg?1790692831",
+    "normal": "https://cards.scryfall.io/normal/front/8/5/85de77c8-c0b5-4107-8c5e-081042e13b0f.jpg?1790692831"
    }
   },
   {
@@ -689,17 +509,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.jpg?1783930185",
-    "normal": "https://cards.scryfall.io/normal/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.jpg?1783930185",
-    "large": "https://cards.scryfall.io/large/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.jpg?1783930185",
-    "png": "https://cards.scryfall.io/png/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.png?1783930185",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.jpg?1783930185",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.jpg?1783930185",
-    "thumb": "https://cards.scryfall.io/thumb/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.webp?1783930185",
-    "grid": "https://cards.scryfall.io/grid/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.webp?1783930185",
-    "display": "https://cards.scryfall.io/display/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.webp?1783930185",
-    "art": "https://cards.scryfall.io/art/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.webp?1783930185",
-    "crop": "https://cards.scryfall.io/crop/front/5/9/598405fd-02d2-4bf8-b241-7a2ae6338913.webp?1783930185"
+    "small": "https://cards.scryfall.io/small/front/5/d/5df813f0-1790-4977-b121-872d07c96f77.jpg?1782903391",
+    "normal": "https://cards.scryfall.io/normal/front/5/d/5df813f0-1790-4977-b121-872d07c96f77.jpg?1782903391"
    }
   },
   {
@@ -707,7 +518,7 @@
    "jaName": "エンバレスの宮廷",
    "typeJa": "エンチャント",
    "textJa": "エンバレスの宮廷が戦場に出たとき、あなたが統治者になる。\nあなたのアップキープの開始時に、赤の３/１の騎士・クリーチャー・トークン１体を生成する。その後、あなたが統治者なら、エンバレスの宮廷は各対戦相手にそれぞれＸ点のダメージを与える。Ｘはあなたがコントロールしているクリーチャーの数に等しい。",
-   "tip": "このデッキの最大の打点源。クリーチャー数ぶん×3人に入るので、トークンを並べた翌アップキープが山場。Torbran 下では各相手に「数＋2」点。統治者を奪われた想定は編集モードで外す",
+   "tip": "このデッキの最大の打点源。クリーチャー数ぶん×3人に入るので、トークンを並べた翌アップキープが山場。トーブラン下では各相手に「数＋2」点。統治者を奪われた想定は編集モードで外す",
    "count": 1,
    "manaCost": "{2}{R}{R}",
    "cmc": 4,
@@ -721,17 +532,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.jpg?1787701612",
-    "normal": "https://cards.scryfall.io/normal/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.jpg?1787701612",
-    "large": "https://cards.scryfall.io/large/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.jpg?1787701612",
-    "png": "https://cards.scryfall.io/png/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.png?1787701612",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.jpg?1787701612",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.jpg?1787701612",
-    "thumb": "https://cards.scryfall.io/thumb/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.webp?1787701612",
-    "grid": "https://cards.scryfall.io/grid/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.webp?1787701612",
-    "display": "https://cards.scryfall.io/display/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.webp?1787701612",
-    "art": "https://cards.scryfall.io/art/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.webp?1787701612",
-    "crop": "https://cards.scryfall.io/crop/front/a/a/aa68004f-66b6-460e-836c-05e8acd8651f.webp?1787701612"
+    "small": "https://cards.scryfall.io/small/front/3/8/381600e6-55c6-4f8e-941c-b59609409d96.jpg?1782812784",
+    "normal": "https://cards.scryfall.io/normal/front/3/8/381600e6-55c6-4f8e-941c-b59609409d96.jpg?1782812784"
    }
   },
   {
@@ -739,7 +541,7 @@
    "jaName": "果敢な海賊行為",
    "typeJa": "エンチャント",
    "textJa": "あなたのターンの戦闘の開始時に、威迫と速攻を持つ赤の１/１の海賊・クリーチャー・トークン１体を生成する。次の終了ステップの開始時に、それを追放する。",
-   "tip": "毎ターン、展開時バーン1回＋攻撃して Ingris 1回。海賊なので Francisco の探検も起こす。終了時は追放（死亡ではない）なので Garna は誘発しない。消える前に生け贄ドローで食べるとよい",
+   "tip": "毎ターン、展開時バーン1回＋攻撃してイングリス 1回。海賊なのでフランシスコの探検も起こす。終了時は追放（死亡ではない）なのでガルナは誘発しない。消える前に生け贄ドローで食べるとよい",
    "count": 1,
    "manaCost": "{2}{R}",
    "cmc": 3,
@@ -753,17 +555,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.jpg?1783919183",
-    "normal": "https://cards.scryfall.io/normal/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.jpg?1783919183",
-    "large": "https://cards.scryfall.io/large/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.jpg?1783919183",
-    "png": "https://cards.scryfall.io/png/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.png?1783919183",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.jpg?1783919183",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.jpg?1783919183",
-    "thumb": "https://cards.scryfall.io/thumb/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.webp?1783919183",
-    "grid": "https://cards.scryfall.io/grid/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.webp?1783919183",
-    "display": "https://cards.scryfall.io/display/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.webp?1783919183",
-    "art": "https://cards.scryfall.io/art/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.webp?1783919183",
-    "crop": "https://cards.scryfall.io/crop/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.webp?1783919183"
+    "small": "https://cards.scryfall.io/small/front/9/3/93461f8f-c4b8-400c-a928-6f3550918359.jpg?1782837306",
+    "normal": "https://cards.scryfall.io/normal/front/9/3/93461f8f-c4b8-400c-a928-6f3550918359.jpg?1782837306"
    }
   },
   {
@@ -787,17 +580,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.jpg?1783902885",
-    "normal": "https://cards.scryfall.io/normal/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.jpg?1783902885",
-    "large": "https://cards.scryfall.io/large/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.jpg?1783902885",
-    "png": "https://cards.scryfall.io/png/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.png?1783902885",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.jpg?1783902885",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.jpg?1783902885",
-    "thumb": "https://cards.scryfall.io/thumb/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.webp?1783902885",
-    "grid": "https://cards.scryfall.io/grid/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.webp?1783902885",
-    "display": "https://cards.scryfall.io/display/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.webp?1783902885",
-    "art": "https://cards.scryfall.io/art/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.webp?1783902885",
-    "crop": "https://cards.scryfall.io/crop/front/c/1/c16fd43c-7c47-4c1b-860f-91146532e89d.webp?1783902885"
+    "small": "https://cards.scryfall.io/small/front/5/0/5013b3d9-4d5c-4a1d-b01b-e1d07303a607.jpg?1785274885",
+    "normal": "https://cards.scryfall.io/normal/front/5/0/5013b3d9-4d5c-4a1d-b01b-e1d07303a607.jpg?1785274885"
    }
   },
   {
@@ -805,7 +589,7 @@
    "jaName": "命取りの論争",
    "typeJa": "インスタント",
    "textJa": "この呪文を唱えるための追加コストとして、アーティファクトやクリーチャーである１つを生け贄に捧げる。\nカード２枚を引き、宝物・トークン１つを生成する。（それは、「{T}, このトークンを生け贄に捧げる：好きな色１色のマナ１点を加える。」を持つアーティファクトである。）",
-   "tip": "実質1マナで2ドロー。出た宝物は次の生け贄ドローの餌にもなる。宝物の生成で Weftstalker Ardent が誘発する",
+   "tip": "実質1マナで2ドロー。出た宝物は次の生け贄ドローの餌にもなる。宝物の生成で虚空間追いの情熱家が誘発する",
    "count": 1,
    "manaCost": "{1}{B}",
    "cmc": 2,
@@ -827,17 +611,8 @@
     "Treasure"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.jpg?1783903013",
-    "normal": "https://cards.scryfall.io/normal/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.jpg?1783903013",
-    "large": "https://cards.scryfall.io/large/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.jpg?1783903013",
-    "png": "https://cards.scryfall.io/png/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.png?1783903013",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.jpg?1783903013",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.jpg?1783903013",
-    "thumb": "https://cards.scryfall.io/thumb/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.webp?1783903013",
-    "grid": "https://cards.scryfall.io/grid/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.webp?1783903013",
-    "display": "https://cards.scryfall.io/display/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.webp?1783903013",
-    "art": "https://cards.scryfall.io/art/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.webp?1783903013",
-    "crop": "https://cards.scryfall.io/crop/front/d/8/d86fa72c-25c1-43ef-9cb0-fe76f7568ed3.webp?1783903013"
+    "small": "https://cards.scryfall.io/small/front/4/5/4546c029-fa12-4ef3-a4b6-a8d0eaafd023.jpg?1785282787",
+    "normal": "https://cards.scryfall.io/normal/front/4/5/4546c029-fa12-4ef3-a4b6-a8d0eaafd023.jpg?1785282787"
    }
   },
   {
@@ -860,17 +635,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg?1783903203",
-    "normal": "https://cards.scryfall.io/normal/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg?1783903203",
-    "large": "https://cards.scryfall.io/large/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg?1783903203",
-    "png": "https://cards.scryfall.io/png/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.png?1783903203",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg?1783903203",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg?1783903203",
-    "thumb": "https://cards.scryfall.io/thumb/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.webp?1783903203",
-    "grid": "https://cards.scryfall.io/grid/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.webp?1783903203",
-    "display": "https://cards.scryfall.io/display/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.webp?1783903203",
-    "art": "https://cards.scryfall.io/art/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.webp?1783903203",
-    "crop": "https://cards.scryfall.io/crop/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.webp?1783903203"
+    "small": "https://cards.scryfall.io/small/front/2/e/2e3fd911-70ef-4a57-ada5-4a6b4b657251.jpg?1785266502",
+    "normal": "https://cards.scryfall.io/normal/front/2/e/2e3fd911-70ef-4a57-ada5-4a6b4b657251.jpg?1785266502"
    }
   },
   {
@@ -895,17 +661,8 @@
     "Void"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.jpg?1783905969",
-    "normal": "https://cards.scryfall.io/normal/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.jpg?1783905969",
-    "large": "https://cards.scryfall.io/large/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.jpg?1783905969",
-    "png": "https://cards.scryfall.io/png/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.png?1783905969",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.jpg?1783905969",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.jpg?1783905969",
-    "thumb": "https://cards.scryfall.io/thumb/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.webp?1783905969",
-    "grid": "https://cards.scryfall.io/grid/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.webp?1783905969",
-    "display": "https://cards.scryfall.io/display/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.webp?1783905969",
-    "art": "https://cards.scryfall.io/art/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.webp?1783905969",
-    "crop": "https://cards.scryfall.io/crop/front/c/6/c69ed7c7-1f49-4299-b3e6-75150258ac59.webp?1783905969"
+    "small": "https://cards.scryfall.io/small/front/8/9/893865e9-0056-4f53-b917-03c96778576a.jpg?1782767609",
+    "normal": "https://cards.scryfall.io/normal/front/8/9/893865e9-0056-4f53-b917-03c96778576a.jpg?1782767609"
    }
   },
   {
@@ -929,17 +686,8 @@
     "Flashback"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.jpg?1783911280",
-    "normal": "https://cards.scryfall.io/normal/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.jpg?1783911280",
-    "large": "https://cards.scryfall.io/large/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.jpg?1783911280",
-    "png": "https://cards.scryfall.io/png/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.png?1783911280",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.jpg?1783911280",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.jpg?1783911280",
-    "thumb": "https://cards.scryfall.io/thumb/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.webp?1783911280",
-    "grid": "https://cards.scryfall.io/grid/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.webp?1783911280",
-    "display": "https://cards.scryfall.io/display/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.webp?1783911280",
-    "art": "https://cards.scryfall.io/art/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.webp?1783911280",
-    "crop": "https://cards.scryfall.io/crop/front/b/0/b00573bd-5bbb-4531-a0bb-a40f62b92b88.webp?1783911280"
+    "small": "https://cards.scryfall.io/small/front/d/c/dce1e167-dd70-476d-870b-e9f2dce36ff8.jpg?1782793734",
+    "normal": "https://cards.scryfall.io/normal/front/d/c/dce1e167-dd70-476d-870b-e9f2dce36ff8.jpg?1782793734"
    }
   },
   {
@@ -959,17 +707,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
-    "normal": "https://cards.scryfall.io/normal/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
-    "large": "https://cards.scryfall.io/large/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
-    "png": "https://cards.scryfall.io/png/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.png?1789599905",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
-    "thumb": "https://cards.scryfall.io/thumb/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.webp?1789599905",
-    "grid": "https://cards.scryfall.io/grid/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.webp?1789599905",
-    "display": "https://cards.scryfall.io/display/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.webp?1789599905",
-    "art": "https://cards.scryfall.io/art/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.webp?1789599905",
-    "crop": "https://cards.scryfall.io/crop/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.webp?1789599905"
+    "small": "https://cards.scryfall.io/small/front/b/f/bf48914e-84f9-4a0d-a0ff-fce8731ca46e.jpg?1790694363",
+    "normal": "https://cards.scryfall.io/normal/front/b/f/bf48914e-84f9-4a0d-a0ff-fce8731ca46e.jpg?1790694363"
    }
   },
   {
@@ -993,17 +732,8 @@
     "Explore"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.jpg?1783913778",
-    "normal": "https://cards.scryfall.io/normal/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.jpg?1783913778",
-    "large": "https://cards.scryfall.io/large/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.jpg?1783913778",
-    "png": "https://cards.scryfall.io/png/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.png?1783913778",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.jpg?1783913778",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.jpg?1783913778",
-    "thumb": "https://cards.scryfall.io/thumb/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.webp?1783913778",
-    "grid": "https://cards.scryfall.io/grid/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.webp?1783913778",
-    "display": "https://cards.scryfall.io/display/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.webp?1783913778",
-    "art": "https://cards.scryfall.io/art/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.webp?1783913778",
-    "crop": "https://cards.scryfall.io/crop/front/d/8/d896dd52-b134-4b55-ab91-ccb05ecc50f4.webp?1783913778"
+    "small": "https://cards.scryfall.io/small/front/e/8/e8b7e927-bb45-47c7-9995-fc7f84672ab8.jpg?1782808574",
+    "normal": "https://cards.scryfall.io/normal/front/e/8/e8b7e927-bb45-47c7-9995-fc7f84672ab8.jpg?1782808574"
    }
   },
   {
@@ -1029,17 +759,8 @@
     "Start your engines!"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.jpg?1783907858",
-    "normal": "https://cards.scryfall.io/normal/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.jpg?1783907858",
-    "large": "https://cards.scryfall.io/large/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.jpg?1783907858",
-    "png": "https://cards.scryfall.io/png/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.png?1783907858",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.jpg?1783907858",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.jpg?1783907858",
-    "thumb": "https://cards.scryfall.io/thumb/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.webp?1783907858",
-    "grid": "https://cards.scryfall.io/grid/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.webp?1783907858",
-    "display": "https://cards.scryfall.io/display/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.webp?1783907858",
-    "art": "https://cards.scryfall.io/art/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.webp?1783907858",
-    "crop": "https://cards.scryfall.io/crop/front/f/5/f523e96d-9df1-4854-accb-9876aef787e5.webp?1783907858"
+    "small": "https://cards.scryfall.io/small/front/9/e/9e71d18f-0ca8-4b76-961a-954c9980b4ec.jpg?1782777699",
+    "normal": "https://cards.scryfall.io/normal/front/9/e/9e71d18f-0ca8-4b76-961a-954c9980b4ec.jpg?1782777699"
    }
   },
   {
@@ -1063,17 +784,8 @@
     "Flash"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.jpg?1783904959",
-    "normal": "https://cards.scryfall.io/normal/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.jpg?1783904959",
-    "large": "https://cards.scryfall.io/large/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.jpg?1783904959",
-    "png": "https://cards.scryfall.io/png/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.png?1783904959",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.jpg?1783904959",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.jpg?1783904959",
-    "thumb": "https://cards.scryfall.io/thumb/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.webp?1783904959",
-    "grid": "https://cards.scryfall.io/grid/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.webp?1783904959",
-    "display": "https://cards.scryfall.io/display/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.webp?1783904959",
-    "art": "https://cards.scryfall.io/art/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.webp?1783904959",
-    "crop": "https://cards.scryfall.io/crop/front/5/1/51352127-1f86-42e9-b4ca-2fd58b14e86b.webp?1783904959"
+    "small": "https://cards.scryfall.io/small/front/5/b/5b21d4ab-de72-492e-804e-d95d5567e5fd.jpg?1784190133",
+    "normal": "https://cards.scryfall.io/normal/front/5/b/5b21d4ab-de72-492e-804e-d95d5567e5fd.jpg?1784190133"
    }
   },
   {
@@ -1095,17 +807,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1783904770",
-    "normal": "https://cards.scryfall.io/normal/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1783904770",
-    "large": "https://cards.scryfall.io/large/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1783904770",
-    "png": "https://cards.scryfall.io/png/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.png?1783904770",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1783904770",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1783904770",
-    "thumb": "https://cards.scryfall.io/thumb/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.webp?1783904770",
-    "grid": "https://cards.scryfall.io/grid/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.webp?1783904770",
-    "display": "https://cards.scryfall.io/display/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.webp?1783904770",
-    "art": "https://cards.scryfall.io/art/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.webp?1783904770",
-    "crop": "https://cards.scryfall.io/crop/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.webp?1783904770"
+    "small": "https://cards.scryfall.io/small/front/f/a/fad3f80b-45ac-442c-a264-a285be8e4983.jpg?1782760133",
+    "normal": "https://cards.scryfall.io/normal/front/f/a/fad3f80b-45ac-442c-a264-a285be8e4983.jpg?1782760133"
    }
   },
   {
@@ -1131,17 +834,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.jpg?1785759354",
-    "normal": "https://cards.scryfall.io/normal/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.jpg?1785759354",
-    "large": "https://cards.scryfall.io/large/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.jpg?1785759354",
-    "png": "https://cards.scryfall.io/png/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.png?1785759354",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.jpg?1785759354",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.jpg?1785759354",
-    "thumb": "https://cards.scryfall.io/thumb/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.webp?1785759354",
-    "grid": "https://cards.scryfall.io/grid/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.webp?1785759354",
-    "display": "https://cards.scryfall.io/display/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.webp?1785759354",
-    "art": "https://cards.scryfall.io/art/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.webp?1785759354",
-    "crop": "https://cards.scryfall.io/crop/front/3/e/3ef87948-0ad9-4757-a692-2262c8e24367.webp?1785759354"
+    "small": "https://cards.scryfall.io/small/front/9/2/9230d94e-5619-4609-aeca-1a89aeb68a23.jpg?1790693840",
+    "normal": "https://cards.scryfall.io/normal/front/9/2/9230d94e-5619-4609-aeca-1a89aeb68a23.jpg?1790693840"
    }
   },
   {
@@ -1164,17 +858,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1783903200",
-    "normal": "https://cards.scryfall.io/normal/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1783903200",
-    "large": "https://cards.scryfall.io/large/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1783903200",
-    "png": "https://cards.scryfall.io/png/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.png?1783903200",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1783903200",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1783903200",
-    "thumb": "https://cards.scryfall.io/thumb/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.webp?1783903200",
-    "grid": "https://cards.scryfall.io/grid/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.webp?1783903200",
-    "display": "https://cards.scryfall.io/display/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.webp?1783903200",
-    "art": "https://cards.scryfall.io/art/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.webp?1783903200",
-    "crop": "https://cards.scryfall.io/crop/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.webp?1783903200"
+    "small": "https://cards.scryfall.io/small/front/8/b/8b1792de-f931-4a1e-a6e3-74430cac4777.jpg?1785266774",
+    "normal": "https://cards.scryfall.io/normal/front/8/b/8b1792de-f931-4a1e-a6e3-74430cac4777.jpg?1785266774"
    }
   },
   {
@@ -1182,7 +867,7 @@
    "jaName": "鸚鵡の匪賊、フランシスコ",
    "typeJa": "伝説のクリーチャー — 鳥・海賊",
    "textJa": "飛行\n鸚鵡の匪賊、フランシスコではブロックできない。\nあなたがコントロールしている１体以上の海賊がプレイヤー１人にダメージを与えるたび、鸚鵡の匪賊、フランシスコは探検を行う。\n共闘",
-   "tip": "パワー0なので自分では殴らなくてよい。Daring Piracy の海賊が通るたびに探検して土地を拾う。攻撃に参加させると Ingris の攻撃時1点だけは入る",
+   "tip": "パワー0なので自分では殴らなくてよい。果敢な海賊行為の海賊が通るたびに探検して土地を拾う。攻撃に参加させるとイングリスの攻撃時1点だけは入る",
    "count": 1,
    "manaCost": "{1}{B}",
    "cmc": 2,
@@ -1200,17 +885,8 @@
     "Explore"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/5/1/5182b527-739e-4523-8611-01244ced26ac.jpg?1783913911",
-    "normal": "https://cards.scryfall.io/normal/front/5/1/5182b527-739e-4523-8611-01244ced26ac.jpg?1783913911",
-    "large": "https://cards.scryfall.io/large/front/5/1/5182b527-739e-4523-8611-01244ced26ac.jpg?1783913911",
-    "png": "https://cards.scryfall.io/png/front/5/1/5182b527-739e-4523-8611-01244ced26ac.png?1783913911",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/5/1/5182b527-739e-4523-8611-01244ced26ac.jpg?1783913911",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/5/1/5182b527-739e-4523-8611-01244ced26ac.jpg?1783913911",
-    "thumb": "https://cards.scryfall.io/thumb/front/5/1/5182b527-739e-4523-8611-01244ced26ac.webp?1783913911",
-    "grid": "https://cards.scryfall.io/grid/front/5/1/5182b527-739e-4523-8611-01244ced26ac.webp?1783913911",
-    "display": "https://cards.scryfall.io/display/front/5/1/5182b527-739e-4523-8611-01244ced26ac.webp?1783913911",
-    "art": "https://cards.scryfall.io/art/front/5/1/5182b527-739e-4523-8611-01244ced26ac.webp?1783913911",
-    "crop": "https://cards.scryfall.io/crop/front/5/1/5182b527-739e-4523-8611-01244ced26ac.webp?1783913911"
+    "small": "https://cards.scryfall.io/small/front/b/4/b45b8159-f3fd-4ecf-af60-9d914bf67d50.jpg?1782810827",
+    "normal": "https://cards.scryfall.io/normal/front/b/4/b45b8159-f3fd-4ecf-af60-9d914bf67d50.jpg?1782810827"
    }
   },
   {
@@ -1236,17 +912,8 @@
     "Jump"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/9/9/9921f646-e893-44db-ac89-0633c1009788.jpg?1783906604",
-    "normal": "https://cards.scryfall.io/normal/front/9/9/9921f646-e893-44db-ac89-0633c1009788.jpg?1783906604",
-    "large": "https://cards.scryfall.io/large/front/9/9/9921f646-e893-44db-ac89-0633c1009788.jpg?1783906604",
-    "png": "https://cards.scryfall.io/png/front/9/9/9921f646-e893-44db-ac89-0633c1009788.png?1783906604",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/9/9/9921f646-e893-44db-ac89-0633c1009788.jpg?1783906604",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/9/9/9921f646-e893-44db-ac89-0633c1009788.jpg?1783906604",
-    "thumb": "https://cards.scryfall.io/thumb/front/9/9/9921f646-e893-44db-ac89-0633c1009788.webp?1783906604",
-    "grid": "https://cards.scryfall.io/grid/front/9/9/9921f646-e893-44db-ac89-0633c1009788.webp?1783906604",
-    "display": "https://cards.scryfall.io/display/front/9/9/9921f646-e893-44db-ac89-0633c1009788.webp?1783906604",
-    "art": "https://cards.scryfall.io/art/front/9/9/9921f646-e893-44db-ac89-0633c1009788.webp?1783906604",
-    "crop": "https://cards.scryfall.io/crop/front/9/9/9921f646-e893-44db-ac89-0633c1009788.webp?1783906604"
+    "small": "https://cards.scryfall.io/small/front/b/0/b034c152-9644-478a-94ff-7bb87533bbe5.jpg?1782772055",
+    "normal": "https://cards.scryfall.io/normal/front/b/0/b034c152-9644-478a-94ff-7bb87533bbe5.jpg?1782772055"
    }
   },
   {
@@ -1269,17 +936,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.jpg?1783908912",
-    "normal": "https://cards.scryfall.io/normal/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.jpg?1783908912",
-    "large": "https://cards.scryfall.io/large/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.jpg?1783908912",
-    "png": "https://cards.scryfall.io/png/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.png?1783908912",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.jpg?1783908912",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.jpg?1783908912",
-    "thumb": "https://cards.scryfall.io/thumb/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.webp?1783908912",
-    "grid": "https://cards.scryfall.io/grid/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.webp?1783908912",
-    "display": "https://cards.scryfall.io/display/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.webp?1783908912",
-    "art": "https://cards.scryfall.io/art/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.webp?1783908912",
-    "crop": "https://cards.scryfall.io/crop/front/5/d/5d7fcd03-fffe-467a-88a5-e583e32afd7a.webp?1783908912"
+    "small": "https://cards.scryfall.io/small/front/b/e/be272c0c-be9b-47f4-b210-45d0447ab0c6.jpg?1782844176",
+    "normal": "https://cards.scryfall.io/normal/front/b/e/be272c0c-be9b-47f4-b210-45d0447ab0c6.jpg?1782844176"
    }
   },
   {
@@ -1287,7 +945,7 @@
    "jaName": "電光の姫将軍、クレート",
    "typeJa": "伝説のクリーチャー — ゴブリン・兵士",
    "textJa": "あなたがコントロールしている１体以上のゴブリンが攻撃するたび、赤の１/１のゴブリン・クリーチャー・トークン１体をタップ状態かつ攻撃している状態で生成する。\nあなたがコントロールしていてこれでないクリーチャー１体が戦場に出るたび、電光の姫将軍、クレートは各対戦相手にそれぞれ１点のダメージを与える。",
-   "tip": "ゴブリンで殴るたびに攻撃中のゴブリンが1体増える（その子は攻撃宣言していないので Ingris は誘発しないが、展開時バーンは入る）。Impact Tremors と同じ役割の2枚目",
+   "tip": "ゴブリンで殴るたびに攻撃中のゴブリンが1体増える（その子は攻撃宣言していないのでイングリスは誘発しないが、展開時バーンは入る）。衝撃の震えと同じ役割の2枚目",
    "count": 1,
    "manaCost": "{2}{R}",
    "cmc": 3,
@@ -1301,17 +959,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg?1783903442",
-    "normal": "https://cards.scryfall.io/normal/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg?1783903442",
-    "large": "https://cards.scryfall.io/large/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg?1783903442",
-    "png": "https://cards.scryfall.io/png/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.png?1783903442",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg?1783903442",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg?1783903442",
-    "thumb": "https://cards.scryfall.io/thumb/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.webp?1783903442",
-    "grid": "https://cards.scryfall.io/grid/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.webp?1783903442",
-    "display": "https://cards.scryfall.io/display/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.webp?1783903442",
-    "art": "https://cards.scryfall.io/art/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.webp?1783903442",
-    "crop": "https://cards.scryfall.io/crop/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.webp?1783903442"
+    "small": "https://cards.scryfall.io/small/front/5/8/588f9627-e6d1-4130-9bee-a4a7ec57c176.jpg?1782781595",
+    "normal": "https://cards.scryfall.io/normal/front/5/8/588f9627-e6d1-4130-9bee-a4a7ec57c176.jpg?1782781595"
    }
   },
   {
@@ -1333,17 +982,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1783907088",
-    "normal": "https://cards.scryfall.io/normal/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1783907088",
-    "large": "https://cards.scryfall.io/large/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1783907088",
-    "png": "https://cards.scryfall.io/png/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.png?1783907088",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1783907088",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1783907088",
-    "thumb": "https://cards.scryfall.io/thumb/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.webp?1783907088",
-    "grid": "https://cards.scryfall.io/grid/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.webp?1783907088",
-    "display": "https://cards.scryfall.io/display/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.webp?1783907088",
-    "art": "https://cards.scryfall.io/art/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.webp?1783907088",
-    "crop": "https://cards.scryfall.io/crop/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.webp?1783907088"
+    "small": "https://cards.scryfall.io/small/front/d/f/df73332d-5f9f-4846-8a63-d94140267e87.jpg?1782770385",
+    "normal": "https://cards.scryfall.io/normal/front/d/f/df73332d-5f9f-4846-8a63-d94140267e87.jpg?1782770385"
    }
   },
   {
@@ -1351,7 +991,7 @@
    "jaName": "ゴブリンの突撃",
    "typeJa": "エンチャント",
    "textJa": "あなたのアップキープの開始時に、速攻を持つ赤の１/１のゴブリン・クリーチャー・トークンを１体生成する。\nゴブリン・クリーチャーは、可能なら毎ターン攻撃する。",
-   "tip": "毎ターンのゴブリン供給。ゴブリンは攻撃を強制される（このアプリでは自分で全員攻撃させる）。Kreat がいれば攻撃のたびにさらに増える",
+   "tip": "毎ターンのゴブリン供給。ゴブリンは攻撃を強制される（このアプリでは自分で全員攻撃させる）。クレートがいれば攻撃のたびにさらに増える",
    "count": 1,
    "manaCost": "{2}{R}",
    "cmc": 3,
@@ -1365,17 +1005,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.jpg?1783936647",
-    "normal": "https://cards.scryfall.io/normal/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.jpg?1783936647",
-    "large": "https://cards.scryfall.io/large/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.jpg?1783936647",
-    "png": "https://cards.scryfall.io/png/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.png?1783936647",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.jpg?1783936647",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.jpg?1783936647",
-    "thumb": "https://cards.scryfall.io/thumb/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.webp?1783936647",
-    "grid": "https://cards.scryfall.io/grid/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.webp?1783936647",
-    "display": "https://cards.scryfall.io/display/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.webp?1783936647",
-    "art": "https://cards.scryfall.io/art/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.webp?1783936647",
-    "crop": "https://cards.scryfall.io/crop/front/4/7/473fb06e-5c71-4370-a5d7-7753d84d0fd6.webp?1783936647"
+    "small": "https://cards.scryfall.io/small/front/6/4/647b0011-174c-47f3-9856-7a4b561ef354.jpg?1782944202",
+    "normal": "https://cards.scryfall.io/normal/front/6/4/647b0011-174c-47f3-9856-7a4b561ef354.jpg?1782944202"
    }
   },
   {
@@ -1399,17 +1030,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1783909574",
-    "normal": "https://cards.scryfall.io/normal/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1783909574",
-    "large": "https://cards.scryfall.io/large/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1783909574",
-    "png": "https://cards.scryfall.io/png/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.png?1783909574",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1783909574",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1783909574",
-    "thumb": "https://cards.scryfall.io/thumb/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.webp?1783909574",
-    "grid": "https://cards.scryfall.io/grid/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.webp?1783909574",
-    "display": "https://cards.scryfall.io/display/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.webp?1783909574",
-    "art": "https://cards.scryfall.io/art/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.webp?1783909574",
-    "crop": "https://cards.scryfall.io/crop/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.webp?1783909574"
+    "small": "https://cards.scryfall.io/small/front/9/0/9093b8a2-0ccd-400c-a6b8-f5f95f87c8e7.jpg?1782768987",
+    "normal": "https://cards.scryfall.io/normal/front/9/0/9093b8a2-0ccd-400c-a6b8-f5f95f87c8e7.jpg?1782768987"
    }
   },
   {
@@ -1417,7 +1039,7 @@
    "jaName": "急かされるドローン職人",
    "typeJa": "クリーチャー — 人間・工匠",
    "textJa": "あなたのターンの戦闘の開始時に、飛行を持つ無色の１/１の飛行機械・アーティファクト・クリーチャー・トークン１体を生成する。ターン終了時まで、それは速攻を得る。次のあなたの終了ステップの開始時に、それを生け贄に捧げる。",
-   "tip": "毎ターン、展開時バーン＋攻撃で Ingris＋終了時の死亡で Garna と、1体で3回誘発する。消える前に生け贄ドローの餌にしてもよい",
+   "tip": "毎ターン、展開時バーン＋攻撃でイングリス＋終了時の死亡でガルナと、1体で3回誘発する。消える前に生け贄ドローの餌にしてもよい",
    "count": 1,
    "manaCost": "{3}{R}",
    "cmc": 4,
@@ -1431,17 +1053,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1783912879",
-    "normal": "https://cards.scryfall.io/normal/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1783912879",
-    "large": "https://cards.scryfall.io/large/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1783912879",
-    "png": "https://cards.scryfall.io/png/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.png?1783912879",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1783912879",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1783912879",
-    "thumb": "https://cards.scryfall.io/thumb/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.webp?1783912879",
-    "grid": "https://cards.scryfall.io/grid/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.webp?1783912879",
-    "display": "https://cards.scryfall.io/display/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.webp?1783912879",
-    "art": "https://cards.scryfall.io/art/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.webp?1783912879",
-    "crop": "https://cards.scryfall.io/crop/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.webp?1783912879"
+    "small": "https://cards.scryfall.io/small/front/5/f/5fb11aa4-52c6-46d1-9558-c312ea626a18.jpg?1782802365",
+    "normal": "https://cards.scryfall.io/normal/front/5/f/5fb11aa4-52c6-46d1-9558-c312ea626a18.jpg?1782802365"
    }
   },
   {
@@ -1449,7 +1062,7 @@
    "jaName": "衝撃の震え",
    "typeJa": "エンチャント",
    "textJa": "クリーチャー１体があなたのコントロール下で戦場に出るたび、衝撃の震えは各対戦相手にそれぞれ１点のダメージを与える。",
-   "tip": "トークンを出すカードより先に置く。赤の発生源なので Torbran・Mechanized Warfare の両方が乗る",
+   "tip": "トークンを出すカードより先に置く。赤の発生源なのでトーブラン・機械化戦の両方が乗る",
    "count": 1,
    "manaCost": "{1}{R}",
    "cmc": 2,
@@ -1463,17 +1076,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.jpg?1783908891",
-    "normal": "https://cards.scryfall.io/normal/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.jpg?1783908891",
-    "large": "https://cards.scryfall.io/large/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.jpg?1783908891",
-    "png": "https://cards.scryfall.io/png/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.png?1783908891",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.jpg?1783908891",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.jpg?1783908891",
-    "thumb": "https://cards.scryfall.io/thumb/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.webp?1783908891",
-    "grid": "https://cards.scryfall.io/grid/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.webp?1783908891",
-    "display": "https://cards.scryfall.io/display/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.webp?1783908891",
-    "art": "https://cards.scryfall.io/art/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.webp?1783908891",
-    "crop": "https://cards.scryfall.io/crop/front/d/0/d0b7cecf-b51b-4d30-b7e9-cd7976271e07.webp?1783908891"
+    "small": "https://cards.scryfall.io/small/front/a/3/a3aaf09f-2dc5-4b6b-b63d-7932c5f9eb5b.jpg?1782812064",
+    "normal": "https://cards.scryfall.io/normal/front/a/3/a3aaf09f-2dc5-4b6b-b63d-7932c5f9eb5b.jpg?1782812064"
    }
   },
   {
@@ -1495,17 +1099,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.jpg?1783903785",
-    "normal": "https://cards.scryfall.io/normal/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.jpg?1783903785",
-    "large": "https://cards.scryfall.io/large/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.jpg?1783903785",
-    "png": "https://cards.scryfall.io/png/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.png?1783903785",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.jpg?1783903785",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.jpg?1783903785",
-    "thumb": "https://cards.scryfall.io/thumb/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.webp?1783903785",
-    "grid": "https://cards.scryfall.io/grid/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.webp?1783903785",
-    "display": "https://cards.scryfall.io/display/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.webp?1783903785",
-    "art": "https://cards.scryfall.io/art/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.webp?1783903785",
-    "crop": "https://cards.scryfall.io/crop/front/f/6/f67b323d-0dda-45f8-84b7-d883ce5045a8.webp?1783903785"
+    "small": "https://cards.scryfall.io/small/front/3/e/3e74c20d-adab-4004-ac27-b2870f22255a.jpg?1782759248",
+    "normal": "https://cards.scryfall.io/normal/front/3/e/3e74c20d-adab-4004-ac27-b2870f22255a.jpg?1782759248"
    }
   },
   {
@@ -1513,7 +1108,7 @@
    "jaName": "イングリス・スティンガークイル",
    "typeJa": "伝説のクリーチャー — エルダー・スフィンクス",
    "textJa": "飛行\nあなたがコントロールしているクリーチャー１体が攻撃するたび、そのクリーチャーは各対戦相手にそれぞれ１点のダメージを与える。\n{4}：「実習生」という名前で無色の２/２のウィザード・兵士・クリーチャー・トークン１体を生成する。その後、ターン終了時まで、あなたがコントロールしているすべてのクリーチャーは速攻を得る。",
-   "tip": "ダメージの発生源は攻撃したクリーチャー自身。赤いトークンなら Torbran で1点が3点になる（無色の実習生・飛行機械には乗らない）。マナが余ったら{4}で実習生を出し、全員に速攻を付けて出たばかりのトークンも攻撃させる",
+   "tip": "ダメージの発生源は攻撃したクリーチャー自身。赤いトークンならトーブランで1点が3点になる（無色の実習生・飛行機械には乗らない）。マナが余ったら{4}で実習生を出し、全員に速攻を付けて出たばかりのトークンも攻撃させる",
    "count": 1,
    "manaCost": "{B}{R}{R}",
    "cmc": 3,
@@ -1530,17 +1125,8 @@
     "Flying"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg?1788878212",
-    "normal": "https://cards.scryfall.io/normal/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg?1788878212",
-    "large": "https://cards.scryfall.io/large/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg?1788878212",
-    "png": "https://cards.scryfall.io/png/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.png?1788878212",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg?1788878212",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg?1788878212",
-    "thumb": "https://cards.scryfall.io/thumb/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.webp?1788878212",
-    "grid": "https://cards.scryfall.io/grid/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.webp?1788878212",
-    "display": "https://cards.scryfall.io/display/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.webp?1788878212",
-    "art": "https://cards.scryfall.io/art/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.webp?1788878212",
-    "crop": "https://cards.scryfall.io/crop/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.webp?1788878212"
+    "small": "https://cards.scryfall.io/small/front/b/1/b198281f-b0fd-456e-8bdc-cf5bb080585f.jpg?1790684858",
+    "normal": "https://cards.scryfall.io/normal/front/b/1/b198281f-b0fd-456e-8bdc-cf5bb080585f.jpg?1790684858"
    }
   },
   {
@@ -1548,7 +1134,7 @@
    "jaName": "憎悪の手、ラゴモス",
    "typeJa": "伝説のクリーチャー — 人間・シャーマン",
    "textJa": "あなたのターンの戦闘の開始時に、トランプルと速攻を持つ赤の２/１のエレメンタル・クリーチャー・トークン１体を生成する。次の終了ステップの開始時に、そのトークンを生け贄に捧げる。\n{T}：あなたのライブラリーからカード１枚を探し、あなたの手札に加える。その後、ライブラリーを切り直す。このターンに５体以上のクリーチャーが死亡していなければ起動できない。",
-   "tip": "毎ターンの速攻エレメンタル（展開・攻撃・死亡で3回誘発）。一時トークンと生け贄ドローで5体死なせたターンは、メイン2に何でもサーチできる（Court of Embereth や Torbran）",
+   "tip": "毎ターンの速攻エレメンタル（展開・攻撃・死亡で3回誘発）。一時トークンと生け贄ドローで5体死なせたターンは、メイン2に何でもサーチできる（エンバレスの宮廷やトーブラン）",
    "count": 1,
    "manaCost": "{1}{B}{R}",
    "cmc": 3,
@@ -1563,17 +1149,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.jpg?1783921281",
-    "normal": "https://cards.scryfall.io/normal/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.jpg?1783921281",
-    "large": "https://cards.scryfall.io/large/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.jpg?1783921281",
-    "png": "https://cards.scryfall.io/png/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.png?1783921281",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.jpg?1783921281",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.jpg?1783921281",
-    "thumb": "https://cards.scryfall.io/thumb/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.webp?1783921281",
-    "grid": "https://cards.scryfall.io/grid/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.webp?1783921281",
-    "display": "https://cards.scryfall.io/display/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.webp?1783921281",
-    "art": "https://cards.scryfall.io/art/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.webp?1783921281",
-    "crop": "https://cards.scryfall.io/crop/front/1/a/1a6bb0c2-1e3c-48cd-8f10-49f047e0514c.webp?1783921281"
+    "small": "https://cards.scryfall.io/small/front/b/7/b7a89504-127f-494c-a04b-44e924e6ce41.jpg?1782844149",
+    "normal": "https://cards.scryfall.io/normal/front/b/7/b7a89504-127f-494c-a04b-44e924e6ce41.jpg?1782844149"
    }
   },
   {
@@ -1581,7 +1158,7 @@
    "jaName": "溶岩爪の辺境",
    "typeJa": "土地",
    "textJa": "溶岩爪の辺境はタップ状態で戦場に出る。\n{T}：{B}か{R}を加える。\n{1}{B}{R}：ターン終了時まで、溶岩爪の辺境は「{X}：ターン終了時まで、このクリーチャーは＋Ｘ/＋０の修整を受ける。」を持つ黒赤の２/２のエレメンタル・クリーチャーになる。これは土地でもある。",
-   "tip": "タップインなので早めに置く。クリーチャー化して殴れば Ingris の1点が乗る（クリーチャー化は戦場に出たことにならないので展開時バーンは誘発しない）",
+   "tip": "タップインなので早めに置く。クリーチャー化して殴ればイングリスの1点が乗る（クリーチャー化は戦場に出たことにならないので展開時バーンは誘発しない）",
    "count": 1,
    "manaCost": "",
    "cmc": 0,
@@ -1596,17 +1173,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1783933755",
-    "normal": "https://cards.scryfall.io/normal/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1783933755",
-    "large": "https://cards.scryfall.io/large/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1783933755",
-    "png": "https://cards.scryfall.io/png/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.png?1783933755",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1783933755",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1783933755",
-    "thumb": "https://cards.scryfall.io/thumb/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.webp?1783933755",
-    "grid": "https://cards.scryfall.io/grid/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.webp?1783933755",
-    "display": "https://cards.scryfall.io/display/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.webp?1783933755",
-    "art": "https://cards.scryfall.io/art/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.webp?1783933755",
-    "crop": "https://cards.scryfall.io/crop/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.webp?1783933755"
+    "small": "https://cards.scryfall.io/small/front/d/a/da374c8f-e00e-4241-87d8-83e78c330589.jpg?1782811370",
+    "normal": "https://cards.scryfall.io/normal/front/d/a/da374c8f-e00e-4241-87d8-83e78c330589.jpg?1782811370"
    }
   },
   {
@@ -1614,7 +1182,7 @@
    "jaName": "軍勢の戦親分",
    "typeJa": "クリーチャー — ゴブリン・兵士",
    "textJa": "教導（このクリーチャーが攻撃するたび、パワーがこれよりも小さい攻撃クリーチャー１体を対象とする。それの上に＋１/＋１カウンター１個を置く。）\nあなたのターンの戦闘の開始時に、赤の１/１のゴブリン・クリーチャー・トークン１体を生成する。ターン終了時まで、そのトークンは速攻を得る。この戦闘で、そのトークンは可能なら攻撃する。",
-   "tip": "毎ターン速攻ゴブリン。ゴブリンが殴るので Kreat が誘発する。Warboss 自身も殴れば教導で1体が大きくなる",
+   "tip": "毎ターン速攻ゴブリン。ゴブリンが殴るのでクレートが誘発する。戦親分自身も殴れば教導で1体が大きくなる",
    "count": 1,
    "manaCost": "{2}{R}",
    "cmc": 3,
@@ -1630,17 +1198,8 @@
     "Mentor"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.jpg?1783907068",
-    "normal": "https://cards.scryfall.io/normal/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.jpg?1783907068",
-    "large": "https://cards.scryfall.io/large/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.jpg?1783907068",
-    "png": "https://cards.scryfall.io/png/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.png?1783907068",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.jpg?1783907068",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.jpg?1783907068",
-    "thumb": "https://cards.scryfall.io/thumb/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.webp?1783907068",
-    "grid": "https://cards.scryfall.io/grid/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.webp?1783907068",
-    "display": "https://cards.scryfall.io/display/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.webp?1783907068",
-    "art": "https://cards.scryfall.io/art/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.webp?1783907068",
-    "crop": "https://cards.scryfall.io/crop/front/3/d/3d726dff-2904-4a82-adaa-29c57a5c2aed.webp?1783907068"
+    "small": "https://cards.scryfall.io/small/front/9/4/94a31098-1cc5-4f07-b0e9-7d41a782ec8f.jpg?1782773504",
+    "normal": "https://cards.scryfall.io/normal/front/9/4/94a31098-1cc5-4f07-b0e9-7d41a782ec8f.jpg?1782773504"
    }
   },
   {
@@ -1648,7 +1207,7 @@
    "jaName": "下水王、駆け抜け侯",
    "typeJa": "伝説のクリーチャー — ネズミ・貴族",
    "textJa": "これでないネズミ１体があなたのコントロール下で戦場に出るたび、対戦相手の墓地にあるカード最大１枚を対象とする。それを追放する。\nあなたのターンの戦闘の開始時に、「このクリーチャーではブロックできない。」を持つ黒の１/１のネズミ・クリーチャー・トークン１体を生成する。",
-   "tip": "毎ターンのトークン供給。ネズミは黒なので Torbran は乗らない。生け贄ドローの餌に回すのがよい",
+   "tip": "毎ターンのトークン供給。ネズミは黒なのでトーブランは乗らない。生け贄ドローの餌に回すのがよい",
    "count": 1,
    "manaCost": "{2}{B}",
    "cmc": 3,
@@ -1662,17 +1221,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.jpg?1783915106",
-    "normal": "https://cards.scryfall.io/normal/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.jpg?1783915106",
-    "large": "https://cards.scryfall.io/large/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.jpg?1783915106",
-    "png": "https://cards.scryfall.io/png/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.png?1783915106",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.jpg?1783915106",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.jpg?1783915106",
-    "thumb": "https://cards.scryfall.io/thumb/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.webp?1783915106",
-    "grid": "https://cards.scryfall.io/grid/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.webp?1783915106",
-    "display": "https://cards.scryfall.io/display/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.webp?1783915106",
-    "art": "https://cards.scryfall.io/art/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.webp?1783915106",
-    "crop": "https://cards.scryfall.io/crop/front/7/2/729877be-4894-4ef5-9e60-de8a8fb2bdc0.webp?1783915106"
+    "small": "https://cards.scryfall.io/small/front/9/6/9615930f-f3f5-477c-952c-260019050494.jpg?1782814162",
+    "normal": "https://cards.scryfall.io/normal/front/9/6/9615930f-f3f5-477c-952c-260019050494.jpg?1782814162"
    }
   },
   {
@@ -1680,7 +1230,7 @@
    "jaName": "機械化戦",
    "typeJa": "エンチャント",
    "textJa": "あなたがコントロールしていて赤やアーティファクトである発生源１つが、対戦相手や対戦相手がコントロールしているパーマネントのうち１つにダメージを与えるなら、代わりに、それはその点数に１を足した点数のダメージを与える。",
-   "tip": "Torbran の弱い版だが、無色の飛行機械・ロボット・溶鉄の門番にも乗る。Torbran と重ねると赤の1点が4点",
+   "tip": "トーブランの弱い版だが、無色の飛行機械・ロボット・溶鉄の門番にも乗る。トーブランと重ねると赤の1点が4点",
    "count": 1,
    "manaCost": "{1}{R}{R}",
    "cmc": 3,
@@ -1694,17 +1244,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.jpg?1783920064",
-    "normal": "https://cards.scryfall.io/normal/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.jpg?1783920064",
-    "large": "https://cards.scryfall.io/large/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.jpg?1783920064",
-    "png": "https://cards.scryfall.io/png/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.png?1783920064",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.jpg?1783920064",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.jpg?1783920064",
-    "thumb": "https://cards.scryfall.io/thumb/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.webp?1783920064",
-    "grid": "https://cards.scryfall.io/grid/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.webp?1783920064",
-    "display": "https://cards.scryfall.io/display/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.webp?1783920064",
-    "art": "https://cards.scryfall.io/art/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.webp?1783920064",
-    "crop": "https://cards.scryfall.io/crop/front/b/a/ba2d026f-bdca-4376-9d70-c81c707598e8.webp?1783920064"
+    "small": "https://cards.scryfall.io/small/front/6/1/6147dbe4-e1f8-4fea-a0db-674ffb15f538.jpg?1782840210",
+    "normal": "https://cards.scryfall.io/normal/front/6/1/6147dbe4-e1f8-4fea-a0db-674ffb15f538.jpg?1782840210"
    }
   },
   {
@@ -1712,7 +1253,7 @@
    "jaName": "溶鉄の門番",
    "typeJa": "アーティファクト・クリーチャー — ゴーレム",
    "textJa": "これでないクリーチャー１体があなたのコントロール下で戦場に出るたび、溶鉄の門番は各対戦相手にそれぞれ１点のダメージを与える。\n蘇生{R}（{R}：あなたの墓地にあるこのカードを戦場に戻す。これは速攻を得る。次の終了ステップの開始時に、あるいは、これが戦場を離れるなら、これを追放する。蘇生はソーサリーとしてのみ行う。）",
-   "tip": "3枚目の展開時バーン。無色なので Torbran は乗らず、Mechanized Warfare は乗る。墓地に落ちたら、トークンを大量に出すターンに{R}で蘇生する",
+   "tip": "3枚目の展開時バーン。無色なのでトーブランは乗らず、機械化戦は乗る。墓地に落ちたら、トークンを大量に出すターンに{R}で蘇生する",
    "count": 1,
    "manaCost": "{2}{R}",
    "cmc": 3,
@@ -1728,17 +1269,8 @@
     "Unearth"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.jpg?1783911269",
-    "normal": "https://cards.scryfall.io/normal/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.jpg?1783911269",
-    "large": "https://cards.scryfall.io/large/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.jpg?1783911269",
-    "png": "https://cards.scryfall.io/png/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.png?1783911269",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.jpg?1783911269",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.jpg?1783911269",
-    "thumb": "https://cards.scryfall.io/thumb/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.webp?1783911269",
-    "grid": "https://cards.scryfall.io/grid/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.webp?1783911269",
-    "display": "https://cards.scryfall.io/display/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.webp?1783911269",
-    "art": "https://cards.scryfall.io/art/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.webp?1783911269",
-    "crop": "https://cards.scryfall.io/crop/front/9/f/9f5ba065-2806-4e99-a330-168cfe76250f.webp?1783911269"
+    "small": "https://cards.scryfall.io/small/front/c/9/c9a8c61b-67e7-43dd-bc31-3b154809669e.jpg?1782793529",
+    "normal": "https://cards.scryfall.io/normal/front/c/9/c9a8c61b-67e7-43dd-bc31-3b154809669e.jpg?1782793529"
    }
   },
   {
@@ -1760,17 +1292,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.jpg?1783903784",
-    "normal": "https://cards.scryfall.io/normal/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.jpg?1783903784",
-    "large": "https://cards.scryfall.io/large/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.jpg?1783903784",
-    "png": "https://cards.scryfall.io/png/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.png?1783903784",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.jpg?1783903784",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.jpg?1783903784",
-    "thumb": "https://cards.scryfall.io/thumb/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.webp?1783903784",
-    "grid": "https://cards.scryfall.io/grid/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.webp?1783903784",
-    "display": "https://cards.scryfall.io/display/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.webp?1783903784",
-    "art": "https://cards.scryfall.io/art/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.webp?1783903784",
-    "crop": "https://cards.scryfall.io/crop/front/0/8/08838865-a9b6-4323-96a2-0d3a7aba9d3d.webp?1783903784"
+    "small": "https://cards.scryfall.io/small/front/f/7/f77468bf-b57b-4a47-96f7-92d122f79a1f.jpg?1782759236",
+    "normal": "https://cards.scryfall.io/normal/front/f/7/f77468bf-b57b-4a47-96f7-92d122f79a1f.jpg?1782759236"
    }
   },
   {
@@ -1778,7 +1301,7 @@
    "jaName": "いとしいしと // 力の魅惑",
    "typeJa": "伝説のアーティファクト — 装備品 // インスタント — 出来事",
    "textJa": "【いとしいしと】{3}\n装備しているクリーチャーは呪禁を持ち、ブロックされない。\n装備―{2}, ２点のライフを支払う。\n【力の魅惑】{1}{B}（出来事）\nこの呪文を唱えるための追加コストとして、クリーチャー１体を生け贄に捧げる。\nカード２枚を引く。\n（その後、このカードを追放し、後で追放領域からアーティファクトとして唱えてもよい。）",
-   "tip": "まず出来事で生け贄ドロー、あとで装備品として出せる2枚分のカード。装備は Ingris か Court の守りに（装備の処理は手動）。出来事の名前はこのアプリでの仮訳",
+   "tip": "まず出来事で生け贄ドロー、あとで装備品として出せる2枚分のカード。装備はイングリスか宮廷の守りに（装備の処理は手動）。出来事の名前はこのアプリでの仮訳",
    "count": 1,
    "manaCost": "{3} // {1}{B}",
    "cmc": 3,
@@ -1792,17 +1315,8 @@
     "Equip"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.jpg?1783902783",
-    "normal": "https://cards.scryfall.io/normal/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.jpg?1783902783",
-    "large": "https://cards.scryfall.io/large/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.jpg?1783902783",
-    "png": "https://cards.scryfall.io/png/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.png?1783902783",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.jpg?1783902783",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.jpg?1783902783",
-    "thumb": "https://cards.scryfall.io/thumb/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.webp?1783902783",
-    "grid": "https://cards.scryfall.io/grid/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.webp?1783902783",
-    "display": "https://cards.scryfall.io/display/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.webp?1783902783",
-    "art": "https://cards.scryfall.io/art/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.webp?1783902783",
-    "crop": "https://cards.scryfall.io/crop/front/1/5/15ae4d50-be2f-412c-bb6b-b0a06b60474a.webp?1783902783"
+    "small": "https://cards.scryfall.io/small/front/9/2/926a125b-aad5-44c0-a8a0-ab1e848becba.jpg?1786555665",
+    "normal": "https://cards.scryfall.io/normal/front/9/2/926a125b-aad5-44c0-a8a0-ab1e848becba.jpg?1786555665"
    }
   },
   {
@@ -1810,7 +1324,7 @@
    "jaName": "悲惨な最期",
    "typeJa": "インスタント",
    "textJa": "この呪文を唱えるための追加コストとして、クリーチャー１体を生け贄に捧げる。\nカード２枚を引く。その生け贄に捧げたクリーチャーが伝説であったなら、代わりにカード３枚を引く。",
-   "tip": "除去されそうな伝説のクリーチャー（Garna・Kreat など）を食べれば3枚。普段はトークンを食べて2枚",
+   "tip": "除去されそうな伝説のクリーチャー（ガルナ・クレートなど）を食べれば3枚。普段はトークンを食べて2枚",
    "count": 1,
    "manaCost": "{1}{B}",
    "cmc": 2,
@@ -1824,17 +1338,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.jpg?1783916302",
-    "normal": "https://cards.scryfall.io/normal/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.jpg?1783916302",
-    "large": "https://cards.scryfall.io/large/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.jpg?1783916302",
-    "png": "https://cards.scryfall.io/png/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.png?1783916302",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.jpg?1783916302",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.jpg?1783916302",
-    "thumb": "https://cards.scryfall.io/thumb/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.webp?1783916302",
-    "grid": "https://cards.scryfall.io/grid/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.webp?1783916302",
-    "display": "https://cards.scryfall.io/display/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.webp?1783916302",
-    "art": "https://cards.scryfall.io/art/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.webp?1783916302",
-    "crop": "https://cards.scryfall.io/crop/front/c/3/c34f88d7-15a1-434f-88d7-3d4fcf406d54.webp?1783916302"
+    "small": "https://cards.scryfall.io/small/front/0/4/0414a7b2-0695-4169-a95e-a60379c2f205.jpg?1782821722",
+    "normal": "https://cards.scryfall.io/normal/front/0/4/0414a7b2-0695-4169-a95e-a60379c2f205.jpg?1782821722"
    }
   },
   {
@@ -1856,17 +1361,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.jpg?1783903820",
-    "normal": "https://cards.scryfall.io/normal/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.jpg?1783903820",
-    "large": "https://cards.scryfall.io/large/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.jpg?1783903820",
-    "png": "https://cards.scryfall.io/png/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.png?1783903820",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.jpg?1783903820",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.jpg?1783903820",
-    "thumb": "https://cards.scryfall.io/thumb/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.webp?1783903820",
-    "grid": "https://cards.scryfall.io/grid/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.webp?1783903820",
-    "display": "https://cards.scryfall.io/display/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.webp?1783903820",
-    "art": "https://cards.scryfall.io/art/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.webp?1783903820",
-    "crop": "https://cards.scryfall.io/crop/front/b/a/baf793b6-9612-43f3-9f1b-2e53e81cb89f.webp?1783903820"
+    "small": "https://cards.scryfall.io/small/front/8/b/8b873a83-7eb4-44d6-a5ea-95ad7986f3a9.jpg?1782759594",
+    "normal": "https://cards.scryfall.io/normal/front/8/b/8b873a83-7eb4-44d6-a5ea-95ad7986f3a9.jpg?1782759594"
    }
   },
   {
@@ -1891,17 +1387,8 @@
     "Haste"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1783921312",
-    "normal": "https://cards.scryfall.io/normal/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1783921312",
-    "large": "https://cards.scryfall.io/large/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1783921312",
-    "png": "https://cards.scryfall.io/png/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.png?1783921312",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1783921312",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1783921312",
-    "thumb": "https://cards.scryfall.io/thumb/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.webp?1783921312",
-    "grid": "https://cards.scryfall.io/grid/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.webp?1783921312",
-    "display": "https://cards.scryfall.io/display/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.webp?1783921312",
-    "art": "https://cards.scryfall.io/art/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.webp?1783921312",
-    "crop": "https://cards.scryfall.io/crop/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.webp?1783921312"
+    "small": "https://cards.scryfall.io/small/front/0/f/0f95195f-98d1-49bf-b2e2-539101451e52.jpg?1782844512",
+    "normal": "https://cards.scryfall.io/normal/front/0/f/0f95195f-98d1-49bf-b2e2-539101451e52.jpg?1782844512"
    }
   },
   {
@@ -1926,17 +1413,8 @@
     "Menace"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
-    "normal": "https://cards.scryfall.io/normal/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
-    "large": "https://cards.scryfall.io/large/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
-    "png": "https://cards.scryfall.io/png/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.png?1783923119",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
-    "thumb": "https://cards.scryfall.io/thumb/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.webp?1783923119",
-    "grid": "https://cards.scryfall.io/grid/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.webp?1783923119",
-    "display": "https://cards.scryfall.io/display/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.webp?1783923119",
-    "art": "https://cards.scryfall.io/art/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.webp?1783923119",
-    "crop": "https://cards.scryfall.io/crop/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.webp?1783923119"
+    "small": "https://cards.scryfall.io/small/front/3/3/33f94834-82e7-4f3a-a90e-7dcbbd565e31.jpg?1782769408",
+    "normal": "https://cards.scryfall.io/normal/front/3/3/33f94834-82e7-4f3a-a90e-7dcbbd565e31.jpg?1782769408"
    }
   },
   {
@@ -1959,17 +1437,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.jpg?1783909427",
-    "normal": "https://cards.scryfall.io/normal/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.jpg?1783909427",
-    "large": "https://cards.scryfall.io/large/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.jpg?1783909427",
-    "png": "https://cards.scryfall.io/png/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.png?1783909427",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.jpg?1783909427",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.jpg?1783909427",
-    "thumb": "https://cards.scryfall.io/thumb/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.webp?1783909427",
-    "grid": "https://cards.scryfall.io/grid/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.webp?1783909427",
-    "display": "https://cards.scryfall.io/display/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.webp?1783909427",
-    "art": "https://cards.scryfall.io/art/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.webp?1783909427",
-    "crop": "https://cards.scryfall.io/crop/front/9/8/98d0d067-b52d-47ec-ba7b-8cfcd716c0e5.webp?1783909427"
+    "small": "https://errors.scryfall.com/soon.jpg",
+    "normal": "https://errors.scryfall.com/soon.jpg"
    }
   },
   {
@@ -1991,17 +1460,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.jpg?1783923877",
-    "normal": "https://cards.scryfall.io/normal/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.jpg?1783923877",
-    "large": "https://cards.scryfall.io/large/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.jpg?1783923877",
-    "png": "https://cards.scryfall.io/png/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.png?1783923877",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.jpg?1783923877",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.jpg?1783923877",
-    "thumb": "https://cards.scryfall.io/thumb/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.webp?1783923877",
-    "grid": "https://cards.scryfall.io/grid/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.webp?1783923877",
-    "display": "https://cards.scryfall.io/display/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.webp?1783923877",
-    "art": "https://cards.scryfall.io/art/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.webp?1783923877",
-    "crop": "https://cards.scryfall.io/crop/front/6/3/6338942d-d650-4571-8ec6-4d658792c53e.webp?1783923877"
+    "small": "https://cards.scryfall.io/small/front/a/6/a6b8179e-cd99-4e43-82f4-9c21849c21bd.jpg?1782862314",
+    "normal": "https://cards.scryfall.io/normal/front/a/6/a6b8179e-cd99-4e43-82f4-9c21849c21bd.jpg?1782862314"
    }
   },
   {
@@ -2009,7 +1469,7 @@
    "jaName": "不穏な火道",
    "typeJa": "土地",
    "textJa": "不穏な火道はタップ状態で戦場に出る。\n{T}：{B}か{R}を加える。\n{1}{B}{R}：ターン終了時まで、不穏な火道は威迫を持つ黒赤の２/３の昆虫・クリーチャーになる。これは土地でもある。\n不穏な火道が攻撃するたび、カード１枚を捨ててもよい。そうしたなら、カード１枚を引く。",
-   "tip": "タップインなので早めに置く。終盤はクリーチャー化して殴れば Ingris の1点とルーティング（捨てて引くのは手動）",
+   "tip": "タップインなので早めに置く。終盤はクリーチャー化して殴ればイングリスの1点とルーティング（捨てて引くのは手動）",
    "count": 1,
    "manaCost": "",
    "cmc": 0,
@@ -2024,17 +1484,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.jpg?1783913713",
-    "normal": "https://cards.scryfall.io/normal/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.jpg?1783913713",
-    "large": "https://cards.scryfall.io/large/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.jpg?1783913713",
-    "png": "https://cards.scryfall.io/png/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.png?1783913713",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.jpg?1783913713",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.jpg?1783913713",
-    "thumb": "https://cards.scryfall.io/thumb/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.webp?1783913713",
-    "grid": "https://cards.scryfall.io/grid/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.webp?1783913713",
-    "display": "https://cards.scryfall.io/display/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.webp?1783913713",
-    "art": "https://cards.scryfall.io/art/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.webp?1783913713",
-    "crop": "https://cards.scryfall.io/crop/front/e/6/e628e89b-bee9-408d-bb05-1784fda6b8a1.webp?1783913713"
+    "small": "https://cards.scryfall.io/small/front/c/f/cfe98dd8-879e-40a6-81a7-57cf80e3e9b9.jpg?1782807411",
+    "normal": "https://cards.scryfall.io/normal/front/c/f/cfe98dd8-879e-40a6-81a7-57cf80e3e9b9.jpg?1782807411"
    }
   },
   {
@@ -2042,7 +1493,7 @@
    "jaName": "しっぺ返し",
    "typeJa": "インスタント",
    "textJa": "放題（以下から１つ以上の追加コストを選ぶ。）\n＋ {1} ― インスタント・呪文やソーサリー・呪文や起動型能力や誘発型能力のうち１つを対象とする。それをコピーする。そのコピーの新しい対象を選んでもよい。\n＋ {1} ― 呪文や能力であり単一の対象を持つ１つを対象とする。それの対象を変更する。",
-   "tip": "Court of Embereth のアップキープ誘発や Ingris の攻撃誘発をコピーすると大きい。このアプリでは誘発をコピーできないので、効果のぶんを編集モードで相手のライフから引く",
+   "tip": "エンバレスの宮廷のアップキープ誘発やイングリスの攻撃誘発をコピーすると大きい。このアプリでは誘発をコピーできないので、効果のぶんを編集モードで相手のライフから引く",
    "count": 1,
    "manaCost": "{R}{R}",
    "cmc": 2,
@@ -2058,17 +1509,8 @@
     "Spree"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.jpg?1783911816",
-    "normal": "https://cards.scryfall.io/normal/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.jpg?1783911816",
-    "large": "https://cards.scryfall.io/large/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.jpg?1783911816",
-    "png": "https://cards.scryfall.io/png/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.png?1783911816",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.jpg?1783911816",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.jpg?1783911816",
-    "thumb": "https://cards.scryfall.io/thumb/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.webp?1783911816",
-    "grid": "https://cards.scryfall.io/grid/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.webp?1783911816",
-    "display": "https://cards.scryfall.io/display/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.webp?1783911816",
-    "art": "https://cards.scryfall.io/art/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.webp?1783911816",
-    "crop": "https://cards.scryfall.io/crop/front/a/9/a9cc02d1-799d-42aa-9bc2-4c05452b63b4.webp?1783911816"
+    "small": "https://cards.scryfall.io/small/front/2/0/206e4579-d0c4-4e41-b4da-62894c00b338.jpg?1782760061",
+    "normal": "https://cards.scryfall.io/normal/front/2/0/206e4579-d0c4-4e41-b4da-62894c00b338.jpg?1782760061"
    }
   },
   {
@@ -2076,7 +1518,7 @@
    "jaName": "荒れ狂う嵐の儀式",
    "typeJa": "エンチャント",
    "textJa": "「稲妻の憤怒獣」という名前のクリーチャーでは、あなたやあなたがコントロールしているプレインズウォーカーを攻撃できない。\n各プレイヤーのアップキープの開始時に、そのプレイヤーは「稲妻の憤怒獣」という名前の赤の５/１のエレメンタル・クリーチャー・トークン１体を生成する。それはトランプルと速攻と「終了ステップの開始時に、このクリーチャーを生け贄に捧げる。」を持つ。",
-   "tip": "毎ターン5/1速攻。展開時バーン＋攻撃で Ingris（赤なので Torbran で5点が7点）＋終了時の死亡で Garna。相手の憤怒獣は自分を殴れない（このアプリでは相手側は出さない）",
+   "tip": "毎ターン5/1速攻。展開時バーン＋攻撃でイングリス（赤なのでトーブランで5点が7点）＋終了時の死亡でガルナ。相手の憤怒獣は自分を殴れない（このアプリでは相手側は出さない）",
    "count": 1,
    "manaCost": "{3}{R}{R}",
    "cmc": 5,
@@ -2090,17 +1532,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.jpg?1783912995",
-    "normal": "https://cards.scryfall.io/normal/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.jpg?1783912995",
-    "large": "https://cards.scryfall.io/large/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.jpg?1783912995",
-    "png": "https://cards.scryfall.io/png/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.png?1783912995",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.jpg?1783912995",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.jpg?1783912995",
-    "thumb": "https://cards.scryfall.io/thumb/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.webp?1783912995",
-    "grid": "https://cards.scryfall.io/grid/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.webp?1783912995",
-    "display": "https://cards.scryfall.io/display/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.webp?1783912995",
-    "art": "https://cards.scryfall.io/art/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.webp?1783912995",
-    "crop": "https://cards.scryfall.io/crop/front/8/f/8f06e3db-ce55-4535-8557-cc52c5fce637.webp?1783912995"
+    "small": "https://cards.scryfall.io/small/front/5/7/57365c63-fda9-438f-8b77-2fbff48ab960.jpg?1782803720",
+    "normal": "https://cards.scryfall.io/normal/front/5/7/57365c63-fda9-438f-8b77-2fbff48ab960.jpg?1782803720"
    }
   },
   {
@@ -2124,17 +1557,8 @@
     "Raid"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.jpg?1783909102",
-    "normal": "https://cards.scryfall.io/normal/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.jpg?1783909102",
-    "large": "https://cards.scryfall.io/large/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.jpg?1783909102",
-    "png": "https://cards.scryfall.io/png/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.png?1783909102",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.jpg?1783909102",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.jpg?1783909102",
-    "thumb": "https://cards.scryfall.io/thumb/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.webp?1783909102",
-    "grid": "https://cards.scryfall.io/grid/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.webp?1783909102",
-    "display": "https://cards.scryfall.io/display/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.webp?1783909102",
-    "art": "https://cards.scryfall.io/art/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.webp?1783909102",
-    "crop": "https://cards.scryfall.io/crop/front/9/4/94ad0b97-a318-4e76-ac79-b3e83417c333.webp?1783909102"
+    "small": "https://cards.scryfall.io/small/front/5/c/5c327011-d8ab-4d8f-9124-e1274403f3a9.jpg?1782783388",
+    "normal": "https://cards.scryfall.io/normal/front/5/c/5c327011-d8ab-4d8f-9124-e1274403f3a9.jpg?1782783388"
    }
   },
   {
@@ -2142,7 +1566,7 @@
    "jaName": "包囲攻撃の副官",
    "typeJa": "クリーチャー — ゴブリン",
    "textJa": "副官 — あなたのターンの戦闘の開始時に、あなたがあなたの統率者をコントロールしている場合、赤の１/１のゴブリン・クリーチャー・トークン２体を生成する。ターン終了時まで、それらのトークンは速攻を得る。\n{2}, ゴブリン１体を生け贄に捧げる：１つを対象とする。包囲攻撃の副官はそれに１点のダメージを与える。",
-   "tip": "Ingris がいれば毎ターン速攻ゴブリン2体。余ったマナは{2}でゴブリンを投げてとどめに使う（Torbran 下なら1点が3点、Garna でさらに1点）",
+   "tip": "イングリスがいれば毎ターン速攻ゴブリン2体。余ったマナは{2}でゴブリンを投げてとどめに使う（トーブラン下なら1点が3点、ガルナでさらに1点）",
    "count": 1,
    "manaCost": "{3}{R}",
    "cmc": 4,
@@ -2158,17 +1582,8 @@
     "Lieutenant"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.jpg?1783903441",
-    "normal": "https://cards.scryfall.io/normal/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.jpg?1783903441",
-    "large": "https://cards.scryfall.io/large/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.jpg?1783903441",
-    "png": "https://cards.scryfall.io/png/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.png?1783903441",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.jpg?1783903441",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.jpg?1783903441",
-    "thumb": "https://cards.scryfall.io/thumb/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.webp?1783903441",
-    "grid": "https://cards.scryfall.io/grid/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.webp?1783903441",
-    "display": "https://cards.scryfall.io/display/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.webp?1783903441",
-    "art": "https://cards.scryfall.io/art/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.webp?1783903441",
-    "crop": "https://cards.scryfall.io/crop/front/7/6/76049160-69f7-4114-81f3-dfab8242ac15.webp?1783903441"
+    "small": "https://cards.scryfall.io/small/front/0/0/00a76334-0eac-4abb-907f-a4025d67267a.jpg?1782795112",
+    "normal": "https://cards.scryfall.io/normal/front/0/0/00a76334-0eac-4abb-907f-a4025d67267a.jpg?1782795112"
    }
   },
   {
@@ -2192,17 +1607,8 @@
     "Alliance"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.jpg?1783904093",
-    "normal": "https://cards.scryfall.io/normal/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.jpg?1783904093",
-    "large": "https://cards.scryfall.io/large/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.jpg?1783904093",
-    "png": "https://cards.scryfall.io/png/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.png?1783904093",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.jpg?1783904093",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.jpg?1783904093",
-    "thumb": "https://cards.scryfall.io/thumb/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.webp?1783904093",
-    "grid": "https://cards.scryfall.io/grid/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.webp?1783904093",
-    "display": "https://cards.scryfall.io/display/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.webp?1783904093",
-    "art": "https://cards.scryfall.io/art/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.webp?1783904093",
-    "crop": "https://cards.scryfall.io/crop/front/0/2/025aafbc-5b24-4f5b-9b4a-81f6b9cb5ef3.webp?1783904093"
+    "small": "https://cards.scryfall.io/small/front/d/e/de1085c9-40b7-463d-996d-dcc36b5da1b2.jpg?1782760843",
+    "normal": "https://cards.scryfall.io/normal/front/d/e/de1085c9-40b7-463d-996d-dcc36b5da1b2.jpg?1782760843"
    }
   },
   {
@@ -2225,17 +1631,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg?1783903193",
-    "normal": "https://cards.scryfall.io/normal/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg?1783903193",
-    "large": "https://cards.scryfall.io/large/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg?1783903193",
-    "png": "https://cards.scryfall.io/png/front/d/7/d707c477-440f-417c-970a-0e7426a58045.png?1783903193",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg?1783903193",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg?1783903193",
-    "thumb": "https://cards.scryfall.io/thumb/front/d/7/d707c477-440f-417c-970a-0e7426a58045.webp?1783903193",
-    "grid": "https://cards.scryfall.io/grid/front/d/7/d707c477-440f-417c-970a-0e7426a58045.webp?1783903193",
-    "display": "https://cards.scryfall.io/display/front/d/7/d707c477-440f-417c-970a-0e7426a58045.webp?1783903193",
-    "art": "https://cards.scryfall.io/art/front/d/7/d707c477-440f-417c-970a-0e7426a58045.webp?1783903193",
-    "crop": "https://cards.scryfall.io/crop/front/d/7/d707c477-440f-417c-970a-0e7426a58045.webp?1783903193"
+    "small": "https://cards.scryfall.io/small/front/2/a/2a84a87e-344c-4d39-91ea-7b4316365368.jpg?1785267779",
+    "normal": "https://cards.scryfall.io/normal/front/2/a/2a84a87e-344c-4d39-91ea-7b4316365368.jpg?1785267779"
    }
   },
   {
@@ -2257,17 +1654,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.jpg?1783909656",
-    "normal": "https://cards.scryfall.io/normal/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.jpg?1783909656",
-    "large": "https://cards.scryfall.io/large/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.jpg?1783909656",
-    "png": "https://cards.scryfall.io/png/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.png?1783909656",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.jpg?1783909656",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.jpg?1783909656",
-    "thumb": "https://cards.scryfall.io/thumb/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.webp?1783909656",
-    "grid": "https://cards.scryfall.io/grid/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.webp?1783909656",
-    "display": "https://cards.scryfall.io/display/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.webp?1783909656",
-    "art": "https://cards.scryfall.io/art/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.webp?1783909656",
-    "crop": "https://cards.scryfall.io/crop/front/b/9/b90164a1-8b0a-4445-a0ad-43e4c3324925.webp?1783909656"
+    "small": "https://cards.scryfall.io/small/front/a/e/aee5deb4-49c2-4a35-b044-df1dc09cfa55.jpg?1782787120",
+    "normal": "https://cards.scryfall.io/normal/front/a/e/aee5deb4-49c2-4a35-b044-df1dc09cfa55.jpg?1782787120"
    }
   },
   {
@@ -2275,7 +1663,7 @@
    "jaName": "ステンシアの蜂起",
    "typeJa": "エンチャント",
    "textJa": "あなたの終了ステップの開始時に、赤の１/１の人間・クリーチャー・トークン１体を生成する。その後、あなたがちょうど13個のパーマネントをコントロールしていたなら、あなたはステンシアの蜂起を生け贄に捧げてもよい。そうしたとき、クリーチャーやプレインズウォーカーやプレイヤーのうち１つを対象とする。これはそれに７点のダメージを与える。",
-   "tip": "毎ターン人間1体。パーマネントがちょうど13個なら7点（Torbran 下で9点）のとどめになる。終了ステップ前に生け贄ドローで数を調整できる",
+   "tip": "毎ターン人間1体。パーマネントがちょうど13個なら7点（トーブラン下で9点）のとどめになる。終了ステップ前に生け贄ドローで数を調整できる",
    "count": 1,
    "manaCost": "{2}{R}{R}",
    "cmc": 4,
@@ -2289,17 +1677,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.jpg?1783924823",
-    "normal": "https://cards.scryfall.io/normal/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.jpg?1783924823",
-    "large": "https://cards.scryfall.io/large/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.jpg?1783924823",
-    "png": "https://cards.scryfall.io/png/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.png?1783924823",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.jpg?1783924823",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.jpg?1783924823",
-    "thumb": "https://cards.scryfall.io/thumb/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.webp?1783924823",
-    "grid": "https://cards.scryfall.io/grid/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.webp?1783924823",
-    "display": "https://cards.scryfall.io/display/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.webp?1783924823",
-    "art": "https://cards.scryfall.io/art/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.webp?1783924823",
-    "crop": "https://cards.scryfall.io/crop/front/d/f/df71a8c1-25af-4e6a-9197-11b96b959b46.webp?1783924823"
+    "small": "https://cards.scryfall.io/small/front/4/a/4a2a1be6-babb-4188-9a2a-e3d9be3d852a.jpg?1782866010",
+    "normal": "https://cards.scryfall.io/normal/front/4/a/4a2a1be6-babb-4188-9a2a-e3d9be3d852a.jpg?1782866010"
    }
   },
   {
@@ -2321,17 +1700,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg?1785981659",
-    "normal": "https://cards.scryfall.io/normal/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg?1785981659",
-    "large": "https://cards.scryfall.io/large/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg?1785981659",
-    "png": "https://cards.scryfall.io/png/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.png?1785981659",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg?1785981659",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg?1785981659",
-    "thumb": "https://cards.scryfall.io/thumb/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.webp?1785981659",
-    "grid": "https://cards.scryfall.io/grid/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.webp?1785981659",
-    "display": "https://cards.scryfall.io/display/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.webp?1785981659",
-    "art": "https://cards.scryfall.io/art/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.webp?1785981659",
-    "crop": "https://cards.scryfall.io/crop/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.webp?1785981659"
+    "small": "https://cards.scryfall.io/small/front/6/c/6ca323b2-e8b6-4a3d-af72-d404860aba7d.jpg?1790688987",
+    "normal": "https://cards.scryfall.io/normal/front/6/c/6ca323b2-e8b6-4a3d-af72-d404860aba7d.jpg?1790688987"
    }
   },
   {
@@ -2355,17 +1725,8 @@
    ],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.jpg?1783909566",
-    "normal": "https://cards.scryfall.io/normal/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.jpg?1783909566",
-    "large": "https://cards.scryfall.io/large/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.jpg?1783909566",
-    "png": "https://cards.scryfall.io/png/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.png?1783909566",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.jpg?1783909566",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.jpg?1783909566",
-    "thumb": "https://cards.scryfall.io/thumb/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.webp?1783909566",
-    "grid": "https://cards.scryfall.io/grid/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.webp?1783909566",
-    "display": "https://cards.scryfall.io/display/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.webp?1783909566",
-    "art": "https://cards.scryfall.io/art/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.webp?1783909566",
-    "crop": "https://cards.scryfall.io/crop/front/7/e/7e6f1a55-0fec-4b94-9640-9110ca8d0212.webp?1783909566"
+    "small": "https://cards.scryfall.io/small/front/d/f/df053121-3d24-42d0-8f23-3b8910a7ea44.jpg?1782785933",
+    "normal": "https://cards.scryfall.io/normal/front/d/f/df053121-3d24-42d0-8f23-3b8910a7ea44.jpg?1782785933"
    }
   },
   {
@@ -2390,17 +1751,8 @@
     "Scry"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1783908896",
-    "normal": "https://cards.scryfall.io/normal/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1783908896",
-    "large": "https://cards.scryfall.io/large/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1783908896",
-    "png": "https://cards.scryfall.io/png/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.png?1783908896",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1783908896",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1783908896",
-    "thumb": "https://cards.scryfall.io/thumb/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.webp?1783908896",
-    "grid": "https://cards.scryfall.io/grid/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.webp?1783908896",
-    "display": "https://cards.scryfall.io/display/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.webp?1783908896",
-    "art": "https://cards.scryfall.io/art/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.webp?1783908896",
-    "crop": "https://cards.scryfall.io/crop/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.webp?1783908896"
+    "small": "https://cards.scryfall.io/small/front/b/2/b231d310-b72f-4957-b042-c33ea029aea0.jpg?1782785912",
+    "normal": "https://cards.scryfall.io/normal/front/b/2/b231d310-b72f-4957-b042-c33ea029aea0.jpg?1782785912"
    }
   },
   {
@@ -2408,7 +1760,7 @@
    "jaName": "朱地洞の族長、トーブラン",
    "typeJa": "伝説のクリーチャー — ドワーフ・貴族",
    "textJa": "あなたがコントロールしている赤の発生源が、対戦相手か対戦相手がコントロールしているパーマネントにダメージを与えるなら、代わりに、それはその点数に２を足した点数のダメージを与える。",
-   "tip": "最優先で探す増幅役。1点の誘発がすべて3点になり、3人ぶんで1回9点。Ingris の攻撃時1点も赤いトークンなら3点。無色・黒の発生源には乗らない",
+   "tip": "最優先で探す増幅役。1点の誘発がすべて3点になり、3人ぶんで1回9点。イングリスの攻撃時1点も赤いトークンなら3点。無色・黒の発生源には乗らない",
    "count": 1,
    "manaCost": "{1}{R}{R}{R}",
    "cmc": 4,
@@ -2422,17 +1774,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
-    "normal": "https://cards.scryfall.io/normal/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
-    "large": "https://cards.scryfall.io/large/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
-    "png": "https://cards.scryfall.io/png/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.png?1783932614",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
-    "thumb": "https://cards.scryfall.io/thumb/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.webp?1783932614",
-    "grid": "https://cards.scryfall.io/grid/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.webp?1783932614",
-    "display": "https://cards.scryfall.io/display/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.webp?1783932614",
-    "art": "https://cards.scryfall.io/art/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.webp?1783932614",
-    "crop": "https://cards.scryfall.io/crop/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.webp?1783932614"
+    "small": "https://cards.scryfall.io/small/front/4/2/429e570d-99c1-4fc0-957e-e2401c673983.jpg?1782913138",
+    "normal": "https://cards.scryfall.io/normal/front/4/2/429e570d-99c1-4fc0-957e-e2401c673983.jpg?1782913138"
    }
   },
   {
@@ -2440,7 +1783,7 @@
    "jaName": "ウラブラスクの溶鉱炉",
    "typeJa": "アーティファクト",
    "textJa": "あなたのターンの戦闘の開始時に、ウラブラスクの溶鉱炉の上に油カウンター１個を置く。その後、トランプルと速攻を持つ赤のＸ/１のファイレクシアン・ホラー・クリーチャー・トークン１体を生成する。Ｘはウラブラスクの溶鉱炉の上にある油カウンターの個数に等しい。次の終了ステップの開始時に、そのトークンを生け贄に捧げる。",
-   "tip": "置いておくほど育つ速攻アタッカー。早いターンに置くほど得。終了時の生け贄で Garna も誘発する",
+   "tip": "置いておくほど育つ速攻アタッカー。早いターンに置くほど得。終了時の生け贄でガルナも誘発する",
    "count": 1,
    "manaCost": "{2}{R}",
    "cmc": 3,
@@ -2454,17 +1797,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.jpg?1783918022",
-    "normal": "https://cards.scryfall.io/normal/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.jpg?1783918022",
-    "large": "https://cards.scryfall.io/large/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.jpg?1783918022",
-    "png": "https://cards.scryfall.io/png/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.png?1783918022",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.jpg?1783918022",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.jpg?1783918022",
-    "thumb": "https://cards.scryfall.io/thumb/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.webp?1783918022",
-    "grid": "https://cards.scryfall.io/grid/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.webp?1783918022",
-    "display": "https://cards.scryfall.io/display/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.webp?1783918022",
-    "art": "https://cards.scryfall.io/art/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.webp?1783918022",
-    "crop": "https://cards.scryfall.io/crop/front/6/8/68f9f9d8-9ea0-4608-a79c-a09a87918186.webp?1783918022"
+    "small": "https://cards.scryfall.io/small/front/c/0/c063f42a-d686-4d14-9247-b9733a98077b.jpg?1782829432",
+    "normal": "https://cards.scryfall.io/normal/front/c/0/c063f42a-d686-4d14-9247-b9733a98077b.jpg?1782829432"
    }
   },
   {
@@ -2486,17 +1820,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.jpg?1783908926",
-    "normal": "https://cards.scryfall.io/normal/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.jpg?1783908926",
-    "large": "https://cards.scryfall.io/large/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.jpg?1783908926",
-    "png": "https://cards.scryfall.io/png/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.png?1783908926",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.jpg?1783908926",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.jpg?1783908926",
-    "thumb": "https://cards.scryfall.io/thumb/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.webp?1783908926",
-    "grid": "https://cards.scryfall.io/grid/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.webp?1783908926",
-    "display": "https://cards.scryfall.io/display/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.webp?1783908926",
-    "art": "https://cards.scryfall.io/art/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.webp?1783908926",
-    "crop": "https://cards.scryfall.io/crop/front/9/a/9ae0b1e0-a481-4a98-b67b-0cf8bac53fdd.webp?1783908926"
+    "small": "https://cards.scryfall.io/small/front/4/c/4c57588f-3bfe-4fa9-a35a-30c52dd50bd5.jpg?1782812098",
+    "normal": "https://cards.scryfall.io/normal/front/4/c/4c57588f-3bfe-4fa9-a35a-30c52dd50bd5.jpg?1782812098"
    }
   },
   {
@@ -2504,7 +1829,7 @@
    "jaName": "村の儀式",
    "typeJa": "インスタント",
    "textJa": "この呪文を唱えるための追加コストとして、クリーチャー１体を生け贄に捧げる。\nカード２枚を引く。",
-   "tip": "1マナの生け贄ドロー。戦闘ダメージのあとに攻撃中のトークンを食べると Garna で1枚追加",
+   "tip": "1マナの生け贄ドロー。戦闘ダメージのあとに攻撃中のトークンを食べるとガルナで1枚追加",
    "count": 1,
    "manaCost": "{B}",
    "cmc": 1,
@@ -2518,17 +1843,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.jpg?1783908135",
-    "normal": "https://cards.scryfall.io/normal/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.jpg?1783908135",
-    "large": "https://cards.scryfall.io/large/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.jpg?1783908135",
-    "png": "https://cards.scryfall.io/png/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.png?1783908135",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.jpg?1783908135",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.jpg?1783908135",
-    "thumb": "https://cards.scryfall.io/thumb/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.webp?1783908135",
-    "grid": "https://cards.scryfall.io/grid/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.webp?1783908135",
-    "display": "https://cards.scryfall.io/display/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.webp?1783908135",
-    "art": "https://cards.scryfall.io/art/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.webp?1783908135",
-    "crop": "https://cards.scryfall.io/crop/front/4/2/42ed35e9-51cd-468a-86a9-9412553cf50d.webp?1783908135"
+    "small": "https://cards.scryfall.io/small/front/8/8/88c4bc1d-f48b-4ce5-a333-36d9f6f23da2.jpg?1782763142",
+    "normal": "https://cards.scryfall.io/normal/front/8/8/88c4bc1d-f48b-4ce5-a333-36d9f6f23da2.jpg?1782763142"
    }
   },
   {
@@ -2536,7 +1852,7 @@
    "jaName": "エレボスの鞭",
    "typeJa": "伝説のエンチャント・アーティファクト",
    "textJa": "あなたがコントロールしているすべてのクリーチャーは絆魂を持つ。\n{2}{B}{B}, {T}：あなたの墓地にあるクリーチャー・カード１枚を対象とする。それを戦場に戻す。それは速攻を得る。次の終了ステップの開始時に、それを追放する。それが戦場を離れるなら、それを他のいずこかに置く代わりに追放する。起動はソーサリーとしてのみ行う。",
-   "tip": "墓地の Slash や Kreat を1ターンだけ戻してバーンを稼ぐ。戻したクリーチャーは生け贄ドローの餌にしてから追放されるとよい",
+   "tip": "墓地のスラッシュやクレートを1ターンだけ戻してバーンを稼ぐ。戻したクリーチャーは生け贄ドローの餌にしてから追放されるとよい",
    "count": 1,
    "manaCost": "{2}{B}{B}",
    "cmc": 4,
@@ -2550,17 +1866,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.jpg?1783909613",
-    "normal": "https://cards.scryfall.io/normal/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.jpg?1783909613",
-    "large": "https://cards.scryfall.io/large/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.jpg?1783909613",
-    "png": "https://cards.scryfall.io/png/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.png?1783909613",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.jpg?1783909613",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.jpg?1783909613",
-    "thumb": "https://cards.scryfall.io/thumb/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.webp?1783909613",
-    "grid": "https://cards.scryfall.io/grid/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.webp?1783909613",
-    "display": "https://cards.scryfall.io/display/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.webp?1783909613",
-    "art": "https://cards.scryfall.io/art/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.webp?1783909613",
-    "crop": "https://cards.scryfall.io/crop/front/b/7/b738612f-4e78-4b19-9392-6c074956d6e4.webp?1783909613"
+    "small": "https://cards.scryfall.io/small/front/c/e/cecdc744-7971-4893-b3e1-1793e14522a5.jpg?1782786536",
+    "normal": "https://cards.scryfall.io/normal/front/c/e/cecdc744-7971-4893-b3e1-1793e14522a5.jpg?1782786536"
    }
   },
   {
@@ -2582,17 +1889,8 @@
    "producedMana": [],
    "keywords": [],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.jpg?1783932917",
-    "normal": "https://cards.scryfall.io/normal/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.jpg?1783932917",
-    "large": "https://cards.scryfall.io/large/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.jpg?1783932917",
-    "png": "https://cards.scryfall.io/png/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.png?1783932917",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.jpg?1783932917",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.jpg?1783932917",
-    "thumb": "https://cards.scryfall.io/thumb/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.webp?1783932917",
-    "grid": "https://cards.scryfall.io/grid/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.webp?1783932917",
-    "display": "https://cards.scryfall.io/display/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.webp?1783932917",
-    "art": "https://cards.scryfall.io/art/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.webp?1783932917",
-    "crop": "https://cards.scryfall.io/crop/front/2/7/272e317c-55c4-43b2-91aa-3e0009cfd7d5.webp?1783932917"
+    "small": "https://cards.scryfall.io/small/front/0/6/06c401fb-32f9-4f73-ad49-2e8a29004def.jpg?1782779262",
+    "normal": "https://cards.scryfall.io/normal/front/0/6/06c401fb-32f9-4f73-ad49-2e8a29004def.jpg?1782779262"
    }
   },
   {
@@ -2600,7 +1898,7 @@
    "jaName": "機知ある怨怒取り",
    "typeJa": "クリーチャー — デビル・市民",
    "textJa": "団結 ― これでないクリーチャー１体があなたのコントロール下で戦場に出るたび、機知ある怨怒取りは各対戦相手にそれぞれ１点のダメージを与える。",
-   "tip": "展開時バーンの4枚目。Impact Tremors・Kreat・溶鉄の門番と重ねるほど、トークン1体の価値が上がる",
+   "tip": "展開時バーンの4枚目。衝撃の震え・クレート・溶鉄の門番と重ねるほど、トークン1体の価値が上がる",
    "count": 1,
    "manaCost": "{2}{R}",
    "cmc": 3,
@@ -2616,17 +1914,8 @@
     "Alliance"
    ],
    "image": {
-    "small": "https://cards.scryfall.io/small/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.jpg?1783923109",
-    "normal": "https://cards.scryfall.io/normal/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.jpg?1783923109",
-    "large": "https://cards.scryfall.io/large/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.jpg?1783923109",
-    "png": "https://cards.scryfall.io/png/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.png?1783923109",
-    "art_crop": "https://cards.scryfall.io/art_crop/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.jpg?1783923109",
-    "border_crop": "https://cards.scryfall.io/border_crop/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.jpg?1783923109",
-    "thumb": "https://cards.scryfall.io/thumb/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.webp?1783923109",
-    "grid": "https://cards.scryfall.io/grid/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.webp?1783923109",
-    "display": "https://cards.scryfall.io/display/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.webp?1783923109",
-    "art": "https://cards.scryfall.io/art/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.webp?1783923109",
-    "crop": "https://cards.scryfall.io/crop/front/7/1/71d13f19-482b-4a2e-9692-b7d7caf2f9f5.webp?1783923109"
+    "small": "https://cards.scryfall.io/small/front/e/2/e2cf2128-33c5-4f11-99ad-f31f8556052d.jpg?1782855894",
+    "normal": "https://cards.scryfall.io/normal/front/e/2/e2cf2128-33c5-4f11-99ad-f31f8556052d.jpg?1782855894"
    }
   }
  ]

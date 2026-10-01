@@ -15,6 +15,7 @@ export interface ScryfallFace {
 }
 
 export interface ScryfallCard extends ScryfallFace {
+  lang?: string;
   cmc: number;
   colors?: string[];
   color_identity: string[];
@@ -33,7 +34,14 @@ export interface JaText {
 
 const num = (v: string | undefined) => (v === undefined ? null : Number.isNaN(Number(v)) ? 0 : Number(v));
 
-export function toCardDef(card: ScryfallCard, row: { jaName: string; count: number }, ja: JaText): CardDef {
+/** 印刷の画像（両面なら表面） */
+export function imageOf(card: ScryfallCard) {
+  const uris = card.image_uris ?? card.card_faces?.[0].image_uris;
+  return uris ? { small: uris.small, normal: uris.normal } : null;
+}
+
+/** printed は日本語版の印刷。あればその画像を使う */
+export function toCardDef(card: ScryfallCard, row: { jaName: string; count: number }, ja: JaText, printed?: ScryfallCard): CardDef {
   const faces = card.card_faces ?? [card];
   const front = faces[0];
   return {
@@ -52,7 +60,7 @@ export function toCardDef(card: ScryfallCard, row: { jaName: string; count: numb
     colors: card.colors ?? card.color_identity,
     producedMana: card.produced_mana ?? [],
     keywords: card.keywords,
-    image: card.image_uris ?? front.image_uris ?? null,
+    image: (printed && imageOf(printed)) ?? imageOf(card),
   };
 }
 

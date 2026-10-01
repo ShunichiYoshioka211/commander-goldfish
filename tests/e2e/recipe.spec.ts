@@ -206,6 +206,7 @@ test('カード詳細は効果もタイプも日本語で、備考は使い方�
   await expect(dialog).toContainText('あなたがコントロールしている赤の発生源');
   await expect(dialog).toContainText('コツ：');
   await expect(dialog).not.toContainText('If a red source');
+  await expect(dialog).not.toContainText('Torbran, Thane of Red Fell');
   await page.keyboard.press('Escape');
   // 基本土地にはコツが無い
   const mountain = await app.put('Mountain', 'hand');

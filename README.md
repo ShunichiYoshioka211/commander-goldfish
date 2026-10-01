@@ -65,6 +65,8 @@ URL に `?seed=123` を付けると同じ初手・同じドロー順で遊べる
 
 ## 開発
 
+開発のルール（構成・エンジンの約束・カードの足し方・テストの書き方・コミット）は [CONTRIBUTING.md](CONTRIBUTING.md) にまとめてある。
+
 ```bash
 npm install
 npm run dev          # http://localhost:5173

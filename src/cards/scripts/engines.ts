@@ -1,6 +1,6 @@
 // トークン生成源と、戦闘・ターンの区切りで誘発するもの。
 import {
-  ask, battlefield, chooseCards, confirm, createToken, creatures, draw, enqueue, isCommander, isLand, log,
+  ask, battlefield, chooseCards, confirm, createToken, creatures, draw, enqueue, isCommander, isCreature, isLand, log,
   moveTo, nameJa, power, sacrifice, shuffleLibrary, typeOf,
 } from '../../engine/core';
 import { damageAny } from '../../engine/damage';
@@ -56,6 +56,50 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
             damageAny(st, card, 1);
           });
         },
+      },
+    ],
+  },
+  'Howlsquad Heavy': {
+    // スピード開始。ほかのゴブリンは速攻（召喚酔いが効くのは出たターンだけなので、出たときに与える）
+    onEnter: (s) => {
+      if (s.speed === 0) s.speed = 1;
+      for (const c of creatures(s)) if (typeOf(c, 'Goblin')) c.haste = true;
+    },
+    onCreatureEnters: (_s, _card, entered) => {
+      if (typeOf(entered, 'Goblin')) entered.haste = true;
+    },
+    onCombatStart: atCombat('咆吼部隊の重量級', (s) => void createToken(s, 'Goblin', 1)),
+    // 最大スピード：ゴブリンの数だけ {R}
+    mana: (s) => {
+      const goblins = creatures(s).filter((c) => typeOf(c, 'Goblin')).length;
+      return s.speed === 4 ? [{ label: `{R}×${goblins}`, produce: Array(goblins).fill('R') }] : [];
+    },
+  },
+  'Loyal Apprentice': {
+    onCombatStart: (s) => {
+      if (battlefield(s).some(isCommander)) {
+        enqueue(s, '忠実な弟子', (st) => void createToken(st, 'Thopter', 1, { haste: true }));
+      }
+    },
+  },
+  'Dockside Chef': {
+    abilities: [
+      {
+        label: 'アーティファクトかクリーチャーを生け贄に1枚引く',
+        cost: '{1}{B}',
+        // 料理人自身も生け贄にできるので、候補が無いことはない
+        run: (s) =>
+          chooseCards(
+            s,
+            '生け贄に捧げるパーマネント',
+            battlefield(s).filter((c) => isCreature(c) || typeOf(c, 'Artifact')).map((c) => c.id),
+            1,
+            1,
+            (st, [id]) => {
+              sacrifice(st, id);
+              draw(st, 1);
+            },
+          ),
       },
     ],
   },

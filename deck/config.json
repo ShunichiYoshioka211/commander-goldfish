@@ -1,5 +1,8 @@
 {
   "name": "Ingris Stingerquill",
   "csv": "ingris.csv",
-  "commanders": ["Ingris Stingerquill"]
+  "commanders": [
+    "Ingris Stingerquill"
+  ],
+  "include": "all"
 }

@@ -79,12 +79,17 @@ export function blankInstance(id: string, name: string, token: boolean, zone: Zo
 }
 
 /** 領域の移動。trigger=false なら誘発を起こさない（編集モード） */
-export function moveTo(s: GameState, id: string, to: ZoneId, opts: { trigger?: boolean; bottom?: boolean; tapped?: boolean } = {}) {
+export function moveTo(
+  s: GameState,
+  id: string,
+  to: ZoneId,
+  opts: { trigger?: boolean; bottom?: boolean; tapped?: boolean; observers?: CardInstance[] } = {},
+) {
   const trigger = opts.trigger ?? true;
   const card = s.cards[id];
   const from = card.zone;
   s.zones[from] = s.zones[from].filter((x) => x !== id);
-  if (from === 'battlefield') leaveBattlefield(s, card, to, trigger);
+  if (from === 'battlefield') leaveBattlefield(s, card, to, trigger, opts.observers ?? []);
   // 統率者が墓地か追放に行くなら統率領域に戻す
   const dest: ZoneId = isCommander(card) && (to === 'graveyard' || to === 'exile') ? 'command' : to;
   if (card.token && dest !== 'battlefield') {
@@ -98,14 +103,14 @@ export function moveTo(s: GameState, id: string, to: ZoneId, opts: { trigger?: b
   if (dest === 'battlefield') enterBattlefield(s, moved, trigger, opts.tapped ?? false);
 }
 
-function leaveBattlefield(s: GameState, card: CardInstance, to: ZoneId, trigger: boolean) {
+function leaveBattlefield(s: GameState, card: CardInstance, to: ZoneId, trigger: boolean, observers: CardInstance[]) {
   if (!isLand(card)) s.flags.nonlandLeft = true;
   if (!(trigger && isCreature(card) && to === 'graveyard')) return;
   s.flags.creaturesDied++;
   const wasAttacking = card.attacking !== null;
   log(s, `${nameJa(card)} が死亡`);
   scriptOf(card).onDies?.(s, card);
-  for (const other of battlefield(s)) scriptOf(other).onCreatureDies?.(s, other, card, wasAttacking);
+  for (const other of [...observers, ...battlefield(s)]) scriptOf(other).onCreatureDies?.(s, other, card, wasAttacking);
 }
 
 function enterBattlefield(s: GameState, card: CardInstance, trigger: boolean, tapped: boolean) {
@@ -114,9 +119,10 @@ function enterBattlefield(s: GameState, card: CardInstance, trigger: boolean, ta
   card.tapped = tapped || (trigger && (script.etbTapped?.(s, card) ?? false));
   if (!trigger) return;
   script.onEnter?.(s, card);
-  if (!isCreature(card)) return;
   for (const other of battlefield(s)) {
-    if (other.id !== card.id) scriptOf(other).onCreatureEnters?.(s, other, card);
+    if (other.id === card.id) continue;
+    scriptOf(other).onPermanentEnters?.(s, other, card);
+    if (isCreature(card)) scriptOf(other).onCreatureEnters?.(s, other, card);
   }
 }
 
@@ -133,6 +139,12 @@ export function createToken(s: GameState, name: string, n: number, opts: Partial
     made.push(card);
   }
   return made;
+}
+
+/** 全体除去。同時に死ぬので、先に墓地へ行ったものも後のものの死亡を見届ける（Garna など） */
+export function destroyAll(s: GameState, ids: string[]) {
+  const died = ids.map((id) => ({ ...s.cards[id] }));
+  ids.forEach((id, i) => moveTo(s, id, 'graveyard', { observers: died.slice(0, i) }));
 }
 
 export function sacrifice(s: GameState, id: string) {

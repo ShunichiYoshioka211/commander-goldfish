@@ -650,3 +650,12 @@ td {
   overflow-x: auto;
   justify-content: safe center;
 }
+
+/* ドラッグ中は手札の欄で切り取らず、カードを一番手前に出す */
+body.dragging-card .hand {
+  overflow: visible;
+}
+
+.card.dragging {
+  z-index: 60;
+}

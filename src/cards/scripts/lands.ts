@@ -43,6 +43,20 @@ const filterMana = (produce: ['B' | 'R', 'B' | 'R']): ManaOption => ({
   },
 });
 
+/** ペインランド・タリスマン：{C} はただ、{B}/{R} は1点受ける */
+const painOrColorless: ManaOption[] = [C, ...BR.map((o) => ({ ...o, pain: true, label: `${o.label}（1点受ける）` }))];
+
+/** プールから不特定マナを1つ払う（無色を優先） */
+const payOneFromPool = (s: GameState) => {
+  const color = (['C', 'B', 'R'] as const).find((c) => s.pool[c] > 0);
+  if (!color) {
+    log(s, 'マナ・プールに払うマナが無い');
+    return false;
+  }
+  s.pool[color]--;
+  return true;
+};
+
 export const LAND_SCRIPTS: Record<string, CardScript> = {
   'Blackcleave Cliffs': { etbTapped: (s, c) => otherLands(s, c).length > 2 },
   'Dragonskull Summit': { etbTapped: (s, c) => !controls(s, c, 'Swamp') && !controls(s, c, 'Mountain') },
@@ -88,6 +102,17 @@ export const LAND_SCRIPTS: Record<string, CardScript> = {
           });
         },
       },
+    ],
+  },
+  'Sulfurous Springs': { mana: () => painOrColorless },
+  'Talisman of Indulgence': { mana: () => painOrColorless },
+  'Sol Ring': { mana: () => [{ label: '{C}{C}', produce: ['C', 'C'] }] },
+  'Rakdos Signet': {
+    // 自動支払いでは「{B}か{R}を1つ出す」とみなす（{1}を払って2つ出すので、ほかに発生源があれば正味の量は同じ）
+    mana: () => [
+      { label: '{1}を払って {B}{R}', produce: ['B', 'R'], manual: true, extra: payOneFromPool },
+      { label: '{B}', produce: ['B'], auto: true },
+      { label: '{R}', produce: ['R'], auto: true },
     ],
   },
   Treasure: {

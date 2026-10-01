@@ -56,9 +56,8 @@ test('チェックランドと公開ランド', async ({ app }) => {
   // 手札に沼も山も無い → タップイン
   await app.endTurn();
   const s2 = await app.state();
-  for (const h of s2.zones.hand) {
-    if (['Swamp', 'Mountain'].includes(s2.cards[h].name)) await app.dispatch({ type: 'move', id: h, to: 'library', trigger: false });
-  }
+  // 沼・山のタイプを持つカード（Smoldering Marsh など）も含め、手札を空にする
+  for (const h of s2.zones.hand) await app.dispatch({ type: 'move', id: h, to: 'library', trigger: false });
   await app.dispatch({ type: 'move', id, to: 'hand', trigger: false }, { type: 'playLand', id });
   expect((await app.state()).cards[id].tapped).toBe(true);
 });

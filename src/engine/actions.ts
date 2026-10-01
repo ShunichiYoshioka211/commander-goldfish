@@ -1,6 +1,6 @@
 // UI から来る操作をすべてここで受ける。状態は操作ごとに複製してから書き換える（Undo のため）。
 // 誘発キューのクロージャは古い状態のオブジェクトを読むことはあっても書き換えないこと。
-import { createToken, creatures, drain, log, moveTo, nameJa, shuffleLibrary } from './core';
+import { createToken, creatures, destroyAll, drain, log, moveTo, nameJa, shuffleLibrary } from './core';
 import { updateDeath } from './damage';
 import { tapForMana } from './mana';
 import { activate, cast, playLand } from './play';
@@ -129,7 +129,7 @@ export function apply(prev: GameState, action: Action): GameState {
     case 'shuffle': shuffleLibrary(s); break;
     case 'wipe':
       log(s, '［編集］全クリーチャーを破壊');
-      for (const c of creatures(s)) moveTo(s, c.id, 'graveyard');
+      destroyAll(s, creatures(s).map((c) => c.id));
       drain(s);
       break;
   }

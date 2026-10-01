@@ -11,8 +11,8 @@ export interface CastInfo {
 export type ExtraCost = 'sacCreature' | 'sacArtifactOrCreature' | 'discardOrLife';
 
 export interface CastSpec {
-  /** 出来事・部屋のように唱え方が複数あるもの。instant=true の面は戦場に出ない */
-  modes?: { label: string; cost: string; instant?: boolean; extra?: ExtraCost }[];
+  /** 出来事・部屋・ワープのように唱え方が複数あるもの。instant=true の面は戦場に出ない。hand=true は手札からのみ */
+  modes?: { label: string; cost: string; instant?: boolean; extra?: ExtraCost; hand?: boolean }[];
   /** 追加コスト */
   extra?: ExtraCost;
   x?: boolean;
@@ -41,6 +41,8 @@ export interface CardScript {
   abilities?: Ability[];
   onEnter?: (s: GameState, card: CardInstance) => void;
   onCreatureEnters?: (s: GameState, card: CardInstance, entered: CardInstance) => void;
+  /** 自分以外のパーマネント（クリーチャー以外も含む）が戦場に出たとき */
+  onPermanentEnters?: (s: GameState, card: CardInstance, entered: CardInstance) => void;
   onUpkeep?: (s: GameState, card: CardInstance) => void;
   onCombatStart?: (s: GameState, card: CardInstance) => void;
   /** 攻撃クリーチャー指定時（戦場にあるカード） */

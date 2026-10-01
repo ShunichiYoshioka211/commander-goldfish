@@ -9,7 +9,7 @@ describe('ゲーム開始', () => {
     const g = new Game();
     expect(g.s.zones.command.map((id) => g.s.cards[id].name)).toEqual(['Ingris Stingerquill']);
     expect(g.s.zones.hand).toHaveLength(7);
-    expect(g.s.zones.library).toHaveLength(80 - 7);
+    expect(g.s.zones.library).toHaveLength(99 - 7);
     expect(g.s.phase).toBe('mulligan');
   });
 

@@ -1,5 +1,5 @@
 // ダメージ源と増幅。このデッキの勝ち筋の中心。
-import { createToken, creatures, draw, enqueue, isRed, moveTo, nameJa, typeOf } from '../../engine/core';
+import { createToken, creatures, draw, enqueue, isCreature, isRed, moveTo, nameJa, typeOf } from '../../engine/core';
 import { damageAny, damageEach } from '../../engine/damage';
 import type { GameState } from '../../engine/types';
 import type { CardScript } from '../types';
@@ -82,6 +82,23 @@ export const DAMAGE_SCRIPTS: Record<string, CardScript> = {
     ],
   },
   'Witty Roastmaster': { onCreatureEnters: pingOnEnter(1) },
+  'Weftstalker Ardent': {
+    onPermanentEnters: (s, card, entered) => {
+      if (isCreature(entered) || typeOf(entered, 'Artifact')) {
+        enqueue(s, `${nameJa(card)}：1点`, (st) => damageEach(st, card, 1));
+      }
+    },
+    cast: {
+      modes: [
+        { label: '虚空間追いの情熱家', cost: '{2}{R}' },
+        { label: 'ワープ', cost: '{R}', hand: true },
+      ],
+      // ワープで出したら終了ステップに追放し、あとで追放領域から普通に唱え直せる
+      resolve: (_s, card, info) => {
+        if (info.mode === 1) card.atEnd = 'warp';
+      },
+    },
+  },
   'Slash, Reptile Rampager': {
     onCreatureEnters: pingOnEnter(2),
     onAttack: (s, card, attackers) => {

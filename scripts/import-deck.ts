@@ -4,8 +4,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { deckRows } from './lib/deck-csv.ts';
 import { toCardDef, type ScryfallCard } from './lib/scryfall.ts';
 
-const config = JSON.parse(readFileSync('deck/config.json', 'utf8')) as { name: string; csv: string; commanders: string[] };
-const rows = deckRows(readFileSync(`deck/${config.csv}`, 'utf8'));
+const config = JSON.parse(readFileSync('deck/config.json', 'utf8')) as { name: string; csv: string; commanders: string[]; include: 'all' | 'inDeck' };
+const rows = deckRows(readFileSync(`deck/${config.csv}`, 'utf8'), config.include === 'all');
 
 // 分割カード・部屋は表面の名前でしか引けない
 const frontName = (name: string) => name.split(' // ')[0];

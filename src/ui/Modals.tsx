@@ -116,11 +116,13 @@ export function CardDetail() {
             </button>
           ))}
           {onField && canTapForMana(card) &&
-            manaOptions(game, card).map((o, i) => (
-              <button key={o.label} onClick={act(() => dispatch({ type: 'tapMana', id: card.id, option: i }))}>
-                マナ：{o.label}
-              </button>
-            ))}
+            manaOptions(game, card).map((o, i) =>
+              o.auto ? null : (
+                <button key={o.label} onClick={act(() => dispatch({ type: 'tapMana', id: card.id, option: i }))}>
+                  マナ：{o.label}
+                </button>
+              ),
+            )}
           {abilitiesOf(card).map((a, i) =>
             canActivate(game, card, a) ? (
               <button key={a.label} onClick={act(() => dispatch({ type: 'activate', id: card.id, index: i }))}>

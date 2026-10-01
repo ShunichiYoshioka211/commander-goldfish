@@ -25,6 +25,14 @@ describe('CSV の読み込み', () => {
     ]);
   });
 
+  it('all=true ならレシピの全行を数える', () => {
+    const csv = ['投入済み,和名,英語名,備考', 'TRUE,山,Mountain,', 'FALSE,山,Mountain,', 'FALSE,太陽の指輪,Sol Ring,'].join('\n');
+    expect(deckRows(csv, true).map((r) => [r.name, r.count])).toEqual([
+      ['Mountain', 2],
+      ['Sol Ring', 1],
+    ]);
+  });
+
   it('列が足りなければ止まる', () => {
     expect(() => deckRows('和名,英語名\n山,Mountain')).toThrow('投入済み');
   });

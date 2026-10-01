@@ -11,6 +11,8 @@ export interface CastMode {
   label: string;
   cost: Cost;
   instant: boolean;
+  /** 手札からしか唱えられない（ワープ） */
+  hand: boolean;
 }
 
 const isMain = (s: GameState) => s.phase === 'main1' || s.phase === 'main2';
@@ -45,9 +47,10 @@ export function castModes(s: GameState, card: CardInstance): CastMode[] {
     label: m.label,
     cost: parseCost(fromGraveyard ? spec.flashback! : m.cost),
     instant: 'instant' in m && m.instant === true,
+    hand: 'hand' in m && m.hand === true,
   }));
   return modes.filter((m) => {
-    if (card.zone === 'exile' && m.instant) return false;
+    if ((card.zone === 'exile' && m.instant) || (m.hand && card.zone !== 'hand')) return false;
     if (!(isInstantType(card) || m.instant || isMain(s))) return false;
     m.cost.generic = Math.max(0, m.cost.generic - (spec.reduce?.(s) ?? 0));
     if (card.zone === 'command') m.cost.generic += 2 * (s.commanderCasts[card.name] ?? 0);

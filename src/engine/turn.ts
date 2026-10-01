@@ -135,8 +135,12 @@ export function endTurn(s: GameState) {
   if (s.monarch) enqueue(s, '統治者：1枚引く', (st) => draw(st, 1));
   enqueue(s, '終了ステップの遅延誘発', (st) => {
     for (const c of battlefield(st).filter((x) => x.atEnd !== null)) {
-      if (c.atEnd === 'exile') moveTo(st, c.id, 'exile');
-      else moveTo(st, c.id, 'graveyard');
+      if (c.atEnd === 'sacrifice') {
+        moveTo(st, c.id, 'graveyard');
+        continue;
+      }
+      moveTo(st, c.id, 'exile');
+      if (c.atEnd === 'warp') st.cards[c.id].castable = true;
     }
   });
   enqueue(s, 'クリンナップ', cleanup);

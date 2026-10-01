@@ -45,7 +45,8 @@ export function parseCsv(text: string): string[][] {
   return rows;
 }
 
-export function deckRows(text: string): DeckRow[] {
+/** all=true ならレシピの全行、false なら「投入済み」が TRUE の行だけ */
+export function deckRows(text: string, all = false): DeckRow[] {
   const [header, ...body] = parseCsv(text.replace(/^﻿/, ''));
   const col = (label: string) => {
     const i = header.indexOf(label);
@@ -58,7 +59,7 @@ export function deckRows(text: string): DeckRow[] {
   const note = col('備考');
   const byName = new Map<string, DeckRow>();
   for (const r of body) {
-    if (r[inDeck] !== 'TRUE' || !r[en]) continue;
+    if ((!all && r[inDeck] !== 'TRUE') || !r[en]) continue;
     const existing = byName.get(r[en]);
     if (existing) {
       existing.count++;

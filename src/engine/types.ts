@@ -41,8 +41,8 @@ export interface CardInstance {
   attacking: number | null;
   /** ターン終了までのパワー修整 */
   tempPower: number;
-  /** 次の終了ステップで生け贄にする／追放する */
-  atEnd: 'sacrifice' | 'exile' | null;
+  /** 次の終了ステップで生け贄にする／追放する（warp は追放してあとで唱え直せる） */
+  atEnd: 'sacrifice' | 'exile' | 'warp' | null;
   /** ミシュラランド等がターン終了までクリーチャー化している */
   animated: { power: number; toughness: number } | null;
   /** 追放領域から唱えられる（出来事・Face-Breaker） */

@@ -1,5 +1,5 @@
 // 生け贄を追加コストにするドロー呪文と、生け贄の受け皿。
-import { chooseCards, createToken, creatures, def, draw, sacrifice, typeOf } from '../../engine/core';
+import { chooseCards, createToken, creatures, def, destroyAll, draw, sacrifice, typeOf } from '../../engine/core';
 import type { CardScript } from '../types';
 
 const drawTwo = (extra: 'sacCreature' | 'sacArtifactOrCreature', flashback?: string): CardScript => ({
@@ -9,6 +9,22 @@ const drawTwo = (extra: 'sacCreature' | 'sacArtifactOrCreature', flashback?: str
 export const SPELL_SCRIPTS: Record<string, CardScript> = {
   "Altar's Reap": drawTwo('sacCreature'),
   'Village Rites': drawTwo('sacCreature'),
+  'Corrupted Conviction': drawTwo('sacCreature'),
+  "Night's Whisper": {
+    cast: {
+      resolve: (s) => {
+        draw(s, 2);
+        s.life -= 2;
+      },
+    },
+  },
+  // 13点で自分のクリーチャーはすべて死ぬ（対戦相手のクリーチャーはいない）
+  'Blasphemous Act': {
+    cast: {
+      reduce: (s) => creatures(s).length,
+      resolve: (s) => destroyAll(s, creatures(s).map((c) => c.id)),
+    },
+  },
   'Costly Plunder': drawTwo('sacArtifactOrCreature'),
   "Eviscerator's Insight": drawTwo('sacArtifactOrCreature', '{4}{B}'),
   'Deadly Dispute': {

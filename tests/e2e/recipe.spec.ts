@@ -196,3 +196,26 @@ test('手札を持ち上げると、ほかの欄より手前に見える', async
   await page.mouse.up();
   expect(await page.evaluate(() => document.body.classList.contains('dragging-card'))).toBe(false);
 });
+
+test('カード詳細は効果もタイプも日本語で、備考は使い方のコツ', async ({ app, page }) => {
+  await app.start();
+  const torbran = await app.put('Torbran, Thane of Red Fell', 'hand');
+  await app.card(torbran).click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toContainText('伝説のクリーチャー — ドワーフ・貴族');
+  await expect(dialog).toContainText('あなたがコントロールしている赤の発生源');
+  await expect(dialog).toContainText('コツ：');
+  await expect(dialog).not.toContainText('If a red source');
+  await page.keyboard.press('Escape');
+  // 基本土地にはコツが無い
+  const mountain = await app.put('Mountain', 'hand');
+  await app.card(mountain).click();
+  await expect(dialog).toContainText('基本土地 — 山');
+  await expect(dialog).not.toContainText('コツ：');
+  await page.keyboard.press('Escape');
+  // トークンも日本語
+  await app.dispatch({ type: 'token', name: 'Treasure', count: 1 });
+  const treasure = Object.entries((await app.state()).cards).find(([, c]) => c.name === 'Treasure')![0];
+  await app.card(treasure).click();
+  await expect(dialog).toContainText('好きな色１色のマナ１点を加える');
+});

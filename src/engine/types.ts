@@ -6,7 +6,11 @@ export type Phase = 'mulligan' | 'main1' | 'combat' | 'attacking' | 'main2' | 'o
 export interface CardDef {
   name: string;
   jaName: string;
-  note: string;
+  /** 日本語のタイプ行と効果（表示用。ルールの判定には英語の typeLine を使う） */
+  typeJa: string;
+  textJa: string;
+  /** 使い方のコツ（deck/ja.json） */
+  tip: string;
   count: number;
   manaCost: string;
   cmc: number;

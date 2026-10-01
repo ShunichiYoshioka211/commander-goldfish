@@ -16,7 +16,7 @@ export const DAMAGE_SCRIPTS: Record<string, CardScript> = {
     },
     abilities: [
       {
-        label: '士官候補生トークンを出し、全員に速攻',
+        label: '実習生トークンを出し、全員に速攻',
         cost: '{4}',
         run: (s) => {
           createToken(s, 'Cadet', 1);

@@ -31,7 +31,7 @@ function CardViewInner({ card, planned, ready }: Props) {
         <div className="text-card">
           <div className="text-name">{d.jaName}</div>
           <div className="text-cost">{d.manaCost}</div>
-          <div className="text-type">{d.typeLine}</div>
+          <div className="text-type">{d.typeJa}</div>
         </div>
       )}
       {isCreature(card) && (

@@ -11,11 +11,11 @@ async function attackWith(app: App, ids: string[], opp = 0) {
   await app.dispatch({ type: 'attack' });
 }
 
-test('Ingris：攻撃クリーチャーごとに1点、{4} で士官候補生と速攻', async ({ app }) => {
+test('Ingris：攻撃クリーチャーごとに1点、{4} で実習生と速攻', async ({ app }) => {
   await app.start();
   await app.lands('Swamp', 'Swamp', 'Mountain', 'Mountain');
   const ingris = await app.put('Ingris Stingerquill', 'battlefield');
-  await app.act(ingris, /士官候補生/);
+  await app.act(ingris, /実習生/);
   const [cadet] = await tokenIds(app, 'Cadet');
   await attackWith(app, [ingris, cadet], 1);
   expect(await app.oppLife()).toEqual([38, 38, 38]);

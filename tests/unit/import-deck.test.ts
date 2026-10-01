@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { deckRows, parseCsv } from '../../scripts/lib/deck-csv';
-import { toCardDef, type ScryfallCard } from '../../scripts/lib/scryfall';
+import { jaDraft, toCardDef, type ScryfallCard } from '../../scripts/lib/scryfall';
+
+const JA = { type: 'タイプ', text: '効果', tip: 'コツ' };
 
 describe('CSV の読み込み', () => {
   it('引用符・カンマ・改行・CRLF を扱う', () => {
@@ -20,8 +22,8 @@ describe('CSV の読み込み', () => {
       'TRUE,,,,,,,,,',
     ].join('\n');
     expect(deckRows(csv)).toEqual([
-      { name: 'Mountain', jaName: '山', note: '', count: 2 },
-      { name: 'Ingris Stingerquill', jaName: '', note: '統率者 / 飛行', count: 1 },
+      { name: 'Mountain', jaName: '山', count: 2 },
+      { name: 'Ingris Stingerquill', jaName: '', count: 1 },
     ]);
   });
 
@@ -54,8 +56,11 @@ describe('Scryfall からの変換', () => {
   };
 
   it('普通のカード', () => {
-    expect(toCardDef(base, { jaName: '朱地洞の族長、トーブラン', note: '', count: 1 })).toMatchObject({
+    expect(toCardDef(base, { jaName: '朱地洞の族長、トーブラン', count: 1 }, JA)).toMatchObject({
       jaName: '朱地洞の族長、トーブラン',
+      typeJa: 'タイプ',
+      textJa: '効果',
+      tip: 'コツ',
       power: 2,
       toughness: 4,
       image: { small: 's', normal: 'n' },
@@ -63,7 +68,7 @@ describe('Scryfall からの変換', () => {
   });
 
   it('和名が無ければ英語名、P/T が * なら 0', () => {
-    const def = toCardDef({ ...base, power: '*', toughness: undefined, colors: undefined }, { jaName: '', note: '', count: 1 });
+    const def = toCardDef({ ...base, power: '*', toughness: undefined, colors: undefined }, { jaName: '', count: 1 }, JA);
     expect(def).toMatchObject({ jaName: base.name, power: 0, toughness: null, colors: ['R'] });
   });
 
@@ -83,8 +88,33 @@ describe('Scryfall からの変換', () => {
           { name: 'B', mana_cost: '{3}{R}', type_line: 'Enchantment — Room' },
         ],
       },
-      { jaName: '', note: '', count: 1 },
+      { jaName: '', count: 1 },
+      { ...JA, name: 'A // B（和名）' },
     );
-    expect(def).toMatchObject({ manaCost: '{3}{R} // {3}{R}', typeLine: 'Enchantment — Room', oracle: '【A】a\n【B】', image: { small: 'fs', normal: 'fn' } });
+    expect(def).toMatchObject({ jaName: 'A // B（和名）', manaCost: '{3}{R} // {3}{R}', typeLine: 'Enchantment — Room', oracle: '【A】a\n【B】', image: { small: 'fs', normal: 'fn' } });
+  });
+});
+
+describe('日本語の下書き', () => {
+  const card = { name: 'X', cmc: 1, color_identity: [], keywords: [], type_line: 'Creature — Elf', oracle_text: 'Flying' } as ScryfallCard;
+
+  it('日本語版の印刷から、ふりがなを除いて作る', () => {
+    const printed = { ...card, printed_type_line: 'クリーチャー — エルフ', printed_text: '飛（ひ）行（こう）' };
+    expect(jaDraft(card, printed)).toEqual({ type: 'クリーチャー — エルフ', text: '飛行', tip: '' });
+  });
+
+  it('両面は面ごとに見出しを付ける', () => {
+    const printed = {
+      ...card,
+      card_faces: [
+        { name: 'A', printed_name: 'エー', printed_type_line: '部屋', printed_text: 'あ' },
+        { name: 'B', printed_type_line: '部屋' },
+      ],
+    };
+    expect(jaDraft(card, printed)).toEqual({ type: '部屋 // 部屋', text: '【エー】あ\n【B】', tip: '' });
+  });
+
+  it('日本語版が無ければ英語のまま', () => {
+    expect(jaDraft(card, undefined)).toEqual({ type: 'Creature — Elf', text: 'Flying', tip: '' });
   });
 });

@@ -20,7 +20,7 @@ test('アップキープのトークン：Goblin Assault・Rite・Ophiomancer', 
   expect(await tokenIds(app, 'Goblin')).toHaveLength(1);
   expect(await tokenIds(app, 'Lightning Rager')).toHaveLength(1);
   expect(await tokenIds(app, 'Snake')).toHaveLength(1);
-  // 蛇がいれば増えない。稲妻の激情者は終了時に生け贄
+  // 蛇がいれば増えない。稲妻の憤怒獣は終了時に生け贄
   await app.endTurn();
   expect(await tokenIds(app, 'Snake')).toHaveLength(1);
   expect(await tokenIds(app, 'Lightning Rager')).toHaveLength(1);

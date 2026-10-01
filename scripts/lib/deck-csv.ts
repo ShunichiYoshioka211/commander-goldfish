@@ -1,10 +1,10 @@
 // スプレッドシートから書き出した CSV を読み、投入済みのカードを英語名ごとに集計する。
 // 列は「投入済み,和名,英語名,マナコスト（色）,マナコスト（数値）,カード種別,メイン効果,サブ効果,備考,所持数」。
+// 使うのは投入済み・和名・英語名だけ（効果とコツは deck/ja.json が持つ）。
 
 export interface DeckRow {
   name: string;
   jaName: string;
-  note: string;
   count: number;
 }
 
@@ -56,7 +56,6 @@ export function deckRows(text: string, all = false): DeckRow[] {
   const inDeck = col('投入済み');
   const ja = col('和名');
   const en = col('英語名');
-  const note = col('備考');
   const byName = new Map<string, DeckRow>();
   for (const r of body) {
     if ((!all && r[inDeck] !== 'TRUE') || !r[en]) continue;
@@ -64,7 +63,7 @@ export function deckRows(text: string, all = false): DeckRow[] {
     if (existing) {
       existing.count++;
     } else {
-      byName.set(r[en], { name: r[en], jaName: r[ja] ?? '', note: r[note] ?? '', count: 1 });
+      byName.set(r[en], { name: r[en], jaName: r[ja] ?? '', count: 1 });
     }
   }
   return [...byName.values()];

@@ -102,9 +102,9 @@ export function CardDetail() {
             <div className="muted">
               {d.name} {d.manaCost}
             </div>
-            <div>{d.typeLine}</div>
-            <p className="oracle">{d.oracle}</p>
-            {d.note && <p className="note">備考：{d.note}</p>}
+            <div>{d.typeJa}</div>
+            <p className="oracle">{d.textJa}</p>
+            {d.tip && <p className="note">コツ：{d.tip}</p>}
             <span className="badge">{isScripted(card.name) ? '自動処理あり' : '効果は手動で処理'}</span>
           </div>
         </div>

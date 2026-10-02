@@ -148,3 +148,16 @@ describe('複数のデッキ', () => {
     expect(newGame(1, 'unknown').deckId).toBe('ingris');
   });
 });
+
+describe('選択画面のカード', () => {
+  it('カードを選ぶ選択肢はカードを持ち、占術はめくったカードを見せる', () => {
+    const g = new Game().do({ type: 'mulligan' }, { type: 'mulligan' }, { type: 'keep' });
+    expect(g.s.prompt!.options.map((o) => o.card)).toEqual(g.s.zones.hand);
+    const h = new Game().start().put('Temple of Malice', 'hand');
+    const top = h.s.zones.library[0];
+    h.do({ type: 'playLand', id: h.id('Temple of Malice') });
+    expect(h.s.prompt!.cards).toEqual([top]);
+    expect(h.s.prompt!.options.every((o) => o.card === undefined)).toBe(true);
+  });
+});
+

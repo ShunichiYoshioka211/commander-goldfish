@@ -1,23 +1,29 @@
 // 重ねて出す画面：選択の問い合わせ・カード詳細・領域の一覧・結果・通知。
 import { useEffect, useState } from 'react';
-import { isScripted } from '../cards/registry';
 import type { MoveTarget } from '../engine/actions';
+import type { Prompt } from '../engine/types';
 import { aliveOpponents, canAttack, def } from '../engine/core';
-import { tipOf } from '../engine/deck';
 import { canTapForMana, costText, manaOptions } from '../engine/mana';
 import { abilitiesOf, canActivate, canPlayLand, castModes } from '../engine/play';
 import { useStore } from '../store';
+import { CardInfo, CardThumb } from './CardInfo';
 import { CardView } from './CardView';
 import { play } from './interact';
 
 export function PromptModal() {
   const prompt = useStore((s) => s.game.prompt);
+  const cards = useStore((s) => s.game.cards);
+  const deckId = useStore((s) => s.game.deckId);
   const dispatch = useStore((s) => s.dispatch);
   // ひとつ前の状態も選択待ちなら「1つ戻す」で前の選択に戻れる
   const chained = useStore((s) => s.past.at(-1)?.prompt != null);
   const { undo, cancel } = useStore.getState();
   const [picked, setPicked] = useState<(string | number)[]>([]);
+  // カーソルを重ねた（長押しした）選択肢のカード。選択画面が変わったら見せない
+  const [peek, setPeek] = useState<{ prompt: Prompt; id: string } | null>(null);
   if (!prompt) return null;
+  const peeking = peek?.prompt === prompt ? peek.id : null;
+  const cardChoices = prompt.options.some((o) => o.card);
   const single = prompt.max === 1;
   const choose = (v: string | number) => {
     if (single) {
@@ -36,13 +42,49 @@ export function PromptModal() {
             {picked.length} / {prompt.min} 枚選択
           </p>
         )}
+        {prompt.cards?.map((id) => (
+          <div key={id} className="reveal" data-testid="prompt-reveal">
+            <CardInfo card={cards[id]} deckId={deckId} />
+          </div>
+        ))}
+        {cardChoices && <p className="muted">カードにカーソルを重ねる（スマホは長押し）と効果が見られる</p>}
         <div className="choices">
-          {prompt.options.map((o, i) => (
-            <button key={`${o.value}-${i}`} className={picked.includes(o.value) ? 'picked' : ''} onClick={() => choose(o.value)}>
-              {o.label}
-            </button>
-          ))}
+          {prompt.options.map((o, i) => {
+            const picks = picked.includes(o.value) ? 'picked' : '';
+            const id = o.card;
+            if (!id) {
+              return (
+                <button key={`${o.value}-${i}`} className={picks} onClick={() => choose(o.value)}>
+                  {o.label}
+                </button>
+              );
+            }
+            return (
+              <button
+                key={`${o.value}-${i}`}
+                className={`card-choice ${picks}`}
+                onClick={() => choose(o.value)}
+                onPointerEnter={() => setPeek({ prompt, id })}
+                onContextMenu={(e) => {
+                  e.preventDefault();
+                  setPeek({ prompt, id });
+                }}
+              >
+                <CardThumb card={cards[id]} />
+                <span className="choice-label">{o.label}</span>
+              </button>
+            );
+          })}
         </div>
+        {/* 選択肢の下に出す（上に差し込むと選択肢がずれて押し間違える） */}
+        {peeking && (
+          <div className="peek" data-testid="prompt-peek">
+            <button className="peek-close" aria-label="カードの表示を閉じる" onClick={() => setPeek(null)}>
+              ×
+            </button>
+            <CardInfo card={cards[peeking]} deckId={deckId} />
+          </div>
+        )}
         {!single && (
           <button
             className="primary"
@@ -110,7 +152,6 @@ export function CardDetail() {
   const card = id === null ? undefined : game.cards[id];
   if (!card) return null;
   const d = def(card);
-  const tip = tipOf(game.deckId, card.name);
   const close = () => set({ selected: null });
   const act = (f: () => void) => () => {
     close();
@@ -120,17 +161,7 @@ export function CardDetail() {
   return (
     <div className="modal-back" onPointerDown={closeOnBack(close)}>
       <div className="modal detail" role="dialog" aria-label={d.jaName}>
-        <div className="detail-body">
-          {d.image && <img src={d.image.normal} alt="" className="detail-image" />}
-          <div>
-            <h2>{d.jaName}</h2>
-            <div className="muted">{d.manaCost}</div>
-            <div>{d.typeJa}</div>
-            <p className="oracle">{d.textJa}</p>
-            {tip && <p className="note">コツ：{tip}</p>}
-            <span className="badge">{isScripted(card.name) ? '自動処理あり' : '効果は手動で処理'}</span>
-          </div>
-        </div>
+        <CardInfo card={card} deckId={game.deckId} />
         <div className="actions">
           {canPlayLand(game, card) && <button className="primary" onClick={act(() => play(card))}>プレイ</button>}
           {castModes(game, card).map((m) => (

@@ -66,10 +66,14 @@ export interface Opponent {
 export interface PromptOption {
   label: string;
   value: string | number;
+  /** カードを選ぶ選択肢なら、そのカード（選択画面にカードの絵を出す） */
+  card?: string;
 }
 
 export interface Prompt {
   title: string;
+  /** 選択肢とは別に見せるカード（占術・探検でめくったカードなど） */
+  cards?: string[];
   options: PromptOption[];
   min: number;
   max: number;

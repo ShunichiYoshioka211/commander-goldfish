@@ -23,7 +23,7 @@ function explore(s: GameState, card: CardInstance) {
     return;
   }
   card.counters['+1/+1'] = (card.counters['+1/+1'] ?? 0) + 1;
-  confirm(s, `探検：「${nameJa(revealed)}」を墓地に置く？`, (st) => moveTo(st, top, 'graveyard'));
+  confirm(s, `探検：「${nameJa(revealed)}」を墓地に置く？`, (st) => moveTo(st, top, 'graveyard'), [top]);
 }
 
 export const ENGINE_SCRIPTS: Record<string, CardScript> = {

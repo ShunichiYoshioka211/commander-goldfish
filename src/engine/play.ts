@@ -91,7 +91,7 @@ function chooseExtra(s: GameState, id: string, extra: ExtraCost | undefined, inf
     const others = s.zones.hand.filter((x) => x !== id);
     ask(s, {
       title: '追加コスト：カードを1枚捨てるか、3点のライフを支払う',
-      options: [{ label: '3点のライフを支払う', value: 'life' }, ...others.map((x) => ({ label: `捨てる：${nameJa(s.cards[x])}`, value: x }))],
+      options: [{ label: '3点のライフを支払う', value: 'life' }, ...others.map((x) => ({ label: `捨てる：${nameJa(s.cards[x])}`, value: x, card: x }))],
       min: 1,
       max: 1,
       resolve: (st, [v]) => {
@@ -112,7 +112,7 @@ function chooseExtra(s: GameState, id: string, extra: ExtraCost | undefined, inf
   }
   ask(s, {
     title: `${nameJa(s.cards[id])}：生け贄に捧げるパーマネント`,
-    options: candidates.map((x) => ({ label: nameJa(s.cards[x]), value: x })),
+    options: candidates.map((x) => ({ label: nameJa(s.cards[x]), value: x, card: x })),
     min: 1,
     max: 1,
     resolve: (st, [v]) => {

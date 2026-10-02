@@ -16,6 +16,7 @@ function scry1(s: GameState) {
   const top = s.zones.library[0];
   ask(s, {
     title: `占術1：一番上は「${nameJa(s.cards[top])}」`,
+    cards: [top],
     options: [
       { label: '上に残す', value: 'top' },
       { label: '下に置く', value: 'bottom' },

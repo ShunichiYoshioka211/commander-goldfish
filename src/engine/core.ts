@@ -178,16 +178,18 @@ export function chooseCards(
 ) {
   ask(s, {
     title,
-    options: ids.map((id) => ({ label: nameJa(s.cards[id]), value: id })),
+    options: ids.map((id) => ({ label: nameJa(s.cards[id]), value: id, card: id })),
     min,
     max,
     resolve: (st, vs) => then(st, vs as string[]),
   });
 }
 
-export function confirm(s: GameState, title: string, then: (s: GameState) => void) {
+/** はい／いいえ。cards は判断に要るカード（めくったカードなど）で、選択画面に並べて見せる */
+export function confirm(s: GameState, title: string, then: (s: GameState) => void, cards?: string[]) {
   ask(s, {
     title,
+    cards,
     options: [
       { label: 'はい', value: 1 },
       { label: 'いいえ', value: 0 },

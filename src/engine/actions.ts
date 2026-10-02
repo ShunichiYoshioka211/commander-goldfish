@@ -4,7 +4,7 @@ import { createToken, creatures, destroyAll, drain, log, moveTo, nameJa, shuffle
 import { updateDeath } from './damage';
 import { tapForMana } from './mana';
 import { activate, cast, playLand } from './play';
-import { combatDamage, declareAttack, endTurn, keep, mulligan, planAll, planAttack, toCombat } from './turn';
+import { combatDamage, declareAttack, endCombat, endTurn, keep, mulligan, planAll, planAttack, toCombat } from './turn';
 import type { GameState, ManaColor, ZoneId } from './types';
 
 export type MoveTarget = ZoneId | 'libraryBottom' | 'libraryShuffle';
@@ -22,6 +22,7 @@ export type Action =
   | { type: 'planAll'; opp: number }
   | { type: 'attack' }
   | { type: 'damage' }
+  | { type: 'endCombat' }
   | { type: 'endTurn' }
   // ---- 編集モード ----
   | { type: 'move'; id: string; to: MoveTarget; trigger: boolean }
@@ -96,6 +97,7 @@ export function apply(prev: GameState, action: Action): GameState {
     case 'planAll': planAll(s, action.opp); break;
     case 'attack': declareAttack(s); break;
     case 'damage': combatDamage(s); break;
+    case 'endCombat': endCombat(s); break;
     case 'endTurn': endTurn(s); break;
     case 'move': {
       log(s, `［編集］${nameJa(s.cards[action.id])} を${MOVE_LABEL[action.to]}へ`);

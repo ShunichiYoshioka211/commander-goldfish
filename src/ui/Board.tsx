@@ -10,6 +10,7 @@ const PHASE_LABEL: Record<GameState['phase'], string> = {
   main1: 'メイン1',
   combat: '戦闘（攻撃宣言）',
   attacking: '戦闘（ダメージ前）',
+  afterDamage: '戦闘（ダメージ後）',
   main2: 'メイン2',
   over: '終了',
 };

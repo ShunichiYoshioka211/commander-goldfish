@@ -1,6 +1,6 @@
 export type ManaColor = 'W' | 'U' | 'B' | 'R' | 'G' | 'C';
 export type ZoneId = 'library' | 'hand' | 'battlefield' | 'graveyard' | 'exile' | 'command';
-export type Phase = 'mulligan' | 'main1' | 'combat' | 'attacking' | 'main2' | 'over';
+export type Phase = 'mulligan' | 'main1' | 'combat' | 'attacking' | 'afterDamage' | 'main2' | 'over';
 
 /** カードの静的な定義。デッキのカードは scripts/import-deck.ts が Scryfall から作る */
 export interface CardDef {
@@ -93,6 +93,8 @@ export interface TurnFlags {
   attacked: boolean;
   creaturesDied: number;
   nonlandLeft: boolean;
+  /** このターンに呪文をワープした（虚空の条件） */
+  warped: boolean;
   noncombatToOpps: number;
   morbidUsed: boolean;
   loyaltyUsed: string[];

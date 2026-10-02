@@ -93,12 +93,19 @@ test('戦闘：ドラッグで攻撃を指定してダメージ', async ({ app, 
   await expect(page.getByTestId('turn')).toContainText('ダメージ前');
   await page.getByRole('button', { name: '戦闘ダメージ' }).click();
   expect(await app.oppLife()).toEqual([37, 37, 37 - 3]);
+  await expect(page.getByTestId('turn')).toContainText('ダメージ後');
+  await page.getByRole('button', { name: '戦闘終了' }).click();
   await expect(page.getByTestId('turn')).toContainText('メイン2');
   await page.getByRole('button', { name: 'ターン終了' }).click();
   await page.getByRole('button', { name: '戦闘へ' }).click();
   await page.getByRole('button', { name: '攻撃しない' }).click();
   await page.getByRole('button', { name: '戦闘ダメージ' }).click();
-  expect((await app.state()).phase).toBe('main2');
+  // ダメージ後からそのままターンを終えられる
+  expect((await app.state()).phase).toBe('afterDamage');
+  await page.getByRole('button', { name: 'ターン終了' }).click();
+  const s = await app.state();
+  if (s.prompt) await app.dispatch({ type: 'answer', values: s.zones.hand.slice(0, s.zones.hand.length - 7) });
+  expect((await app.state()).turn).toBe(3);
 });
 
 test('元に戻す・やり直す（ボタンとキーボード）', async ({ app, page }) => {

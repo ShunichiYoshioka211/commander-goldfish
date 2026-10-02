@@ -13,7 +13,7 @@ export const STARTING_LIFE = 40;
 export const OPPONENTS = 3;
 const HAND_SIZE = 7;
 
-const freshFlags = () => ({ attacked: false, creaturesDied: 0, nonlandLeft: false, noncombatToOpps: 0, morbidUsed: false, loyaltyUsed: [] });
+const freshFlags = () => ({ attacked: false, creaturesDied: 0, nonlandLeft: false, warped: false, noncombatToOpps: 0, morbidUsed: false, loyaltyUsed: [] });
 
 export function newGame(seed: number, deckId: string): GameState {
   const deck = deckById(deckId);
@@ -121,12 +121,15 @@ export function combatDamage(s: GameState) {
     if (s.opponents[a.attacking!].life < before) hits.push({ attacker: a, opp: a.attacking! });
   }
   if (hits.length > 0) eachPermanent(s, (c) => scriptOf(c).onCombatDamage?.(s, c, hits));
-  enqueue(s, '戦闘終了', (st) => {
-    eachPermanent(st, (c) => void (c.attacking = null));
-    st.phase = 'main2';
-    st.pool = emptyPool();
-  });
+  // 戦闘ダメージのあとも、戦闘終了までは攻撃している扱い（ここで生け贄にすればガルナで引ける）
+  enqueue(s, '戦闘ダメージ後', (st) => void (st.phase = 'afterDamage'));
   drain(s);
+}
+
+export function endCombat(s: GameState) {
+  eachPermanent(s, (c) => void (c.attacking = null));
+  s.phase = 'main2';
+  s.pool = emptyPool();
 }
 
 export function endTurn(s: GameState) {

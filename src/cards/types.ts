@@ -54,5 +54,7 @@ export interface CardScript {
   onDies?: (s: GameState, card: CardInstance) => void;
   onCreatureDies?: (s: GameState, card: CardInstance, died: CardInstance, wasAttacking: boolean) => void;
   onNoncombatDamage?: (s: GameState, card: CardInstance) => void;
+  /** 自分の発生源が対戦相手に戦闘ダメージでないダメージを与えたとき（1回のダメージ・相手1人ごと） */
+  onNoncombatDamageBy?: (s: GameState, card: CardInstance, source: CardInstance) => void;
   damageBonus?: (s: GameState, card: CardInstance, source: CardInstance, combat: boolean) => number;
 }

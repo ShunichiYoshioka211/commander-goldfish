@@ -106,6 +106,8 @@ export const LAND_SCRIPTS: Record<string, CardScript> = {
   },
   'Sulfurous Springs': { mana: () => painOrColorless },
   'Talisman of Indulgence': { mana: () => painOrColorless },
+  // マナは装備品を唱えるか装備にしか使えないので、自動支払いには使わない（詳細から手動でタップする）
+  'Freya Crescent': { mana: () => [{ label: '{R}（装備品・装備にだけ使える）', produce: ['R'], manual: true }] },
   'Sol Ring': { mana: () => [{ label: '{C}{C}', produce: ['C', 'C'] }] },
   'Rakdos Signet': {
     // 自動支払いでは「{B}か{R}を1つ出す」とみなす（{1}を払って2つ出すので、ほかに発生源があれば正味の量は同じ）

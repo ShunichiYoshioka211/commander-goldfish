@@ -129,7 +129,7 @@ test('スクリプトの無いカード・タイミング・統率者税', async
   await app.act(grasp, /唱える/);
   expect((await app.state()).cards[grasp].zone).toBe('graveyard');
   // 墓地のフラッシュバックの無いカード・ライブラリーのカードは唱えられない
-  await app.dispatch({ type: 'attack' }, { type: 'damage' });
+  await app.dispatch({ type: 'attack' }, { type: 'damage' }, { type: 'endCombat' });
   await app.page.getByTestId('pile-graveyard').click();
   await app.card(grasp).click();
   await expect(app.page.getByRole('dialog').getByRole('button', { name: /唱える/ })).toHaveCount(0);

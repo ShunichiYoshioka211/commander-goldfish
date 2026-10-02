@@ -11,6 +11,9 @@ import type { CardScript } from '../types';
 const atCombat = (label: string, make: (s: GameState, card: CardInstance) => void): CardScript['onCombatStart'] => (s, card) =>
   enqueue(s, label, (st) => make(st, st.cards[card.id]));
 
+/** 戦闘ダメージを受けた対戦相手（重複なし） */
+const playersHit = (hits: { opp: number }[]) => [...new Set(hits.map((h) => h.opp))];
+
 function explore(s: GameState, card: CardInstance) {
   const top = s.zones.library[0];
   const revealed = s.cards[top];
@@ -181,17 +184,25 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
   },
   // ---- 戦闘ダメージ ----
   'Elegy Acolyte': {
-    onCombatDamage: (s) =>
-      enqueue(s, 'エレジーの見習い', (st) => {
-        draw(st, 1);
-        st.life -= 1;
-      }),
+    // 戦闘ダメージを受けたプレイヤー1人につき1回
+    onCombatDamage: (s, _card, hits) => {
+      for (const _opp of playersHit(hits)) {
+        enqueue(s, 'エレジーの見習い', (st) => {
+          draw(st, 1);
+          st.life -= 1;
+        });
+      }
+    },
+    // 虚空：終了ステップの開始時に、このターンに土地以外のパーマネントが戦場を離れたか、呪文をワープしていたら
     onEndStep: (s) => {
-      if (s.flags.nonlandLeft) enqueue(s, '虚空：ロボット', (st) => void createToken(st, 'Robot', 1));
+      if (s.flags.nonlandLeft || s.flags.warped) enqueue(s, '虚空：ロボット', (st) => void createToken(st, 'Robot', 1));
     },
   },
   'Professional Face-Breaker': {
-    onCombatDamage: (s) => enqueue(s, '顔壊しのプロ：宝物', (st) => void createToken(st, 'Treasure', 1)),
+    // 戦闘ダメージを受けたプレイヤー1人につき1つ
+    onCombatDamage: (s, _card, hits) => {
+      for (const _opp of playersHit(hits)) enqueue(s, '顔壊しのプロ：宝物', (st) => void createToken(st, 'Treasure', 1));
+    },
     abilities: [
       {
         label: '宝物を生け贄に、一番上を追放してプレイ可能に',
@@ -220,8 +231,15 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
       })),
   },
   'Francisco, Fowl Marauder': {
+    // 海賊がダメージを与えたプレイヤー1人につき1回探検する。戦闘ダメージは同時なので相手ごとにまとめ、
+    // それ以外（イングリスの攻撃時1点など）は1回のダメージごと
     onCombatDamage: (s, card, hits) => {
-      if (hits.some((h) => typeOf(h.attacker, 'Pirate'))) enqueue(s, 'フランシスコ：探検', (st) => explore(st, st.cards[card.id]));
+      for (const _opp of playersHit(hits.filter((h) => typeOf(h.attacker, 'Pirate')))) {
+        enqueue(s, 'フランシスコ：探検', (st) => explore(st, st.cards[card.id]));
+      }
+    },
+    onNoncombatDamageBy: (s, card, source) => {
+      if (typeOf(source, 'Pirate')) enqueue(s, 'フランシスコ：探検', (st) => explore(st, st.cards[card.id]));
     },
   },
   'Phoenix Chick': {

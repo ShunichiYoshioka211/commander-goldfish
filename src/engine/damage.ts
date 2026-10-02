@@ -22,7 +22,10 @@ export function damageOpponent(s: GameState, source: CardInstance, opp: number, 
   }
   if (!combat) {
     s.flags.noncombatToOpps += amount;
-    for (const card of battlefield(s)) scriptOf(card).onNoncombatDamage?.(s, card);
+    for (const card of battlefield(s)) {
+      scriptOf(card).onNoncombatDamage?.(s, card);
+      scriptOf(card).onNoncombatDamageBy?.(s, card, source);
+    }
   }
   updateDeath(s, opp);
 }

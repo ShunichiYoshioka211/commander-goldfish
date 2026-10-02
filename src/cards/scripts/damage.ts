@@ -94,8 +94,11 @@ export const DAMAGE_SCRIPTS: Record<string, CardScript> = {
         { label: 'ワープ', cost: '{R}', hand: true },
       ],
       // ワープで出したら終了ステップに追放し、あとで追放領域から普通に唱え直せる
-      resolve: (_s, card, info) => {
-        if (info.mode === 1) card.atEnd = 'warp';
+      resolve: (s, card, info) => {
+        if (info.mode === 1) {
+          card.atEnd = 'warp';
+          s.flags.warped = true;
+        }
       },
     },
   },

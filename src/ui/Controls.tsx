@@ -46,7 +46,15 @@ export function Controls() {
           戦闘ダメージ
         </button>
       )}
-      {(game.phase === 'main1' || game.phase === 'main2') && (
+      {game.phase === 'afterDamage' && (
+        <>
+          <div className="hint">まだ攻撃中の扱い。インスタントで生け贄にできる</div>
+          <button className="primary" onClick={() => dispatch({ type: 'endCombat' })}>
+            戦闘終了
+          </button>
+        </>
+      )}
+      {(game.phase === 'main1' || game.phase === 'main2' || game.phase === 'afterDamage') && (
         <button className={game.phase === 'main2' ? 'primary end-turn' : 'end-turn'} onClick={() => dispatch({ type: 'endTurn' })}>
           ターン終了
         </button>

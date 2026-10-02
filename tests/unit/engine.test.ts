@@ -74,7 +74,12 @@ describe('ダメージ', () => {
     expect(g.oppLife).toEqual([38, 38, 38]);
     g.do({ type: 'damage' });
     expect(g.oppLife).toEqual([36, 38, 38]);
+    // ダメージのあとも戦闘終了までは攻撃中
+    expect(g.s.phase).toBe('afterDamage');
+    expect(g.tokens('Pirate').every((c) => c.attacking === 0)).toBe(true);
+    g.do({ type: 'endCombat' });
     expect(g.s.phase).toBe('main2');
+    expect(g.tokens('Pirate').every((c) => c.attacking === null)).toBe(true);
   });
 
   it('統率者ダメージ21で脱落、全員倒すと終了', () => {

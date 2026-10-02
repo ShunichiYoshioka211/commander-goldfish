@@ -58,6 +58,9 @@ interface Store {
   panel: Panel;
   results: GameResult[];
   toast: string | null;
+  /** 新しいバージョンを適用する（読み込み直す）関数。届いていなければ null */
+  update: (() => void) | null;
+  setUpdate: (apply: () => void) => void;
   dispatch: (action: Action) => void;
   undo: () => void;
   redo: () => void;
@@ -83,6 +86,8 @@ export const useStore = create<Store>((set, get) => ({
   // 古い記録には deck が無い。保存済みの deck があれば後ろの ...r で上書きされる
   results: readJson<Omit<GameResult, 'deck'>[]>(RESULTS_KEY, []).map((r) => ({ deck: LEGACY_DECK, ...r })),
   toast: null,
+  update: null,
+  setUpdate: (apply) => set({ update: apply }),
   dispatch: (action) => {
     const { game, past, results } = get();
     const next = apply(game, action);

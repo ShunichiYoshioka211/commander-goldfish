@@ -213,6 +213,9 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
 - カードの再描画は `CardView` の `memo` で1枚単位に閉じている。カードの表示に関わる値を props に足したら、比較キーにも足す
 - 重ねる画面の前後関係：選択ダイアログ（`.modal-back.prompt`）が常に一番上、その下にカード詳細、領域の一覧
 - 背景を押して閉じる処理は `pointerdown` で見る（タップ後に遅れて届く click で、開いた直後に閉じてしまうため）
+- 新しいバージョンの適用は `src/pwa.ts`（確認：起動時・前面に戻ったとき・1時間ごと）と `ui/UpdateBanner.tsx`（適用：対局前か終了後なら自動、対局中は次のゲームで）。
+  **対局中に勝手に読み込み直さない**（対局は保存していないので消える）。`vite.config.ts` の `registerType` は `prompt` のままにする（`autoUpdate` にすると対局中でも読み込み直す）。
+  e2e では Service Worker が動かないので、`virtual:pwa-register` を `tests/fixtures/pwa-register.ts` に差し替え、テストから更新の通知を起こす
 - 色は `src/style.css` の `:root` の変数で持つ。ダーク／ライトはシステム設定に従う
 - スマホ幅（720px 以下）で横スクロールが出ないこと（e2e で確かめている）。端の余白は 8〜16px
 

@@ -5,6 +5,7 @@ import { Battlefield, Hand, Opponents, Status } from './ui/Board';
 import { Controls, EditToolbar } from './ui/Controls';
 import { CardDetail, PromptModal, ResultModal, Toast, ZoneViewer } from './ui/Modals';
 import { Panel } from './ui/Panels';
+import { UpdateBanner } from './ui/UpdateBanner';
 
 function TopBar() {
   const editMode = useStore((s) => s.editMode);
@@ -65,6 +66,7 @@ export default function App() {
   return (
     <div className={`app${editMode ? ' editing' : ''}`}>
       <TopBar />
+      <UpdateBanner />
       {editMode && <EditToolbar />}
       <Opponents />
       <main className="table">

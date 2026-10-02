@@ -2,16 +2,16 @@
 import { TOKENS } from '../cards/tokens';
 import { scriptOf } from '../cards/registry';
 import { shuffleWith } from './rng';
-import { DECK, defByName } from './deck';
+import { defByName } from './deck';
 import type { CardDef, CardInstance, GameState, Prompt, ZoneId } from './types';
 
-export { DECK, defByName };
+export { defByName };
 export const def = (card: CardInstance): CardDef => defByName(card.name);
 export const typeOf = (card: CardInstance, t: string) => def(card).typeLine.includes(t);
 export const isCreature = (card: CardInstance) => typeOf(card, 'Creature') || card.animated !== null;
 export const isLand = (card: CardInstance) => typeOf(card, 'Land');
 export const isRed = (card: CardInstance) => def(card).colors.includes('R');
-export const isCommander = (card: CardInstance) => !card.token && DECK.commanders.includes(card.name);
+export const isCommander = (s: GameState, card: CardInstance) => !card.token && s.commanders.includes(card.name);
 export const hasKeyword = (card: CardInstance, k: string) => def(card).keywords.includes(k);
 export const nameJa = (card: CardInstance) => def(card).jaName;
 
@@ -91,7 +91,7 @@ export function moveTo(
   s.zones[from] = s.zones[from].filter((x) => x !== id);
   if (from === 'battlefield') leaveBattlefield(s, card, to, trigger, opts.observers ?? []);
   // 統率者が墓地か追放に行くなら統率領域に戻す
-  const dest: ZoneId = isCommander(card) && (to === 'graveyard' || to === 'exile') ? 'command' : to;
+  const dest: ZoneId = isCommander(s, card) && (to === 'graveyard' || to === 'exile') ? 'command' : to;
   if (card.token && dest !== 'battlefield') {
     delete s.cards[id];
     return;

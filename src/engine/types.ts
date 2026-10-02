@@ -9,7 +9,7 @@ export interface CardDef {
   /** 日本語のタイプ行と効果（表示用。ルールの判定には英語の typeLine を使う） */
   typeJa: string;
   textJa: string;
-  /** 使い方のコツ（deck/ja.json） */
+  /** 使い方のコツ（decks/<id>/ja.json）。デッキごとに違うので、表示は tipOf(deckId, name) で引く */
   tip: string;
   count: number;
   manaCost: string;
@@ -25,6 +25,8 @@ export interface CardDef {
 }
 
 export interface DeckData {
+  /** decks/<id>/ のフォルダ名 */
+  id: string;
   name: string;
   commanders: string[];
   cards: CardDef[];
@@ -97,6 +99,10 @@ export interface TurnFlags {
 }
 
 export interface GameState {
+  /** 遊んでいるデッキ */
+  deckId: string;
+  /** そのデッキの統率者（英語名） */
+  commanders: string[];
   seed: number;
   rng: number;
   cards: Record<string, CardInstance>;

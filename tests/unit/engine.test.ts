@@ -122,3 +122,24 @@ describe('誘発と生け贄', () => {
     expect(g.s.zones.hand).toHaveLength(7);
   });
 });
+
+describe('複数のデッキ', () => {
+  it('デッキごとに統率者・枚数・固有色・コツが変わる', async () => {
+    const { DECKS, deckById, tipOf } = await import('../../src/engine/deck');
+    const { identity } = await import('../../src/engine/mana');
+    const { newGame } = await import('../../src/engine/turn');
+    expect(DECKS.map((d) => d.id)).toEqual(['ingris', 'test-goblins']);
+    const s = newGame(1, 'test-goblins');
+    expect(s.deckId).toBe('test-goblins');
+    expect(s.zones.command.map((id) => s.cards[id].name)).toEqual(['General Kreat, the Boltbringer']);
+    expect(s.zones.library).toHaveLength(34 - 7);
+    expect(identity(s)).toEqual(['R']);
+    expect(identity(newGame(1, 'ingris'))).toEqual(['B', 'R']);
+    expect(tipOf('test-goblins', 'Impact Tremors')).toBe('テスト用デッキでのコツ');
+    expect(tipOf('ingris', 'Impact Tremors')).not.toBe('テスト用デッキでのコツ');
+    expect(tipOf('ingris', 'Goblin')).toBe('');
+    // 知らない ID は既定のデッキ
+    expect(deckById('unknown').id).toBe('ingris');
+    expect(newGame(1, 'unknown').deckId).toBe('ingris');
+  });
+});

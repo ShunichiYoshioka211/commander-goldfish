@@ -1,10 +1,11 @@
 // ゲームの開始・マリガン・ターンの進行・戦闘。
 import { scriptOf } from '../cards/registry';
 import {
-  battlefield, blankInstance, canAttack, chooseCards, DECK, drain, draw, enqueue, log,
+  battlefield, blankInstance, canAttack, chooseCards, drain, draw, enqueue, log,
   moveTo, nameJa, power, shuffleLibrary,
 } from './core';
 import { damageOpponent } from './damage';
+import { deckById } from './deck';
 import { emptyPool } from './mana';
 import type { CardInstance, GameState } from './types';
 
@@ -14,9 +15,10 @@ const HAND_SIZE = 7;
 
 const freshFlags = () => ({ attacked: false, creaturesDied: 0, nonlandLeft: false, noncombatToOpps: 0, morbidUsed: false, loyaltyUsed: [] });
 
-export function newGame(seed: number): GameState {
+export function newGame(seed: number, deckId: string): GameState {
+  const deck = deckById(deckId);
   const s: GameState = {
-    seed, rng: seed, cards: {},
+    deckId: deck.id, commanders: [...deck.commanders], seed, rng: seed, cards: {},
     zones: { library: [], hand: [], battlefield: [], graveyard: [], exile: [], command: [] },
     nextToken: 0, turn: 0, phase: 'mulligan', life: STARTING_LIFE,
     opponents: Array.from({ length: OPPONENTS }, () => ({ life: STARTING_LIFE, commanderDamage: 0, deadTurn: null })),
@@ -25,10 +27,10 @@ export function newGame(seed: number): GameState {
     startedAt: Date.now(), finishedAt: null,
   };
   let n = 0;
-  for (const c of DECK.cards) {
+  for (const c of deck.cards) {
     for (let i = 0; i < c.count; i++) {
       const id = `c${n++}`;
-      const zone = DECK.commanders.includes(c.name) ? 'command' : 'library';
+      const zone = deck.commanders.includes(c.name) ? 'command' : 'library';
       s.cards[id] = blankInstance(id, c.name, false, zone);
       s.zones[zone].push(id);
     }

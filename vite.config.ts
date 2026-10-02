@@ -1,11 +1,17 @@
 /// <reference types="vitest/config" />
 import react from '@vitejs/plugin-react';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import istanbul from 'vite-plugin-istanbul';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// e2e（VITE_COVERAGE）とユニットテスト（VITEST）のときだけ、テスト用デッキを一覧に足す
+const testing = Boolean(process.env.VITE_COVERAGE || process.env.VITEST);
+const extraDecks = fileURLToPath(new URL(testing ? './tests/fixtures/decks' : './src/data/extra-decks', import.meta.url));
+
 // GitHub Pages ではリポジトリ名の下に置かれる
 export default defineConfig(({ command }) => ({
+  resolve: { alias: { '@extra-decks': extraDecks } },
   base: command === 'build' && !process.env.E2E_COVERAGE ? '/commander-goldfish/' : '/',
   plugins: [
     react(),

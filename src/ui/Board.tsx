@@ -1,5 +1,5 @@
 // 盤面：対戦相手・戦場・手札・左右の情報欄。
-import { canAttack, DECK, isCreature, isLand } from '../engine/core';
+import { canAttack, isCreature, isLand } from '../engine/core';
 import { abilitiesOf, canActivate, canPlayLand, castModes } from '../engine/play';
 import type { CardInstance, GameState } from '../engine/types';
 import { useStore } from '../store';
@@ -135,7 +135,7 @@ export function Status() {
         {game.zones.command.map((id) => (
           <CardView key={id} card={game.cards[id]} ready={ready(game, game.cards[id])} />
         ))}
-        <span className="tax">統率者税 {2 * (game.commanderCasts[DECK.commanders[0]] ?? 0)}</span>
+        <span className="tax">統率者税 {2 * (game.commanderCasts[game.commanders[0]] ?? 0)}</span>
       </div>
       <div className="piles">
         <Pile zone="library" label="ライブラリー" />

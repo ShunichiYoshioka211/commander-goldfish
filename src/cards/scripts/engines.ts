@@ -42,7 +42,7 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
   },
   'Siege-Gang Lieutenant': {
     onCombatStart: (s) => {
-      if (battlefield(s).some(isCommander)) enqueue(s, '包囲攻撃の副官', (st) => void createToken(st, 'Goblin', 2, { haste: true }));
+      if (battlefield(s).some((c) => isCommander(s, c))) enqueue(s, '包囲攻撃の副官', (st) => void createToken(st, 'Goblin', 2, { haste: true }));
     },
     abilities: [
       {
@@ -77,7 +77,7 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
   },
   'Loyal Apprentice': {
     onCombatStart: (s) => {
-      if (battlefield(s).some(isCommander)) {
+      if (battlefield(s).some((c) => isCommander(s, c))) {
         enqueue(s, '忠実な弟子', (st) => void createToken(st, 'Thopter', 1, { haste: true }));
       }
     },

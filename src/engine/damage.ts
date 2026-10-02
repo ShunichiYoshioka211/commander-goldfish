@@ -11,7 +11,7 @@ export function damageOpponent(s: GameState, source: CardInstance, opp: number, 
   o.life -= amount;
   s.damage.push({ turn: s.turn, target: opp, source: nameJa(source), amount, combat });
   log(s, `${nameJa(source)} → 対戦相手${opp + 1} に ${amount}点${combat ? '（戦闘）' : ''}`);
-  if (combat && isCommander(source)) o.commanderDamage += amount;
+  if (combat && isCommander(s, source)) o.commanderDamage += amount;
   if (typeOf(source, 'Creature') && (hasKeyword(source, 'Lifelink') || onField(s, 'Whip of Erebos').length > 0)) {
     s.life += amount;
   }

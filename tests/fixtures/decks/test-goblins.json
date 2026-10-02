@@ -1,0 +1,153 @@
+{
+ "id": "test-goblins",
+ "name": "テスト用ゴブリン（e2e 専用）",
+ "commanders": [
+  "General Kreat, the Boltbringer"
+ ],
+ "cards": [
+  {
+   "name": "General Kreat, the Boltbringer",
+   "jaName": "電光の姫将軍、クレート",
+   "typeJa": "伝説のクリーチャー — ゴブリン・兵士",
+   "textJa": "あなたがコントロールしている１体以上のゴブリンが攻撃するたび、赤の１/１のゴブリン・クリーチャー・トークン１体をタップ状態かつ攻撃している状態で生成する。\nあなたがコントロールしていてこれでないクリーチャー１体が戦場に出るたび、電光の姫将軍、クレートは各対戦相手にそれぞれ１点のダメージを与える。",
+   "tip": "ゴブリンで殴るたびに攻撃中のゴブリンが1体増える（その子は攻撃宣言していないのでイングリスは誘発しないが、展開時バーンは入る）。衝撃の震えと同じ役割の2枚目",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Legendary Creature — Goblin Soldier",
+   "oracle": "Whenever one or more Goblins you control attack, create a 1/1 red Goblin creature token that's tapped and attacking.\nWhenever another creature you control enters, General Kreat deals 1 damage to each opponent.",
+   "power": 2,
+   "toughness": 2,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/5/8/588f9627-e6d1-4130-9bee-a4a7ec57c176.jpg?1782781595",
+    "normal": "https://cards.scryfall.io/normal/front/5/8/588f9627-e6d1-4130-9bee-a4a7ec57c176.jpg?1782781595"
+   }
+  },
+  {
+   "name": "Mountain",
+   "jaName": "山",
+   "typeJa": "基本土地 — 山",
+   "textJa": "（{T}：{R}を加える。）",
+   "tip": "",
+   "count": 30,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Basic Land — Mountain",
+   "oracle": "({T}: Add {R}.)",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "R"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/d/4/d47cf6fe-6ad6-4755-bd2d-1ba125419626.jpg?1790689039",
+    "normal": "https://cards.scryfall.io/normal/front/d/4/d47cf6fe-6ad6-4755-bd2d-1ba125419626.jpg?1790689039"
+   }
+  },
+  {
+   "name": "Command Tower",
+   "jaName": "統率の塔",
+   "typeJa": "土地",
+   "textJa": "{T}：あなたの統率者の固有色１色のマナ１点を加える。",
+   "tip": "",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}: Add one mana of any color in your commander's color identity.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/8/5/85de77c8-c0b5-4107-8c5e-081042e13b0f.jpg?1790692831",
+    "normal": "https://cards.scryfall.io/normal/front/8/5/85de77c8-c0b5-4107-8c5e-081042e13b0f.jpg?1790692831"
+   }
+  },
+  {
+   "name": "Impact Tremors",
+   "jaName": "衝撃の震え",
+   "typeJa": "エンチャント",
+   "textJa": "クリーチャー１体があなたのコントロール下で戦場に出るたび、衝撃の震えは各対戦相手にそれぞれ１点のダメージを与える。",
+   "tip": "テスト用デッキでのコツ",
+   "count": 1,
+   "manaCost": "{1}{R}",
+   "cmc": 2,
+   "typeLine": "Enchantment",
+   "oracle": "Whenever a creature you control enters, this enchantment deals 1 damage to each opponent.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/a/3/a3aaf09f-2dc5-4b6b-b63d-7932c5f9eb5b.jpg?1782812064",
+    "normal": "https://cards.scryfall.io/normal/front/a/3/a3aaf09f-2dc5-4b6b-b63d-7932c5f9eb5b.jpg?1782812064"
+   }
+  },
+  {
+   "name": "Goblin Assault",
+   "jaName": "ゴブリンの突撃",
+   "typeJa": "エンチャント",
+   "textJa": "あなたのアップキープの開始時に、速攻を持つ赤の１/１のゴブリン・クリーチャー・トークンを１体生成する。\nゴブリン・クリーチャーは、可能なら毎ターン攻撃する。",
+   "tip": "毎ターンのゴブリン供給。ゴブリンは攻撃を強制される（このアプリでは自分で全員攻撃させる）。クレートがいれば攻撃のたびにさらに増える",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Enchantment",
+   "oracle": "At the beginning of your upkeep, create a 1/1 red Goblin creature token with haste.\nGoblin creatures attack each combat if able.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/6/4/647b0011-174c-47f3-9856-7a4b561ef354.jpg?1782944202",
+    "normal": "https://cards.scryfall.io/normal/front/6/4/647b0011-174c-47f3-9856-7a4b561ef354.jpg?1782944202"
+   }
+  },
+  {
+   "name": "Legion Warboss",
+   "jaName": "軍勢の戦親分",
+   "typeJa": "クリーチャー — ゴブリン・兵士",
+   "textJa": "教導（このクリーチャーが攻撃するたび、パワーがこれよりも小さい攻撃クリーチャー１体を対象とする。それの上に＋１/＋１カウンター１個を置く。）\nあなたのターンの戦闘の開始時に、赤の１/１のゴブリン・クリーチャー・トークン１体を生成する。ターン終了時まで、そのトークンは速攻を得る。この戦闘で、そのトークンは可能なら攻撃する。",
+   "tip": "毎ターン速攻ゴブリン。ゴブリンが殴るのでクレートが誘発する。戦親分自身も殴れば教導で1体が大きくなる",
+   "count": 1,
+   "manaCost": "{2}{R}",
+   "cmc": 3,
+   "typeLine": "Creature — Goblin Soldier",
+   "oracle": "Mentor (Whenever this creature attacks, put a +1/+1 counter on target attacking creature with lesser power.)\nAt the beginning of combat on your turn, create a 1/1 red Goblin creature token. That token gains haste until end of turn and attacks this combat if able.",
+   "power": 2,
+   "toughness": 2,
+   "colors": [
+    "R"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Mentor"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/4/94a31098-1cc5-4f07-b0e9-7d41a782ec8f.jpg?1782773504",
+    "normal": "https://cards.scryfall.io/normal/front/9/4/94a31098-1cc5-4f07-b0e9-7d41a782ec8f.jpg?1782773504"
+   }
+  }
+ ]
+}

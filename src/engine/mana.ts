@@ -1,7 +1,7 @@
 // マナコストの解釈と支払い。マナ・プールを先に使い、足りない分は未タップの発生源を自動でタップする。
 import { scriptOf } from '../cards/registry';
 import { battlefield, hasKeyword, isCreature, log, nameJa } from './core';
-import { DECK, defByName } from './deck';
+import { defByName } from './deck';
 import type { CardInstance, GameState, ManaColor } from './types';
 
 export interface Cost {
@@ -26,8 +26,8 @@ export interface ManaOption {
 export const COLORS: ManaColor[] = ['W', 'U', 'B', 'R', 'G', 'C'];
 export const emptyPool = (): Record<ManaColor, number> => ({ W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 });
 
-/** 統率者の固有色 */
-export const IDENTITY: ManaColor[] = COLORS.filter((c) => DECK.commanders.some((n) => defByName(n).colors.includes(c)));
+/** 遊んでいるデッキの統率者の固有色 */
+export const identity = (s: GameState): ManaColor[] => COLORS.filter((c) => s.commanders.some((n) => defByName(n).colors.includes(c)));
 
 export function parseCost(text: string): Cost {
   const cost: Cost = { generic: 0, colors: [], x: 0 };
@@ -45,7 +45,7 @@ export const costText = (c: Cost) => (c.generic > 0 || c.colors.length === 0 ? `
 export function manaOptions(s: GameState, card: CardInstance): ManaOption[] {
   const custom = scriptOf(card).mana;
   if (custom) return custom(s, card);
-  const colors = defByName(card.name).producedMana.filter((c) => c === 'C' || IDENTITY.includes(c as ManaColor)) as ManaColor[];
+  const colors = defByName(card.name).producedMana.filter((c) => c === 'C' || identity(s).includes(c as ManaColor)) as ManaColor[];
   return colors.map((c) => ({ label: `{${c}}`, produce: [c] }));
 }
 

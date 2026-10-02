@@ -10,7 +10,8 @@
     "import-deck": "node scripts/import-deck.ts",
     "test": "vitest run",
     "test:e2e": "node scripts/e2e-coverage.ts",
-    "typecheck": "tsc --noEmit -p ."
+    "typecheck": "tsc --noEmit -p .",
+    "new-deck": "node scripts/new-deck.ts"
   },
   "dependencies": {
     "react": "^19.3.0",

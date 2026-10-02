@@ -11,15 +11,22 @@ const extraDecks = fileURLToPath(new URL(testing ? './tests/fixtures/decks' : '.
 
 // GitHub Pages ではリポジトリ名の下に置かれる
 export default defineConfig(({ command }) => ({
-  resolve: { alias: { '@extra-decks': extraDecks } },
+  resolve: {
+    alias: {
+      '@extra-decks': extraDecks,
+      // e2e では Service Worker の代わりに、テストから更新の通知を起こせる差し替えを使う
+      ...(process.env.VITE_COVERAGE ? { 'virtual:pwa-register': fileURLToPath(new URL('./tests/fixtures/pwa-register.ts', import.meta.url)) } : {}),
+    },
+  },
   base: command === 'build' && !process.env.E2E_COVERAGE ? '/commander-goldfish/' : '/',
   plugins: [
     react(),
     // e2e のカバレッジ計測時だけ src/ を計装する
     istanbul({ include: 'src/**', extension: ['.ts', '.tsx'], requireEnv: true, forceBuildInstrument: true }),
     VitePWA({
-      registerType: 'autoUpdate',
-      injectRegister: 'auto',
+      // 更新の適用は src/pwa.ts と UpdateBanner が決める（対局中に勝手に読み込み直さない）
+      registerType: 'prompt',
+      injectRegister: false,
       includeAssets: ['icon.svg'],
       manifest: {
         name: 'コマンダー一人回し練習',

@@ -34,6 +34,9 @@ URL パラメータ：`?seed=123` で配りを固定、`?images=0` でカード�
 （その場合カバレッジは当然 100% にならないので、閾値エラーは無視してよい）。
 カバレッジの詳細は `coverage/index.html`。
 
+**vitest も Playwright も型を検査しない。** テストが通っても型エラーは CI の最初の手順で落ちるので、
+push の前に `npm run typecheck` を必ず流す（テスト用の型 `tests/e2e/fixtures.ts` の `Snapshot` に足し忘れて落ちたことがある）。
+
 ## 3. 構成
 
 ```

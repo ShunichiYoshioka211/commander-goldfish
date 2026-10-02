@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { isScripted } from '../cards/registry';
 import type { MoveTarget } from '../engine/actions';
 import { aliveOpponents, canAttack, def } from '../engine/core';
+import { tipOf } from '../engine/deck';
 import { canTapForMana, costText, manaOptions } from '../engine/mana';
 import { abilitiesOf, canActivate, canPlayLand, castModes } from '../engine/play';
 import { useStore } from '../store';
@@ -109,6 +110,7 @@ export function CardDetail() {
   const card = id === null ? undefined : game.cards[id];
   if (!card) return null;
   const d = def(card);
+  const tip = tipOf(game.deckId, card.name);
   const close = () => set({ selected: null });
   const act = (f: () => void) => () => {
     close();
@@ -125,7 +127,7 @@ export function CardDetail() {
             <div className="muted">{d.manaCost}</div>
             <div>{d.typeJa}</div>
             <p className="oracle">{d.textJa}</p>
-            {d.tip && <p className="note">コツ：{d.tip}</p>}
+            {tip && <p className="note">コツ：{tip}</p>}
             <span className="badge">{isScripted(card.name) ? '自動処理あり' : '効果は手動で処理'}</span>
           </div>
         </div>

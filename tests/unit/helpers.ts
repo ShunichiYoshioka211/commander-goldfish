@@ -5,7 +5,7 @@ import type { GameState, ZoneId } from '../../src/engine/types';
 export class Game {
   s: GameState;
   constructor(seed = 1) {
-    this.s = newGame(seed);
+    this.s = newGame(seed, 'ingris');
   }
   do(...actions: Action[]) {
     for (const a of actions) this.s = apply(this.s, a);

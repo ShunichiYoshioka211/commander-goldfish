@@ -1,6 +1,6 @@
 // 横から出すパネル：ログ・ダメージ統計と履歴・デッキ一覧。
 import { isScripted } from '../cards/registry';
-import { DECK } from '../engine/core';
+import { deckById } from '../engine/deck';
 import { OPPONENTS } from '../engine/turn';
 import { useStore } from '../store';
 
@@ -42,7 +42,9 @@ function Log() {
 
 function Stats() {
   const game = useStore((s) => s.game);
-  const results = useStore((s) => s.results);
+  const deckId = useStore((s) => s.game.deckId);
+  // 記録はデッキごとに見る
+  const results = useStore((s) => s.results).filter((r) => r.deck === deckId);
   const turns = Array.from({ length: game.turn }, (_, i) => i + 1);
   const perTurn = turns.map((t) =>
     Array.from({ length: OPPONENTS }, (_, opp) =>
@@ -102,6 +104,8 @@ function Stats() {
 }
 
 function Deck() {
+  const deckId = useStore((s) => s.game.deckId);
+  const DECK = deckById(deckId);
   const total = DECK.cards.reduce((n, c) => n + c.count, 0);
   const curve = Array.from({ length: 8 }, (_, cmc) =>
     DECK.cards.filter((c) => !c.typeLine.includes('Land') && Math.min(7, c.cmc) === cmc).reduce((n, c) => n + c.count, 0),

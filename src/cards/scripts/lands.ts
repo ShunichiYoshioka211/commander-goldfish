@@ -1,6 +1,6 @@
 // 土地・マナ発生源。タップインの条件と、条件付きのマナ能力。
 import { ask, chooseCards, enqueue, lands, log, moveTo, nameJa, sacrifice, shuffleLibrary, typeOf } from '../../engine/core';
-import { IDENTITY, type ManaOption } from '../../engine/mana';
+import { identity, type ManaOption } from '../../engine/mana';
 import type { CardInstance, GameState } from '../../engine/types';
 import type { CardScript } from '../types';
 
@@ -116,8 +116,8 @@ export const LAND_SCRIPTS: Record<string, CardScript> = {
     ],
   },
   Treasure: {
-    mana: () =>
-      IDENTITY.map((color) => ({
+    mana: (s) =>
+      identity(s).map((color) => ({
         label: `生け贄に捧げて {${color}}`,
         produce: [color],
         manual: true,

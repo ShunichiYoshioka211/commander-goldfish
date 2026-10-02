@@ -51,6 +51,7 @@ export function cloneState(s: GameState): GameState {
     },
     opponents: s.opponents.map((o) => ({ ...o })),
     pool: { ...s.pool },
+    commanders: [...s.commanders],
     commanderCasts: { ...s.commanderCasts },
     plan: { ...s.plan },
     queue: [...s.queue],

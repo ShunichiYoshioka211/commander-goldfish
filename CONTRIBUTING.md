@@ -28,7 +28,8 @@ URL パラメータ：`?seed=123` で配りを固定、`?images=0` でカード�
 | `npm test` | ユニットテスト（vitest、`tests/unit/`） |
 | `npm run test:e2e` | e2e（Playwright、`tests/e2e/`）を計装つきで走らせ、**e2e だけのカバレッジ 100%** を確かめる |
 | `npm run build` | 型検査のうえ `dist/` に PWA を出力 |
-| `npm run import-deck` | デッキの CSV と Scryfall から `src/data/deck.json` を作り直す |
+| `npm run new-deck -- <id> "<表示名>" "<統率者>"` | 新しいデッキの雛形 `decks/<id>/` を作る |
+| `npm run import-deck [-- <id>]` | `decks/` と Scryfall から `src/data/decks/<id>.json` を作り直す（引数なしなら全デッキ） |
 
 `npm run test:e2e -- tests/e2e/lands.spec.ts -g "Temple"` のように、後ろに Playwright の引数を渡せる
 （その場合カバレッジは当然 100% にならないので、閾値エラーは無視してよい）。
@@ -40,26 +41,29 @@ push の前に `npm run typecheck` を必ず流す（テスト用の型 `tests/e
 ## 3. 構成
 
 ```
-deck/            デッキの元データ（人が編集する）
-  config.json    デッキ名・統率者・取り込む行（include: all | inDeck）
-  ingris.csv     スプレッドシート「デッキリスト」を書き出したもの
+decks/<id>/      デッキの元データ（人が編集する。1デッキ1フォルダ）
+  config.json    表示名・統率者・カード一覧のファイル名・取り込む行（include: all | inDeck）
+  *.csv          カードの一覧（スプレッドシート「デッキリスト」の書き出しでもよい）
   ja.json        カードごとの日本語のタイプ行・効果・使い方のコツ（正）
+docs/            手順書（新しいデッキの追加は docs/adding-a-deck.md）
 scripts/         ビルド時だけ動く Node スクリプト（src/ からは import しない）
 src/
-  data/deck.json import-deck が生成する。手で編集しない（コミットはする）
+  data/decks/    import-deck が生成する <id>.json。手で編集しない（コミットはする）。置けば自動で一覧に出る
+  data/extra-decks/ 本番では空。e2e・ユニットテストのときは代わりに tests/fixtures/decks/ が読まれる
   engine/        ルールエンジン。React に依存しない純粋な TypeScript
   cards/         カードごとの自動処理（scripts/）、トークンの定義、登録表
   ui/            React の画面
   store.ts       zustand。ゲーム状態の履歴（Undo/Redo）と画面の設定
 tests/unit/      エンジンと取り込みスクリプトのユニットテスト
 tests/e2e/       画面を通したテスト。カバレッジ 100% の根拠
+tests/fixtures/decks/ テスト用デッキ（統率者が単色のクレート）。デッキの切り替えを確かめるためのもの
 ```
 
 ### 依存の向き
 
-`ui → store → engine ← cards`。`engine/deck.ts` はどこにも依存しない葉のモジュールにしてある
+`ui → store → engine ← cards`。`engine/deck.ts`（デッキの一覧とカード目録）は `cards/tokens.ts` 以外に依存しない葉のモジュールにしてある
 （`engine/core.ts` と `cards/registry.ts` が互いを参照する循環 import の初期化順対策）。
-**`deck.ts` に他モジュールの import を足さないこと。** 足すと起動時に `DECK` が未定義になる。
+**`deck.ts` に他モジュールの import を足さないこと。** 足すと起動時に目録が未定義になる。
 
 ## 4. エンジンの約束（ここを破ると壊れる）
 
@@ -106,7 +110,16 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
   **英語の `name` / `typeLine` / `oracle` を画面に出さない**（e2e で確かめている）
 - ログ・選択肢・通知も日本語。カード名は `nameJa(card)` で出す
 
-### 4.5 乱数
+### 4.5 デッキに依存する値は対局の状態から引く
+
+デッキは複数あり、遊んでいるデッキは `GameState` の `deckId` と `commanders` が持つ。
+
+- 統率者かどうかは `isCommander(s, card)`、統率者の固有色は `identity(s)` で判定する。**デッキ名や統率者名を直書きしない**
+- カードの情報（`def(card)`）はデッキに依らない目録から引く。デッキごとに違うコツは `tipOf(s.deckId, name)`、
+  デッキそのもの（表示名・枚数）は `deckById(s.deckId)`
+- デッキの切り替えは新しい対局になる（`store.ts` の `switchDeck`。履歴は消える）。1つの対局の中でデッキが変わることはない
+
+### 4.6 乱数
 
 `engine/rng.ts` のシード付き乱数だけを使う（`Math.random()` はエンジンで使わない）。
 同じシードで同じ配りになることをテストで確かめている。
@@ -133,14 +146,17 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
 
 ## 6. デッキと日本語データを更新する
 
-1. スプレッドシート「デッキリスト」を CSV で書き出し、`deck/ingris.csv` を置き換える
-2. 統率者が変わるなら `deck/config.json` の `commanders`
-3. `npm run import-deck`
+**新しいデッキを足す手順は [docs/adding-a-deck.md](docs/adding-a-deck.md) にまとめてある。** ここは既存デッキの更新の要点。
+
+1. `decks/<id>/` の CSV を直す（スプレッドシート「デッキリスト」を CSV で書き出して置き換えてもよい）
+2. 統率者が変わるなら `decks/<id>/config.json` の `commanders`
+3. `npm run import-deck -- <id>`
    - Scryfall の `/cards/collection` で英語の正文と型を、`/cards/search`（`lang:ja`）で日本語版の印刷を取る
    - **日本語版の検索は 80 件ほど続けると 429 で止まる。** スクリプトは待って取り直すので、そのまま待つ
-   - `deck/ja.json` に無いカードは日本語版から下書きが足され、出力に名前が出る
+   - `ja.json` に無いカードは、ほかのデッキの `ja.json` にあればタイプ行・効果を写し（コツは空）、
+     無ければ日本語版から下書きが足される。どちらも出力に名前が出る
    - 日本語版の画像が無いカードは英語版の画像になり、出力に名前が出る
-4. 下書きされたカードの `deck/ja.json` を人の目で直す。Scryfall の日本語データは次の崩れがある：
+4. 下書きされたカードの `decks/<id>/ja.json` を人の目で直す。Scryfall の日本語データは次の崩れがある：
    - 英語のまま（新しいカード・基本土地）
    - 記号の崩れ（`{(}b/r)}` → `{B/R}`、`{4BBB}` → `{4}{B}{B}{B}`）
    - ふりがなの混入（`虚（きょ）空（くう）…`。下書きでは除去するが漏れがありうる）
@@ -153,7 +169,7 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
 7. `npm test` と `npm run test:e2e` を通す。デッキの枚数や配りが変わると、シードに依存したテストが落ちることがある
    （手札の中身に頼らず、`app.put` で必要なカードを置くように直す）
 
-`src/data/deck.json` は生成物だが、Pages のビルドで Scryfall に問い合わせないようにコミットする。
+`src/data/decks/<id>.json` は生成物だが、Pages のビルドで Scryfall に問い合わせないようにコミットする。
 
 ## 7. テスト
 
@@ -208,7 +224,7 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
   承認レビューの人数は 0（一人でも回せるように）。管理者は保護を迂回できる設定にしてある
 - PR は CI（型検査・ユニット・e2e とカバレッジ 100%）が通ってからマージする
 - コミットメッセージは日本語で、何をなぜ変えたかが分かるように書く。1行目に要約、必要なら空行のあと箇条書き
-- `src/data/deck.json` を変えたときは、元になった `deck/` の変更と同じコミットに入れる
+- `src/data/decks/<id>.json` を変えたときは、元になった `decks/<id>/` の変更と同じコミットに入れる
 - 秘密情報は扱っていない（Scryfall は認証不要）。トークンや鍵をリポジトリに入れないこと
 
 ## 10. 決めていること（変えるなら相談）

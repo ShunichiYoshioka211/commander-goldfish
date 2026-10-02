@@ -123,3 +123,26 @@ describe('日本語の下書き', () => {
     expect(jaDraft(card, undefined)).toEqual({ type: 'Creature — Elf', text: 'Flying', tip: '' });
   });
 });
+
+describe('新しいデッキの雛形', async () => {
+  const { isDeckId, newDeckFiles } = await import('../../scripts/lib/new-deck');
+
+  it('ID は ASCII の kebab-case だけ', () => {
+    expect(isDeckId('krenko-goblins')).toBe(true);
+    expect(isDeckId('Krenko')).toBe(false);
+    expect(isDeckId('クレンコ')).toBe(false);
+    expect(() => newDeckFiles('bad id', 'x', ['A'])).toThrow('kebab-case');
+  });
+
+  it('config・CSV（統率者の行だけ）・空の ja.json を作り、CSV は取り込みで読める', () => {
+    const files = newDeckFiles('pair', '共闘', ['Francisco, Fowl Marauder', 'Say "Hi"']);
+    expect(JSON.parse(files['config.json'])).toEqual({
+      name: '共闘',
+      csv: 'cards.csv',
+      commanders: ['Francisco, Fowl Marauder', 'Say "Hi"'],
+      include: 'all',
+    });
+    expect(deckRows(files['cards.csv'], true).map((r) => r.name)).toEqual(['Francisco, Fowl Marauder', 'Say "Hi"']);
+    expect(files['ja.json']).toBe('{}\n');
+  });
+});

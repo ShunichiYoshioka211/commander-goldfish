@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { DECKS } from './engine/deck';
 import { useStore } from './store';
 import { Battlefield, Hand, Opponents, Status } from './ui/Board';
 import { Controls, EditToolbar } from './ui/Controls';
@@ -11,9 +12,17 @@ function TopBar() {
   const canUndo = useStore((s) => s.past.length > 0);
   const canRedo = useStore((s) => s.future.length > 0);
   const seed = useStore((s) => s.game.seed);
-  const { undo, redo, restart, set } = useStore.getState();
+  const deckId = useStore((s) => s.game.deckId);
+  const { undo, redo, restart, set, switchDeck } = useStore.getState();
   return (
     <header className="topbar">
+      <select aria-label="デッキ" value={deckId} onChange={(e) => switchDeck(e.target.value)}>
+        {DECKS.map((d) => (
+          <option key={d.id} value={d.id}>
+            {d.name}
+          </option>
+        ))}
+      </select>
       <button className={editMode ? 'picked' : ''} aria-pressed={editMode} onClick={() => set({ editMode: !editMode })}>
         編集モード
       </button>

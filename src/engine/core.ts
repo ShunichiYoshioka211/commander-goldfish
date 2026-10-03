@@ -29,7 +29,7 @@ export function power(card: CardInstance): number {
 
 export function toughness(card: CardInstance): number {
   const base = card.animated ? card.animated.toughness : def(card).toughness!;
-  return base + (card.counters['+1/+1'] ?? 0);
+  return base + (card.counters['+1/+1'] ?? 0) + card.tempToughness;
 }
 
 export const canAttack = (card: CardInstance) =>
@@ -37,14 +37,22 @@ export const canAttack = (card: CardInstance) =>
 
 export const freshFlags = (): TurnFlags => ({
   attacked: false, creaturesDied: 0, nonlandLeft: false, warped: false, noncombatToOpps: 0, morbidUsed: false, loyaltyUsed: [],
+  oppLifeLost: [0, 0, 0], spellsCast: 0, onceUsed: [],
 });
+
+/** 「毎ターン1回」の誘発。このターンにまだ使っていなければ、使ったことにして true を返す */
+export function once(s: GameState, key: string) {
+  if (s.flags.onceUsed.includes(key)) return false;
+  s.flags.onceUsed.push(key);
+  return true;
+}
 
 /**
  * どのターンのクリンナップでも行うこと（CR 514.2）：ターン終了までの効果と、相手のクリーチャーが受けたダメージを消す。
  * あなたのクリーチャーが受けたダメージは持たない（相手のクリーチャーからダメージを受けるのは戦闘だけで、その場で生死を決める）
  */
 export function endOfTurnCleanup(s: GameState) {
-  for (const c of battlefield(s)) Object.assign(c, { tempPower: 0, haste: false, animated: null });
+  for (const c of battlefield(s)) Object.assign(c, { tempPower: 0, tempToughness: 0, haste: false, animated: null });
   for (const o of s.opponents) for (const p of o.board) p.damage = 0;
 }
 
@@ -88,7 +96,7 @@ export function draw(s: GameState, n: number) {
 export function blankInstance(id: string, name: string, token: boolean, zone: ZoneId): CardInstance {
   return {
     id, name, token, zone, tapped: false, counters: {}, sick: false, haste: false, attacking: null,
-    tempPower: 0, atEnd: null, animated: null, castable: false, doors: [],
+    tempPower: 0, tempToughness: 0, atEnd: null, animated: null, castable: false, doors: [],
   };
 }
 

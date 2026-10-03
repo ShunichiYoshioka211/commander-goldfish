@@ -46,7 +46,7 @@ decks/<id>/      デッキの元データ（人が編集する。1デッキ1フ�
   config.json    表示名・統率者・カード一覧のファイル名・取り込む行（include: all | inDeck）
   *.csv          カードの一覧（スプレッドシート「デッキリスト」の書き出しでもよい）
   ja.json        カードごとの日本語のタイプ行・効果・使い方のコツ（正）
-docs/            手順書（新しいデッキの追加は docs/adding-a-deck.md、相手ありモードの仕組みは docs/opponent-mode.md）
+docs/            手順書（新しいデッキの追加は docs/adding-a-deck.md、相手ありモードは docs/opponent-mode.md、RADカウンター・切削・カウンターは docs/rad-and-counters.md）
 scripts/         ビルド時だけ動く Node スクリプト（src/ からは import しない）
 src/
   data/decks/    import-deck が生成する <id>.json。手で編集しない（コミットはする）。置けば自動で一覧に出る
@@ -160,9 +160,15 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
    - `engines.ts`：トークン生成・戦闘やターンの区切りの誘発
    - `spells.ts`：生け贄を追加コストにする呪文と、生け贄の受け皿
 2. 使えるフックは `src/cards/types.ts` の `CardScript` を見る
-   （`onEnter`・`onCreatureEnters`・`onPermanentEnters`・`onAttack`・`onCombatDamage`・`onUpkeep`・`onEndStep`・`onCreatureDies`・`damageBonus`・`mana`・`cast`・`abilities` など）
+   （`onEnter`・`onCreatureEnters`・`onPermanentEnters`・`onAttack`・`onCombatDamage`・`onUpkeep`・`onEndStep`・`onEachEndStep`・`onCreatureDies`・`onMilled`・`onCountersPut`・`moreCounters`・`doubleCounters`・`onCast`・`onOpponentLosesLife`・`damageBonus`・`mana`・`cast`・`abilities` など）
 3. 盤面を動かすときは `engine/core.ts` の関数（`createToken`・`moveTo`・`draw`・`sacrifice`・`destroyAll`・`chooseOpponent` …）と
    `engine/damage.ts` の `damageEach` / `damageAny` だけを使う。`s.zones` を直接いじらない
+   - カウンターは `engine/counters.ts` の `addCounters`（+1/+1 の置換が効く）、RADカウンターは `youGetRad` / `oppGetsRad` / `radEach`、増殖は `proliferate`。
+     `card.counters[...]++` と直接書かない（硬化した鱗などが効かなくなる）
+   - 切削は `engine/mill.ts` の `millYou` / `millOpponents`（`onMilled` が誘発する）
+   - **あなたのライフを減らすときは `youLoseLife`**（湖の町の統領が誘発する）。対戦相手のダメージでない喪失は `oppLoseLife`
+   - 「毎ターン1回」の誘発は `once(s, key)`（相手のターンの始めにも戻る）
+   - 仕組みは [docs/rad-and-counters.md](docs/rad-and-counters.md)
 4. 対戦相手へのダメージは必ず `damageOpponent` を通す（増幅・絆魂・スピード・脱落判定がここに集まっている）
 5. e2e のテストを書き、カバレッジ 100% を保つ（7 節）
 
@@ -273,4 +279,5 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
 - 自動化は半自動。ルールの土台は自動、カード効果は軸になるものだけ
 - 相手なしモード（既定）では、対戦相手はライフと統率者ダメージだけを持ち、妨害は編集モードで人が再現する
 - 相手ありモードでは、相手は汎用の架空クリーチャーの盤面を持ち、決まった規則でブロックする。相手からの攻撃・除去は段階的に足す（[docs/opponent-mode.md](docs/opponent-mode.md)）
+- 対戦相手は、どちらのモードでも自分のターンにドローとRADカウンターの切削を行う。ライブラリーは枚数だけで、切削の中身は 3/5 が土地でないとみなす（[docs/rad-and-counters.md](docs/rad-and-counters.md)）
 - 画面の表記は日本語。ルール判定は英語のデータで行う

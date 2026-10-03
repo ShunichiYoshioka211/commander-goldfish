@@ -40,6 +40,8 @@ export const KINDS: Record<string, RivalKind> = {
   wurm: kind('ワーム', 6, 6, 6, ['Trample']),
   dragon: kind('ドラゴン', 6, 5, 5, ['Flying']),
   soldier: kind('兵士', 0, 1, 1, [], 0.12),
+  // 内にいる獣で相手が得るトークン（展開の表には入らない）
+  beastToken: kind('ビースト', 0, 3, 3),
   cmdAggro: commander(3, 3, 3, ['Trample']),
   cmdMidrange: commander(4, 4, 4, ['Flying']),
   cmdControl: commander(5, 2, 5, ['Flying']),

@@ -42,6 +42,10 @@ export function Opponents() {
             統率者ダメージ {o.commanderDamage}
             {o.deadTurn !== null && `・${o.deadTurn}T 脱落`}
           </div>
+          <div className="opp-sub" data-testid={`opp${i}-library`}>
+            ライブラリー {o.library}
+            {o.rad > 0 && <span className="badge rad">RAD {o.rad}</span>}
+          </div>
           {editMode && (
             <div className="edit-row">
               <button onClick={() => dispatch({ type: 'oppLife', opp: i, delta: -1 })}>−1</button>
@@ -49,6 +53,8 @@ export function Opponents() {
               <button onClick={() => dispatch({ type: 'oppLife', opp: i, delta: 1 })}>+1</button>
               <button onClick={() => dispatch({ type: 'cmdDamage', opp: i, delta: 1 })}>統+1</button>
               <button onClick={() => dispatch({ type: 'cmdDamage', opp: i, delta: -1 })}>統−1</button>
+              <button onClick={() => dispatch({ type: 'rad', who: i, delta: 1 })}>RAD+1</button>
+              <button onClick={() => dispatch({ type: 'rad', who: i, delta: -1 })}>RAD−1</button>
             </div>
           )}
           {rivals && (
@@ -135,11 +141,14 @@ export function Status() {
       <div className="badges">
         {game.monarch && <span className="badge">統治者</span>}
         {game.speed > 0 && <span className="badge">スピード {game.speed}</span>}
+        {game.rad > 0 && <span className="badge rad" data-testid="my-rad">RAD {game.rad}</span>}
         {editMode && (
           <span className="edit-row">
             <button onClick={() => dispatch({ type: 'speed', delta: 1 })}>速+</button>
             <button onClick={() => dispatch({ type: 'speed', delta: -1 })}>速−</button>
             <button onClick={() => dispatch({ type: 'monarch' })}>統治者</button>
+            <button onClick={() => dispatch({ type: 'rad', who: null, delta: 1 })}>RAD+</button>
+            <button onClick={() => dispatch({ type: 'rad', who: null, delta: -1 })}>RAD−</button>
           </span>
         )}
       </div>

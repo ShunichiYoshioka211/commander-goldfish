@@ -152,7 +152,7 @@ const MOVES: [MoveTarget, string][] = [
   ['libraryBottom', 'ライブラリーの下'],
   ['libraryShuffle', 'ライブラリーに入れてシャッフル'],
 ];
-const COUNTERS = ['+1/+1', 'loyalty', 'fire', 'oil'];
+const COUNTERS = ['+1/+1', 'loyalty', 'fire', 'oil', 'quest'];
 
 export function CardDetail() {
   const id = useStore((s) => s.selected);

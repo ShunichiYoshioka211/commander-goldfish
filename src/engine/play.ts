@@ -4,6 +4,7 @@ import { scriptOf } from '../cards/registry';
 import type { Ability, CastInfo, ExtraCost } from '../cards/types';
 import type { CastSpec } from '../cards/types';
 import { ask, battlefield, canAttack, def, drain, hasKeyword, isCreature, isLand, log, moveTo, nameJa, typeOf } from './core';
+import { youLoseLife } from './damage';
 import { canPay, parseCost, pay, type Cost } from './mana';
 import { rivalOptions } from './rivals/board';
 import type { CardInstance, GameState, PromptOption } from './types';
@@ -42,6 +43,10 @@ export function targetOptions(s: GameState, target: NonNullable<CastSpec['target
   return [...rivalOptions(s), ...mine.map((c) => ({ label: nameJa(c), value: c.id, card: c.id }))];
 }
 
+/** 戦場のパーマネントによる、呪文のコストの軽減（水のクリスタル：青の呪文は{1}軽い） */
+const costReduction = (s: GameState, spell: CardInstance) =>
+  battlefield(s).reduce((sum, p) => sum + (scriptOf(p).spellCostReduction?.(s, p, spell) ?? 0), 0);
+
 /** 対象を取る呪文で、適正な対象が無い（相手ありモードだけ。唱えられない） */
 export function lacksTarget(s: GameState, card: CardInstance) {
   const target = scriptOf(card).cast?.target;
@@ -66,8 +71,9 @@ export function castModes(s: GameState, card: CardInstance): CastMode[] {
   return modes.filter((m) => {
     if ((card.zone === 'exile' && m.instant) || (m.hand && card.zone !== 'hand')) return false;
     if (!(isInstantType(card) || m.instant || isMain(s))) return false;
-    m.cost.generic = Math.max(0, m.cost.generic - (spec.reduce?.(s) ?? 0));
-    if (card.zone === 'command') m.cost.generic += 2 * (s.commanderCasts[card.name] ?? 0);
+    // 統率者税を足してから、軽くする効果（このカード自身のものと、戦場の水のクリスタルなど）を引く
+    const tax = card.zone === 'command' ? 2 * (s.commanderCasts[card.name] ?? 0) : 0;
+    m.cost.generic = Math.max(0, m.cost.generic + tax - (spec.reduce?.(s) ?? 0) - costReduction(s, card));
     return canPay(s, m.cost);
   });
 }
@@ -83,7 +89,7 @@ export function cast(s: GameState, id: string, modeIndex: number) {
     chooseTarget(st, id, spec, info, (st2) => chooseExtra(st2, id, extra, info, (st3) => finishCast(st3, id, mode, info)));
   if (spec.x) {
     const options = [];
-    for (let x = 0; canPay(s, { ...mode.cost, generic: mode.cost.generic + x }); x++) options.push({ label: `X=${x}`, value: x });
+    for (let x = 0; canPay(s, { ...mode.cost, generic: mode.cost.generic + x * mode.cost.x }); x++) options.push({ label: `X=${x}`, value: x });
     ask(s, {
       title: `${nameJa(card)} の X は？`,
       options,
@@ -91,7 +97,7 @@ export function cast(s: GameState, id: string, modeIndex: number) {
       max: 1,
       resolve: (st, [v]) => {
         info.x = v as number;
-        mode.cost.generic += info.x;
+        mode.cost.generic += info.x * mode.cost.x;
         afterX(st);
       },
     });
@@ -125,7 +131,7 @@ function chooseExtra(s: GameState, id: string, extra: ExtraCost | undefined, inf
       min: 1,
       max: 1,
       resolve: (st, [v]) => {
-        if (v === 'life') st.life -= 3;
+        if (v === 'life') youLoseLife(st, 3);
         else moveTo(st, v as string, 'graveyard');
         next(st);
       },
@@ -156,6 +162,10 @@ function chooseExtra(s: GameState, id: string, extra: ExtraCost | undefined, inf
 function finishCast(s: GameState, id: string, mode: CastMode, info: CastInfo) {
   const card = s.cards[id];
   pay(s, mode.cost);
+  // 唱えたときの誘発（流束の媒介者・沈思の教授の増分）と、このターンに唱えた数（ラッドストームのストーム）
+  s.flags.spellsCast++;
+  const spent = mode.cost.generic + mode.cost.colors.length;
+  for (const p of battlefield(s)) scriptOf(p).onCast?.(s, p, card, spent);
   if (info.sacrificed) {
     log(s, `${nameJa(info.sacrificed)} を生け贄に`);
     moveTo(s, info.sacrificed.id, 'graveyard');

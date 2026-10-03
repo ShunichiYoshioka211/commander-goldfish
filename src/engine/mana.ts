@@ -1,6 +1,7 @@
 // マナコストの解釈と支払い。マナ・プールを先に使い、足りない分は未タップの発生源を自動でタップする。
 import { scriptOf } from '../cards/registry';
 import { battlefield, hasKeyword, isCreature, log, nameJa } from './core';
+import { youLoseLife } from './damage';
 import { defByName } from './deck';
 import type { CardInstance, GameState, ManaColor } from './types';
 
@@ -138,7 +139,7 @@ export function pay(s: GameState, cost: Cost): boolean {
     const slot = p.slots[p.owner[j]];
     const color = slot === '*' ? (u.colors.includes('C') ? 'C' : u.colors[0]) : slot;
     if (u.pain.includes(color)) {
-      s.life -= 1;
+      youLoseLife(s, 1);
       log(s, `${nameJa(s.cards[u.id])} で1点のダメージ`);
     }
   });
@@ -157,6 +158,6 @@ export function tapForMana(s: GameState, id: string, option: number) {
   const opt = manaOptions(s, card)[option];
   if (opt.extra && !opt.extra(s, card)) return;
   card.tapped = true;
-  if (opt.pain) s.life -= 1;
+  if (opt.pain) youLoseLife(s, 1);
   for (const c of opt.produce) s.pool[c]++;
 }

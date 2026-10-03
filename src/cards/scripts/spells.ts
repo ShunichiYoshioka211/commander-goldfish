@@ -1,5 +1,6 @@
 // 生け贄を追加コストにするドロー呪文と、生け贄の受け皿、除去。
 import { chooseCards, createToken, creatures, def, destroyAll, draw, isCreature, sacrifice, typeOf } from '../../engine/core';
+import { youLoseLife } from '../../engine/damage';
 import { destroyRival, destroyTarget } from '../../engine/rivals';
 import { findRival, kindOf, rivalCreatures } from '../../engine/rivals/board';
 import type { CardInstance, GameState } from '../../engine/types';
@@ -9,7 +10,7 @@ import type { CardScript } from '../types';
  * 除去。相手ありモードでは唱えるときに対象を選び、解決で破壊してライフを失う。
  * 相手なしモードでは対象を選ばないので、今までどおり何もしない（編集モードで手動）
  */
-const removal = (mine: (s: GameState, card: CardInstance) => boolean, lose: (s: GameState, target: string) => number, extra?: 'discardOrLife'): CardScript => ({
+export const removal = (mine: (s: GameState, card: CardInstance) => boolean, lose: (s: GameState, target: string) => number, extra?: 'discardOrLife'): CardScript => ({
   rivalsOnly: true,
   cast: {
     extra,
@@ -18,7 +19,7 @@ const removal = (mine: (s: GameState, card: CardInstance) => boolean, lose: (s: 
       if (info.target === null) return;
       const loss = lose(s, info.target);
       destroyTarget(s, info.target);
-      s.life -= loss;
+      youLoseLife(s, loss);
     },
   },
 });
@@ -35,7 +36,7 @@ export const SPELL_SCRIPTS: Record<string, CardScript> = {
     cast: {
       resolve: (s) => {
         draw(s, 2);
-        s.life -= 2;
+        youLoseLife(s, 2);
       },
     },
   },

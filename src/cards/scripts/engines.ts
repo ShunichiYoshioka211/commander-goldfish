@@ -3,7 +3,8 @@ import {
   ask, battlefield, chooseCards, confirm, createToken, creatures, draw, enqueue, isCommander, isCreature, isLand, log,
   moveTo, nameJa, power, sacrifice, shuffleLibrary, typeOf,
 } from '../../engine/core';
-import { damageAny } from '../../engine/damage';
+import { addCounters } from '../../engine/counters';
+import { damageAny, youLoseLife } from '../../engine/damage';
 import { pay, parseCost } from '../../engine/mana';
 import type { CardInstance, GameState } from '../../engine/types';
 import type { CardScript } from '../types';
@@ -22,7 +23,7 @@ function explore(s: GameState, card: CardInstance) {
     moveTo(s, top, 'hand');
     return;
   }
-  card.counters['+1/+1'] = (card.counters['+1/+1'] ?? 0) + 1;
+  addCounters(s, card, '+1/+1', 1);
   confirm(s, `探検：「${nameJa(revealed)}」を墓地に置く？`, (st) => moveTo(st, top, 'graveyard'), [top]);
 }
 
@@ -43,10 +44,7 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
       if (!attackers.some((a) => a.id === card.id)) return;
       const target = attackers.find((a) => power(a) < power(card));
       if (target) {
-        enqueue(s, '教導', (st) => {
-          const t = st.cards[target.id];
-          t.counters['+1/+1'] = (t.counters['+1/+1'] ?? 0) + 1;
-        });
+        enqueue(s, '教導', (st) => void addCounters(st, st.cards[target.id], '+1/+1', 1));
       }
     },
   },
@@ -194,7 +192,7 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
       for (const _opp of playersHit(hits)) {
         enqueue(s, 'エレジーの見習い', (st) => {
           draw(st, 1);
-          st.life -= 1;
+          youLoseLife(st, 1);
         });
       }
     },
@@ -230,7 +228,7 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
         min: 1,
         max: 1,
         resolve: (st, [v]) => {
-          st.life -= v as number;
+          youLoseLife(st, v as number);
           draw(st, v as number);
         },
       })),

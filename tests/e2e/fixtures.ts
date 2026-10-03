@@ -20,7 +20,7 @@ export const RIVALS = 'rivals=1&seat=1&seed=1&images=0';
 
 type Snapshot = Pick<
   GameState,
-  'turn' | 'phase' | 'life' | 'zones' | 'opponents' | 'pool' | 'speed' | 'monarch' | 'landPlayed' | 'mulligans' | 'deckId' | 'seed' | 'rivals' | 'blocks' | 'active' | 'flags' | 'log'
+  'turn' | 'phase' | 'life' | 'zones' | 'opponents' | 'pool' | 'speed' | 'monarch' | 'landPlayed' | 'mulligans' | 'deckId' | 'seed' | 'rivals' | 'blocks' | 'active' | 'flags' | 'log' | 'rad'
 > & {
   cards: Record<string, { name: string; zone: ZoneId; tapped: boolean; counters: Record<string, number>; token: boolean; attacking: number | null }>;
   prompt: { title: string; options: { label: string; value: string | number }[] } | null;

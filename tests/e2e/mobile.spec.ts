@@ -9,6 +9,14 @@ test('スマホ幅：タップで詳細を開いてプレイし、横スクロ�
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   expect(overflow).toBeLessThanOrEqual(0);
   await expect(page.getByTestId('hand')).toBeVisible();
+  // 選択欄の幅は一番長い選択肢で決まる。デッキの表示名が長くても画面の幅を超えないこと
+  // （フォントで幅が変わり、CI でだけ溢れたことがあるので、とても長い選択肢を足して確かめる）
+  await page.getByRole('combobox', { name: 'デッキ' }).evaluate((el) => {
+    const option = document.createElement('option');
+    option.text = 'とても長いデッキの表示名'.repeat(6);
+    el.appendChild(option);
+  });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 });
 
 test('スマホ幅：相手3人に8体ずつ並べ、要約が出ても横スクロールが出ず、チップは2行（+N）に収まる。押すと一覧が開く', async ({ app, page }) => {

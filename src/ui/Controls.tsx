@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { TOKENS } from '../cards/tokens';
 import { aliveOpponents, nameJa } from '../engine/core';
-import { COLORS } from '../engine/mana';
+import { COLORS, identity } from '../engine/mana';
 import { findRival, rivalLabel } from '../engine/rivals/board';
 import { KINDS, STYLES } from '../engine/rivals/kinds';
 import type { GameState } from '../engine/types';
@@ -102,9 +102,11 @@ export function Controls() {
 
 function Pool() {
   const pool = useStore((s) => s.game.pool);
+  // 編集モードでは、統率者の固有色と無色を足し引きできるようにする（デッキによって色が違う）
+  const colors = useStore((s) => [...identity(s.game), 'C'].join(''));
   const editMode = useStore((s) => s.editMode);
   const dispatch = useStore((s) => s.dispatch);
-  const shown = COLORS.filter((c) => pool[c] > 0 || (editMode && (c === 'B' || c === 'R' || c === 'C')));
+  const shown = COLORS.filter((c) => pool[c] > 0 || (editMode && colors.includes(c)));
   return (
     <div className="pool" data-testid="pool">
       <span>マナ</span>

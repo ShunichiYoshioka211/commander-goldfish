@@ -133,7 +133,7 @@ describe('複数のデッキ', () => {
     const { DECKS, deckById, tipOf } = await import('../../src/engine/deck');
     const { identity } = await import('../../src/engine/mana');
     const { newGame } = await import('../../src/engine/turn');
-    expect(DECKS.map((d) => d.id)).toEqual(['ingris', 'test-goblins']);
+    expect(DECKS.map((d) => d.id)).toEqual(['ingris', 'mothman', 'test-goblins']);
     const s = newGame(1, 'test-goblins', null);
     expect(s.deckId).toBe('test-goblins');
     expect(s.zones.command.map((id) => s.cards[id].name)).toEqual(['General Kreat, the Boltbringer']);

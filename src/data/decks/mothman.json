@@ -1,0 +1,2014 @@
+{
+ "id": "mothman",
+ "name": "賢きモスマン（スゥルタイ・放射能と+1/+1カウンター）",
+ "commanders": [
+  "The Wise Mothman"
+ ],
+ "cards": [
+  {
+   "name": "The Wise Mothman",
+   "jaName": "賢きモスマン",
+   "typeJa": "伝説のクリーチャー — 昆虫・ミュータント",
+   "textJa": "飛行\n賢きモスマンが戦場に出るか攻撃するたび、各プレイヤーはそれぞれRADカウンター１個を得る。\n土地でない１枚以上のカードが切削されるたび、クリーチャー最大Ｘ体を対象とする。それらの上にそれぞれ＋１/＋１カウンター１個を置く。Ｘは、これにより切削されて土地でないカードの枚数に等しい。",
+   "tip": "出たときと攻撃したときに自分を含む全員にRADカウンターが乗り、各プレイヤーの最初のメイン・フェイズ開始時の切削で土地でないカードが落ちるたびに誘発する（相手のターンにも誘発する）。対象にできるのは落ちた土地でないカードの枚数までの別々のクリーチャーで、1体に1個ずつなので、クリーチャーを並べ、硬化した鱗や巻きつき蛇で1体ごとの個数を増やす。飛行で攻撃が通りやすいので、毎ターン攻撃してRADカウンターを足していく",
+   "count": 1,
+   "manaCost": "{1}{B}{G}{U}",
+   "cmc": 4,
+   "typeLine": "Legendary Creature — Insect Mutant",
+   "oracle": "Flying\nWhenever The Wise Mothman enters or attacks, each player gets a rad counter.\nWhenever one or more nonland cards are milled, put a +1/+1 counter on each of up to X target creatures, where X is the number of nonland cards milled this way.",
+   "power": 3,
+   "toughness": 3,
+   "colors": [
+    "B",
+    "G",
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flying"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/6/e/6e1786e5-9143-45df-accc-56d55075a635.jpg?1782800830",
+    "normal": "https://cards.scryfall.io/normal/front/6/e/6e1786e5-9143-45df-accc-56d55075a635.jpg?1782800830"
+   }
+  },
+  {
+   "name": "Winding Constrictor",
+   "jaName": "巻きつき蛇",
+   "typeJa": "クリーチャー — 蛇",
+   "textJa": "あなたがコントロールしていてアーティファクトやクリーチャーであるパーマネント１つの上に１個以上のカウンターが置かれるなら、代わりにそのパーマネントの上にその個数に１を足した個数のその種類のカウンターを置く。\nあなたが１個以上のカウンターを得るなら、代わりにあなたはその個数に１を足した個数のその種類のカウンターを得る。",
+   "tip": "賢きモスマンの誘発で配る1個が対象1体ごとに2個になるので、モスマンより先に2ターン目に出しておく。自分が得るRADカウンターも1個多くなる（モスマンが出たときや攻撃したときは2個）ので、自分の切削が増えてモスマンの燃料になる一方、ライフも減りやすい",
+   "count": 1,
+   "manaCost": "{B}{G}",
+   "cmc": 2,
+   "typeLine": "Creature — Snake",
+   "oracle": "If one or more counters would be put on an artifact or creature you control, that many plus one of each of those kinds of counters are put on that permanent instead.\nIf you would get one or more counters, you get that many plus one of each of those kinds of counters instead.",
+   "power": 2,
+   "toughness": 3,
+   "colors": [
+    "B",
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/d/bdf3cd88-3767-4afd-b410-522077f09183.jpg?1782799919",
+    "normal": "https://cards.scryfall.io/normal/front/b/d/bdf3cd88-3767-4afd-b410-522077f09183.jpg?1782799919"
+   }
+  },
+  {
+   "name": "Evolving Wilds",
+   "jaName": "進化する未開地",
+   "typeJa": "土地",
+   "textJa": "{T}, この土地を生け贄に捧げる：あなたのライブラリーから基本土地・カード１枚を探し、タップ状態で戦場に出す。その後、ライブラリーを切り直す。",
+   "tip": "これ自体と探した基本土地で上陸が2回誘発する（進化の賢者なら増殖2回、遺跡ガニなら各対戦相手に3枚ずつの切削が2回）。墓地に落ちたあとは墓場波、ムルドローサで墓地からもう一度プレイできる",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/5/2/528d2fb9-0d22-4830-acb0-388e177687ba.jpg?1785266596",
+    "normal": "https://cards.scryfall.io/normal/front/5/2/528d2fb9-0d22-4830-acb0-388e177687ba.jpg?1785266596"
+   }
+  },
+  {
+   "name": "Island",
+   "jaName": "島",
+   "typeJa": "基本土地 — 島",
+   "textJa": "（{T}：{U}を加える。）",
+   "tip": "",
+   "count": 7,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Basic Land — Island",
+   "oracle": "({T}: Add {U}.)",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "U"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/3/7/37287528-252f-48e5-ad3e-1b9d7e3a9d9b.jpg?1790688929",
+    "normal": "https://cards.scryfall.io/normal/front/3/7/37287528-252f-48e5-ad3e-1b9d7e3a9d9b.jpg?1790688929"
+   }
+  },
+  {
+   "name": "Swamp",
+   "jaName": "沼",
+   "typeJa": "基本土地 — 沼",
+   "textJa": "（{T}：{B}を加える。）",
+   "tip": "",
+   "count": 6,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Basic Land — Swamp",
+   "oracle": "({T}: Add {B}.)",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/6/c/6ca323b2-e8b6-4a3d-af72-d404860aba7d.jpg?1790688987",
+    "normal": "https://cards.scryfall.io/normal/front/6/c/6ca323b2-e8b6-4a3d-af72-d404860aba7d.jpg?1790688987"
+   }
+  },
+  {
+   "name": "Forest",
+   "jaName": "森",
+   "typeJa": "基本土地 — 森",
+   "textJa": "（{T}：{G}を加える。）",
+   "tip": "",
+   "count": 8,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Basic Land — Forest",
+   "oracle": "({T}: Add {G}.)",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "G"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/a/4/a4f5b4a6-7e58-4878-ad55-f269bc21e674.jpg?1790689089",
+    "normal": "https://cards.scryfall.io/normal/front/a/4/a4f5b4a6-7e58-4878-ad55-f269bc21e674.jpg?1790689089"
+   }
+  },
+  {
+   "name": "Muldrotha, the Gravetide",
+   "jaName": "墓場波、ムルドローサ",
+   "typeJa": "伝説のクリーチャー — エレメンタル・アバター",
+   "textJa": "あなたの各ターンに、あなたの墓地から、土地１つをプレイしてもよく、各パーマネント・タイプにつきそれぞれ、そのタイプであるパーマネント・呪文１つを唱えてもよい。（カード１枚が複数のパーマネント・タイプを持っているなら、それをプレイするに際し、１つを選ぶ。）",
+   "tip": "毎ターン墓地から土地1枚をプレイし、クリーチャー・アーティファクト・エンチャントを1枚ずつ唱えられる。RADカウンターや縫い師への供給者の切削で落ちた硬化した鱗や巻きつき蛇を墓地から唱え直せるので、自分への切削が損になりにくい。進化する未開地など生け贄にする土地を墓地からプレイし直せば、毎ターン上陸を2回起こせる",
+   "count": 1,
+   "manaCost": "{3}{B}{G}{U}",
+   "cmc": 6,
+   "typeLine": "Legendary Creature — Elemental Avatar",
+   "oracle": "During each of your turns, you may play a land and cast a permanent spell of each permanent type from your graveyard. (If a card has multiple permanent types, choose one as you play it.)",
+   "power": 6,
+   "toughness": 6,
+   "colors": [
+    "B",
+    "G",
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/1/d/1deddc31-0592-40d8-8164-979c7c7dbcde.jpg?1782762687",
+    "normal": "https://cards.scryfall.io/normal/front/1/d/1deddc31-0592-40d8-8164-979c7c7dbcde.jpg?1782762687"
+   }
+  },
+  {
+   "name": "Hinterland Harbor",
+   "jaName": "内陸の湾港",
+   "typeJa": "土地",
+   "textJa": "あなたが森や島をコントロールしていないかぎり、この土地はタップ状態で戦場に出る。\n{T}：{G}か{U}を加える。",
+   "tip": "森か島が先にあればアンタップで出る（島・沼のタイプを持つ窪み渓谷も島として数える）。1枚目に置くとタップ状態になるので、1ターン目に使う1マナの呪文が無いときに置く。{G}と{U}のどちらにも使えるので、対抗呪文の{U}{U}や狩りの仕込みの{G}{U}を揃えやすい",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped unless you control a Forest or an Island.\n{T}: Add {G} or {U}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/3/c/3c4803f0-9f1d-481c-a9f1-e46a0753f522.jpg?1785267044",
+    "normal": "https://cards.scryfall.io/normal/front/3/c/3c4803f0-9f1d-481c-a9f1-e46a0753f522.jpg?1785267044"
+   }
+  },
+  {
+   "name": "Woodland Cemetery",
+   "jaName": "森林の墓地",
+   "typeJa": "土地",
+   "textJa": "あなたが沼や森をコントロールしていないかぎり、この土地はタップ状態で戦場に出る。\n{T}：{B}か{G}を加える。",
+   "tip": "沼か森が先にあればアンタップで出る（島・沼のタイプを持つ窪み渓谷も沼として数える）。1ターン目に森か沼、2ターン目にこれを置けば巻きつき蛇の{B}{G}が揃う",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped unless you control a Swamp or a Forest.\n{T}: Add {B} or {G}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "G"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/5/251bb096-2793-4006-832d-42b279b7b676.jpg?1782762499",
+    "normal": "https://cards.scryfall.io/normal/front/2/5/251bb096-2793-4006-832d-42b279b7b676.jpg?1782762499"
+   }
+  },
+  {
+   "name": "Sunken Hollow",
+   "jaName": "窪み渓谷",
+   "typeJa": "土地 — 島・沼",
+   "textJa": "（{T}：{U}か{B}を加える。）\nあなたが２つ以上の基本土地をコントロールしていないかぎり、この土地はタップ状態で戦場に出る。",
+   "tip": "島・沼のタイプを持つので遥か見で持ってこられ、内陸の湾港（島）と森林の墓地（沼）のアンタップ条件も満たす。基本土地が2枚以上並んでから置けばアンタップで出る",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land — Island Swamp",
+   "oracle": "({T}: Add {U} or {B}.)\nThis land enters tapped unless you control two or more basic lands.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "U"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/3/93993ee9-301c-4f37-a3a3-dc6a2a06373a.jpg?1785268000",
+    "normal": "https://cards.scryfall.io/normal/front/9/3/93993ee9-301c-4f37-a3a3-dc6a2a06373a.jpg?1785268000"
+   }
+  },
+  {
+   "name": "Satyr Wayfinder",
+   "jaName": "サテュロスの道探し",
+   "typeJa": "クリーチャー — サテュロス",
+   "textJa": "このクリーチャーが戦場に出たとき、あなたのライブラリーの一番上にあるカード４枚を公開する。その中から土地・カード１枚をあなたの手札に加えてもよい。残りをあなたの墓地に置く。",
+   "tip": "墓地に置くのは「切削」ではないので、賢きモスマンや光る輩は誘発しない。それでも墓地は増えるので、墓場波、ムルドローサや六番の回顧で使うパーマネントを落とし、手札に加えた土地は回顧で捨てるコストに回せる。ライブラリーから墓地に置かれた土地は生垣裁断機があれば戦場に出るので、そのときは土地を手札に加えずに全部落としてもよい",
+   "count": 1,
+   "manaCost": "{1}{G}",
+   "cmc": 2,
+   "typeLine": "Creature — Satyr",
+   "oracle": "When this creature enters, reveal the top four cards of your library. You may put a land card from among them into your hand. Put the rest into your graveyard.",
+   "power": 1,
+   "toughness": 1,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/4/8/4811d029-bae7-4b01-a859-e52ec167d307.jpg?1782768383",
+    "normal": "https://cards.scryfall.io/normal/front/4/8/4811d029-bae7-4b01-a859-e52ec167d307.jpg?1782768383"
+   }
+  },
+  {
+   "name": "Counterspell",
+   "jaName": "対抗呪文",
+   "typeJa": "インスタント",
+   "textJa": "呪文１つを対象とする。それを打ち消す。",
+   "tip": "賢きモスマン・巻きつき蛇・硬化した鱗などが揃ったら、全体除去に備えて{U}{U}を残してターンを返す。溢れかえる果樹園があれば、{G}か{U}を出せる土地と2枚で{U}{U}を作れる",
+   "count": 1,
+   "manaCost": "{U}{U}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "Counter target spell.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/3/9/3976f51a-923d-480c-9971-c0fa4157ae5a.jpg?1782766520",
+    "normal": "https://cards.scryfall.io/normal/front/3/9/3976f51a-923d-480c-9971-c0fa4157ae5a.jpg?1782766520"
+   }
+  },
+  {
+   "name": "Rampant Growth",
+   "jaName": "不屈の自然",
+   "typeJa": "ソーサリー",
+   "textJa": "あなたのライブラリーから基本土地・カード１枚を探し、タップ状態で戦場に出す。その後、ライブラリーを切り直す。",
+   "tip": "2ターン目に打てば3ターン目に4マナになり、賢きモスマンを出せる。まだ無い色の基本土地（{B}が無ければ沼）を持ってくる。進化の賢者や遺跡ガニの上陸も誘発する",
+   "count": 1,
+   "manaCost": "{1}{G}",
+   "cmc": 2,
+   "typeLine": "Sorcery",
+   "oracle": "Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/4/6/460efdf4-dec7-4db4-8a45-965625e80914.jpg?1782769341",
+    "normal": "https://cards.scryfall.io/normal/front/4/6/460efdf4-dec7-4db4-8a45-965625e80914.jpg?1782769341"
+   }
+  },
+  {
+   "name": "Exotic Orchard",
+   "jaName": "風変わりな果樹園",
+   "typeJa": "土地",
+   "textJa": "{T}：対戦相手がコントロールしている土地が生み出すことのできる色１色のマナ１点を加える。",
+   "tip": "実際のカードは対戦相手の土地が出せる色しか出せないので、相手の土地次第で欲しい色が出ないことがある。このアプリでは統率者の固有色（{B}{G}{U}）のどれでも出せるとみなす",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/8/3/834258b0-88a7-4d8d-8d13-c2fbd7d0f53d.jpg?1790694323",
+    "normal": "https://cards.scryfall.io/normal/front/8/3/834258b0-88a7-4d8d-8d13-c2fbd7d0f53d.jpg?1790694323"
+   }
+  },
+  {
+   "name": "Thought Scour",
+   "jaName": "思考掃き",
+   "typeJa": "インスタント",
+   "textJa": "プレイヤー１人を対象とする。そのプレイヤーはカード２枚を切削する。\nあなたはカード１枚を引く。",
+   "tip": "1マナのインスタントで、土地でないカードが落ちれば好きなときに賢きモスマンを誘発させられる（落ちた土地でないカード1枚につき1体に配れる）。水のクリスタルがあれば対戦相手を対象にして6枚切削させ、配る数を増やせる。墓場波、ムルドローサや六番で使うカードを落としたいときは自分を対象にする",
+   "count": 1,
+   "manaCost": "{U}",
+   "cmc": 1,
+   "typeLine": "Instant",
+   "oracle": "Target player mills two cards.\nDraw a card.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Mill"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/e/7e5b612f-c5bb-403b-8627-4d82fe827333.jpg?1782847890",
+    "normal": "https://cards.scryfall.io/normal/front/7/e/7e5b612f-c5bb-403b-8627-4d82fe827333.jpg?1782847890"
+   }
+  },
+  {
+   "name": "Bred for the Hunt",
+   "jaName": "狩りの仕込み",
+   "typeJa": "エンチャント",
+   "textJa": "あなたがコントロールしていて＋１/＋１カウンターが置かれているクリーチャー１体がプレイヤー１人に戦闘ダメージを与えるたび、あなたはカード１枚を引いてもよい。",
+   "tip": "賢きモスマンでカウンターを広く配ってから攻撃すると、プレイヤーに戦闘ダメージを与えた1体ごとに1枚引ける。賢きモスマン・かき鳴らし鳥・厄介なラッドガルなど飛行持ちに乗せておくと通りやすく、海中の戦士、レイ・フィレットもいれば1体ごとに2枚になる",
+   "count": 1,
+   "manaCost": "{1}{G}{U}",
+   "cmc": 3,
+   "typeLine": "Enchantment",
+   "oracle": "Whenever a creature you control with a +1/+1 counter on it deals combat damage to a player, you may draw a card.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G",
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/e/9/e95b7890-2e2a-4d28-9b30-68082a9da55d.jpg?1782769310",
+    "normal": "https://cards.scryfall.io/normal/front/e/9/e95b7890-2e2a-4d28-9b30-68082a9da55d.jpg?1782769310"
+   }
+  },
+  {
+   "name": "Inspiring Call",
+   "jaName": "鼓舞する呼び声",
+   "typeJa": "インスタント",
+   "textJa": "あなたがコントロールしていて＋１/＋１カウンターが置かれているクリーチャー１体につき１枚のカードを引く。ターン終了時まで、それらのクリーチャーは破壊不能を得る。（ダメージや「破壊する」と書かれた効果では、それらは破壊されない。）",
+   "tip": "賢きモスマンで多くのクリーチャーにカウンターを配ったあとに打つと、その体数だけ引ける。インスタントなので、相手の「破壊する」全体除去に合わせて打てば守りながら引ける。タフネスが0以下になって死ぬのは防げないので、放射性降下物の－Ｘ/－Ｘ（2回）からは守れない",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Instant",
+   "oracle": "Draw a card for each creature you control with a +1/+1 counter on it. Those creatures gain indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy them.)",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/6/8/680d9561-5329-4aa4-8c85-88fc3af37591.jpg?1782763530",
+    "normal": "https://cards.scryfall.io/normal/front/6/8/680d9561-5329-4aa4-8c85-88fc3af37591.jpg?1782763530"
+   }
+  },
+  {
+   "name": "Flooded Grove",
+   "jaName": "溢れかえる果樹園",
+   "typeJa": "土地",
+   "textJa": "{T}：{C}を加える。\n{G/U}, {T}：{G}{G}か{G}{U}か{U}{U}を加える。",
+   "tip": "単独では{C}しか出ないが、{G}か{U}を出せる別の発生源（土地や好奇のタリスマンなど）と組めば、2つで{G}{G}・{G}{U}・{U}{U}のどれでも出せる。対抗呪文の{U}{U}や賢きモスマンの{G}{U}を揃えるのに使う",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}: Add {C}.\n{G/U}, {T}: Add {G}{G}, {G}{U}, or {U}{U}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "C",
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/1/91a21d4a-5736-4487-9d44-8751ca00ac25.jpg?1782769019",
+    "normal": "https://cards.scryfall.io/normal/front/9/1/91a21d4a-5736-4487-9d44-8751ca00ac25.jpg?1782769019"
+   }
+  },
+  {
+   "name": "Nature's Lore",
+   "jaName": "自然の知識",
+   "typeJa": "ソーサリー",
+   "textJa": "あなたのライブラリーから森・カード１枚を探し、戦場に出す。その後、ライブラリーを切り直す。",
+   "tip": "森はアンタップで出るので、2ターン目に打ってもその森の{G}で硬化した鱗を同じターンに置ける。3ターン目には4マナになり賢きモスマンを出せる。探せるのは森のタイプを持つカードだけで、このデッキでは基本の森8枚が対象",
+   "count": 1,
+   "manaCost": "{1}{G}",
+   "cmc": 2,
+   "typeLine": "Sorcery",
+   "oracle": "Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/0/2/0295f649-af74-4a35-bdeb-db8e9a2195fd.jpg?1785264246",
+    "normal": "https://cards.scryfall.io/normal/front/0/2/0295f649-af74-4a35-bdeb-db8e9a2195fd.jpg?1785264246"
+   }
+  },
+  {
+   "name": "Fathom Mage",
+   "jaName": "水深の魔道士",
+   "typeJa": "クリーチャー — 人間・ウィザード",
+   "textJa": "進化（あなたがコントロールしているクリーチャー１体が戦場に出るたび、そのクリーチャーのパワーかタフネスがこのクリーチャーより大きい場合、このクリーチャーの上に＋１/＋１カウンター１個を置く。）\nこのクリーチャーの上に＋１/＋１カウンター１個が置かれるたび、カード１枚を引いてもよい。",
+   "tip": "+1/+1カウンター1個ごとに1枚引けるので、賢きモスマンの誘発では毎回これを対象に含める。硬化した鱗・巻きつき蛇（+1個）や屍体屋の脅威・枝分かれの進化（2倍）が重なるほど、1回の誘発や増殖で引く枚数が増える",
+   "count": 1,
+   "manaCost": "{2}{G}{U}",
+   "cmc": 4,
+   "typeLine": "Creature — Human Wizard",
+   "oracle": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nWhenever a +1/+1 counter is put on this creature, you may draw a card.",
+   "power": 1,
+   "toughness": 1,
+   "colors": [
+    "G",
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Evolve"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/c/bc22174e-923f-49e0-87f4-bc65117010a2.jpg?1782769291",
+    "normal": "https://cards.scryfall.io/normal/front/b/c/bc22174e-923f-49e0-87f4-bc65117010a2.jpg?1782769291"
+   }
+  },
+  {
+   "name": "Hardened Scales",
+   "jaName": "硬化した鱗",
+   "typeJa": "エンチャント",
+   "textJa": "あなたがコントロールしているクリーチャー１体の上に１個以上の＋１/＋１カウンターが置かれるなら、代わりに、それの上にその個数に１を足した個数の＋１/＋１カウンターを置く。",
+   "tip": "賢きモスマンの誘発は対象1体ごとに置換が効くので、土地でないカードが5枚落ちて5体を対象にすれば5個が10個になる。{G}1つで置けるので1〜2ターン目に出しておく。増殖でも1体ごとに1個多く乗る",
+   "count": 1,
+   "manaCost": "{G}",
+   "cmc": 1,
+   "typeLine": "Enchantment",
+   "oracle": "If one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/8/98640221-9d8d-4a13-9e5e-5f21ce527fa5.jpg?1782759001",
+    "normal": "https://cards.scryfall.io/normal/front/9/8/98640221-9d8d-4a13-9e5e-5f21ce527fa5.jpg?1782759001"
+   }
+  },
+  {
+   "name": "Altar of the Brood",
+   "jaName": "群の祭壇",
+   "typeJa": "アーティファクト",
+   "textJa": "他のパーマネントが１つあなたのコントロール下で戦場に出るたび、各対戦相手はそれぞれカード１枚を切削する。",
+   "tip": "土地やトークンも含め、自分のパーマネントが出るたびに相手3人が1枚ずつ切削し、土地でないカードが混ざれば賢きモスマンが誘発する。1マナなので早めに置き、広漠なる変幻地（自身と探した土地で2回）や搭載歩行機械の飛行機械で回数を稼ぐ。血の長の昇天に探索カウンターが3個以上あれば、落ちた1枚ごとにその相手から2点奪える",
+   "count": 1,
+   "manaCost": "{1}",
+   "cmc": 1,
+   "typeLine": "Artifact",
+   "oracle": "Whenever another permanent you control enters, each opponent mills a card.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [],
+   "keywords": [
+    "Mill"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/6/0/604d2f71-954b-4acf-9078-10dc4bdd1eec.jpg?1782965413",
+    "normal": "https://cards.scryfall.io/normal/front/6/0/604d2f71-954b-4acf-9078-10dc4bdd1eec.jpg?1782965413"
+   }
+  },
+  {
+   "name": "Opulent Palace",
+   "jaName": "華やかな宮殿",
+   "typeJa": "土地",
+   "textJa": "この土地はタップ状態で戦場に出る。\n{T}：{B}か{G}か{U}を加える。",
+   "tip": "賢きモスマンに要る{B}{G}{U}のどれでも出る。タップ状態で出るので、使うマナの少ない1〜2ターン目に置く",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped.\n{T}: Add {B}, {G}, or {U}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/e/3/e3c140a5-d88c-4b01-be92-79ae1da22110.jpg?1782762569",
+    "normal": "https://cards.scryfall.io/normal/front/e/3/e3c140a5-d88c-4b01-be92-79ae1da22110.jpg?1782762569"
+   }
+  },
+  {
+   "name": "Sol Ring",
+   "jaName": "太陽の指輪",
+   "typeJa": "アーティファクト",
+   "textJa": "{T}：{C}{C}を加える。",
+   "tip": "初手にあればキープ。1ターン目に置けば2ターン目に4マナになり、流束の媒介者や、土地で{B}と{G}が出れば屍体屋の脅威も出せる。色マナは出ないので、{B}{G}{U}が1つずつ要る賢きモスマンは、色の出る土地や秘儀の印鑑・タリスマン・培養ドルイドで3色そろってから",
+   "count": 1,
+   "manaCost": "{1}",
+   "cmc": 1,
+   "typeLine": "Artifact",
+   "oracle": "{T}: Add {C}{C}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "C"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/f/7fd5ddd1-46c6-4931-b70a-82af956b90c8.jpg?1790692807",
+    "normal": "https://cards.scryfall.io/normal/front/7/f/7fd5ddd1-46c6-4931-b70a-82af956b90c8.jpg?1790692807"
+   }
+  },
+  {
+   "name": "Terramorphic Expanse",
+   "jaName": "広漠なる変幻地",
+   "typeJa": "土地",
+   "textJa": "{T}, この土地を生け贄に捧げる：あなたのライブラリーから基本土地・カード１枚を探し、タップ状態で戦場に出す。その後、ライブラリーを切り直す。",
+   "tip": "置いたときと探した基本土地が出たときで、進化の賢者の上陸と群の祭壇が2回ずつ誘発する。墓地に置かれたあとは墓場波、ムルドローサで墓地からプレイし直せ（そのターンの土地のプレイを使う）、また2回誘発する",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/1/21d9ac97-8124-4824-8307-7a0258c4461d.jpg?1785268095",
+    "normal": "https://cards.scryfall.io/normal/front/2/1/21d9ac97-8124-4824-8307-7a0258c4461d.jpg?1785268095"
+   }
+  },
+  {
+   "name": "Cultivate",
+   "jaName": "耕作",
+   "typeJa": "ソーサリー",
+   "textJa": "あなたのライブラリーから基本土地・カード最大２枚を探し、公開し、そのうち１枚をタップ状態で戦場に、残りをあなたの手札に加える。その後、ライブラリーを切り直す。",
+   "tip": "足りない色の基本土地を2枚まとめて確保できる。戦場に出た1枚で進化の賢者の上陸と群の祭壇が誘発し、手札に加えた1枚を次のターンに置けばもう1回誘発する",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Sorcery",
+   "oracle": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/5/3/531459e1-d260-47fe-bd16-640616155f23.jpg?1785264025",
+    "normal": "https://cards.scryfall.io/normal/front/5/3/531459e1-d260-47fe-bd16-640616155f23.jpg?1785264025"
+   }
+  },
+  {
+   "name": "Swiftfoot Boots",
+   "jaName": "速足のブーツ",
+   "typeJa": "アーティファクト — 装備品",
+   "textJa": "装備しているクリーチャーは呪禁と速攻を持つ。（それは対戦相手がコントロールしている呪文や能力の対象にならない。それは、あなたのコントロール下になってすぐに攻撃したり{T}したりできる。）\n装備{1}（{1}：あなたがコントロールしているクリーチャー１体を対象とする。これをそれにつける。装備はソーサリーとしてのみ行う。）",
+   "tip": "賢きモスマンに付ければ、出たターンに攻撃して各プレイヤー（自分を含む）にもう1個ずつRADカウンターを与えられ（出たときと合わせて2個）、対戦相手の除去の対象にもならない。先に置いておき、賢きモスマンの4マナと装備の{1}を払える5マナのターンに出す",
+   "count": 1,
+   "manaCost": "{2}",
+   "cmc": 2,
+   "typeLine": "Artifact — Equipment",
+   "oracle": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [],
+   "keywords": [
+    "Equip"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/8/0/80c294e8-d946-40d7-b558-8db0fb58f08e.jpg?1785265676",
+    "normal": "https://cards.scryfall.io/normal/front/8/0/80c294e8-d946-40d7-b558-8db0fb58f08e.jpg?1785265676"
+   }
+  },
+  {
+   "name": "Farseek",
+   "jaName": "遥か見",
+   "typeJa": "ソーサリー",
+   "textJa": "あなたのライブラリーから平地や島や沼や山であるカード１枚を探し、タップ状態で戦場に出す。その後、ライブラリーを切り直す。",
+   "tip": "森は探せないので、島か沼を持ってくる（島・沼のタイプを持つ窪み渓谷も探せる）。2ターン目に唱えれば3ターン目に4マナになり、3色がそろえば賢きモスマンを出せる",
+   "count": 1,
+   "manaCost": "{1}{G}",
+   "cmc": 2,
+   "typeLine": "Sorcery",
+   "oracle": "Search your library for a Plains, Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/3/b3cfa3a6-932a-48b2-a7b8-3bd7bde7f41f.jpg?1785264079",
+    "normal": "https://cards.scryfall.io/normal/front/b/3/b3cfa3a6-932a-48b2-a7b8-3bd7bde7f41f.jpg?1785264079"
+   }
+  },
+  {
+   "name": "Hangarback Walker",
+   "jaName": "搭載歩行機械",
+   "typeJa": "アーティファクト・クリーチャー — 構築物",
+   "textJa": "搭載歩行機械は、＋１/＋１カウンターＸ個が置かれた状態で戦場に出る。\n搭載歩行機械が死亡したとき、これの上にある＋１/＋１カウンター１個につき１体の、飛行を持つ無色の１/１の飛行機械・アーティファクト・クリーチャー・トークンを生成する。\n{1}, {T}：搭載歩行機械の上に＋１/＋１カウンター１個を置く。",
+   "tip": "硬化した鱗・巻きつき蛇・屍体屋の脅威は、出るときに置かれるカウンターにも効く。賢きモスマンの誘発や増殖でカウンターをためておけば、死亡したときにその数だけ飛行機械が出て、群の祭壇があれば1体ごとに相手3人が1枚ずつ切削する",
+   "count": 1,
+   "manaCost": "{X}{X}",
+   "cmc": 0,
+   "typeLine": "Artifact Creature — Construct",
+   "oracle": "This creature enters with X +1/+1 counters on it.\nWhen this creature dies, create a 1/1 colorless Thopter artifact creature token with flying for each +1/+1 counter on this creature.\n{1}, {T}: Put a +1/+1 counter on this creature.",
+   "power": 0,
+   "toughness": 0,
+   "colors": [],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/6/76bf276b-4f0f-4c2e-9735-9ce326374a57.jpg?1782768242",
+    "normal": "https://cards.scryfall.io/normal/front/7/6/76bf276b-4f0f-4c2e-9735-9ce326374a57.jpg?1782768242"
+   }
+  },
+  {
+   "name": "Bloodchief Ascension",
+   "jaName": "血の長の昇天",
+   "typeJa": "エンチャント",
+   "textJa": "各終了ステップの開始時に、このターンに対戦相手１人が２点以上のライフを失っていた場合、血の長の昇天の上に探索カウンター１個を置いてもよい。（ダメージによりライフは失われる。）\nカード１枚がいずこかから対戦相手の墓地に置かれるたび、血の長の昇天の上に３個以上の探索カウンターがある場合、「そのプレイヤーは２点のライフを失う。」を選んでもよい。そうしたなら、あなたは２点のライフを得る。",
+   "tip": "相手がRADカウンターで自身のターンに2点以上失えば、そのターンの終了ステップにも探索カウンターを置ける。探索カウンターは増殖（かき鳴らし鳥・流束の媒介者など）でも増え、3個以上あればRADカウンターや群の祭壇・催眠の宝珠で相手のカードが落ちるたび、1枚ごとにその相手から2点奪える。精神クランクか湖の町の統領も出ていれば、失った2点でまた2枚切削されて連鎖し、その相手が死ぬかライブラリーが尽きるまで続けられる",
+   "count": 1,
+   "manaCost": "{B}",
+   "cmc": 1,
+   "typeLine": "Enchantment",
+   "oracle": "At the beginning of each end step, if an opponent lost 2 or more life this turn, you may put a quest counter on this enchantment. (Damage causes loss of life.)\nWhenever a card is put into an opponent's graveyard from anywhere, if this enchantment has three or more quest counters on it, you may have that player lose 2 life. If you do, you gain 2 life.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/e/9ec60807-5814-45d7-853d-297a35b9a81e.jpg?1782763949",
+    "normal": "https://cards.scryfall.io/normal/front/9/e/9ec60807-5814-45d7-853d-297a35b9a81e.jpg?1782763949"
+   }
+  },
+  {
+   "name": "Mesmeric Orb",
+   "jaName": "催眠の宝珠",
+   "typeJa": "アーティファクト",
+   "textJa": "パーマネント１つがアンタップ状態になるたび、そのパーマネントのコントローラーはカード１枚を切削する。",
+   "tip": "相手はタップしていた土地などが多いほど、自分のアンタップ・ステップで多く切削する。1枚ずつ別々の切削なので、賢きモスマンは土地でないカード1枚ごとに別々に誘発し、そのたびに硬化した鱗や巻きつき蛇の＋1が乗る。自分のパーマネントのアンタップでは自分が切削し、墓場波、ムルドローサや六番で使う墓地が肥える",
+   "count": 1,
+   "manaCost": "{2}",
+   "cmc": 2,
+   "typeLine": "Artifact",
+   "oracle": "Whenever a permanent becomes untapped, that permanent's controller mills a card.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [],
+   "keywords": [
+    "Mill"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/3/238d8f5b-f581-4c71-b01b-ec713d6d57f5.jpg?1782838824",
+    "normal": "https://cards.scryfall.io/normal/front/2/3/238d8f5b-f581-4c71-b01b-ec713d6d57f5.jpg?1782838824"
+   }
+  },
+  {
+   "name": "Go for the Throat",
+   "jaName": "喉首狙い",
+   "typeJa": "インスタント",
+   "textJa": "アーティファクトでないクリーチャー１体を対象とする。それを破壊する。",
+   "tip": "賢きモスマンやかき鳴らし鳥の攻撃を止める飛行・到達のブロッカーを、攻撃の前に壊す。壊したのがトークンでなければカードが相手の墓地に置かれるので、血の長の昇天（探索カウンター3個以上）で2点も奪える",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "Destroy target nonartifact creature.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/2/22a101a0-7e6a-49f6-ae7e-bbcacb9ec469.jpg?1782779971",
+    "normal": "https://cards.scryfall.io/normal/front/2/2/22a101a0-7e6a-49f6-ae7e-bbcacb9ec469.jpg?1782779971"
+   }
+  },
+  {
+   "name": "Beast Within",
+   "jaName": "内にいる獣",
+   "typeJa": "インスタント",
+   "textJa": "パーマネント１つを対象とする。それを破壊する。それのコントローラーは緑の３/３のビースト・クリーチャー・トークン１体を生成する。",
+   "tip": "どんなパーマネントも壊せるが相手に3/3が残るので、ほかで対処できないエンチャントやアーティファクトに使う。相手の追放除去に対応して自分の搭載歩行機械に撃てば、死亡するので飛行機械が出て、3/3のビーストも自分の側に残る（群の祭壇があれば、出たトークン1体ごとに相手3人が1枚ずつ切削する）",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Instant",
+   "oracle": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/4/7/479dd6fd-ced2-44f8-91f9-bbe7011b77b3.jpg?1785263889",
+    "normal": "https://cards.scryfall.io/normal/front/4/7/479dd6fd-ced2-44f8-91f9-bbe7011b77b3.jpg?1785263889"
+   }
+  },
+  {
+   "name": "Mindcrank",
+   "jaName": "精神クランク",
+   "typeJa": "アーティファクト",
+   "textJa": "対戦相手１人がライフを失うたび、そのプレイヤーはその点数に等しい枚数のカードを切削する。（ダメージによりライフは失われる。）",
+   "tip": "RADカウンターで失ったライフや賢きモスマンの戦闘ダメージの分だけその相手がさらに切削し、そこで土地でないカードが落ちれば賢きモスマンがまた誘発する。血の長の昇天（探索カウンター3個以上）と並べば、切削と2点の喪失が交互に続き、その相手が死ぬかライブラリーが尽きるまで続けられる",
+   "count": 1,
+   "manaCost": "{2}",
+   "cmc": 2,
+   "typeLine": "Artifact",
+   "oracle": "Whenever an opponent loses life, that player mills that many cards. (Damage causes loss of life.)",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [],
+   "keywords": [
+    "Mill"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/c/9c3a77d4-db76-4d2a-98ce-4f8725d1efa0.jpg?1782848548",
+    "normal": "https://cards.scryfall.io/normal/front/9/c/9c3a77d4-db76-4d2a-98ce-4f8725d1efa0.jpg?1782848548"
+   }
+  },
+  {
+   "name": "Corpsejack Menace",
+   "jaName": "屍体屋の脅威",
+   "typeJa": "クリーチャー — ファンガス",
+   "textJa": "あなたがコントロールしているクリーチャー１体の上に１個以上の＋１/＋１カウンターが置かれるなら、代わりに、それの上にその２倍の個数の＋１/＋１カウンターを置く。",
+   "tip": "賢きモスマンの誘発でも増殖でも、＋１/＋１カウンターが倍になる。硬化した鱗や巻きつき蛇と並んだら、先に＋1、後に倍の順を選べば1個が4個になり、枝分かれの進化も重なれば8個になる",
+   "count": 1,
+   "manaCost": "{2}{B}{G}",
+   "cmc": 4,
+   "typeLine": "Creature — Fungus",
+   "oracle": "If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.",
+   "power": 4,
+   "toughness": 4,
+   "colors": [
+    "B",
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/e/f/efd2b500-8188-4d45-b267-4df704d01502.jpg?1782761330",
+    "normal": "https://cards.scryfall.io/normal/front/e/f/efd2b500-8188-4d45-b267-4df704d01502.jpg?1782761330"
+   }
+  },
+  {
+   "name": "Stitcher's Supplier",
+   "jaName": "縫い師への供給者",
+   "typeJa": "クリーチャー — ゾンビ",
+   "textJa": "このクリーチャーが戦場に出たか死亡したとき、カード３枚を切削する。（あなたのライブラリーの一番上にあるカード３枚をあなたの墓地に置く。）",
+   "tip": "1ターン目に出して墓地を肥やす。賢きモスマンがいれば、出たときと死亡したときの3枚それぞれで、土地でないカードの枚数までのクリーチャーに＋１/＋１カウンターを1個ずつ置ける。死亡や切削で墓地に置かれたら、墓場波、ムルドローサや六番の回顧（土地・カードを1枚捨てる）で出し直せ、出るたびにまた3枚切削する",
+   "count": 1,
+   "manaCost": "{B}",
+   "cmc": 1,
+   "typeLine": "Creature — Zombie",
+   "oracle": "When this creature enters or dies, mill three cards. (Put the top three cards of your library into your graveyard.)",
+   "power": 1,
+   "toughness": 1,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Mill"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/3/f/3f330712-c8f5-411b-9acc-be33e41d0b86.jpg?1782769445",
+    "normal": "https://cards.scryfall.io/normal/front/3/f/3f330712-c8f5-411b-9acc-be33e41d0b86.jpg?1782769445"
+   }
+  },
+  {
+   "name": "Thrummingbird",
+   "jaName": "かき鳴らし鳥",
+   "typeJa": "クリーチャー — ファイレクシアン・鳥・ホラー",
+   "textJa": "飛行\nかき鳴らし鳥がプレイヤー１人に戦闘ダメージを与えるたび、増殖を行う。（望む数のパーマネントやプレイヤーを選び、その後、すでにそこにあるカウンター１種類につき、そのカウンター１個を与える。）",
+   "tip": "1回の増殖で、RADカウンターを持つ対戦相手全員、＋１/＋１カウンターの載った自分のクリーチャー、血の長の昇天の探索カウンターをまとめて増やせる（自分のRADカウンターを増やすかは選べる）。出したターンに殴りたいときは速足のブーツを付ける",
+   "count": 1,
+   "manaCost": "{1}{U}",
+   "cmc": 2,
+   "typeLine": "Creature — Phyrexian Bird Horror",
+   "oracle": "Flying\nWhenever this creature deals combat damage to a player, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "power": 1,
+   "toughness": 1,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flying",
+    "Proliferate"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/d/6/d695fdbd-d498-42ca-9957-885dfeacc280.jpg?1782768494",
+    "normal": "https://cards.scryfall.io/normal/front/d/6/d695fdbd-d498-42ca-9957-885dfeacc280.jpg?1782768494"
+   }
+  },
+  {
+   "name": "Command Tower",
+   "jaName": "統率の塔",
+   "typeJa": "土地",
+   "textJa": "{T}：あなたの統率者の固有色１色のマナ１点を加える。",
+   "tip": "",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}: Add one mana of any color in your commander's color identity.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/8/5/85de77c8-c0b5-4107-8c5e-081042e13b0f.jpg?1790692831",
+    "normal": "https://cards.scryfall.io/normal/front/8/5/85de77c8-c0b5-4107-8c5e-081042e13b0f.jpg?1790692831"
+   }
+  },
+  {
+   "name": "Assassin's Trophy",
+   "jaName": "暗殺者の戦利品",
+   "typeJa": "インスタント",
+   "textJa": "対戦相手がコントロールしているパーマネント１つを対象とする。それを破壊する。それのコントローラーは「自分のライブラリーから基本土地・カード１枚を探し、戦場に出す。その後、ライブラリーを切り直す。」を選んでもよい。",
+   "tip": "相手に基本土地を渡すので、墓地を使えなくするパーマネントや、放っておくと負ける脅威のために取っておく。壊したのがトークンでなければ、血の長の昇天（探索カウンター3個以上）で2点も奪える",
+   "count": 1,
+   "manaCost": "{B}{G}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "Destroy target permanent an opponent controls. Its controller may search their library for a basic land card, put it onto the battlefield, then shuffle.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B",
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/0/700fa680-5f8d-4b17-9329-3a919433b1e3.jpg?1782761334",
+    "normal": "https://cards.scryfall.io/normal/front/7/0/700fa680-5f8d-4b17-9329-3a919433b1e3.jpg?1782761334"
+   }
+  },
+  {
+   "name": "Incubation Druid",
+   "jaName": "培養ドルイド",
+   "typeJa": "クリーチャー — エルフ・ドルイド",
+   "textJa": "{T}：あなたがコントロールしている土地が生み出すことのできるマナのタイプのうち望むタイプのマナ１点を加える。このクリーチャーの上に＋１/＋１カウンターがあるなら、代わりにそのタイプのマナ３点を加える。\n{3}{G}{G}：順応３を行う。（このクリーチャーの上に＋１/＋１カウンターがないなら、これの上に＋１/＋１カウンター３個を置く。）",
+   "tip": "増殖では最初の1個は置けないので、賢きモスマンの誘発の対象に入れるか順応で＋１/＋１カウンターを載せる。1個でも載れば1体で3マナ出るので、2ターン目に出しておくと重い呪文が早まる",
+   "count": 1,
+   "manaCost": "{1}{G}",
+   "cmc": 2,
+   "typeLine": "Creature — Elf Druid",
+   "oracle": "{T}: Add one mana of any type that a land you control could produce. If this creature has a +1/+1 counter on it, add three mana of that type instead.\n{3}{G}{G}: Adapt 3. (If this creature has no +1/+1 counters on it, put three +1/+1 counters on it.)",
+   "power": 0,
+   "toughness": 2,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [
+    "Adapt"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/c/f/cfbddb01-9196-4010-bf98-4e5b20c5f880.jpg?1782769358",
+    "normal": "https://cards.scryfall.io/normal/front/c/f/cfbddb01-9196-4010-bf98-4e5b20c5f880.jpg?1782769358"
+   }
+  },
+  {
+   "name": "Flux Channeler",
+   "jaName": "流束の媒介者",
+   "typeJa": "クリーチャー — 人間・ウィザード",
+   "textJa": "あなたがクリーチャーでない呪文１つを唱えるたび、増殖を行う。（望む数のパーマネントやプレイヤーを選び、その後すでにそこにあるカウンター１種類につき、そのカウンターをもう１個与える。）",
+   "tip": "マナ・アーティファクトや土地を探す呪文、群の祭壇など、クリーチャーでない呪文を1枚唱えるごとに、RADカウンターを持つ相手全員と自分のクリーチャーの＋１/＋１カウンターを1個ずつ増やせる。実験的占いや原子化のように増殖を持つ呪文なら、1枚で2回増殖する",
+   "count": 1,
+   "manaCost": "{2}{U}",
+   "cmc": 3,
+   "typeLine": "Creature — Human Wizard",
+   "oracle": "Whenever you cast a noncreature spell, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "power": 2,
+   "toughness": 2,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Proliferate"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/f/6/f6c30226-6b93-43ec-84f5-c2b64975257e.jpg?1782815158",
+    "normal": "https://cards.scryfall.io/normal/front/f/6/f6c30226-6b93-43ec-84f5-c2b64975257e.jpg?1782815158"
+   }
+  },
+  {
+   "name": "Evolution Sage",
+   "jaName": "進化の賢者",
+   "typeJa": "クリーチャー — エルフ・ドルイド",
+   "textJa": "上陸 ― あなたがコントロールしている土地１つが戦場に出るたび、増殖を行う。（望む数のパーマネントやプレイヤーを選び、その後、すでにそこにあるカウンター１種類につき、そのカウンターをもう１個与える。）",
+   "tip": "広漠なる変幻地・進化する未開地・寓話の小道は1枚で2回誘発する。生垣裁断機で切削した土地や、事件現場の分析者で墓地から戻した土地は1枚ごとに誘発するので、RADカウンターを持つ相手全員と自分のクリーチャーのカウンターが一気に増える",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Creature — Elf Druid",
+   "oracle": "Landfall — Whenever a land you control enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "power": 3,
+   "toughness": 2,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Proliferate",
+    "Landfall"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/a/a/aaa62385-5b7b-4025-a550-f673b93f177e.jpg?1782762776",
+    "normal": "https://cards.scryfall.io/normal/front/a/a/aaa62385-5b7b-4025-a550-f673b93f177e.jpg?1782762776"
+   }
+  },
+  {
+   "name": "Karn's Bastion",
+   "jaName": "カーンの拠点",
+   "typeJa": "土地",
+   "textJa": "{T}：{C}を加える。\n{4}, {T}：増殖を行う。（望む数のパーマネントやプレイヤーを選び、その後、すでにそこにあるカウンター１種類につき、そのカウンターをもう１個与える。）",
+   "tip": "手札を使い切った中盤以降の、余ったマナの使い道（{4}と自身のタップで実質5マナ）。対戦相手のターンの終了ステップに起動すれば、各対戦相手のRADカウンターと自分のクリーチャーの＋１/＋１カウンターをまとめて増やせる。自分のRADカウンターは、自分の切削を増やしたいときだけ選ぶ",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}: Add {C}.\n{4}, {T}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "C"
+   ],
+   "keywords": [
+    "Proliferate"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/6/1/6120ec34-2212-4e65-ba85-81eecf889289.jpg?1782768137",
+    "normal": "https://cards.scryfall.io/normal/front/6/1/6120ec34-2212-4e65-ba85-81eecf889289.jpg?1782768137"
+   }
+  },
+  {
+   "name": "Talisman of Curiosity",
+   "jaName": "好奇のタリスマン",
+   "typeJa": "アーティファクト",
+   "textJa": "{T}：{C}を加える。\n{T}：{G}か{U}を加える。このアーティファクトはあなたに１点のダメージを与える。",
+   "tip": "2ターン目に置けば3ターン目に賢きモスマン（4マナ）に届く。色が足りているときは{C}を出せば1点受けずに済む。湖の町の統領がいるときは、色マナを出して受けた1点で自分が1枚切削するので、土地でないカードが落ちれば賢きモスマンの誘発にもなる",
+   "count": 1,
+   "manaCost": "{2}",
+   "cmc": 2,
+   "typeLine": "Artifact",
+   "oracle": "{T}: Add {C}.\n{T}: Add {G} or {U}. This artifact deals 1 damage to you.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "C",
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/7/4/74b6a4f9-5a8a-4e87-8c36-1a310dbd3e0c.jpg?1782776035",
+    "normal": "https://cards.scryfall.io/normal/front/7/4/74b6a4f9-5a8a-4e87-8c36-1a310dbd3e0c.jpg?1782776035"
+   }
+  },
+  {
+   "name": "Talisman of Resilience",
+   "jaName": "反発のタリスマン",
+   "typeJa": "アーティファクト",
+   "textJa": "{T}：{C}を加える。\n{T}：{B}か{G}を加える。このアーティファクトはあなたに１点のダメージを与える。",
+   "tip": "沼は6枚で基本土地の中で一番少ないので、黒の発生源として役立つ。2ターン目に置けば3ターン目に賢きモスマン（4マナ）に届く。色が足りているときは{C}を出せば1点受けずに済む",
+   "count": 1,
+   "manaCost": "{2}",
+   "cmc": 2,
+   "typeLine": "Artifact",
+   "oracle": "{T}: Add {C}.\n{T}: Add {B} or {G}. This artifact deals 1 damage to you.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "C",
+    "G"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/6/26ff315f-e70c-426c-8da0-e42778e89b1c.jpg?1782786127",
+    "normal": "https://cards.scryfall.io/normal/front/2/6/26ff315f-e70c-426c-8da0-e42778e89b1c.jpg?1782786127"
+   }
+  },
+  {
+   "name": "Drown in the Loch",
+   "jaName": "湖での水難",
+   "typeJa": "インスタント",
+   "textJa": "以下から１つを選ぶ。\n・マナ総量がそれのコントローラーの墓地にあるカードの枚数以下である呪文１つを対象とする。それを打ち消す。\n・マナ総量がそれのコントローラーの墓地にあるカードの枚数以下であるクリーチャー１体を対象とする。それを破壊する。",
+   "tip": "対戦相手の墓地はRADカウンター・遺跡ガニ・水のクリスタルの切削で早く肥えるので、中盤には重い呪文やクリーチャーにも届く。数えるのは対象のコントローラーの墓地で、自分の墓地の枚数は関係ない",
+   "count": 1,
+   "manaCost": "{U}{B}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "Choose one —\n• Counter target spell with mana value less than or equal to the number of cards in its controller's graveyard.\n• Destroy target creature with mana value less than or equal to the number of cards in its controller's graveyard.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B",
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/7/276dbf05-7720-41f5-b0d6-808f8020fb03.jpg?1784677887",
+    "normal": "https://cards.scryfall.io/normal/front/2/7/276dbf05-7720-41f5-b0d6-808f8020fb03.jpg?1784677887"
+   }
+  },
+  {
+   "name": "Fabled Passage",
+   "jaName": "寓話の小道",
+   "typeJa": "土地",
+   "textJa": "{T}, この土地を生け贄に捧げる：あなたのライブラリーから基本土地・カード１枚を探し、タップ状態で戦場に出す。その後、ライブラリーを切り直す。その後、あなたが４つ以上の土地をコントロールしているなら、その土地をアンタップする。",
+   "tip": "小道自身と持ってきた基本土地で上陸が2回誘発する（進化の賢者なら増殖2回、遺跡ガニなら各対戦相手が3枚ずつ2回切削）。4枚目以降の土地として置けば、持ってきた土地がアンタップで出る",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/f/bf48914e-84f9-4a0d-a0ff-fce8731ca46e.jpg?1790694363",
+    "normal": "https://cards.scryfall.io/normal/front/b/f/bf48914e-84f9-4a0d-a0ff-fce8731ca46e.jpg?1790694363"
+   }
+  },
+  {
+   "name": "Arcane Signet",
+   "jaName": "秘儀の印鑑",
+   "typeJa": "アーティファクト",
+   "textJa": "{T}：あなたの統率者の固有色１色のマナ１点を加える。",
+   "tip": "2ターン目に置けば3ターン目に賢きモスマン（{1}{B}{G}{U}）を出せる。ダメージ無しで3色のどれにもなるので、好奇のタリスマン・反発のタリスマンと並んだら先に置く",
+   "count": 1,
+   "manaCost": "{2}",
+   "cmc": 2,
+   "typeLine": "Artifact",
+   "oracle": "{T}: Add one mana of any color in your commander's color identity.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/f/7/f74a8bbd-6ce5-4288-9897-2c7893bb5df4.jpg?1790692779",
+    "normal": "https://cards.scryfall.io/normal/front/f/7/f74a8bbd-6ce5-4288-9897-2c7893bb5df4.jpg?1790692779"
+   }
+  },
+  {
+   "name": "Branching Evolution",
+   "jaName": "枝分かれの進化",
+   "typeJa": "エンチャント",
+   "textJa": "あなたがコントロールしているクリーチャー１体の上に１個以上の＋１/＋１カウンターが置かれるなら、代わりに、そのクリーチャーの上にその２倍の個数の＋１/＋１カウンターを置く。",
+   "tip": "賢きモスマンの誘発でも各クリーチャーに2個ずつ乗る。硬化した鱗・巻きつき蛇・囁かれる希望の神と並んだら、先に1個足してから2倍にする順を選ぶと1個が4個になる。水深の魔道士はカウンター1個ごとに引けるので、ドローも倍になる",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Enchantment",
+   "oracle": "If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on that creature instead.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/1/1/1190b916-f327-47d8-8a75-cfb246b39cc5.jpg?1782792480",
+    "normal": "https://cards.scryfall.io/normal/front/1/1/1190b916-f327-47d8-8a75-cfb246b39cc5.jpg?1782792480"
+   }
+  },
+  {
+   "name": "Ruin Crab",
+   "jaName": "遺跡ガニ",
+   "typeJa": "クリーチャー — カニ",
+   "textJa": "上陸 ― 土地が１つあなたのコントロール下で戦場に出るたび、各対戦相手はカードを３枚切削する。（カードを切削するとは、自分のライブラリーの一番上のカードを自分の墓地に置くことである。）",
+   "tip": "早めに出し、毎ターンの土地で各対戦相手を3枚ずつ削る。上陸1回で賢きモスマンは1回だけ誘発し、Ｘは各対戦相手が落とした土地でないカードの合計になる。上陸が2回になる進化する未開地・広漠なる変幻地・寓話の小道や、土地をまとめて戻す事件現場の分析者と相性が良く、水のクリスタルがあれば1回で各対戦相手7枚になる",
+   "count": 1,
+   "manaCost": "{U}",
+   "cmc": 1,
+   "typeLine": "Creature — Crab",
+   "oracle": "Landfall — Whenever a land you control enters, each opponent mills three cards. (To mill a card, a player puts the top card of their library into their graveyard.)",
+   "power": 0,
+   "toughness": 3,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Mill",
+    "Landfall"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/0/c/0c90e4e7-a60c-479b-93ae-5209761b7c7c.jpg?1783915328",
+    "normal": "https://cards.scryfall.io/normal/front/0/c/0c90e4e7-a60c-479b-93ae-5209761b7c7c.jpg?1783915328"
+   }
+  },
+  {
+   "name": "Feed the Swarm",
+   "jaName": "大群への給餌",
+   "typeJa": "ソーサリー",
+   "textJa": "対戦相手がコントロールしていてクリーチャーやエンチャントである１つを対象とする。それを破壊する。あなたは、そのパーマネントのマナ総量に等しい点数のライフを失う。",
+   "tip": "攻撃の前に、賢きモスマンを止める飛行・到達のブロッカーや邪魔なエンチャントを壊す。湖の町の統領がいると、失ったライフと同じ枚数を自分が切削するので、土地でないカードが落ちれば賢きモスマンの誘発にもなる",
+   "count": 1,
+   "manaCost": "{1}{B}",
+   "cmc": 2,
+   "typeLine": "Sorcery",
+   "oracle": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/f/a/fad3f80b-45ac-442c-a264-a285be8e4983.jpg?1782760133",
+    "normal": "https://cards.scryfall.io/normal/front/f/a/fad3f80b-45ac-442c-a264-a285be8e4983.jpg?1782760133"
+   }
+  },
+  {
+   "name": "Shipwreck Marsh",
+   "jaName": "難破船の湿地",
+   "typeJa": "土地",
+   "textJa": "あなたがこれでない２つ以上の土地をコントロールしていないかぎり、この土地はタップ状態で戦場に出る。\n{T}：{U}か{B}を加える。",
+   "tip": "3枚目以降の土地として置けばアンタップで出る。常にタップ状態で出る華やかな宮殿は1〜2枚目に、こちらは後に回すと無駄が少ない",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped unless you control two or more other lands.\n{T}: Add {U} or {B}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "U"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/f/c/fca54f88-1b66-4a42-a191-aaa13816ecfa.jpg?1790686305",
+    "normal": "https://cards.scryfall.io/normal/front/f/c/fca54f88-1b66-4a42-a191-aaa13816ecfa.jpg?1790686305"
+   }
+  },
+  {
+   "name": "Deathcap Glade",
+   "jaName": "死天狗茸の林間地",
+   "typeJa": "土地",
+   "textJa": "あなたが２つ以上のこれでない土地をコントロールしていないかぎり、この土地はタップ状態で戦場に出る。\n{T}：{B}か{G}を加える。",
+   "tip": "3枚目以降の土地として置けばアンタップで出る。1ターン目に1マナの呪文（縫い師への供給者・硬化した鱗・血の長の昇天など）が無ければ、1ターン目にタップ状態で置いてしまってよい",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped unless you control two or more other lands.\n{T}: Add {B} or {G}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "B",
+    "G"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/e/9ebacb8f-de1c-422b-b033-4e51c40e7cd5.jpg?1788984261",
+    "normal": "https://cards.scryfall.io/normal/front/9/e/9ebacb8f-de1c-422b-b033-4e51c40e7cd5.jpg?1788984261"
+   }
+  },
+  {
+   "name": "Dreamroot Cascade",
+   "jaName": "夢根の滝",
+   "typeJa": "土地",
+   "textJa": "あなたが２つ以上のこれでない土地をコントロールしていないかぎり、この土地はタップ状態で戦場に出る。\n{T}：{G}か{U}を加える。",
+   "tip": "3枚目以降の土地として置けばアンタップで出る。{G}と{U}が両方要る狩りの仕込み・変異の賜物・水深の魔道士を唱えるときの、緑か青の片方を担える",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "This land enters tapped unless you control two or more other lands.\n{T}: Add {G} or {U}.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/f/7/f7647a7c-36fc-42e3-a70e-0d9433cfd416.jpg?1788984258",
+    "normal": "https://cards.scryfall.io/normal/front/f/7/f7647a7c-36fc-42e3-a70e-0d9433cfd416.jpg?1788984258"
+   }
+  },
+  {
+   "name": "Tamiyo's Safekeeping",
+   "jaName": "タミヨウの保管",
+   "typeJa": "インスタント",
+   "textJa": "あなたがコントロールしているパーマネント１つを対象とする。ターン終了時まで、それは呪禁と破壊不能を得る。あなたは２点のライフを得る。（呪禁と破壊不能を持つパーマネントは、対戦相手がコントロールしている呪文や能力の対象にならない。ダメージや「破壊」と書かれた効果では、それは破壊されない。）",
+   "tip": "1マナで構えられるので、賢きモスマンや＋１/＋１カウンターを溜めたクリーチャーへの除去に合わせて使う。クリーチャー以外も守れるので、枝分かれの進化や水のクリスタルへの除去にも使える。対象を取らない追放や生け贄、タフネスを下げる効果（自分の放射性降下物も含む）からは守れない",
+   "count": 1,
+   "manaCost": "{G}",
+   "cmc": 1,
+   "typeLine": "Instant",
+   "oracle": "Target permanent you control gains hexproof and indestructible until end of turn. You gain 2 life. (A permanent with hexproof and indestructible can't be the target of spells or abilities your opponents control. Damage and effects that say \"destroy\" don't destroy it.)",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/5/1/51bbd594-0284-4ee7-becc-378ba41b3fb1.jpg?1782861570",
+    "normal": "https://cards.scryfall.io/normal/front/5/1/51bbd594-0284-4ee7-becc-378ba41b3fb1.jpg?1782861570"
+   }
+  },
+  {
+   "name": "Experimental Augury",
+   "jaName": "実験的占い",
+   "typeJa": "インスタント",
+   "textJa": "あなたのライブラリーの一番上にあるカード３枚を見る。そのうち１枚をあなたの手札に、残りをあなたのライブラリーの一番下に望む順番で置く。増殖を行う。（望む数のパーマネントやプレイヤーを選び、その後、すでにそこにあるカウンター１種類につき、そのカウンターをもう１個与える。）",
+   "tip": "インスタントなので、対戦相手のターンの終了ステップに唱えて増殖する。流束の媒介者がいれば唱えたときにも増殖し、1枚で2回になる。ラッドストームの前に唱える軽い呪文としても数えられる",
+   "count": 1,
+   "manaCost": "{1}{U}",
+   "cmc": 2,
+   "typeLine": "Instant",
+   "oracle": "Look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order. Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Proliferate"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/c/8/c856446c-8108-409a-a381-03374577da1e.jpg?1782768526",
+    "normal": "https://cards.scryfall.io/normal/front/c/8/c856446c-8108-409a-a381-03374577da1e.jpg?1782768526"
+   }
+  },
+  {
+   "name": "Kami of Whispered Hopes",
+   "jaName": "囁かれる希望の神",
+   "typeJa": "クリーチャー — スピリット",
+   "textJa": "あなたがコントロールしているパーマネント１つの上に１個以上の＋１/＋１カウンターが置かれるなら、代わりにそのパーマネントの上にその個数に１を足した個数の＋１/＋１カウンターを置く。\n{T}：好きな色１色のマナＸ点を加える。Ｘは、このクリーチャーのパワーに等しい。",
+   "tip": "賢きモスマンの誘発の対象にこれ自身も入れると、1回で＋１/＋１カウンターが2個乗り、出せるマナが2点増える。増えたマナでカーンの拠点（{4}）を起動して増殖すれば、これにも2個乗ってさらにマナが増える",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Creature — Spirit",
+   "oracle": "If one or more +1/+1 counters would be put on a permanent you control, that many plus one +1/+1 counters are put on that permanent instead.\n{T}: Add X mana of any one color, where X is this creature's power.",
+   "power": 1,
+   "toughness": 1,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/c/c/cc1232ca-ca76-48cf-b1ab-c6cdf6d2ec90.jpg?1782758999",
+    "normal": "https://cards.scryfall.io/normal/front/c/c/cc1232ca-ca76-48cf-b1ab-c6cdf6d2ec90.jpg?1782758999"
+   }
+  },
+  {
+   "name": "Wave Goodbye",
+   "jaName": "別れの波",
+   "typeJa": "ソーサリー",
+   "textJa": "＋１/＋１カウンターが置かれていない各クリーチャーをそれぞれ、オーナーの手札に戻す。",
+   "tip": "唱える前に、残したい自分のクリーチャー（賢きモスマン自身も）に＋１/＋１カウンターを乗せておく。カウンターの無い縫い師への供給者や事件現場の分析者は手札に戻るので、出し直せばまた切削できる。対戦相手のトークンは手札に戻ると消える",
+   "count": 1,
+   "manaCost": "{2}{U}{U}",
+   "cmc": 4,
+   "typeLine": "Sorcery",
+   "oracle": "Return each creature without a +1/+1 counter on it to its owner's hand.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/1/d/1d2f0922-b59c-4268-a6fa-412224ad8818.jpg?1782761355",
+    "normal": "https://cards.scryfall.io/normal/front/1/d/1d2f0922-b59c-4268-a6fa-412224ad8818.jpg?1782761355"
+   }
+  },
+  {
+   "name": "Aftermath Analyst",
+   "jaName": "事件現場の分析者",
+   "typeJa": "クリーチャー — エルフ・探偵",
+   "textJa": "このクリーチャーが戦場に出たとき、カード３枚を切削する。（あなたのライブラリーの一番上にあるカード３枚をあなたの墓地に置く。）\n{3}{G}, このクリーチャーを生け贄に捧げる：あなたの墓地にあるすべての土地・カードをタップ状態で戦場に戻す。",
+   "tip": "出たときの切削で、土地でないカードが落ちれば賢きモスマンが誘発する。墓地に土地（使い終えた進化する未開地・広漠なる変幻地・寓話の小道も含む）が溜まってから生け贄にすると、戻った土地1枚ごとに遺跡ガニと進化の賢者の上陸が誘発する。墓場波、ムルドローサがいれば墓地から唱え直せる",
+   "count": 1,
+   "manaCost": "{1}{G}",
+   "cmc": 2,
+   "typeLine": "Creature — Elf Detective",
+   "oracle": "When this creature enters, mill three cards. (Put the top three cards of your library into your graveyard.)\n{3}{G}, Sacrifice this creature: Return all land cards from your graveyard to the battlefield tapped.",
+   "power": 1,
+   "toughness": 3,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Mill"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/f/5/f58daa43-1755-4011-a7ba-0b5e08fd4f59.jpg?1782768445",
+    "normal": "https://cards.scryfall.io/normal/front/f/5/f58daa43-1755-4011-a7ba-0b5e08fd4f59.jpg?1782768445"
+   }
+  },
+  {
+   "name": "Mirelurk Queen",
+   "jaName": "マイアラーク・クイーン",
+   "typeJa": "クリーチャー — カニ・ミュータント",
+   "textJa": "警戒\nマイアラーク・クイーンが戦場に出たとき、プレイヤー１人を対象とする。そのプレイヤーはRADカウンター２個を得る。\n土地でない１枚以上のカードが切削されるたび、カード１枚を引き、その後、マイアラーク・クイーンの上に＋１/＋１カウンター１個を置く。この能力は、毎ターン１回しか誘発しない。",
+   "tip": "毎ターン1回なので、自分のターンだけでなく各対戦相手のターンにも、土地でないカードが切削されれば1枚ずつ引ける。どの対戦相手のターンにも切削が起きるよう、出たときのRADカウンター2個はまだ持っていない対戦相手に渡す",
+   "count": 1,
+   "manaCost": "{4}{U}",
+   "cmc": 5,
+   "typeLine": "Creature — Crab Mutant",
+   "oracle": "Vigilance\nWhen this creature enters, target player gets two rad counters.\nWhenever one or more nonland cards are milled, draw a card, then put a +1/+1 counter on this creature. This ability triggers only once each turn.",
+   "power": 4,
+   "toughness": 4,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Vigilance"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/0/7/07175194-8895-4ea9-aadf-e6c439bcaf9d.jpg?1782800705",
+    "normal": "https://cards.scryfall.io/normal/front/0/7/07175194-8895-4ea9-aadf-e6c439bcaf9d.jpg?1782800705"
+   }
+  },
+  {
+   "name": "Radstorm",
+   "jaName": "ラッドストーム",
+   "typeJa": "インスタント",
+   "textJa": "ストーム（あなたがこの呪文を唱えたとき、これを、このターンにこれより前に唱えられた呪文の数と同じ回数コピーする。）\n増殖を行う。（望む数のパーマネントやプレイヤーを選び、その後、すでにそこにあるカウンター１種類につき、そのカウンターをもう１個与える。）",
+   "tip": "このターンに先に唱えた呪文の数（対戦相手の呪文も数える）だけ増殖が増えるので、思考掃き・実験的占い・秘儀の印鑑などの軽い呪文を続けて唱えたあとの最後に使う。コピーは唱えたことにならないので、流束の媒介者の増殖はこれ自身の分の1回だけ",
+   "count": 1,
+   "manaCost": "{3}{U}",
+   "cmc": 4,
+   "typeLine": "Instant",
+   "oracle": "Storm (When you cast this spell, copy it for each spell cast before it this turn.)\nProliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Storm",
+    "Proliferate"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/1/21c77392-29cb-4787-964b-e9bd21c81d0e.jpg?1782800688",
+    "normal": "https://cards.scryfall.io/normal/front/2/1/21c77392-29cb-4787-964b-e9bd21c81d0e.jpg?1782800688"
+   }
+  },
+  {
+   "name": "Vexing Radgull",
+   "jaName": "厄介なラッドガル",
+   "typeJa": "クリーチャー — 鳥・ミュータント",
+   "textJa": "飛行\n厄介なラッドガルがプレイヤー１人に戦闘ダメージを与えるたび、そのプレイヤーがRADカウンターを持っていないなら、そのプレイヤーはRADカウンター２個を得る。そうでないなら、増殖を行う。（望む数のパーマネントやプレイヤーを選び、その後、すでにそこにあるカウンター各種類ごとに、それぞれそのカウンター１個を与える。）",
+   "tip": "飛行で通りやすいので毎ターン攻撃させる。賢きモスマンがRADカウンターを配ったあとは、持っている対戦相手を殴って増殖にし、各対戦相手のRADカウンターと自分の＋１/＋１カウンターをまとめて増やす。RADカウンターが尽きた対戦相手を殴れば2個を配り直せる",
+   "count": 1,
+   "manaCost": "{1}{U}",
+   "cmc": 2,
+   "typeLine": "Creature — Bird Mutant",
+   "oracle": "Flying\nWhenever this creature deals combat damage to a player, that player gets two rad counters if they don't have any rad counters. Otherwise, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "power": 1,
+   "toughness": 2,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flying",
+    "Proliferate"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/d/6/d6875985-41ae-4050-a60c-1d9231ac3cb1.jpg?1782800669",
+    "normal": "https://cards.scryfall.io/normal/front/d/6/d6875985-41ae-4050-a60c-1d9231ac3cb1.jpg?1782800669"
+   }
+  },
+  {
+   "name": "Feral Ghoul",
+   "jaName": "フェラル・グール",
+   "typeJa": "クリーチャー — ゾンビ・ミュータント",
+   "textJa": "威迫\nあなたがコントロールしていてこれでないクリーチャー１体が死亡するたび、フェラル・グールの上に＋１/＋１カウンター１個を置く。\nフェラル・グールが死亡したとき、各対戦相手はそれぞれ、これのパワーに等しい個数のRADカウンターを得る。",
+   "tip": "賢きモスマンの+1/+1カウンターを優先して載せておくと、破壊されても死亡時にそのパワー分のRADカウンターを各対戦相手に配れる。縫い師への供給者や、マナのために生け贄に捧げた日を浴びる繁殖鱗の落とし子が死亡するたびにも大きくなる。ミュータントなので、古代の災厄、ジェノバがいれば自分のターンに死亡したときパワーに等しい枚数を引ける",
+   "count": 1,
+   "manaCost": "{2}{B}",
+   "cmc": 3,
+   "typeLine": "Creature — Zombie Mutant",
+   "oracle": "Menace\nWhenever another creature you control dies, put a +1/+1 counter on this creature.\nWhen this creature dies, each opponent gets a number of rad counters equal to its power.",
+   "power": 2,
+   "toughness": 2,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Menace"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/e/7/e77d9381-5de6-4b22-87ef-fd5a589f923d.jpg?1782800657",
+    "normal": "https://cards.scryfall.io/normal/front/e/7/e77d9381-5de6-4b22-87ef-fd5a589f923d.jpg?1782800657"
+   }
+  },
+  {
+   "name": "Infesting Radroach",
+   "jaName": "群生するラッドローチ",
+   "typeJa": "クリーチャー — 昆虫・ミュータント",
+   "textJa": "飛行\n群生するラッドローチではブロックできない。\n群生するラッドローチがプレイヤー１人に戦闘ダメージを与えるたび、そのプレイヤーはその点数に等しい個数のRADカウンターを得る。\n対戦相手が土地でないカード１枚を切削するたび、群生するラッドローチがあなたの墓地にある場合、これをあなたの手札に戻してもよい。",
+   "tip": "飛行で通しやすく、賢きモスマンの+1/+1カウンターでパワーを上げるほど与えるRADカウンターも増える。墓地に落ちても、対戦相手のRAD切削・遺跡ガニ・群の祭壇で土地でないカードが切削されれば手札に戻せるので、自分の切削で落ちても損にならない",
+   "count": 1,
+   "manaCost": "{2}{B}",
+   "cmc": 3,
+   "typeLine": "Creature — Insect Mutant",
+   "oracle": "Flying\nThis creature can't block.\nWhenever this creature deals combat damage to a player, they get that many rad counters.\nWhenever an opponent mills a nonland card, if this creature is in your graveyard, you may return it to your hand.",
+   "power": 2,
+   "toughness": 2,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flying",
+    "Mill"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/4/9/49652f46-0977-4cd5-ad32-f2dff0269551.jpg?1782800649",
+    "normal": "https://cards.scryfall.io/normal/front/4/9/49652f46-0977-4cd5-ad32-f2dff0269551.jpg?1782800649"
+   }
+  },
+  {
+   "name": "Nuclear Fallout",
+   "jaName": "放射性降下物",
+   "typeJa": "ソーサリー",
+   "textJa": "ターン終了時まで、すべてのクリーチャーは－Ｘ/－Ｘの２倍の修整を受ける。各プレイヤーはそれぞれRADカウンターＸ個を得る。",
+   "tip": "タフネスが２Ｘ以下のクリーチャーはカウンターの有無に関係なくすべて死ぬので、自軍は+1/+1カウンターでタフネスを２Ｘより大きくしておいてから撃つ。自分もRADカウンターＸ個を得るので、Ｘはライブラリーとライフの残りを見て決める。変異の賜物の破壊不能では－Ｘ/－Ｘから守れない",
+   "count": 1,
+   "manaCost": "{X}{B}{B}",
+   "cmc": 2,
+   "typeLine": "Sorcery",
+   "oracle": "Each creature gets twice -X/-X until end of turn. Each player gets X rad counters.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/a/ba31f332-6fd5-4caf-b218-a1597a27dca5.jpg?1782800645",
+    "normal": "https://cards.scryfall.io/normal/front/b/a/ba31f332-6fd5-4caf-b218-a1597a27dca5.jpg?1782800645"
+   }
+  },
+  {
+   "name": "Screeching Scorchbeast",
+   "jaName": "金切り声のスコーチビースト",
+   "typeJa": "クリーチャー — コウモリ・ミュータント",
+   "textJa": "飛行、威迫\n金切り声のスコーチビーストが攻撃するたび、各プレイヤーはそれぞれRADカウンター２個を得る。\n土地でない１枚以上のカードが切削されるたび、あなたはその枚数に等しい数の黒の２/２のゾンビ・ミュータント・クリーチャー・トークンを生成してもよい。これは毎ターン１回しか行えない。",
+   "tip": "トークン生成は1ターンに1回だが、対戦相手のRAD切削は相手の戦闘前メイン・フェイズに起こるので相手のターンごとに作れる（小さい切削では作らずに見送り、同じターンのもっと大きい切削で作ってもよい）。トークンはミュータントなので自分のターンに死亡すれば古代の災厄、ジェノバでパワー分引け、群の祭壇があれば1体出るごとに各対戦相手が1枚切削する。攻撃すると自分にもRADカウンターが乗るので、ライブラリーが少ないときは攻撃を控える",
+   "count": 1,
+   "manaCost": "{4}{B}{B}",
+   "cmc": 6,
+   "typeLine": "Creature — Bat Mutant",
+   "oracle": "Flying, menace\nWhenever this creature attacks, each player gets two rad counters.\nWhenever one or more nonland cards are milled, you may create that many 2/2 black Zombie Mutant creature tokens. Do this only once each turn.",
+   "power": 5,
+   "toughness": 5,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flying",
+    "Menace"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/2/b2ae6c74-2072-4652-817a-da273a7328ed.jpg?1782800638",
+    "normal": "https://cards.scryfall.io/normal/front/b/2/b2ae6c74-2072-4652-817a-da273a7328ed.jpg?1782800638"
+   }
+  },
+  {
+   "name": "Glowing One",
+   "jaName": "光る輩",
+   "typeJa": "クリーチャー — ゾンビ・ミュータント",
+   "textJa": "接死\n光る輩がプレイヤー１人に戦闘ダメージを与えるたび、そのプレイヤーはRADカウンター４個を得る。\nプレイヤー１人が土地でないカード１枚を切削するたび、あなたは１点のライフを得る。",
+   "tip": "接死なので相手はブロックしにくく、通して乗せたRADカウンター4個は増殖でさらに伸ばせる。回復は自分の切削でも誘発するので、自分のRADカウンターで土地でないカードを切削して失うライフ（1枚につき1点）をちょうど打ち消せる",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Creature — Zombie Mutant",
+   "oracle": "Deathtouch\nWhenever this creature deals combat damage to a player, they get four rad counters.\nWhenever a player mills a nonland card, you gain 1 life.",
+   "power": 2,
+   "toughness": 2,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Mill",
+    "Deathtouch"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/a/1/a10f5940-401d-4181-815a-4d23e2df976a.jpg?1782800531",
+    "normal": "https://cards.scryfall.io/normal/front/a/1/a10f5940-401d-4181-815a-4d23e2df976a.jpg?1782800531"
+   }
+  },
+  {
+   "name": "Tato Farmer",
+   "jaName": "テイト農夫",
+   "typeJa": "クリーチャー — ゾンビ・ミュータント・農民",
+   "textJa": "上陸 ― 土地１つがあなたのコントロール下で戦場に出るたび、あなたはRADカウンター２個を得てもよい。\n{T}：このターンに切削されて墓地にある土地・カード１枚を対象とする。それをあなたのコントロール下でタップ状態で戦場に出す。",
+   "tip": "自分のRAD切削は自分の戦闘前メイン・フェイズの開始時に起こるので、その後に起動すれば落ちた土地をすぐ戦場に出せ、進化の賢者・遺跡ガニの上陸も誘発する。対戦相手の墓地も対象にできるので、相手のRAD切削で落ちた土地を相手のターンに奪える（戦場に出した直後の相手のターンは、召喚酔いでまだ起動できない）。上陸でRADカウンターを得るのは任意なので、ライブラリーとライフに余裕があるときだけ得る",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Creature — Zombie Mutant Peasant",
+   "oracle": "Landfall — Whenever a land you control enters, you may get two rad counters.\n{T}: Put target land card in a graveyard that was milled this turn onto the battlefield tapped under your control.",
+   "power": 1,
+   "toughness": 4,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Landfall"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/5/6/56d69404-02e9-4e88-8bb7-6c53c2648731.jpg?1782800488",
+    "normal": "https://cards.scryfall.io/normal/front/5/6/56d69404-02e9-4e88-8bb7-6c53c2648731.jpg?1782800488"
+   }
+  },
+  {
+   "name": "Atomize",
+   "jaName": "原子化",
+   "typeJa": "インスタント",
+   "textJa": "土地でないパーマネント１つを対象とする。それを破壊する。増殖を行う。（望む数のパーマネントやプレイヤーを選び、その後、すでにそこにあるカウンター１種類につき、そのカウンターをもう１個与える。）",
+   "tip": "除去と同時に増殖できるので、対戦相手のRADカウンター・自軍の+1/+1カウンター・血の長の昇天の探索カウンターをまとめて伸ばせる。インスタントなので、対戦相手のアップキープなど戦闘前メイン・フェイズより前に撃てば、そのターンのRAD切削も1枚増える",
+   "count": 1,
+   "manaCost": "{2}{B}{G}",
+   "cmc": 4,
+   "typeLine": "Instant",
+   "oracle": "Destroy target nonland permanent. Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "B",
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Proliferate"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/f/7/f73b64d4-d2c3-4c5a-8208-d723f1d0bb3b.jpg?1782800449",
+    "normal": "https://cards.scryfall.io/normal/front/f/7/f73b64d4-d2c3-4c5a-8208-d723f1d0bb3b.jpg?1782800449"
+   }
+  },
+  {
+   "name": "Mutational Advantage",
+   "jaName": "変異の賜物",
+   "typeJa": "インスタント",
+   "textJa": "ターン終了時まで、あなたがコントロールしていてカウンターが置かれているすべてのパーマネントは呪禁と破壊不能を得る。このターン、それらのパーマネントが受けるすべてのダメージを軽減する。増殖を行う。（望む数のパーマネントやプレイヤーを選び、その後、すでにそこにあるカウンター１種類につき、そのカウンターをもう１個与える。）",
+   "tip": "破壊やダメージによる全体除去・対象を取る除去への返しに撃てば、+1/+1カウンターの載った自軍や探索カウンターの載った血の長の昇天を守りつつ、対戦相手のRADカウンターも増殖で伸ばせる。－Ｘ/－Ｘの修整、対象を取らない追放や手札に戻す効果、生け贄は防げない",
+   "count": 1,
+   "manaCost": "{1}{G}{U}",
+   "cmc": 3,
+   "typeLine": "Instant",
+   "oracle": "Permanents you control with counters on them gain hexproof and indestructible until end of turn. Prevent all damage that would be dealt to those permanents this turn. Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G",
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Proliferate"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/c/b/cb28e2ca-1e62-41d4-9d22-1d7f0eb50f10.jpg?1782800379",
+    "normal": "https://cards.scryfall.io/normal/front/c/b/cb28e2ca-1e62-41d4-9d22-1d7f0eb50f10.jpg?1782800379"
+   }
+  },
+  {
+   "name": "Mariposa Military Base",
+   "jaName": "マリポーサ軍事基地",
+   "typeJa": "土地",
+   "textJa": "マリポーサ軍事基地をタップ状態で戦場に出してもよい。そうしたなら、あなたはRADカウンター２個を得る。\n{T}：{C}を加える。\n{5}, {T}：カード１枚を引く。この能力を起動するためのコストは、あなたが持つRADカウンター１個につき{1}少なくなる。",
+   "tip": "タップ状態で出すと自分にRADカウンター2個（巻きつき蛇がいれば3個）が乗り、自分の戦闘前メイン・フェイズの切削で賢きモスマンの誘発の材料になる。RADカウンターはその切削で減るので、引く能力はその前（対戦相手の終了ステップや自分のアップキープ）に起動すると安い",
+   "count": 1,
+   "manaCost": "",
+   "cmc": 0,
+   "typeLine": "Land",
+   "oracle": "You may have this land enter tapped. If you do, you get two rad counters.\n{T}: Add {C}.\n{5}, {T}: Draw a card. This ability costs {1} less to activate for each rad counter you have.",
+   "power": null,
+   "toughness": null,
+   "colors": [],
+   "producedMana": [
+    "C"
+   ],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/e/e/eeb63ce1-4bbd-4599-b503-8bfa98dc4998.jpg?1782800215",
+    "normal": "https://cards.scryfall.io/normal/front/e/e/eeb63ce1-4bbd-4599-b503-8bfa98dc4998.jpg?1782800215"
+   }
+  },
+  {
+   "name": "Basking Broodscale",
+   "jaName": "日を浴びる繁殖鱗",
+   "typeJa": "クリーチャー — エルドラージ・トカゲ",
+   "textJa": "欠色（このカードは無色である。）\n{1}{G}：順応１を行う。（このクリーチャーの上に＋１/＋１カウンターがないなら、これの上に＋１/＋１カウンター１個を置く。）\n日を浴びる繁殖鱗の上に１個以上の＋１/＋１カウンターが置かれるたび、「このクリーチャーを生け贄に捧げる：{C}を加える。」を持つ無色の０/１のエルドラージ・落とし子・クリーチャー・トークン１体を生成してもよい。",
+   "tip": "賢きモスマンの誘発・増殖・古代の災厄、ジェノバでカウンターを置く先に含めると、そのたびに落とし子が1体出る（1回で何個置かれても1体）。落とし子は生け贄に捧げてマナにでき、死亡するたびにフェラル・グールが大きくなり、群の祭壇があれば出るたびに各対戦相手が1枚切削する",
+   "count": 1,
+   "manaCost": "{1}{G}",
+   "cmc": 2,
+   "typeLine": "Creature — Eldrazi Lizard",
+   "oracle": "Devoid (This card has no color.)\n{1}{G}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever one or more +1/+1 counters are put on this creature, you may create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+   "power": 2,
+   "toughness": 2,
+   "colors": [],
+   "producedMana": [
+    "C"
+   ],
+   "keywords": [
+    "Devoid",
+    "Adapt"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/6/969a9c2c-a22f-4dee-b4b9-5d607950329f.jpg?1782793424",
+    "normal": "https://cards.scryfall.io/normal/front/9/6/969a9c2c-a22f-4dee-b4b9-5d607950329f.jpg?1782793424"
+   }
+  },
+  {
+   "name": "Evolution Witness",
+   "jaName": "進化の証人",
+   "typeJa": "クリーチャー — エルフ・シャーマン・ミュータント",
+   "textJa": "{1}{G}：順応２を行う。（このクリーチャーの上に＋１/＋１カウンターがないなら、これの上に＋１/＋１カウンターを２個置く。）\n進化の証人の上に１個以上の＋１/＋１カウンターが置かれるたび、あなたの墓地にあるパーマネント・カード１枚を対象とする。それをあなたの手札に戻す。",
+   "tip": "最初に{1}{G}の順応でカウンターを置いておくと、以後は増殖のたびに誘発する。賢きモスマンの誘発でも置き先に含めれば、切削で墓地に落ちたパーマネント・カード（土地も含む）を毎回1枚手札に戻せる",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Creature — Elf Shaman Mutant",
+   "oracle": "{1}{G}: Adapt 2. (If this creature has no +1/+1 counters on it, put two +1/+1 counters on it.)\nWhenever one or more +1/+1 counters are put on this creature, return target permanent card from your graveyard to your hand.",
+   "power": 2,
+   "toughness": 1,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Adapt"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/0/a/0a3951db-5c84-4749-8699-5843bb683d7c.jpg?1782793388",
+    "normal": "https://cards.scryfall.io/normal/front/0/a/0a3951db-5c84-4749-8699-5843bb683d7c.jpg?1782793388"
+   }
+  },
+  {
+   "name": "Six",
+   "jaName": "六番",
+   "typeJa": "伝説のクリーチャー — ツリーフォーク",
+   "textJa": "到達\n六番が攻撃するたび、カード３枚を切削する。その中から土地・カード１枚をあなたの手札に加えてもよい。\nあなたのターンの間、あなたの墓地にあり土地でないすべてのパーマネント・カードは回顧を持つ。（あなたの墓地にあるパーマネント・カードを、他のコストの支払いに加えて土地・カード１枚を捨てることで唱えてもよい。）",
+   "tip": "攻撃時の3枚に土地でないカードがあれば賢きモスマンが誘発し、拾った土地は回顧の捨て札にできる。後半に余った土地を捨てて、切削で墓地に落ちたクリーチャーやエンチャントを唱え直せるので、土地を引いても無駄にならない",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Legendary Creature — Treefolk",
+   "oracle": "Reach\nWhenever Six attacks, mill three cards. You may put a land card from among them into your hand.\nDuring your turn, nonland permanent cards in your graveyard have retrace. (You may cast permanent cards from your graveyard by discarding a land card in addition to paying their other costs.)",
+   "power": 2,
+   "toughness": 4,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Reach",
+    "Mill"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/8/7/8794b8ca-6544-4b98-91ba-99202122a19e.jpg?1782793277",
+    "normal": "https://cards.scryfall.io/normal/front/8/7/8794b8ca-6544-4b98-91ba-99202122a19e.jpg?1782793277"
+   }
+  },
+  {
+   "name": "Hedge Shredder",
+   "jaName": "生垣裁断機",
+   "typeJa": "アーティファクト — 機体",
+   "textJa": "生垣裁断機が攻撃するたび、カード２枚を切削してもよい。\nあなたのライブラリーから１枚以上の土地・カードがあなたの墓地に置かれるたび、それらをタップ状態で戦場に出す。\n搭乗１（あなたがコントロールしている望む数のクリーチャーを、パワーの合計が１以上になるように選んでタップする：ターン終了時まで、この機体はアーティファクト・クリーチャーになる。）",
+   "tip": "自分のRADカウンター・縫い師への供給者・事件現場の分析者・六番の切削や、サテュロスの道探しで手札に加えなかった残りに含まれる土地が、すべてタップ状態で戦場に出る（搭乗していなくても働く）。進化の賢者・遺跡ガニの上陸や群の祭壇と組めば、自分の切削がそのまま増殖や対戦相手の切削に変わる",
+   "count": 1,
+   "manaCost": "{2}{G}{G}",
+   "cmc": 4,
+   "typeLine": "Artifact — Vehicle",
+   "oracle": "Whenever this Vehicle attacks, you may mill two cards.\nWhenever one or more land cards are put into your graveyard from your library, put them onto the battlefield tapped.\nCrew 1 (Tap any number of creatures you control with total power 1 or more: This Vehicle becomes an artifact creature until end of turn.)",
+   "power": 5,
+   "toughness": 5,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Crew",
+    "Mill"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/6/26ce4405-1e9f-47dc-b70a-96bdeb9e095b.jpg?1782784783",
+    "normal": "https://cards.scryfall.io/normal/front/2/6/26ce4405-1e9f-47dc-b70a-96bdeb9e095b.jpg?1782784783"
+   }
+  },
+  {
+   "name": "The Water Crystal",
+   "jaName": "水のクリスタル",
+   "typeJa": "伝説のアーティファクト",
+   "textJa": "あなたが青の呪文を唱えるためのコストは{1}少なくなる。\n対戦相手１人が１枚以上のカードを切削するなら、そのプレイヤーは代わりにその枚数に４を足した枚数のカードを切削する。\n{4}{U}{U}, {T}：各対戦相手はそれぞれ、あなたの手札にあるカードの枚数に等しい枚数のカードを切削する。",
+   "tip": "対戦相手の切削1回ごとに4枚増えるので、回数の多い効果と組むほど強い（群の祭壇はパーマネント1つにつき各対戦相手5枚、催眠の宝珠は相手のパーマネントのアンタップ1回につき5枚、遺跡ガニは7枚）。増えた分の土地でないカードも賢きモスマンの誘発の数に入る。不特定マナを含む青の呪文（賢きモスマン自身や墓場波、ムルドローサなど）が{1}軽くなる",
+   "count": 1,
+   "manaCost": "{2}{U}{U}",
+   "cmc": 4,
+   "typeLine": "Legendary Artifact",
+   "oracle": "Blue spells you cast cost {1} less to cast.\nIf an opponent would mill one or more cards, they mill that many cards plus four instead.\n{4}{U}{U}, {T}: Each opponent mills cards equal to the number of cards in your hand.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Mill"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/4/24ee1d63-bc26-43b4-910b-338562356bdc.jpg?1782772284",
+    "normal": "https://cards.scryfall.io/normal/front/2/4/24ee1d63-bc26-43b4-910b-338562356bdc.jpg?1782772284"
+   }
+  },
+  {
+   "name": "Jenova, Ancient Calamity",
+   "jaName": "古代の災厄、ジェノバ",
+   "typeJa": "伝説のクリーチャー — エイリアン",
+   "textJa": "あなたのターンの戦闘の開始時に、これでないクリーチャー最大１体を対象とする。それの上にこれのパワーに等しい個数の＋１/＋１カウンターを置く。そのクリーチャーは他のタイプに加えてミュータントになる。\nあなたのターンの間にあなたがコントロールしているミュータント１体が死亡するたび、それのパワーに等しい枚数のカードを引く。",
+   "tip": "賢きモスマンの誘発で古代の災厄、ジェノバ自身にも+1/+1カウンターを置いてパワーを上げると、毎ターン渡せる個数が増える。惑星共生があれば置いた個数だけ引けるので、渡す先は沈思の教授・進化の証人・日を浴びる繁殖鱗など、カウンターが置かれると得をするクリーチャーがよい。デッキにはミュータントが多く、自分のターンにそれらが死亡すれば（ブロックされたときなど）パワー分引ける",
+   "count": 1,
+   "manaCost": "{2}{B}{G}",
+   "cmc": 4,
+   "typeLine": "Legendary Creature — Alien",
+   "oracle": "At the beginning of combat on your turn, put a number of +1/+1 counters equal to Jenova's power on up to one other target creature. That creature becomes a Mutant in addition to its other types.\nWhenever a Mutant you control dies during your turn, you draw cards equal to its power.",
+   "power": 1,
+   "toughness": 5,
+   "colors": [
+    "B",
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/2/a/2afa2ed5-713d-4d3b-83d4-4917f698a264.jpg?1782771710",
+    "normal": "https://cards.scryfall.io/normal/front/2/a/2afa2ed5-713d-4d3b-83d4-4917f698a264.jpg?1782771710"
+   }
+  },
+  {
+   "name": "Quantum Riddler",
+   "jaName": "量子の謎かけ屋",
+   "typeJa": "クリーチャー — スフィンクス",
+   "textJa": "飛行\nこのクリーチャーが戦場に出たとき、カード１枚を引く。\nあなたの手札にあるカードが１枚以下であるかぎり、あなたが１枚以上のカードを引くなら、代わりにその枚数に１を足した枚数のカードを引く。\nワープ{1}{U}",
+   "tip": "序盤は{1}{U}でワープして1枚引き（水のクリスタルがあれば{U}）、終了ステップに追放されたあと、後のターンに追放領域から通常のコスト（{3}{U}{U}）で唱え直してもう1枚引ける。手札が1枚以下のときは、沈思の教授・水深の魔道士などのドローが2枚になる（引いて手札が2枚以上になると、それ以降は増えない）",
+   "count": 1,
+   "manaCost": "{3}{U}{U}",
+   "cmc": 5,
+   "typeLine": "Creature — Sphinx",
+   "oracle": "Flying\nWhen this creature enters, draw a card.\nAs long as you have one or fewer cards in hand, if you would draw one or more cards, you draw that many cards plus one instead.\nWarp {1}{U}",
+   "power": 4,
+   "toughness": 6,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flying",
+    "Warp"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/9/3/933af5fd-23df-4cf6-b2d7-c1da3c96fd75.jpg?1782767715",
+    "normal": "https://cards.scryfall.io/normal/front/9/3/933af5fd-23df-4cf6-b2d7-c1da3c96fd75.jpg?1782767715"
+   }
+  },
+  {
+   "name": "Terrasymbiosis",
+   "jaName": "惑星共生",
+   "typeJa": "エンチャント",
+   "textJa": "あなたが、あなたがコントロールしているクリーチャー１体の上に１個以上の＋１/＋１カウンターを置くたび、あなたはその個数に等しい枚数のカードを引いてもよい。これは毎ターン１回しか行えない。",
+   "tip": "1ターンに1回だが、対戦相手のRAD切削で賢きモスマンが誘発すれば相手のターンにも引けるので、ほぼ毎ターン使える。置く個数は硬化した鱗・屍体屋の脅威・枝分かれの進化・巻きつき蛇・囁かれる希望の神で増え、自分のターンは古代の災厄、ジェノバの戦闘開始時の配置が最大になりやすい。引くかは選べるので、小さい配置では見送って同じターンの大きい配置で引いてもよい",
+   "count": 1,
+   "manaCost": "{2}{G}",
+   "cmc": 3,
+   "typeLine": "Enchantment",
+   "oracle": "Whenever you put one or more +1/+1 counters on a creature you control, you may draw that many cards. Do this only once each turn.",
+   "power": null,
+   "toughness": null,
+   "colors": [
+    "G"
+   ],
+   "producedMana": [],
+   "keywords": [],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/a/8/a8429970-728a-468a-a5fe-af640a0ecb71.jpg?1782767130",
+    "normal": "https://cards.scryfall.io/normal/front/a/8/a8429970-728a-468a-a5fe-af640a0ecb71.jpg?1782767130"
+   }
+  },
+  {
+   "name": "Ray Fillet, Wave Warrior",
+   "jaName": "海中の戦士、レイ・フィレット",
+   "typeJa": "伝説のクリーチャー — 魚・ミュータント",
+   "textJa": "飛行\n進化（あなたがコントロールしているクリーチャー１体が戦場に出るたび、そのクリーチャーのパワーかタフネスがこのクリーチャーよりも大きい場合、このクリーチャーの上に＋１/＋１カウンター１個を置く。）\nあなたがコントロールしていてカウンターが置かれているクリーチャー１体がプレイヤー１人に戦闘ダメージを与えるたび、あなたはカード１枚を引く。",
+   "tip": "賢きモスマンでカウンターを広く配るほど、戦闘ダメージを通したクリーチャー1体ごとに1枚引ける（狩りの仕込みもあれば、+1/+1カウンターの載った1体につき計2枚）。自身はパワー0なので、賢きモスマンのカウンターか進化で大きくしてから攻撃に加える",
+   "count": 1,
+   "manaCost": "{2}{U}",
+   "cmc": 3,
+   "typeLine": "Legendary Creature — Fish Mutant",
+   "oracle": "Flying\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nWhenever a creature you control with a counter on it deals combat damage to a player, draw a card.",
+   "power": 0,
+   "toughness": 2,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Flying",
+    "Evolve"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/b/3/b3d7c126-8c3a-480f-ade4-13c6c16e156d.jpg?1782761425",
+    "normal": "https://cards.scryfall.io/normal/front/b/3/b3d7c126-8c3a-480f-ade4-13c6c16e156d.jpg?1782761425"
+   }
+  },
+  {
+   "name": "Pensive Professor",
+   "jaName": "沈思の教授",
+   "typeJa": "クリーチャー — 人間・ウィザード",
+   "textJa": "増分（あなたが呪文１つを唱えるたび、あなたが支払ったマナの点数がこのクリーチャーのパワーやタフネスよりも大きい場合、このクリーチャーの上に＋１/＋１カウンター１個を置く。）\nこのクリーチャーの上に１個以上の＋１/＋１カウンターが置かれるたび、カード１枚を引く。",
+   "tip": "最初は1マナ以上払って呪文を唱えるだけで増分が乗り、1枚引ける。賢きモスマンの誘発・増殖・古代の災厄、ジェノバでカウンターを置くたびに1枚引ける（1回で何個置かれても1枚）ので、カウンターの置き先の第一候補になる",
+   "count": 1,
+   "manaCost": "{1}{U}{U}",
+   "cmc": 3,
+   "typeLine": "Creature — Human Wizard",
+   "oracle": "Increment (Whenever you cast a spell, if the amount of mana you spent is greater than this creature's power or toughness, put a +1/+1 counter on this creature.)\nWhenever one or more +1/+1 counters are put on this creature, draw a card.",
+   "power": 0,
+   "toughness": 2,
+   "colors": [
+    "U"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Increment"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/5/f/5fdbe035-8a56-47ff-8420-01e72bbc29fe.jpg?1788983084",
+    "normal": "https://cards.scryfall.io/normal/front/5/f/5fdbe035-8a56-47ff-8420-01e72bbc29fe.jpg?1788983084"
+   }
+  },
+  {
+   "name": "The Master of Lake-town",
+   "jaName": "湖の町の統領",
+   "typeJa": "伝説のクリーチャー — 人間・アドバイザー",
+   "textJa": "接死\nプレイヤー１人がライフを失うたび、そのプレイヤーはその点数に等しい枚数のカードを切削する。（ダメージによりライフは失われる。）\n湖の町の統領が死亡したとき、７枚以上のカードがある墓地１つにつき１枚のカードを引く。",
+   "tip": "血の長の昇天に探索カウンターが3個以上あれば、対戦相手の墓地にカードが置かれる→2点失う→2枚切削する…が繰り返され、その対戦相手のライフかライブラリーが尽きるまで止まらない。RADカウンターや戦闘でライフを失った分も切削になり、その中の土地でないカードで賢きモスマンが誘発する。自分がライフを失っても自分が切削するので、ライブラリーの残りに注意する",
+   "count": 1,
+   "manaCost": "{1}{B}{B}",
+   "cmc": 3,
+   "typeLine": "Legendary Creature — Human Advisor",
+   "oracle": "Deathtouch\nWhenever a player loses life, that player mills that many cards. (Damage causes loss of life.)\nWhen The Master of Lake-town dies, draw a card for each graveyard with seven or more cards in it.",
+   "power": 3,
+   "toughness": 2,
+   "colors": [
+    "B"
+   ],
+   "producedMana": [],
+   "keywords": [
+    "Mill",
+    "Deathtouch"
+   ],
+   "image": {
+    "small": "https://cards.scryfall.io/small/front/a/6/a66b31e5-2d04-4177-a878-692911f56de1.jpg?1786549876",
+    "normal": "https://cards.scryfall.io/normal/front/a/6/a66b31e5-2d04-4177-a878-692911f56de1.jpg?1786549876"
+   }
+  }
+ ]
+}

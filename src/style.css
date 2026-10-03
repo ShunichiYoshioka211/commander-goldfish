@@ -116,6 +116,14 @@ button.picked {
   flex: 1;
 }
 
+/* 選択欄の幅は一番長い選択肢（デッキの表示名など）で決まるので、画面の幅を超えないようにする */
+.topbar select,
+.edit-toolbar select {
+  max-width: 100%;
+  min-width: 0;
+  text-overflow: ellipsis;
+}
+
 .edit-toolbar {
   background: var(--panel);
   border: 1px dashed var(--red);

@@ -1,0 +1,8 @@
+{
+  "name": "賢きモスマン（スゥルタイ・放射能と+1/+1カウンター）",
+  "csv": "cards.csv",
+  "commanders": [
+    "The Wise Mothman"
+  ],
+  "include": "all"
+}

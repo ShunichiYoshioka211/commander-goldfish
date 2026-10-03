@@ -44,6 +44,9 @@ export const TOKENS: Record<string, CardDef> = Object.fromEntries(
       'トランプル、速攻\n終了ステップの開始時に、このクリーチャーを生け贄に捧げる。',
       ['Trample', 'Haste'],
     ),
+    token('Beast', 'ビースト', 'Token Creature — Beast', 'トークン・クリーチャー — ビースト', ['G'], 3, 3),
+    token('Zombie Mutant', 'ゾンビ・ミュータント', 'Token Creature — Zombie Mutant', 'トークン・クリーチャー — ゾンビ・ミュータント', ['B'], 2, 2),
+    token('Eldrazi Spawn', 'エルドラージ・落とし子', 'Token Creature — Eldrazi Spawn', 'トークン・クリーチャー — エルドラージ・落とし子', [], 0, 1, 'このクリーチャーを生け贄に捧げる：{C}を加える。'),
     token('Robot', 'ロボット', 'Token Artifact Creature — Robot', 'トークン・アーティファクト・クリーチャー — ロボット', [], 2, 2),
     token('Treasure', '宝物', 'Token Artifact — Treasure', 'トークン・アーティファクト — 宝物', [], null, null, '{T}, このアーティファクトを生け贄に捧げる：好きな色１色のマナ１点を加える。'),
     token(

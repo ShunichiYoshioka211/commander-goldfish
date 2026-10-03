@@ -2,12 +2,13 @@
 import { expect, test } from './fixtures';
 
 const INGRIS = 'イングリス・スティンガークイル（黒赤バーン）';
+const MOTHMAN = '賢きモスマン（スゥルタイ・放射能と+1/+1カウンター）';
 const GOBLINS = 'テスト用ゴブリン（e2e 専用）';
 
 test('デッキを切り替えると、そのデッキで新しいゲームが始まり、次に開いたときも覚えている', async ({ app, page }) => {
   await app.open();
   const select = page.getByRole('combobox', { name: 'デッキ' });
-  await expect(select.locator('option')).toHaveText([INGRIS, GOBLINS]);
+  await expect(select.locator('option')).toHaveText([INGRIS, MOTHMAN, GOBLINS]);
   await expect(select).toHaveValue('ingris');
   await page.getByRole('button', { name: 'キープ' }).click();
   await page.getByRole('button', { name: 'ターン終了' }).click();

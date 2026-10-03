@@ -17,7 +17,8 @@ npx playwright install chromium
 npm run dev            # http://localhost:5173
 ```
 
-URL パラメータ：`?seed=123` で配りを固定、`?images=0` でカード画像を出さない（文字のカードになる）。
+URL パラメータ：`?seed=123` で配りを固定、`?images=0` でカード画像を出さない（文字のカードになる）、
+`?rivals=1` で相手ありモード（`0` で相手なし）、`?seat=1..4` で相手ありモードの席を固定。
 
 ## 2. コマンド
 
@@ -45,12 +46,13 @@ decks/<id>/      デッキの元データ（人が編集する。1デッキ1フ�
   config.json    表示名・統率者・カード一覧のファイル名・取り込む行（include: all | inDeck）
   *.csv          カードの一覧（スプレッドシート「デッキリスト」の書き出しでもよい）
   ja.json        カードごとの日本語のタイプ行・効果・使い方のコツ（正）
-docs/            手順書（新しいデッキの追加は docs/adding-a-deck.md）
+docs/            手順書（新しいデッキの追加は docs/adding-a-deck.md、相手ありモードの仕組みは docs/opponent-mode.md）
 scripts/         ビルド時だけ動く Node スクリプト（src/ からは import しない）
 src/
   data/decks/    import-deck が生成する <id>.json。手で編集しない（コミットはする）。置けば自動で一覧に出る
   data/extra-decks/ 本番では空。e2e・ユニットテストのときは代わりに tests/fixtures/decks/ が読まれる
   engine/        ルールエンジン。React に依存しない純粋な TypeScript
+  engine/rivals/ 相手ありモード（kinds.ts：表、plan.ts・combat.ts：純粋関数、board.ts：盤面を読む関数、index.ts：状態の操作）
   cards/         カードごとの自動処理（scripts/）、トークンの定義、登録表
   ui/            React の画面
   store.ts       zustand。ゲーム状態の履歴（Undo/Redo）と画面の設定
@@ -127,6 +129,29 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
 `engine/rng.ts` のシード付き乱数だけを使う（`Math.random()` はエンジンで使わない）。
 同じシードで同じ配りになることをテストで確かめている。
 
+相手ありモードの相手は、配りの `rng` とは別の `rivals.rng` を使う（4.7 節）。配りの乱数を相手のために引かないこと
+（引くと、相手あり／なしで初手とライブラリーの順が変わる）。
+
+### 4.7 相手ありモードの約束
+
+仕組みは [docs/opponent-mode.md](docs/opponent-mode.md)。
+
+1. **相手の盤面は `CardInstance` にしない。** `Opponent.board`（`RivalPermanent`）に持つ。`creatures(s)` / `battlefield(s)` を見る既存のスクリプトが
+   相手側に反応しないようにするため。相手のクリーチャーが関わる処理（冒涜の行動・除去・病的な日和見主義者）では、`rivals/board.ts` の関数で明示的に見る
+2. **相手の乱数は `rivals.rng` だけを使い、相手の1ターンに必ず `ROLLS_PER_STEP`（32）個引く。** 脱落していても、使わない分も引く。
+   使い道は添字で予約する（`kinds.ts` の `ROLL`）。自分の回し方を変えても相手の乱数の流れがずれないようにするため。作り直しは別の種から作る
+3. **確率の結果は表引き・比較・`filter`・`Math.floor` で書き、結果ごとの `if` / 三項演算子を書かない。** 結果ごとの分岐は e2e で両側を通すのが難しく、
+   カバレッジ 100% を保てなくなる（統率者が倒れたときの `commanderLeft` のように、「起きなければ何も変わらない式」にする）
+4. **相手のクリーチャーへのダメージは `damageRival`、死亡は `destroyRival` を通す。** 増幅・絆魂・接死と、死亡の誘発・このターンに死亡した数がここに集まっている。
+   脱落・作り直し・編集で誘発なしに消すときは、死亡として扱わない
+5. **新しいフィールドは `cloneState` にも足す。** `opponents[].board` の要素、`rivals` の配列、`blocks`、`animated.keywords` も複製している
+6. **モードの判定（`if (s.rivals)`）は入口だけにする。** ターンの区切り（`nextTurn`）・キープ（`beginGame`）・攻撃宣言（`beforeBlocks`）・除去の対象（`chooseTarget`）。
+   `board` / `blocks` / `active` は相手なしでも必ず持たせ（空配列・`{}`・`null`）、`?.` の分岐を増やさない
+7. **ターンの終わりの処理は、相手のターンも `endOfTurnCleanup` を通す**（ターン終了までの効果と、相手のクリーチャーが受けたダメージを消す。CR 514.2）
+8. `engine/rivals/index.ts` は `turn.ts` を import しない（`turn.ts` がここを使う）。`rivals/kinds.ts` は葉のモジュールに保つ
+9. 増幅（`damageBonus`）は受け手 `to`（`'player'` / `'permanent'`）を受け取る。「対戦相手か、対戦相手のパーマネント」に乗る増幅は `to` を見ない。
+   プレイヤーにだけ乗るもの（拷問部屋）は第2段階で `to === 'player'` を足す
+
 ## 5. カードの自動処理を足す
 
 1. `src/cards/scripts/` のうち内容の近いファイルにスクリプトを書く
@@ -197,6 +222,11 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
 | `app.choose(ラベル)` | 選択ダイアログの選択肢を押す |
 | `app.drag(id, セレクタ)` | カードをドラッグする |
 | `app.endTurn()` | ターン終了。手札が8枚以上なら捨てる選択に答える |
+| `app.start(RIVALS)` | 相手ありモード・1番手・シード1で始める（`fixtures.ts` の `RIVALS`）。1番手なので1ターン目の相手の盤面は空で、シード1の相手は1ターン目に何も出さない |
+| `app.rival(opp, kind)` | 相手の盤面に種類（`kinds.ts` の `KINDS` のキー）を指定して出し、その ID を返す |
+| `app.chip(id)` | 相手のクリーチャーのチップ（同じ種類・状態のものは1つにまとまる） |
+| `app.attackAll(opp)` | 戦闘へ進み、攻撃できる全員で攻撃する |
+| `app.tokens(name)` | 名前でトークンの ID を探す |
 
 注意：
 
@@ -207,6 +237,10 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
 - 右ボタンの離しイベントのように、ブラウザや OS で届き方が違うものは、テストでイベントを直接起こして分岐を通す
   （ローカルで 100% でも CI で落ちたことがある）
 - スマホ幅のテストは `tests/e2e/mobile.spec.ts` にだけ書く（`mobile` プロジェクト。タッチ操作が使える）
+- 1つのテストで何度も開き直す（`app.open` / `app.start` を2回以上呼ぶ）と、開き直す前の計測が消える。`app.open` は開き直す前にカバレッジを書き出すので、
+  **`page.goto` を直接使わず `app.open` を通す**（前半の計測が消えて、通っているはずの分岐が未到達になったことがある）
+- 相手ありモードの準備は、トークンを出して `app.endTurn()` で召喚酔いを解く（シード1・1番手なら相手の1ターン目は何も出さないので盤面は空のまま）。
+  相手のブロックは「応答できるか」で `declared` に止まるかが変わるので、土地と手札を置く順に気をつける
 
 ## 8. 画面の約束
 
@@ -237,5 +271,6 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
 
 - 形態は Web（PWA）＋ GitHub Pages。Android はホーム画面に追加して使う（APK は作らない）
 - 自動化は半自動。ルールの土台は自動、カード効果は軸になるものだけ
-- 対戦相手はライフと統率者ダメージだけを持ち、妨害は編集モードで人が再現する
+- 相手なしモード（既定）では、対戦相手はライフと統率者ダメージだけを持ち、妨害は編集モードで人が再現する
+- 相手ありモードでは、相手は汎用の架空クリーチャーの盤面を持ち、決まった規則でブロックする。相手からの攻撃・除去は段階的に足す（[docs/opponent-mode.md](docs/opponent-mode.md)）
 - 画面の表記は日本語。ルール判定は英語のデータで行う

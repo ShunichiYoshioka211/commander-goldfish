@@ -43,8 +43,9 @@ function Log() {
 function Stats() {
   const game = useStore((s) => s.game);
   const deckId = useStore((s) => s.game.deckId);
-  // 記録はデッキごとに見る
-  const results = useStore((s) => s.results).filter((r) => r.deck === deckId);
+  const rivals = game.rivals !== null;
+  // 記録はデッキとモード（相手あり／なし）ごとに見る
+  const results = useStore((s) => s.results).filter((r) => r.deck === deckId && r.rivals === rivals);
   const turns = Array.from({ length: game.turn }, (_, i) => i + 1);
   const perTurn = turns.map((t) =>
     Array.from({ length: OPPONENTS }, (_, opp) =>
@@ -83,7 +84,9 @@ function Stats() {
           ))}
         </tbody>
       </table>
-      <h3>これまでの記録（平均キルターン {average}）</h3>
+      <h3>
+        これまでの記録（{rivals ? '相手あり' : '相手なし'}・平均キルターン {average}）
+      </h3>
       <table>
         <tbody>
           {results

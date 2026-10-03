@@ -1,9 +1,34 @@
 // 右側の操作欄：フェイズ進行・攻撃・マナ・プール、編集モードの道具。
 import { useState } from 'react';
 import { TOKENS } from '../cards/tokens';
-import { aliveOpponents } from '../engine/core';
+import { aliveOpponents, nameJa } from '../engine/core';
 import { COLORS } from '../engine/mana';
+import { findRival, rivalLabel } from '../engine/rivals/board';
+import { KINDS, STYLES } from '../engine/rivals/kinds';
+import type { GameState } from '../engine/types';
 import { useStore } from '../store';
+
+/** 操作欄に出すブロックの数。残りは「ほか N 件」 */
+const SHOWN_BLOCKS = 4;
+
+function BlockList({ game }: { game: GameState }) {
+  const blocks = Object.entries(game.blocks);
+  if (blocks.length === 0) return <div className="hint">ブロックされなかった</div>;
+  return (
+    <div className="block-list" data-testid="block-list">
+      {blocks.slice(0, SHOWN_BLOCKS).map(([a, b]) => {
+        const rival = findRival(game, b);
+        return (
+          <div key={a}>
+            {nameJa(game.cards[a])} ← {rival ? `${rivalLabel(rival.p)}（相手${rival.opp + 1}）` : '（除去済み）'}
+          </div>
+        );
+      })}
+      {blocks.length > SHOWN_BLOCKS && <div className="muted">ほか {blocks.length - SHOWN_BLOCKS} 件</div>}
+      <div className="hint">ブロックされたクリーチャーは、ダメージの前に生け贄にできる（攻撃中なのでガルナで引ける）</div>
+    </div>
+  );
+}
 
 export function Controls() {
   const game = useStore((s) => s.game);
@@ -41,10 +66,21 @@ export function Controls() {
           </button>
         </>
       )}
+      {game.phase === 'declared' && (
+        <>
+          <div className="hint">ブロックの前。インスタントで相手のクリーチャーを除去できる</div>
+          <button className="primary" onClick={() => dispatch({ type: 'toBlocks' })}>
+            ブロックへ
+          </button>
+        </>
+      )}
       {game.phase === 'attacking' && (
-        <button className="primary" onClick={() => dispatch({ type: 'damage' })}>
-          戦闘ダメージ
-        </button>
+        <>
+          {game.rivals && <BlockList game={game} />}
+          <button className="primary" onClick={() => dispatch({ type: 'damage' })}>
+            戦闘ダメージ
+          </button>
+        </>
       )}
       {game.phase === 'afterDamage' && (
         <>
@@ -92,8 +128,43 @@ function Pool() {
   );
 }
 
+/** 相手の統率者の種類 → 性格の名前（一覧で見分けるため） */
+const COMMANDER_STYLE: Record<string, string> = Object.fromEntries(Object.values(STYLES).map((st) => [st.commander, st.name]));
+const kindLabel = (kind: string) => {
+  const label = rivalLabel({ id: '', kind, tapped: false, sick: false, damage: 0 });
+  return kind in COMMANDER_STYLE ? `${label}（${COMMANDER_STYLE[kind]}）` : label;
+};
+
+function RivalTools() {
+  const game = useStore((s) => s.game);
+  const dispatch = useStore((s) => s.dispatch);
+  const [kind, setKind] = useState('bear');
+  const [opp, setOpp] = useState(0);
+  return (
+    <span className="rival-maker">
+      <select aria-label="相手のクリーチャーの種類" value={kind} onChange={(e) => setKind(e.target.value)}>
+        {Object.keys(KINDS).map((k) => (
+          <option key={k} value={k}>
+            {kindLabel(k)}
+          </option>
+        ))}
+      </select>
+      <select aria-label="出す相手" value={opp} onChange={(e) => setOpp(Number(e.target.value))}>
+        {aliveOpponents(game).map((i) => (
+          <option key={i} value={i}>
+            相手{i + 1}
+          </option>
+        ))}
+      </select>
+      <button onClick={() => dispatch({ type: 'rivalAdd', opp, kind })}>相手に出す</button>
+      <button onClick={() => dispatch({ type: 'rivalRebuild', opp: null })}>相手の盤面を作り直す</button>
+    </span>
+  );
+}
+
 export function EditToolbar() {
   const editTriggers = useStore((s) => s.editTriggers);
+  const rivals = useStore((s) => s.game.rivals !== null);
   const set = useStore((s) => s.set);
   const dispatch = useStore((s) => s.dispatch);
   const [token, setToken] = useState('Goblin');
@@ -117,6 +188,7 @@ export function EditToolbar() {
       </span>
       <button onClick={() => dispatch({ type: 'wipe' })}>全クリーチャー破壊</button>
       <button onClick={() => dispatch({ type: 'shuffle' })}>シャッフル</button>
+      {rivals && <RivalTools />}
     </div>
   );
 }

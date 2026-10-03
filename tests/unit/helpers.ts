@@ -1,11 +1,12 @@
 import { apply, type Action } from '../../src/engine/actions';
-import { newGame } from '../../src/engine/turn';
+import { newGame, type RivalsOption } from '../../src/engine/turn';
 import type { GameState, ZoneId } from '../../src/engine/types';
 
 export class Game {
   s: GameState;
-  constructor(seed = 1) {
-    this.s = newGame(seed, 'ingris');
+  /** rivals を渡すと相手ありモード（{ seat: 1 } なら1番手で、1ターン目の相手の盤面は空） */
+  constructor(seed = 1, rivals: RivalsOption | null = null) {
+    this.s = newGame(seed, 'ingris', rivals);
   }
   do(...actions: Action[]) {
     for (const a of actions) this.s = apply(this.s, a);
@@ -30,6 +31,11 @@ export class Game {
   }
   tokens(name: string) {
     return this.field.filter((c) => c.token && c.name === name);
+  }
+  /** 相手の盤面に種類を指定して出す */
+  rival(opp: number, kind: string) {
+    this.do({ type: 'rivalAdd', opp, kind });
+    return this.s.opponents[opp].board.at(-1)!.id;
   }
   get oppLife() {
     return this.s.opponents.map((o) => o.life);

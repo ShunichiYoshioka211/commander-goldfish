@@ -122,7 +122,7 @@ test('スクリプトの無いカード・タイミング・統率者税', async
   await app.dispatch({ type: 'toCombat' });
   await app.card(feed).click();
   await expect(app.page.getByRole('dialog').getByRole('button', { name: /唱える/ })).toHaveCount(0);
-  await expect(app.page.getByRole('dialog')).toContainText('効果は手動で処理');
+  await expect(app.page.getByRole('dialog')).toContainText('相手ありモードで自動処理');
   await app.page.getByRole('button', { name: '閉じる' }).click();
   // インスタントは唱えられる
   const grasp = await app.put('Infernal Grasp', 'hand');

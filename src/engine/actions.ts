@@ -40,6 +40,8 @@ export type Action =
   | { type: 'monarch' }
   /** RADカウンターの増減。who=null はあなた */
   | { type: 'rad'; who: number | null; delta: number }
+  /** 対戦相手のライブラリーと墓地のあいだで枚数を動かす（手動で処理するカードの切削。誘発はさせない） */
+  | { type: 'oppMill'; opp: number; delta: number }
   | { type: 'pool'; color: ManaColor; delta: number }
   | { type: 'shuffle' }
   | { type: 'wipe' }
@@ -164,6 +166,13 @@ export function apply(prev: GameState, action: Action): GameState {
       break;
     case 'speed': s.speed = Math.min(4, Math.max(0, s.speed + action.delta)); break;
     case 'monarch': s.monarch = !s.monarch; break;
+    case 'oppMill': {
+      const o = s.opponents[action.opp];
+      const n = Math.max(-o.graveyard, Math.min(action.delta, o.library));
+      Object.assign(o, { library: o.library - n, graveyard: o.graveyard + n, milled: Math.max(0, o.milled + n) });
+      log(s, `［編集］対戦相手${action.opp + 1} のライブラリー${o.library}枚・墓地${o.graveyard}枚`);
+      break;
+    }
     case 'rad':
       if (action.who === null) s.rad = Math.max(0, s.rad + action.delta);
       else s.opponents[action.who].rad = Math.max(0, s.opponents[action.who].rad + action.delta);

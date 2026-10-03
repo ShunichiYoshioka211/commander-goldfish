@@ -43,7 +43,8 @@ export function millOpponents(s: GameState, opps: number[], n: number): MillEven
     .filter((opp) => s.opponents[opp].deadTurn === null)
     .map((opp) => {
       const o = s.opponents[opp];
-      const total = Math.min(n + bonus, o.library);
+      // 水のクリスタルは「1枚以上を切削するなら」なので、0枚の切削には足さない
+      const total = Math.min(n + bonus * Number(n > 0), o.library);
       const nonland = nonlandUpTo(o.milled + total) - nonlandUpTo(o.milled);
       Object.assign(o, { library: o.library - total, milled: o.milled + total, graveyard: o.graveyard + total });
       log(s, `対戦相手${opp + 1} は${total}枚を切削（土地でないカード${nonland}枚とみなす）`);

@@ -43,7 +43,7 @@ export function Opponents() {
             {o.deadTurn !== null && `・${o.deadTurn}T 脱落`}
           </div>
           <div className="opp-sub" data-testid={`opp${i}-library`}>
-            ライブラリー {o.library}
+            ライブラリー {o.library}・墓地 {o.graveyard}
             {o.rad > 0 && <span className="badge rad">RAD {o.rad}</span>}
           </div>
           {editMode && (
@@ -55,6 +55,8 @@ export function Opponents() {
               <button onClick={() => dispatch({ type: 'cmdDamage', opp: i, delta: -1 })}>統−1</button>
               <button onClick={() => dispatch({ type: 'rad', who: i, delta: 1 })}>RAD+1</button>
               <button onClick={() => dispatch({ type: 'rad', who: i, delta: -1 })}>RAD−1</button>
+              <button onClick={() => dispatch({ type: 'oppMill', opp: i, delta: 1 })}>切削+1</button>
+              <button onClick={() => dispatch({ type: 'oppMill', opp: i, delta: -1 })}>切削−1</button>
             </div>
           )}
           {rivals && (

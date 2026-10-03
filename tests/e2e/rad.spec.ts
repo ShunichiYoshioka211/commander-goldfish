@@ -20,8 +20,8 @@ test('対戦相手のターン：ドローとRADカウンターの切削。土�
   // 相手2：5枚切削（土地でない3枚）
   expect(s.opponents[1]).toMatchObject({ life: 37, rad: 2, library: 86 });
   expect(s.opponents[2]).toMatchObject({ life: 40, rad: 0, library: 91 });
-  await expect(page.getByTestId('opp0-library')).toHaveText('ライブラリー 88RAD 2');
-  await expect(page.getByTestId('opp2-library')).toHaveText('ライブラリー 91');
+  await expect(page.getByTestId('opp0-library')).toHaveText('ライブラリー 88・墓地 3RAD 2');
+  await expect(page.getByTestId('opp2-library')).toHaveText('ライブラリー 91・墓地 0');
   // ダメージの記録にも入る
   await page.getByRole('button', { name: '記録' }).click();
   await expect(page.getByTestId('stats')).toContainText('RADカウンター');
@@ -52,6 +52,14 @@ test('あなたのRADカウンター：最初のメイン・フェイズの開�
   await opp.getByRole('button', { name: 'RAD−1' }).click();
   await opp.getByRole('button', { name: 'RAD−1' }).click();
   expect((await app.state()).opponents[1].rad).toBe(0);
+  // 手動で処理するカードの切削：ライブラリーと墓地のあいだで枚数を動かす（墓地より多くは戻せない）
+  await opp.getByRole('button', { name: '切削+1' }).click();
+  await opp.getByRole('button', { name: '切削+1' }).click();
+  await opp.getByRole('button', { name: '切削−1' }).click();
+  await opp.getByRole('button', { name: '切削−1' }).click();
+  await opp.getByRole('button', { name: '切削−1' }).click();
+  await opp.getByRole('button', { name: '切削+1' }).click();
+  expect((await app.state()).opponents[1]).toMatchObject({ library: 90, graveyard: 1 });
 });
 
 test('ライブラリーが無くなった対戦相手は、引こうとしたときに敗北する（水のクリスタルで切削を増やす・青の呪文が軽い）', async ({ app, page }) => {
@@ -93,6 +101,7 @@ test('賢きモスマン：出たときに全員がRADカウンター（巻き�
   expect(s.zones.hand.length).toBe(hand - 1 + 1);
   expect(s.prompt?.title).toContain('賢きモスマン：+1/+1カウンターを置くクリーチャー（1体まで）');
   await app.choose('賢きモスマン');
+  await app.decide();
   // 1個 ＋ 巻きつき蛇 1個
   expect((await app.state()).cards[mothman].counters['+1/+1']).toBe(2);
 });
@@ -119,4 +128,54 @@ test('+1/+1カウンターの置換は、足すものを先・倍にするもの
   // 相手1のRADだけ増え（持っていない相手は増えない）、あなたのRADは増やさない
   expect(s.opponents.map((o) => o.rad)).toEqual([2, 0, 0]);
   expect(s.rad).toBe(2);
+});
+
+test('本題の流れ：対戦相手の最初のメイン・フェイズのRAD切削で、賢きモスマンが相手のターン中にカウンターを配る（相手なし・相手あり）', async ({ app }) => {
+  for (const query of [MOTHMAN, 'rivals=1&seat=1&seed=1&images=0&deck=mothman']) {
+    await app.start(query);
+    const mothman = await app.put('The Wise Mothman', 'battlefield');
+    await app.put('Winding Constrictor', 'battlefield');
+    await app.dispatch({ type: 'rad', who: 0, delta: 2 });
+    await app.dispatch({ type: 'endTurn' });
+    let s = await app.state();
+    // 相手1のターン：2枚切削（土地でない1枚）→ X=1、クリーチャー2体なので選ぶ
+    expect(s.active).toBe(0);
+    expect(s.prompt?.title).toContain('賢きモスマン');
+    await app.choose('賢きモスマン');
+    await app.decide();
+    s = await app.state();
+    expect(s.turn).toBe(2);
+    expect(s.active).toBeNull();
+    expect(s.cards[mothman].counters['+1/+1']).toBe(2);
+    expect(s.opponents[0]).toMatchObject({ life: 39, rad: 1 });
+  }
+});
+
+test('唱えたときの誘発は呪文より先に解決する（流束の媒介者の増殖のあとに放射性降下物）。{T} を含む能力の発生源は自分のマナを使えない', async ({ app, page }) => {
+  await app.start(MOTHMAN);
+  await app.put('Flux Channeler', 'battlefield');
+  await app.dispatch({ type: 'pool', color: 'B', delta: 2 }, { type: 'pool', color: 'C', delta: 1 });
+  await app.act(await app.put('Nuclear Fallout', 'hand'), /唱える/);
+  await app.choose('X=1');
+  // 増殖の時点では誰も RAD を持たないので増えず、降下物で1個ずつ
+  expect((await app.state()).opponents.map((o) => o.rad)).toEqual([1, 1, 1]);
+  // カーンの拠点（{4},{T}）：ほかの土地が3枚では起動できない
+  const bastion = await app.put("Karn's Bastion", 'battlefield');
+  await app.lands('Island', 'Island', 'Island');
+  await app.card(bastion).click();
+  await expect(page.getByRole('dialog').getByRole('button', { name: '{4}：増殖' })).toHaveCount(0);
+  await page.getByRole('button', { name: '閉じる' }).click();
+  await app.lands('Forest');
+  await app.act(bastion, '{4}：増殖');
+  const s = await app.state();
+  expect(s.opponents.map((o) => o.rad)).toEqual([2, 2, 2]);
+  expect(s.zones.battlefield.map((id) => s.cards[id]).filter((c) => c.name !== 'Flux Channeler').every((c) => c.tapped)).toBe(true);
+});
+
+test('水のクリスタルの「4枚多く」は、0枚の切削には足さない', async ({ app }) => {
+  await app.start(MOTHMAN);
+  const crystal = await app.put('The Water Crystal', 'battlefield');
+  for (const id of (await app.state()).zones.hand) await app.dispatch({ type: 'move', id, to: 'graveyard', trigger: false });
+  await app.dispatch({ type: 'pool', color: 'U', delta: 2 }, { type: 'pool', color: 'C', delta: 4 }, { type: 'activate', id: crystal, index: 0 });
+  expect((await app.state()).opponents.map((o) => o.library)).toEqual([92, 92, 92]);
 });

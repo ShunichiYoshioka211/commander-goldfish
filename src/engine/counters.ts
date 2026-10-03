@@ -20,8 +20,8 @@ export const COUNTER_JA: Record<string, string> = {
  * 置換の順は影響を受けるもののコントローラー（あなた）が選べるので、いちばん多くなる順にする（CR 616.1）
  */
 export function addCounters(s: GameState, card: CardInstance, kind: string, n: number): number {
-  // 0個を置くときは置換も効かない（搭載歩行機械の X=0 など）
-  if (n <= 0) return 0;
+  // 0個を置くときは置換も効かない（搭載歩行機械の X=0 など）。戦場を離れたカードには置けない（墓地のカードは別のオブジェクト。CR 400.7）
+  if (n <= 0 || card.zone !== 'battlefield') return 0;
   const field = battlefield(s);
   const plus = field.reduce((sum, p) => sum + (scriptOf(p).moreCounters?.(s, p, card, kind) ?? 0), 0);
   const doubles = field.filter((p) => scriptOf(p).doubleCounters?.(s, p, card, kind)).length;

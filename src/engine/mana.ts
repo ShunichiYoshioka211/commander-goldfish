@@ -65,9 +65,9 @@ interface Unit {
  * 自動支払いに使える単位。
  * 出せる色が少ない（ありふれた）発生源ほど先に使い、二色土地や少ない色の土地を後に残す。
  */
-function autoUnits(s: GameState): Unit[] {
+function autoUnits(s: GameState, exclude: string): Unit[] {
   const units: Unit[] = [];
-  for (const card of battlefield(s).filter(canTapForMana)) {
+  for (const card of battlefield(s).filter((c) => c.id !== exclude && canTapForMana(c))) {
     const options = manaOptions(s, card).filter((o) => !o.manual);
     const singles = options.filter((o) => o.produce.length === 1);
     if (singles.length > 0) {
@@ -105,7 +105,7 @@ function assign(slots: Slot[], units: Unit[]): number[] | null {
   return owner;
 }
 
-function plan(s: GameState, cost: Cost) {
+function plan(s: GameState, cost: Cost, exclude = '') {
   const pool = { ...s.pool };
   const slots: Slot[] = [];
   for (const c of cost.colors) {
@@ -119,12 +119,13 @@ function plan(s: GameState, cost: Cost) {
     generic -= use;
   }
   for (let i = 0; i < generic; i++) slots.push('*');
-  const units = autoUnits(s);
+  const units = autoUnits(s, exclude);
   const owner = assign(slots, units);
   return owner && { pool, units, owner, slots };
 }
 
-export const canPay = (s: GameState, cost: Cost) => plan(s, cost) !== null;
+/** 払えるか。exclude はマナに使わない発生源（{T} を含む能力の発生源自身） */
+export const canPay = (s: GameState, cost: Cost, exclude = '') => plan(s, cost, exclude) !== null;
 
 export function pay(s: GameState, cost: Cost): boolean {
   const p = plan(s, cost);

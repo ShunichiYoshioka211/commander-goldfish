@@ -2,6 +2,7 @@
 import { TOKENS } from '../cards/tokens';
 import { scriptOf } from '../cards/registry';
 import { shuffleWith } from './rng';
+import { addCounters } from './counters';
 import { defByName } from './deck';
 import type { CardDef, CardInstance, GameState, Prompt, TurnFlags, ZoneId } from './types';
 
@@ -74,6 +75,8 @@ export function drain(s: GameState) {
   s.queue.unshift(...s.fresh.splice(0));
   while (!s.prompt && s.queue.length > 0 && s.phase !== 'over') {
     s.queue.shift()!.run(s);
+    // 状況起因処理：タフネスが0以下のクリーチャーは死亡する（CR 704.5f）
+    destroyAll(s, creatures(s).filter((c) => toughness(c) <= 0).map((c) => c.id));
     s.queue.unshift(...s.fresh.splice(0));
   }
 }
@@ -105,7 +108,7 @@ export function moveTo(
   s: GameState,
   id: string,
   to: ZoneId,
-  opts: { trigger?: boolean; bottom?: boolean; tapped?: boolean; observers?: CardInstance[] } = {},
+  opts: { trigger?: boolean; bottom?: boolean; tapped?: boolean; observers?: CardInstance[]; counters?: Record<string, number> } = {},
 ) {
   const trigger = opts.trigger ?? true;
   const card = s.cards[id];
@@ -124,7 +127,11 @@ export function moveTo(
   s.cards[id] = moved;
   if (opts.bottom || dest !== 'library') s.zones[dest].push(id);
   else s.zones[dest].unshift(id);
-  if (dest === 'battlefield') enterBattlefield(s, moved, trigger, opts.tapped ?? false);
+  if (dest === 'battlefield') {
+    // 出るときに持つカウンター（CR 122.6：出るときに与えられるカウンターも「置かれる」）。置換も効く
+    for (const [kind, n] of Object.entries(opts.counters ?? {})) addCounters(s, moved, kind, n);
+    enterBattlefield(s, moved, trigger, opts.tapped ?? false);
+  }
 }
 
 function leaveBattlefield(s: GameState, card: CardInstance, to: ZoneId, trigger: boolean, observers: CardInstance[]) {

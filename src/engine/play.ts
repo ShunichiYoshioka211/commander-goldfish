@@ -3,7 +3,7 @@
 import { scriptOf } from '../cards/registry';
 import type { Ability, CastInfo, ExtraCost } from '../cards/types';
 import type { CastSpec } from '../cards/types';
-import { ask, battlefield, canAttack, def, drain, hasKeyword, isCreature, isLand, log, moveTo, nameJa, typeOf } from './core';
+import { ask, battlefield, canAttack, def, drain, enqueue, hasKeyword, isCreature, isLand, log, moveTo, nameJa, typeOf } from './core';
 import { youLoseLife } from './damage';
 import { canPay, parseCost, pay, type Cost } from './mana';
 import { rivalOptions } from './rivals/board';
@@ -162,26 +162,33 @@ function chooseExtra(s: GameState, id: string, extra: ExtraCost | undefined, inf
 function finishCast(s: GameState, id: string, mode: CastMode, info: CastInfo) {
   const card = s.cards[id];
   pay(s, mode.cost);
-  // 唱えたときの誘発（流束の媒介者・沈思の教授の増分）と、このターンに唱えた数（ラッドストームのストーム）
-  s.flags.spellsCast++;
-  const spent = mode.cost.generic + mode.cost.colors.length;
-  for (const p of battlefield(s)) scriptOf(p).onCast?.(s, p, card, spent);
   if (info.sacrificed) {
     log(s, `${nameJa(info.sacrificed)} を生け贄に`);
     moveTo(s, info.sacrificed.id, 'graveyard');
   }
   if (info.from === 'command') s.commanderCasts[card.name] = (s.commanderCasts[card.name] ?? 0) + 1;
   log(s, `${mode.label} を唱えた`);
-  const resolve = scriptOf(card).cast?.resolve;
+  // 唱えたときの誘発（流束の媒介者・沈思の教授の増分）と、このターンに唱えた数（ラッドストームのストーム）。
+  // 誘発は呪文の上に積まれて先に解決するので（CR 601.2i・603.3）、呪文の解決はそのあとに積む
+  s.flags.spellsCast++;
+  const spent = mode.cost.generic + mode.cost.colors.length;
+  for (const p of battlefield(s)) scriptOf(p).onCast?.(s, p, card, spent);
+  enqueue(s, `${mode.label}の解決`, (st) => resolveSpell(st, id, mode, info));
+}
+
+function resolveSpell(s: GameState, id: string, mode: CastMode, info: CastInfo) {
+  const card = s.cards[id];
+  const spec = scriptOf(card).cast;
   if (isPermanentType(card) && !mode.instant) {
-    moveTo(s, id, 'battlefield');
-    resolve?.(s, s.cards[id], info);
+    // 「Xの+1/+1カウンターが置かれた状態で戦場に出る」もの（搭載歩行機械）は、出るときにカウンターを持つ
+    moveTo(s, id, 'battlefield', { counters: spec?.entersWith?.(info) });
+    spec?.resolve?.(s, s.cards[id], info);
     return;
   }
   moveTo(s, id, info.from === 'graveyard' || mode.instant ? 'exile' : 'graveyard');
   // 出来事で追放したカードは、あとでパーマネント側を唱えられる
   s.cards[id].castable = mode.instant;
-  resolve?.(s, s.cards[id], info);
+  spec?.resolve?.(s, s.cards[id], info);
 }
 
 // ---- 起動型能力 ----
@@ -195,14 +202,15 @@ export function canActivate(s: GameState, card: CardInstance, a: Ability) {
   if (a.sorcery && !isMain(s)) return false;
   if (a.tap && (card.tapped || (isCreature(card) && card.sick && !card.haste))) return false;
   if (a.can && !a.can(s, card)) return false;
-  return !a.cost || canPay(s, parseCost(a.cost));
+  // {T} を含む能力は、その発生源自身のマナを同じ起動のコストに使えない
+  return !a.cost || canPay(s, parseCost(a.cost), a.tap ? card.id : '');
 }
 
 export function activate(s: GameState, id: string, index: number) {
   const card = s.cards[id];
   const a = abilitiesOf(card)[index];
-  if (a.cost) pay(s, parseCost(a.cost));
   if (a.tap) card.tapped = true;
+  if (a.cost) pay(s, parseCost(a.cost));
   log(s, `${nameJa(card)}：${a.label}`);
   a.run(s, card);
   drain(s);

@@ -35,11 +35,15 @@ function spreadCounters(s: GameState, x: number) {
   });
 }
 
-/** 進化：自分より大きいクリーチャーが出たら+1/+1カウンター */
+/** 進化：自分より大きいクリーチャーが出たら+1/+1カウンター。条件は解決時にも確かめる（CR 603.4） */
+const bigger = (entered: CardInstance, card: CardInstance) => power(entered) > power(card) || toughness(entered) > toughness(card);
 const evolve: CardScript['onCreatureEnters'] = (s, card, entered) => {
-  if (power(entered) > power(card) || toughness(entered) > toughness(card)) {
-    enqueue(s, `${nameJa(card)}：進化`, (st) => void addCounters(st, st.cards[card.id], '+1/+1', 1));
-  }
+  if (!bigger(entered, card)) return;
+  enqueue(s, `${nameJa(card)}：進化`, (st) => {
+    // 出たものが戦場を離れていたら、最後の情報で比べる
+    const now = { ...entered, ...st.cards[entered.id] };
+    if (bigger(now, st.cards[card.id])) addCounters(st, st.cards[card.id], '+1/+1', 1);
+  });
 };
 
 /** 順応 N：+1/+1カウンターが無いときだけ起動できる（あるときは何も起きないので、ボタンを出さない） */
@@ -337,7 +341,10 @@ export const MILL_SCRIPTS: Record<string, CardScript> = {
     // 死亡したとき、7枚以上ある墓地1つにつき1枚引く
     onDies: (s) =>
       enqueue(s, '湖の町の統領：引く', (st) =>
-        draw(st, [st.zones.graveyard.length, ...st.opponents.map((o) => o.graveyard)].filter((n) => n >= 7).length),
+        draw(
+          st,
+          [st.zones.graveyard.length, ...st.opponents.filter((o) => o.deadTurn === null).map((o) => o.graveyard)].filter((n) => n >= 7).length,
+        ),
       ),
   },
   'Bloodchief Ascension': {
@@ -422,7 +429,8 @@ export const MILL_SCRIPTS: Record<string, CardScript> = {
     },
   },
   'Hangarback Walker': {
-    cast: { x: true, resolve: (s, card, info) => void addCounters(s, card, '+1/+1', info.x) },
+    // X個の+1/+1カウンターが置かれた状態で戦場に出る（0個なら 0/0 で死亡する）
+    cast: { x: true, entersWith: (info) => ({ '+1/+1': info.x }) },
     abilities: [{ label: '+1/+1カウンターを置く', cost: '{1}', tap: true, run: (s, card) => void addCounters(s, card, '+1/+1', 1) }],
     onDies: (s, card) => {
       const n = plusOne(card);

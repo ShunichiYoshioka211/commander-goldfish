@@ -23,6 +23,8 @@ export interface CastSpec {
   x?: boolean;
   /** 不特定マナの軽減量 */
   reduce?: (s: GameState) => number;
+  /** 戦場に出るときに持つカウンター（「X個の+1/+1カウンターが置かれた状態で戦場に出る」） */
+  entersWith?: (info: CastInfo) => Record<string, number>;
   /** 墓地から唱えられる（フラッシュバック）コスト */
   flashback?: string;
   /**

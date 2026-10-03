@@ -124,6 +124,11 @@ export class App {
     await this.page.getByRole('dialog').getByRole('button', { name: label }).first().click();
   }
 
+  /** 複数選べる（選ばなくてもよい）選択の「決定」を押す */
+  async decide() {
+    await this.page.getByRole('dialog').getByRole('button', { name: '決定' }).click();
+  }
+
   /** カード詳細を開いてボタンを押す */
   async act(id: string, button: string | RegExp) {
     await this.card(id).click();

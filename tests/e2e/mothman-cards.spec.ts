@@ -43,6 +43,7 @@ test('六番：攻撃したとき3枚切削し、その中の土地1枚を手札
   const [, forest] = await stackLibrary(app, ['Sol Ring', 'Forest', 'Hardened Scales']);
   await attackWith(app, [[six, 0]]);
   await app.choose('森');
+  await app.decide();
   let s = await app.state();
   expect(s.cards[forest].zone).toBe('hand');
   expect(s.zones.graveyard.map((id) => s.cards[id].name)).toEqual(['Sol Ring', 'Hardened Scales']);
@@ -113,6 +114,7 @@ test('賢きモスマンと金切り声のスコーチビーストの攻撃で�
   await app.act(scour, /唱える/);
   await app.choose(/^対戦相手3/);
   await app.choose('金切り声のスコーチビースト');
+  await app.decide();
   s = await app.state();
   expect(s.cards[beast].counters['+1/+1']).toBe(1);
   expect(await app.tokens('Zombie Mutant')).toHaveLength(1);
@@ -190,10 +192,14 @@ test('マイアラーク・クイーン：出たとき選んだプレイヤー�
   expect(s.zones.hand.length).toBe(hand + 2);
   expect(s.cards[queen].counters['+1/+1']).toBe(1);
   await app.dispatch({ type: 'move', id: scour, to: 'hand', trigger: false });
+  await stackLibrary(app, ['Mindcrank', 'Altar of the Brood']);
+  const before = (await app.state()).zones.hand.length;
   await app.act(scour, /唱える/);
   await app.choose('あなた');
   s = await app.state();
   expect(s.cards[queen].counters['+1/+1']).toBe(1);
+  // 思考掃きの1枚だけ（クイーンは引かない）
+  expect(s.zones.hand.length).toBe(before);
 });
 
 test('放射性降下物：タフネスが 2X 以下のクリーチャーは死に、残りは −2X/−2X、全員が RAD X個（X=0 なら何も起きない）', async ({ app }) => {
@@ -245,9 +251,8 @@ test('勝ち筋：血の長の昇天（探索カウンター3個）＋精神ク�
   await app.choose(/^対戦相手1/);
   const s = await app.state();
   // 2枚が墓地へ → 2点ずつ失う → その点数ぶん切削 → … ライフ40なら20枚で死ぬ
-  expect(s.opponents[0].deadTurn).toBe(1);
-  expect(s.opponents[0].life).toBeLessThanOrEqual(0);
-  expect(s.life).toBeGreaterThanOrEqual(80);
+  expect(s.opponents[0]).toMatchObject({ deadTurn: 1, life: 0, graveyard: 20 });
+  expect(s.life).toBe(80);
   expect(s.opponents[1].life).toBe(40);
 });
 
@@ -360,13 +365,16 @@ test('受け皿：古代の災厄、ジェノバ（戦闘開始時にカウン�
   await app.start(MOTHMAN);
   const jenova = await app.put('Jenova, Ancient Calamity', 'battlefield');
   const ghoul = await app.put('Feral Ghoul', 'battlefield');
+  // 搭載歩行機械はカウンターが無いと 0/0 で死ぬので、1個載せておく
   const walker = await app.put('Hangarback Walker', 'battlefield');
+  await app.dispatch({ type: 'counter', id: walker, kind: '+1/+1', delta: 1 });
   await app.endTurn();
   await pool(app, { C: 1 });
   await app.act(walker, '{1}：+1/+1カウンターを置く');
-  expect((await app.state()).cards[walker].counters['+1/+1']).toBe(1);
+  expect((await app.state()).cards[walker].counters['+1/+1']).toBe(2);
   await app.dispatch({ type: 'toCombat' });
   await app.choose('フェラル・グール');
+  await app.decide();
   let s = await app.state();
   expect(s.cards[ghoul].counters['+1/+1']).toBe(1);
   // あなたのターンにミュータント（フェラル・グール 3/3）が死亡 → 3枚
@@ -375,30 +383,35 @@ test('受け皿：古代の災厄、ジェノバ（戦闘開始時にカウン�
   expect((await app.state()).zones.hand.length).toBe(hand + 3);
   // 搭載歩行機械が死亡 → カウンターの数だけ飛行機械
   await app.dispatch({ type: 'move', id: walker, to: 'graveyard', trigger: true });
-  expect(await app.tokens('Thopter')).toHaveLength(1);
+  expect(await app.tokens('Thopter')).toHaveLength(2);
   await app.dispatch({ type: 'endCombat' });
   await app.endTurn();
   // ほかにクリーチャーがいなければ、ジェノバは聞かない
-  await app.dispatch({ type: 'move', id: (await app.tokens('Thopter'))[0], to: 'graveyard', trigger: false });
+  for (const id of await app.tokens('Thopter')) await app.dispatch({ type: 'move', id, to: 'graveyard', trigger: false });
   await app.dispatch({ type: 'toCombat' });
   s = await app.state();
   expect(s.prompt).toBeNull();
   expect(s.cards[jenova].zone).toBe('battlefield');
 });
 
-test('搭載歩行機械は {X}{X}：X=1 なら2マナ。硬化した鱗で2個。X=0 なら置換も効かず、死亡しても何も出ない', async ({ app }) => {
+test('搭載歩行機械は {X}{X}：X=1 なら2マナ。硬化した鱗で2個。X=0 なら 0/0 で死亡し、何も出ない', async ({ app, page }) => {
   await app.start(MOTHMAN);
   await app.put('Hardened Scales', 'battlefield');
   const walker = await app.put('Hangarback Walker', 'hand');
   await pool(app, { C: 2 });
   await app.act(walker, /唱える/);
+  // {X}{X} なので、2マナでは X=1 まで
+  await expect(page.getByRole('dialog').getByRole('button', { name: 'X=2' })).toHaveCount(0);
   await app.choose('X=1');
-  expect((await app.state()).cards[walker].counters['+1/+1']).toBe(2);
+  let s = await app.state();
+  expect(s.cards[walker].counters['+1/+1']).toBe(2);
+  expect(s.pool.C).toBe(0);
   await app.dispatch({ type: 'move', id: walker, to: 'hand', trigger: false });
   await app.act(walker, /唱える/);
   await app.choose('X=0');
-  expect((await app.state()).cards[walker].counters['+1/+1']).toBeUndefined();
-  await app.dispatch({ type: 'move', id: walker, to: 'graveyard', trigger: true });
+  // 0/0 なので状況起因処理で死亡し、飛行機械は出ない
+  s = await app.state();
+  expect(s.cards[walker].zone).toBe('graveyard');
   expect(await app.tokens('Thopter')).toHaveLength(0);
 });
 
@@ -433,12 +446,12 @@ test('海中の戦士、レイ・フィレット（進化・カウンターの�
   await app.start(MOTHMAN);
   const ray = await app.put('Ray Fillet, Wave Warrior', 'battlefield');
   await app.put('Bred for the Hunt', 'battlefield');
-  const bird = await app.put('Thrummingbird', 'battlefield');
-  // かき鳴らし鳥（1/1）は 0/2 より小さいので進化しない。屍体屋の脅威（4/4）で進化
-  expect((await app.state()).cards[ray].counters['+1/+1']).toBeUndefined();
+  // かき鳴らし鳥（1/1）はパワーが 0 より大きいので進化する（パワーかタフネスのどちらかが大きければよい）
+  const bird = await app.put('Thrummingbird', 'battlefield', true);
+  expect((await app.state()).cards[ray].counters['+1/+1']).toBe(1);
   await app.put('Corpsejack Menace', 'battlefield', true);
-  // 進化の1個は屍体屋の脅威で2個
-  expect((await app.state()).cards[ray].counters['+1/+1']).toBe(2);
+  // 屍体屋の脅威（4/4）でもう一度。進化の1個は屍体屋の脅威で2個
+  expect((await app.state()).cards[ray].counters['+1/+1']).toBe(3);
   await app.endTurn();
   await app.dispatch({ type: 'counter', id: bird, kind: '+1/+1', delta: 1 });
   const hand = (await app.state()).zones.hand.length;
@@ -506,4 +519,47 @@ test('厄介なラッドガルは RAD の無い相手に2個。六番は自分�
   expect(s.prompt).toBeNull();
   expect(s.cards[within].zone).toBe('graveyard');
   expect(await app.tokens('Beast')).toHaveLength(0);
+});
+
+test('進化は解決時にも確かめる：小さいトークンが2体続けて出ても、1つ目で大きくなれば2つ目は載らない', async ({ app }) => {
+  await app.start(MOTHMAN);
+  const mage = await app.put('Fathom Mage', 'battlefield');
+  await app.put('Hardened Scales', 'battlefield');
+  const hand = (await app.state()).zones.hand.length;
+  await app.dispatch({ type: 'token', name: 'Zombie Mutant', count: 2 });
+  const s = await app.state();
+  // 1つ目で 1 ＋ 硬化した鱗 1 = 2個（3/3）。2つ目は 2/2 が 3/3 より大きくないので載らない
+  expect(s.cards[mage].counters['+1/+1']).toBe(2);
+  expect(s.zones.hand.length).toBe(hand + 2);
+});
+
+test('戦場を離れたカードにはカウンターを置かない（同時に死んだフェラル・グールは大きくならず、惑星共生も引かない）', async ({ app }) => {
+  await app.start(MOTHMAN);
+  const ghoul = await app.put('Feral Ghoul', 'battlefield');
+  await app.put('Glowing One', 'battlefield');
+  await app.put('Terrasymbiosis', 'battlefield');
+  const fallout = await app.put('Nuclear Fallout', 'hand');
+  const hand = (await app.state()).zones.hand.length;
+  await pool(app, { B: 2, C: 1 });
+  await app.act(fallout, /唱える/);
+  await app.choose('X=1');
+  const s = await app.state();
+  expect(s.cards[ghoul].zone).toBe('graveyard');
+  expect(s.cards[ghoul].counters).toEqual({});
+  // 放射性降下物を唱えた1枚だけ減る（惑星共生は引かない）
+  expect(s.zones.hand.length).toBe(hand - 1);
+});
+
+test('戦闘ダメージでのライフの喪失も、精神クランクの切削と血の長の昇天の探索カウンターになる', async ({ app }) => {
+  await app.start(MOTHMAN);
+  const ascension = await app.put('Bloodchief Ascension', 'battlefield');
+  await app.put('Mindcrank', 'battlefield');
+  const ghoul = await app.put('Feral Ghoul', 'battlefield');
+  await app.endTurn();
+  await attackWith(app, [[ghoul, 0]]);
+  await app.dispatch({ type: 'damage' });
+  expect((await app.state()).opponents[0]).toMatchObject({ life: 38, graveyard: 2 });
+  await app.dispatch({ type: 'endCombat' });
+  await app.endTurn();
+  expect((await app.state()).cards[ascension].counters.quest).toBe(1);
 });

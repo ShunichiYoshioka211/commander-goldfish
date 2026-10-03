@@ -144,7 +144,7 @@ test('Stensia Uprising：ちょうど13個なら7点', async ({ app }) => {
 test('Chandra：0能力は1ターンに1回', async ({ app }) => {
   await app.start();
   const ch = await app.put('Chandra, Acolyte of Flame', 'battlefield', true);
-  await expect(app.card(ch).locator('.counters')).toHaveText('loyalty:4');
+  await expect(app.card(ch).locator('.counters')).toHaveText('忠誠:4');
   await app.act(ch, /エレメンタル2体/);
   expect(await tokenIds(app, 'Elemental')).toHaveLength(2);
   await app.card(ch).click();

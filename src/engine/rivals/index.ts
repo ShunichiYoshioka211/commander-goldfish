@@ -2,10 +2,10 @@
 // turn.ts を import しない（turn.ts がここを使う）。モードの判定（if (s.rivals)）は呼ぶ側の入口でだけ行う。
 import { scriptOf } from '../../cards/registry';
 import {
-  aliveOpponents, battlefield, def, enqueue, endOfTurnCleanup, freshFlags, hasKeyword, isCommander, log, moveTo, nameJa,
-  power, toughness,
+  aliveOpponents, battlefield, def, enqueue, hasKeyword, isCommander, log, moveTo, nameJa, power, toughness,
 } from '../core';
 import { boosted, damageOpponent, damageRival } from '../damage';
+import { enqueueOpponentTurn } from '../opponents';
 import { canRespond } from '../play';
 import type { CardInstance, GameState, RivalPermanent, RivalState } from '../types';
 import { findRival, kindOf, rivalLabel } from './board';
@@ -77,16 +77,16 @@ export function sweepRivals(s: GameState) {
 
 // ---- 相手のターン ----
 
-/** 相手の1ターン。乱数は結果によらず ROLLS_PER_STEP 個引く（脱落していても引く） */
+/**
+ * 相手の1ターンの盤面の動き。乱数は結果によらず ROLLS_PER_STEP 個引く（脱落していても引く）。
+ * ターンの始め（flags を戻す・ドロー・RADカウンター）と終わり（終了ステップ・クリンナップ）は opponents.ts
+ */
 export function rivalStep(s: GameState, opp: number) {
   const r = s.rivals!;
   const [roll, rng] = rolls(r.rng, ROLLS_PER_STEP);
   r.rng = rng;
   const o = s.opponents[opp];
   if (o.deadTurn !== null) return;
-  s.active = opp;
-  // 相手のターンは別のターン。このターンに死亡した数や、1ターンに1回の誘発を戻す
-  s.flags = freshFlags();
   const t = ++r.turns[opp];
   for (const p of o.board) Object.assign(p, { tapped: false, sick: false });
   const ids = o.board.map((p) => p.id);
@@ -105,10 +105,10 @@ export function rivalStep(s: GameState, opp: number) {
   // 何もしなかったターンは「動きなし」
   r.recap[opp] = [...parts, '動きなし'].slice(0, Math.max(1, parts.length)).join('、');
   log(s, `［相手${opp + 1}のターン${t}］${r.recap[opp]}`);
-  endOfTurnCleanup(s);
 }
 
-const step = (s: GameState, opp: number) => enqueue(s, `相手${opp + 1}のターン`, (st) => rivalStep(st, opp));
+/** 相手1人のターン（ドロー・RADカウンター → 盤面の動き → 終了ステップ。opponents.ts） */
+const step = (s: GameState, opp: number) => enqueueOpponentTurn(s, opp, [(st) => rivalStep(st, opp)]);
 
 /** キープのあと、あなたより前の席の相手が1ターン進む */
 export function preRound(s: GameState) {

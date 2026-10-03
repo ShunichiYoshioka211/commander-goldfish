@@ -7,12 +7,16 @@ import {
 import { damageOpponent, updateDeath } from './damage';
 import { deckById } from './deck';
 import { emptyPool } from './mana';
+import { radYou } from './mill';
+import { enqueueOpponentTurn } from './opponents';
 import { beforeBlocks, fightBlocked, initRivals, preRound, rivalRound, sweepRivals } from './rivals';
 import { STYLES } from './rivals/kinds';
 import type { CardInstance, GameState } from './types';
 
 export const STARTING_LIFE = 40;
 export const OPPONENTS = 3;
+/** 対戦相手のライブラリーの最初の枚数（99枚から初手7枚を引いたもの） */
+const OPPONENT_LIBRARY = 92;
 const HAND_SIZE = 7;
 
 /** 相手ありモードの設定。seat は席の固定（null ならシードで決める） */
@@ -25,8 +29,10 @@ export function newGame(seed: number, deckId: string, rivals: RivalsOption | nul
   const s: GameState = {
     deckId: deck.id, commanders: [...deck.commanders], seed, rng: seed, cards: {},
     zones: { library: [], hand: [], battlefield: [], graveyard: [], exile: [], command: [] },
-    nextToken: 0, turn: 0, phase: 'mulligan', life: STARTING_LIFE,
-    opponents: Array.from({ length: OPPONENTS }, () => ({ life: STARTING_LIFE, commanderDamage: 0, deadTurn: null, board: [] })),
+    nextToken: 0, turn: 0, phase: 'mulligan', life: STARTING_LIFE, rad: 0,
+    opponents: Array.from({ length: OPPONENTS }, () => ({
+      life: STARTING_LIFE, commanderDamage: 0, deadTurn: null, board: [], rad: 0, library: OPPONENT_LIBRARY, milled: 0, graveyard: 0, decked: false,
+    })),
     pool: emptyPool(), landPlayed: false, commanderCasts: {}, monarch: false, speed: 0, speedUpTurn: 0,
     mulligans: 0, plan: {}, queue: [], fresh: [], prompt: null, flags: freshFlags(), log: [], damage: [],
     rivals: rivals && initRivals(seed, rivals.seat, OPPONENTS), blocks: {}, active: null,
@@ -92,6 +98,8 @@ function startTurn(s: GameState) {
   enqueue(s, 'ドロー', (st) => {
     if (st.turn > 1) draw(st, 1);
   });
+  // 最初のメイン・フェイズの開始時
+  enqueue(s, 'RADカウンター', radYou);
   drain(s);
 }
 
@@ -134,13 +142,13 @@ export function declareAttack(s: GameState) {
 }
 
 export function combatDamage(s: GameState) {
-  const hits: { attacker: CardInstance; opp: number }[] = [];
+  const hits: { attacker: CardInstance; opp: number; amount: number }[] = [];
   const deaths: string[] = [];
   for (const a of battlefield(s).filter((c) => c.attacking !== null)) {
     const opp = a.attacking!;
     // ライフの増減ではなく、与えた点数で見る（相手の絆魂で相殺されても、戦闘ダメージを与えたことに変わりはない）
     const dealt = a.id in s.blocks ? fightBlocked(s, a, deaths) : damageOpponent(s, a, opp, power(a), true);
-    if (dealt > 0) hits.push({ attacker: a, opp });
+    if (dealt > 0) hits.push({ attacker: a, opp, amount: dealt });
   }
   if (hits.length > 0) eachPermanent(s, (c) => scriptOf(c).onCombatDamage?.(s, c, hits));
   // 戦闘ダメージは同時なので、全員分を割り当ててから死亡をまとめて処理する（ガルナは同時に死んでも見届ける）。
@@ -167,6 +175,7 @@ export function endTurn(s: GameState) {
   s.plan = {};
   s.blocks = {};
   eachPermanent(s, (c) => scriptOf(c).onEndStep?.(s, c));
+  eachPermanent(s, (c) => scriptOf(c).onEachEndStep?.(s, c));
   if (s.monarch) enqueue(s, '統治者：1枚引く', (st) => draw(st, 1));
   enqueue(s, '終了ステップの遅延誘発', (st) => {
     for (const c of battlefield(st).filter((x) => x.atEnd !== null)) {
@@ -192,9 +201,13 @@ function cleanup(s: GameState) {
   });
 }
 
-/** クリンナップの続き。相手ありなら相手が1人ずつ1ターン進んでから、あなたの次のターン */
+/**
+ * クリンナップの続き。対戦相手が1人ずつ1ターン進んでから、あなたの次のターン。
+ * 相手ありなら盤面も育つ。相手なしでも、ドロー・RADカウンター・終了ステップの誘発は起こす（opponents.ts）
+ */
 function nextTurn(s: GameState) {
   if (s.rivals) rivalRound(s);
+  else s.opponents.forEach((_, i) => enqueueOpponentTurn(s, i, []));
   enqueue(s, '次のターン', startTurn);
 }
 

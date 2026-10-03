@@ -1,6 +1,7 @@
 // マナコストの解釈と支払い。マナ・プールを先に使い、足りない分は未タップの発生源を自動でタップする。
 import { scriptOf } from '../cards/registry';
 import { battlefield, hasKeyword, isCreature, log, nameJa } from './core';
+import { youLoseLife } from './damage';
 import { defByName } from './deck';
 import type { CardInstance, GameState, ManaColor } from './types';
 
@@ -64,9 +65,9 @@ interface Unit {
  * 自動支払いに使える単位。
  * 出せる色が少ない（ありふれた）発生源ほど先に使い、二色土地や少ない色の土地を後に残す。
  */
-function autoUnits(s: GameState): Unit[] {
+function autoUnits(s: GameState, exclude: string): Unit[] {
   const units: Unit[] = [];
-  for (const card of battlefield(s).filter(canTapForMana)) {
+  for (const card of battlefield(s).filter((c) => c.id !== exclude && canTapForMana(c))) {
     const options = manaOptions(s, card).filter((o) => !o.manual);
     const singles = options.filter((o) => o.produce.length === 1);
     if (singles.length > 0) {
@@ -104,7 +105,7 @@ function assign(slots: Slot[], units: Unit[]): number[] | null {
   return owner;
 }
 
-function plan(s: GameState, cost: Cost) {
+function plan(s: GameState, cost: Cost, exclude = '') {
   const pool = { ...s.pool };
   const slots: Slot[] = [];
   for (const c of cost.colors) {
@@ -118,12 +119,13 @@ function plan(s: GameState, cost: Cost) {
     generic -= use;
   }
   for (let i = 0; i < generic; i++) slots.push('*');
-  const units = autoUnits(s);
+  const units = autoUnits(s, exclude);
   const owner = assign(slots, units);
   return owner && { pool, units, owner, slots };
 }
 
-export const canPay = (s: GameState, cost: Cost) => plan(s, cost) !== null;
+/** 払えるか。exclude はマナに使わない発生源（{T} を含む能力の発生源自身） */
+export const canPay = (s: GameState, cost: Cost, exclude = '') => plan(s, cost, exclude) !== null;
 
 export function pay(s: GameState, cost: Cost): boolean {
   const p = plan(s, cost);
@@ -138,7 +140,7 @@ export function pay(s: GameState, cost: Cost): boolean {
     const slot = p.slots[p.owner[j]];
     const color = slot === '*' ? (u.colors.includes('C') ? 'C' : u.colors[0]) : slot;
     if (u.pain.includes(color)) {
-      s.life -= 1;
+      youLoseLife(s, 1);
       log(s, `${nameJa(s.cards[u.id])} で1点のダメージ`);
     }
   });
@@ -157,6 +159,6 @@ export function tapForMana(s: GameState, id: string, option: number) {
   const opt = manaOptions(s, card)[option];
   if (opt.extra && !opt.extra(s, card)) return;
   card.tapped = true;
-  if (opt.pain) s.life -= 1;
+  if (opt.pain) youLoseLife(s, 1);
   for (const c of opt.produce) s.pool[c]++;
 }

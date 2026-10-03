@@ -48,6 +48,8 @@ export interface CardInstance {
   attacking: number | null;
   /** ターン終了までのパワー修整 */
   tempPower: number;
+  /** ターン終了までのタフネス修整（放射性降下物） */
+  tempToughness: number;
   /** 次の終了ステップで生け贄にする／追放する（warp は追放してあとで唱え直せる） */
   atEnd: 'sacrifice' | 'exile' | 'warp' | null;
   /** ミシュラランド等がターン終了までクリーチャー化している（keywords は英語のキーワード名） */
@@ -64,6 +66,16 @@ export interface Opponent {
   deadTurn: number | null;
   /** 相手ありモードの、その相手のクリーチャー。相手なしでは常に空 */
   board: RivalPermanent[];
+  /** RADカウンター */
+  rad: number;
+  /** ライブラリーの枚数（中身は持たない。切削は近似で数える） */
+  library: number;
+  /** これまでに切削された枚数（土地でないカードの近似に使う） */
+  milled: number;
+  /** 墓地の枚数（切削されたぶん） */
+  graveyard: number;
+  /** ライブラリーが無いのに引こうとした（敗北する） */
+  decked: boolean;
 }
 
 /** 相手の性格。盤面の育ち方とブロックの仕方が変わる */
@@ -142,6 +154,12 @@ export interface TurnFlags {
   noncombatToOpps: number;
   morbidUsed: boolean;
   loyaltyUsed: string[];
+  /** 対戦相手ごとの、このターンに失ったライフ（血の長の昇天） */
+  oppLifeLost: number[];
+  /** このターンに唱えた呪文の数（ストーム） */
+  spellsCast: number;
+  /** 「毎ターン1回」の誘発を使ったもの（core.ts の once） */
+  onceUsed: string[];
 }
 
 export interface GameState {
@@ -157,6 +175,8 @@ export interface GameState {
   turn: number;
   phase: Phase;
   life: number;
+  /** あなたのRADカウンター */
+  rad: number;
   opponents: Opponent[];
   pool: Record<ManaColor, number>;
   landPlayed: boolean;

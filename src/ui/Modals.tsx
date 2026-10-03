@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import type { MoveTarget } from '../engine/actions';
 import type { Prompt } from '../engine/types';
 import { aliveOpponents, canAttack, def } from '../engine/core';
+import { COUNTER_JA } from '../engine/counters';
 import { canTapForMana, costText, manaOptions } from '../engine/mana';
 import { abilitiesOf, canActivate, canPlayLand, castModes } from '../engine/play';
 import { useStore } from '../store';
@@ -26,7 +27,8 @@ export function PromptModal() {
   if (!prompt) return null;
   const peeking = peek?.prompt === prompt ? peek.id : null;
   const cardChoices = prompt.options.some((o) => o.card);
-  const single = prompt.max === 1;
+  // 1つだけ選ぶ（押せば決まる）。「最大1つ」（選ばなくてもよい）なら決定ボタンを出す
+  const single = prompt.max === 1 && prompt.min === 1;
   const choose = (v: string | number) => {
     if (single) {
       setPicked([]);
@@ -41,7 +43,7 @@ export function PromptModal() {
         <h2>{prompt.title}</h2>
         {!single && (
           <p className="muted">
-            {picked.length} / {prompt.min} 枚選択
+            {picked.length} 枚選択（{prompt.min === prompt.max ? `${prompt.max}枚` : `${prompt.min}〜${prompt.max}枚`}）
           </p>
         )}
         {prompt.cards?.map((id) => (
@@ -152,7 +154,7 @@ const MOVES: [MoveTarget, string][] = [
   ['libraryBottom', 'ライブラリーの下'],
   ['libraryShuffle', 'ライブラリーに入れてシャッフル'],
 ];
-const COUNTERS = ['+1/+1', 'loyalty', 'fire', 'oil'];
+const COUNTERS = ['+1/+1', 'loyalty', 'fire', 'oil', 'quest'];
 
 export function CardDetail() {
   const id = useStore((s) => s.selected);
@@ -225,11 +227,11 @@ export function CardDetail() {
                 <button onClick={() => dispatch({ type: 'tap', id: card.id })}>{card.tapped ? 'アンタップ' : 'タップ'}（効果なし）</button>
                 {COUNTERS.map((k) => (
                   <span key={k} className="counter-edit">
-                    {k} {card.counters[k] ?? 0}
-                    <button aria-label={`${k}を増やす`} onClick={() => dispatch({ type: 'counter', id: card.id, kind: k, delta: 1 })}>
+                    {COUNTER_JA[k]} {card.counters[k] ?? 0}
+                    <button aria-label={`${COUNTER_JA[k]}を増やす`} onClick={() => dispatch({ type: 'counter', id: card.id, kind: k, delta: 1 })}>
                       +
                     </button>
-                    <button aria-label={`${k}を減らす`} onClick={() => dispatch({ type: 'counter', id: card.id, kind: k, delta: -1 })}>
+                    <button aria-label={`${COUNTER_JA[k]}を減らす`} onClick={() => dispatch({ type: 'counter', id: card.id, kind: k, delta: -1 })}>
                       −
                     </button>
                   </span>

@@ -30,8 +30,10 @@ export function damageOpponent(s: GameState, source: CardInstance, opp: number, 
   if (o.deadTurn !== null || base <= 0) return 0;
   const amount = base + bonus(s, source, combat, 'player');
   o.life -= amount;
+  s.flags.oppLifeLost[opp] += amount;
   s.damage.push({ turn: s.turn, target: opp, source: nameJa(source), amount, combat });
   log(s, `${nameJa(source)} → 対戦相手${opp + 1} に ${amount}点${combat ? '（戦闘）' : ''}`);
+  lostLife(s, opp, amount);
   if (combat && isCommander(s, source)) o.commanderDamage += amount;
   lifelink(s, source, amount);
   if (s.speed > 0 && s.speed < 4 && s.speedUpTurn !== s.turn) {
@@ -50,6 +52,34 @@ export function damageOpponent(s: GameState, source: CardInstance, opp: number, 
   return amount;
 }
 
+/** 対戦相手がライフを失ったときの誘発（精神クランク・湖の町の統領） */
+function lostLife(s: GameState, opp: number, amount: number) {
+  for (const card of battlefield(s)) scriptOf(card).onOpponentLosesLife?.(s, card, opp, amount);
+}
+
+/**
+ * 対戦相手がライフを失う（ダメージではない。RADカウンター・血の長の昇天）。失った点数を返す。
+ * ダメージの記録（ターンごとのグラフ）にも、発生源の名前で入れる
+ */
+export function oppLoseLife(s: GameState, opp: number, n: number, source: string): number {
+  const o = s.opponents[opp];
+  if (o.deadTurn !== null || n <= 0) return 0;
+  o.life -= n;
+  s.flags.oppLifeLost[opp] += n;
+  s.damage.push({ turn: s.turn, target: opp, source, amount: n, combat: false });
+  log(s, `対戦相手${opp + 1} は${source}で${n}点を失った`);
+  lostLife(s, opp, n);
+  updateDeath(s, opp);
+  return n;
+}
+
+/** あなたがライフを失う（支払いを含む）。湖の町の統領が誘発する。ダメージを受けるのも同じ扱い */
+export function youLoseLife(s: GameState, n: number) {
+  if (n <= 0) return;
+  s.life -= n;
+  for (const card of battlefield(s)) scriptOf(card).onYouLoseLife?.(s, card, n);
+}
+
 /** 相手のクリーチャーへのダメージ。死亡はあとでまとめて判定する（rivals/index.ts の sweepRivals） */
 export function damageRival(s: GameState, source: CardInstance, opp: number, id: string, base: number, combat: boolean) {
   if (base <= 0) return;
@@ -62,10 +92,10 @@ export function damageRival(s: GameState, source: CardInstance, opp: number, id:
   lifelink(s, source, amount);
 }
 
-/** ライフ 0 以下か統率者ダメージ 21 以上で脱落。編集でライフを戻したら復帰する */
+/** ライフ 0 以下か統率者ダメージ 21 以上か、ライブラリーが無いのに引こうとしたら脱落。編集でライフを戻したら復帰する */
 export function updateDeath(s: GameState, opp: number) {
   const o = s.opponents[opp];
-  const dead = o.life <= 0 || o.commanderDamage >= 21;
+  const dead = o.life <= 0 || o.commanderDamage >= 21 || o.decked;
   if (dead === (o.deadTurn !== null)) return;
   o.deadTurn = dead ? s.turn : null;
   log(s, `対戦相手${opp + 1} が${dead ? '脱落' : '復帰'}`);

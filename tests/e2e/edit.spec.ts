@@ -45,7 +45,7 @@ test('編集モード：詳細メニューから全領域へ・タップ・カ�
   const actions = page.getByTestId('edit-actions');
   await actions.getByRole('button', { name: 'タップ（効果なし）' }).click();
   await actions.getByRole('button', { name: 'アンタップ（効果なし）' }).click();
-  for (const k of ['+1/+1', 'loyalty', 'fire', 'oil']) {
+  for (const k of ['+1/+1', '忠誠', '炎', '油', '探索']) {
     await actions.getByRole('button', { name: `${k}を増やす` }).click();
     await actions.getByRole('button', { name: `${k}を増やす` }).click();
     await actions.getByRole('button', { name: `${k}を減らす` }).click();

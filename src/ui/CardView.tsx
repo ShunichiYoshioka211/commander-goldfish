@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { def, isCreature, power, toughness } from '../engine/core';
+import { COUNTER_JA } from '../engine/counters';
 import type { CardInstance } from '../engine/types';
 import { useStore } from '../store';
 import { handleDrop } from './interact';
@@ -42,7 +43,7 @@ function CardViewInner({ card, planned, ready, blocked }: Props) {
         </span>
       )}
       {counters.length > 0 && (
-        <span className="counters">{counters.map(([k, n]) => `${k}:${n}`).join(' ')}</span>
+        <span className="counters">{counters.map(([k, n]) => `${COUNTER_JA[k]}:${n}`).join(' ')}</span>
       )}
       {planned !== undefined && <span className="plan-badge">→{planned + 1}</span>}
       {blocked && <span className="block-badge">ブロック</span>}

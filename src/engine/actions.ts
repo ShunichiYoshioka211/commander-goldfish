@@ -38,6 +38,10 @@ export type Action =
   | { type: 'cmdDamage'; opp: number; delta: number }
   | { type: 'speed'; delta: number }
   | { type: 'monarch' }
+  /** RADカウンターの増減。who=null はあなた */
+  | { type: 'rad'; who: number | null; delta: number }
+  /** 対戦相手のライブラリーと墓地のあいだで枚数を動かす（手動で処理するカードの切削。誘発はさせない） */
+  | { type: 'oppMill'; opp: number; delta: number }
   | { type: 'pool'; color: ManaColor; delta: number }
   | { type: 'shuffle' }
   | { type: 'wipe' }
@@ -74,7 +78,7 @@ export function cloneState(s: GameState): GameState {
     plan: { ...s.plan },
     queue: [...s.queue],
     fresh: [...s.fresh],
-    flags: { ...s.flags, loyaltyUsed: [...s.flags.loyaltyUsed] },
+    flags: { ...s.flags, loyaltyUsed: [...s.flags.loyaltyUsed], oppLifeLost: [...s.flags.oppLifeLost], onceUsed: [...s.flags.onceUsed] },
     log: [...s.log],
     damage: [...s.damage],
     rivals: s.rivals && {
@@ -110,7 +114,11 @@ export function apply(prev: GameState, action: Action): GameState {
     case 'playLand': playLand(s, action.id); break;
     case 'cast': cast(s, action.id, action.mode); break;
     case 'activate': activate(s, action.id, action.index); break;
-    case 'tapMana': tapForMana(s, action.id, action.option); break;
+    case 'tapMana':
+      // 痛みのあるマナで湖の町の統領が誘発することがある
+      tapForMana(s, action.id, action.option);
+      drain(s);
+      break;
     case 'answer': {
       const prompt = s.prompt!;
       s.prompt = null;
@@ -158,6 +166,17 @@ export function apply(prev: GameState, action: Action): GameState {
       break;
     case 'speed': s.speed = Math.min(4, Math.max(0, s.speed + action.delta)); break;
     case 'monarch': s.monarch = !s.monarch; break;
+    case 'oppMill': {
+      const o = s.opponents[action.opp];
+      const n = Math.max(-o.graveyard, Math.min(action.delta, o.library));
+      Object.assign(o, { library: o.library - n, graveyard: o.graveyard + n, milled: Math.max(0, o.milled + n) });
+      log(s, `［編集］対戦相手${action.opp + 1} のライブラリー${o.library}枚・墓地${o.graveyard}枚`);
+      break;
+    }
+    case 'rad':
+      if (action.who === null) s.rad = Math.max(0, s.rad + action.delta);
+      else s.opponents[action.who].rad = Math.max(0, s.opponents[action.who].rad + action.delta);
+      break;
     case 'pool': s.pool[action.color] = Math.max(0, s.pool[action.color] + action.delta); break;
     case 'shuffle': shuffleLibrary(s); break;
     case 'wipe':

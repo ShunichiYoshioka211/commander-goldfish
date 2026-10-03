@@ -920,3 +920,10 @@ body.dragging-card .hand {
     display: none;
   }
 }
+
+/* RADカウンター（あなたと対戦相手） */
+.badge.rad {
+  border-color: var(--ok);
+  color: var(--ok);
+  margin-left: 4px;
+}

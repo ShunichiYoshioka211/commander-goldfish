@@ -102,6 +102,8 @@ export function moveTo(
   const trigger = opts.trigger ?? true;
   const card = s.cards[id];
   const from = card.zone;
+  // 蘇生・エレボスの鞭で戻したものは、戦場を離れるなら代わりに追放される（置換なので死亡しない）。編集の移動（誘発なし）は指定どおり
+  to = trigger && from === 'battlefield' && card.atEnd === 'exile' ? 'exile' : to;
   s.zones[from] = s.zones[from].filter((x) => x !== id);
   if (from === 'battlefield') leaveBattlefield(s, card, to, trigger, opts.observers ?? []);
   // 統率者が墓地か追放に行くなら統率領域に戻す

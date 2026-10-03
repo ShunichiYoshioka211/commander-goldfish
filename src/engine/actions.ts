@@ -162,8 +162,8 @@ export function apply(prev: GameState, action: Action): GameState {
     case 'shuffle': shuffleLibrary(s); break;
     case 'wipe':
       log(s, '［編集］全クリーチャーを破壊');
-      destroyAll(s, creatures(s).map((c) => c.id));
       for (const { opp, p } of rivalCreatures(s)) destroyRival(s, opp, p.id);
+      destroyAll(s, creatures(s).map((c) => c.id));
       drain(s);
       break;
     case 'rivalAdd': editAddRival(s, action.opp, action.kind); break;

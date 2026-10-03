@@ -63,7 +63,7 @@ export function planRivalTurn(input: PlanInput, r: number[]): RivalPlan {
     return [k, w * Number(mv <= mana) * Math.max(1, 3 - (mana - mv))];
   });
   const creatures = Array.from({ length: count }, (_, j) => pick(weights, r[ROLL.kinds + j]));
-  const room = MAX_CREATURES - survivors.length;
+  const room = Math.max(0, MAX_CREATURES - survivors.length);
   const deploy = [...commander, ...creatures].slice(0, room);
   // 召喚酔いでなく防衛を持たないものが、よそを攻撃してタップする（ターンの始めにいたものは召喚酔いが解けている）
   const tap = survivors.filter(

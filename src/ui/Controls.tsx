@@ -139,7 +139,10 @@ function RivalTools() {
   const game = useStore((s) => s.game);
   const dispatch = useStore((s) => s.dispatch);
   const [kind, setKind] = useState('bear');
-  const [opp, setOpp] = useState(0);
+  const [picked, setOpp] = useState(0);
+  // 選んでいた相手が脱落したら、生きている最初の相手にする
+  const alive = aliveOpponents(game);
+  const opp = alive.includes(picked) ? picked : alive[0];
   return (
     <span className="rival-maker">
       <select aria-label="相手のクリーチャーの種類" value={kind} onChange={(e) => setKind(e.target.value)}>
@@ -150,7 +153,7 @@ function RivalTools() {
         ))}
       </select>
       <select aria-label="出す相手" value={opp} onChange={(e) => setOpp(Number(e.target.value))}>
-        {aliveOpponents(game).map((i) => (
+        {alive.map((i) => (
           <option key={i} value={i}>
             相手{i + 1}
           </option>

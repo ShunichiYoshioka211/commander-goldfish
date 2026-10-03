@@ -10,5 +10,6 @@ import type { CardScript } from './types';
 const SCRIPTS: Record<string, CardScript> = { ...LAND_SCRIPTS, ...DAMAGE_SCRIPTS, ...ENGINE_SCRIPTS, ...SPELL_SCRIPTS };
 const NONE: CardScript = {};
 
-export const scriptOf = (card: CardInstance): CardScript => SCRIPTS[card.name] ?? NONE;
+export const scriptByName = (name: string): CardScript => SCRIPTS[name] ?? NONE;
+export const scriptOf = (card: CardInstance): CardScript => scriptByName(card.name);
 export const isScripted = (name: string) => name in SCRIPTS;

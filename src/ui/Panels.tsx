@@ -1,5 +1,5 @@
 // 横から出すパネル：ログ・ダメージ統計と履歴・デッキ一覧。
-import { isScripted } from '../cards/registry';
+import { isScripted, scriptByName } from '../cards/registry';
 import { deckById } from '../engine/deck';
 import { OPPONENTS } from '../engine/turn';
 import { useStore } from '../store';
@@ -136,7 +136,7 @@ function Deck() {
               <td className="num">{c.count}</td>
               <td>{c.jaName}</td>
               <td className="muted">{c.manaCost}</td>
-              <td>{isScripted(c.name) ? <span className="badge">自動</span> : null}</td>
+              <td>{isScripted(c.name) ? <span className="badge">{scriptByName(c.name).rivalsOnly ? '相手ありで自動' : '自動'}</span> : null}</td>
             </tr>
           ))}
         </tbody>

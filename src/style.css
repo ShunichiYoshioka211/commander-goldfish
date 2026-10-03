@@ -860,10 +860,12 @@ body.dragging-card .hand {
   box-shadow: 0 0 0 3px var(--opp2);
 }
 
+/* 右下の P/T・左上のカウンター・右上の攻撃先と重ならないよう、真ん中に出す */
 .block-badge {
   position: absolute;
-  left: 2px;
-  bottom: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   font-size: 10px;
   font-weight: 700;
   background: var(--opp2);
@@ -872,7 +874,7 @@ body.dragging-card .hand {
   padding: 0 4px;
 }
 
-/* スマホ幅：名前を隠し、P/T と能力の頭文字だけを小さく出す。2行（6個）まで出し、残りは「+N」 */
+/* スマホ幅：名前を隠し、P/T と能力の頭文字だけを小さく出す。4個と「+N」で2行に収める */
 @media (max-width: 720px) {
   .rival-chips {
     gap: 2px;
@@ -887,7 +889,7 @@ body.dragging-card .hand {
 
   .chip-name,
   .kw-long,
-  .rival-chips .rival-chip:nth-child(n + 7) {
+  .rival-chips .rival-chip:nth-child(n + 5) {
     display: none;
   }
 

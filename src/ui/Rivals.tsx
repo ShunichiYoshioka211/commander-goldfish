@@ -6,8 +6,8 @@ import type { RivalPermanent } from '../engine/types';
 import { useStore } from '../store';
 import { closeOnBack } from './Modals';
 
-/** スマホ幅で出すチップの数（2行ぶん）。残りは「+N」 */
-const MOBILE_CHIPS = 6;
+/** スマホ幅で出すチップの数（「+N」と合わせて2行に収まる数）。残りは「+N」 */
+const MOBILE_CHIPS = 4;
 
 /** 「熊 2/2 到達」。スマホ幅では名前を隠し、能力は頭文字（飛・到・接・ト・防・絆）にする */
 export function RivalChip({ p, count = 1, blocking = false }: { p: RivalPermanent; count?: number; blocking?: boolean }) {
@@ -124,7 +124,7 @@ export function RivalViewer() {
             ))}
           </tbody>
         </table>
-        {editMode && <button onClick={() => dispatch({ type: 'rivalRebuild', opp })}>この相手の盤面を作り直す</button>}
+        {editMode && o.deadTurn === null && <button onClick={() => dispatch({ type: 'rivalRebuild', opp })}>この相手の盤面を作り直す</button>}
         <button onClick={close}>閉じる</button>
       </div>
     </div>

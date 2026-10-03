@@ -10,7 +10,7 @@ import { canRespond } from '../play';
 import type { CardInstance, GameState, RivalPermanent, RivalState } from '../types';
 import { findRival, kindOf, rivalLabel } from './board';
 import { assignBlocks, canBlock, lethalTo, resolveFight, type Fighter } from './combat';
-import { KINDS, ROLLS_PER_STEP, STYLES } from './kinds';
+import { KINDS, MAX_CREATURES, ROLLS_PER_STEP, STYLES } from './kinds';
 import { commanderLeft, pickStyle, planRivalTurn, rolls, simulateBoard } from './plan';
 
 /** 新しい対局の相手。席に1個、性格に3個の乱数を引く（席を固定しても引く） */
@@ -210,28 +210,31 @@ export function declareBlocks(s: GameState) {
  * ブロックされた攻撃クリーチャーの戦闘ダメージ。死ぬものは deaths に入れ、死亡はあとでまとめて処理する。
  * ブロッカーがダメージの前に除去されていても、攻撃クリーチャーはブロックされたまま
  */
-export function fightBlocked(s: GameState, a: CardInstance, deaths: string[]) {
+export function fightBlocked(s: GameState, a: CardInstance, deaths: string[]): number {
   const opp = a.attacking!;
   const o = s.opponents[opp];
   const f = fighterOf(s, a);
   const p = o.board.find((x) => x.id === s.blocks[a.id]);
-  if (!p) {
-    damageOpponent(s, a, opp, resolveFight(f, null).toPlayer, true);
-    return;
-  }
+  if (!p) return damageOpponent(s, a, opp, resolveFight(f, null).toPlayer, true);
   const k = kindOf(p);
   const res = resolveFight(f, rivalFighter(p));
   // 相手の絆魂（天使）：与えたダメージの分、その相手がライフを得る
   o.life += res.toAttacker * Number(k.keywords.includes('Lifelink'));
   log(s, `相手${opp + 1}の${k.name} → ${nameJa(a)} に ${res.toAttacker}点`);
   damageRival(s, a, opp, p.id, res.toBlocker, true);
-  damageOpponent(s, a, opp, res.toPlayer, true);
+  const dealt = damageOpponent(s, a, opp, res.toPlayer, true);
   if (lethalTo(res.toAttacker, k.keywords.includes('Deathtouch'), toughness(a))) deaths.push(a.id);
+  return dealt;
 }
 
 // ---- 編集 ----
 
 export function editAddRival(s: GameState, opp: number, kind: string) {
+  // 1人8体まで（相手のターンの乱数の添字が、盤面の8体ぶんしか予約されていないため）
+  if (s.opponents[opp].board.length >= MAX_CREATURES) {
+    log(s, `［編集］相手${opp + 1}のクリーチャーは${MAX_CREATURES}体まで`);
+    return;
+  }
   const p = addRival(s, opp, kind);
   log(s, `［編集］相手${opp + 1}に${rivalLabel(p)}を出した`);
 }

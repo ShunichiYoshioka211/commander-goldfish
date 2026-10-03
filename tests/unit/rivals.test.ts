@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { cloneState } from '../../src/engine/actions';
 import { assignBlocks, resolveFight, type Fighter } from '../../src/engine/rivals/combat';
 import { KINDS, MAX_CREATURES, STYLES, STYLE_ORDER } from '../../src/engine/rivals/kinds';
-import { simulateBoard } from '../../src/engine/rivals/plan';
+import { commanderLeft, planRivalTurn, simulateBoard } from '../../src/engine/rivals/plan';
 import { newGame } from '../../src/engine/turn';
 import { Game } from './helpers';
 
@@ -96,6 +96,19 @@ describe('相手の盤面の育ち方', () => {
     expect(Math.max(...late.map((b) => b.length))).toBeLessThanOrEqual(MAX_CREATURES);
   });
 
+  it('盤面が8体以上なら（編集で増やしても）それ以上出さない', () => {
+    const board = Array.from({ length: 9 }, () => ({ kind: 'bear' }));
+    const r = Array.from({ length: 32 }, () => 0.99);
+    expect(planRivalTurn({ style: 'tokens', t: 6, board, cmdReady: 4 }, r).deploy).toEqual([]);
+  });
+
+  it('統率者は離れるたびに出し直しが1ターンずつ遅れる（離れていなければ変わらない）', () => {
+    expect(commanderLeft({ cmdReady: 4, cmdCasts: 0 }, 5, 0)).toEqual({ cmdReady: 4, cmdCasts: 0 });
+    const first = commanderLeft({ cmdReady: 4, cmdCasts: 0 }, 5, 1);
+    expect(first).toEqual({ cmdReady: 7, cmdCasts: 1 });
+    expect(commanderLeft(first, 7, 1)).toEqual({ cmdReady: 10, cmdCasts: 2 });
+  });
+
   it('アグロ以外は1ターン目に何も出さない', () => {
     for (const style of STYLE_ORDER.filter((st) => st !== 'aggro')) {
       expect(Array.from({ length: 200 }, (_, i) => simulateBoard(style, 1, i + 1).board.length).every((n) => n === 0)).toBe(true);
@@ -177,14 +190,28 @@ describe('相手ありモードの乱数', () => {
     copy.blocks.x = 'y';
     copy.rivals!.turns[0] = 9;
     copy.rivals!.recap[0] = 'x';
+    copy.rivals!.cmdReady[0] = 99;
+    copy.rivals!.cmdCasts[0] = 99;
+    copy.rivals!.styles[0] = 'aggro';
     expect(g.s.opponents[0].board).toHaveLength(1);
     expect(g.s.opponents[0].board[0].tapped).toBe(false);
     expect(g.s.blocks).toEqual({});
     expect(g.s.rivals!.turns[0]).toBe(0);
     expect(g.s.rivals!.recap[0]).toBe('');
+    expect(g.s.rivals!.cmdReady[0]).not.toBe(99);
+    expect(g.s.rivals!.cmdCasts[0]).toBe(0);
+    expect(g.s.rivals!.styles[0]).toBe(new Game(1, { seat: 1 }).s.rivals!.styles[0]);
+    // クリーチャー化した土地の能力（威迫）も複製する
+    const vents = g.put('Restless Vents', 'battlefield').id('Restless Vents');
+    g.s.cards[vents].animated = { power: 2, toughness: 3, keywords: ['Menace'] };
+    const copy2 = cloneState(g.s);
+    copy2.cards[vents].animated!.keywords.push('Flying');
+    expect(g.s.cards[vents].animated!.keywords).toEqual(['Menace']);
+    // 1ターン進めても、元の状態は変わらない（相手のターンは複製した状態の上で動く）
     const before = JSON.stringify(g.s);
+    const prev = g.s;
     play(g, 1);
-    expect(JSON.stringify(cloneState(JSON.parse(before)))).toBe(before);
+    expect(JSON.stringify(prev)).toBe(before);
   });
 });
 
@@ -241,10 +268,16 @@ describe('相手ありモードの戦闘', () => {
     attack(g);
     expect(Object.keys(g.s.blocks)).toHaveLength(1);
 
-    const h = new Game(1, { seat: 1 }).start().put('Ingris Stingerquill', 'battlefield').do({ type: 'cmdDamage', opp: 0, delta: 20 });
-    h.s.cards[h.id('Ingris Stingerquill')].sick = false;
-    const drake = h.rival(0, 'drake');
-    h.do({ type: 'toCombat' }, { type: 'plan', id: h.id('Ingris Stingerquill'), opp: 0 }, { type: 'attack' });
-    expect(h.s.blocks).toEqual({ [h.id('Ingris Stingerquill')]: drake });
+    // 鳥（1/1 飛行）はイングリス（1/4）を倒せず死ぬだけなので普通は止めない。統率者ダメージ20なら1点で21になるので止める
+    const ingrisAttack = (cmdDamage: number) => {
+      const h = new Game(1, { seat: 1 }).start().put('Ingris Stingerquill', 'battlefield').do({ type: 'cmdDamage', opp: 0, delta: cmdDamage });
+      h.s.cards[h.id('Ingris Stingerquill')].sick = false;
+      const bird = h.rival(0, 'bird');
+      h.do({ type: 'toCombat' }, { type: 'plan', id: h.id('Ingris Stingerquill'), opp: 0 }, { type: 'attack' });
+      return { h, bird };
+    };
+    expect(ingrisAttack(0).h.s.blocks).toEqual({});
+    const { h, bird } = ingrisAttack(20);
+    expect(h.s.blocks).toEqual({ [h.id('Ingris Stingerquill')]: bird });
   });
 });

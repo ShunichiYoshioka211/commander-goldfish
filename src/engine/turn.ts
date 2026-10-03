@@ -4,7 +4,7 @@ import {
   battlefield, blankInstance, canAttack, chooseCards, destroyAll, drain, draw, endOfTurnCleanup, enqueue, freshFlags, log,
   moveTo, nameJa, power, shuffleLibrary,
 } from './core';
-import { damageOpponent } from './damage';
+import { damageOpponent, updateDeath } from './damage';
 import { deckById } from './deck';
 import { emptyPool } from './mana';
 import { beforeBlocks, fightBlocked, initRivals, preRound, rivalRound, sweepRivals } from './rivals';
@@ -137,15 +137,18 @@ export function combatDamage(s: GameState) {
   const hits: { attacker: CardInstance; opp: number }[] = [];
   const deaths: string[] = [];
   for (const a of battlefield(s).filter((c) => c.attacking !== null)) {
-    const before = s.opponents[a.attacking!].life;
-    if (a.id in s.blocks) fightBlocked(s, a, deaths);
-    else damageOpponent(s, a, a.attacking!, power(a), true);
-    if (s.opponents[a.attacking!].life < before) hits.push({ attacker: a, opp: a.attacking! });
+    const opp = a.attacking!;
+    // ライフの増減ではなく、与えた点数で見る（相手の絆魂で相殺されても、戦闘ダメージを与えたことに変わりはない）
+    const dealt = a.id in s.blocks ? fightBlocked(s, a, deaths) : damageOpponent(s, a, opp, power(a), true);
+    if (dealt > 0) hits.push({ attacker: a, opp });
   }
   if (hits.length > 0) eachPermanent(s, (c) => scriptOf(c).onCombatDamage?.(s, c, hits));
-  // 戦闘ダメージは同時なので、全員分を割り当ててから死亡をまとめて処理する（ガルナは同時に死んでも見届ける）
-  destroyAll(s, deaths);
+  // 戦闘ダメージは同時なので、全員分を割り当ててから死亡をまとめて処理する（ガルナは同時に死んでも見届ける）。
+  // 相手のクリーチャーを先にするのは、同時に死ぬ病的な日和見主義者がそれを見届けられるように
   sweepRivals(s);
+  destroyAll(s, deaths);
+  // 脱落も全員分のダメージのあとで判定する（途中で盤面が消えて、後ろのブロックがなくならないように）
+  s.opponents.forEach((_, i) => updateDeath(s, i));
   // 戦闘ダメージのあとも、戦闘終了までは攻撃している扱い（ここで生け贄にすればガルナで引ける）
   enqueue(s, '戦闘ダメージ後', (st) => void (st.phase = 'afterDamage'));
   drain(s);

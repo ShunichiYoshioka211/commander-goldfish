@@ -1,6 +1,6 @@
 // ダメージ。増幅（Torbran 等）・絆魂・スピード・脱落判定をここに集める。
 import { scriptOf } from '../cards/registry';
-import { aliveOpponents, battlefield, chooseOpponent, hasKeyword, isCommander, log, nameJa, onField, typeOf } from './core';
+import { aliveOpponents, battlefield, chooseOpponent, hasKeyword, isCommander, isCreature, log, nameJa, onField } from './core';
 import { KINDS } from './rivals/kinds';
 import type { CardInstance, GameState } from './types';
 
@@ -14,16 +14,20 @@ const bonus = (s: GameState, source: CardInstance, combat: boolean, to: DamageTo
 export const boosted = (s: GameState, source: CardInstance, base: number, combat: boolean, to: DamageTo) =>
   Math.sign(base) * (base + bonus(s, source, combat, to));
 
-/** 絆魂（エレボスの鞭で全クリーチャーが持つ）。プレイヤーへのダメージにも、クリーチャーへのダメージにも乗る */
+/** 絆魂（エレボスの鞭で全クリーチャーが持つ。クリーチャー化した土地も含む）。プレイヤーへのダメージにも、クリーチャーへのダメージにも乗る */
 function lifelink(s: GameState, source: CardInstance, amount: number) {
-  if (typeOf(source, 'Creature') && (hasKeyword(source, 'Lifelink') || onField(s, 'Whip of Erebos').length > 0)) {
+  if (isCreature(source) && (hasKeyword(source, 'Lifelink') || onField(s, 'Whip of Erebos').length > 0)) {
     s.life += amount;
   }
 }
 
-export function damageOpponent(s: GameState, source: CardInstance, opp: number, base: number, combat: boolean) {
+/**
+ * 対戦相手へのダメージ。与えた点数を返す（脱落済み・0点なら0）。
+ * 戦闘ダメージは同時なので、脱落の判定は combatDamage が全員分を与えたあとで行う（CR 510.2・704.3）
+ */
+export function damageOpponent(s: GameState, source: CardInstance, opp: number, base: number, combat: boolean): number {
   const o = s.opponents[opp];
-  if (o.deadTurn !== null || base <= 0) return;
+  if (o.deadTurn !== null || base <= 0) return 0;
   const amount = base + bonus(s, source, combat, 'player');
   o.life -= amount;
   s.damage.push({ turn: s.turn, target: opp, source: nameJa(source), amount, combat });
@@ -41,8 +45,9 @@ export function damageOpponent(s: GameState, source: CardInstance, opp: number, 
       scriptOf(card).onNoncombatDamage?.(s, card);
       scriptOf(card).onNoncombatDamageBy?.(s, card, source);
     }
+    updateDeath(s, opp);
   }
-  updateDeath(s, opp);
+  return amount;
 }
 
 /** 相手のクリーチャーへのダメージ。死亡はあとでまとめて判定する（rivals/index.ts の sweepRivals） */
@@ -64,8 +69,11 @@ export function updateDeath(s: GameState, opp: number) {
   if (dead === (o.deadTurn !== null)) return;
   o.deadTurn = dead ? s.turn : null;
   log(s, `対戦相手${opp + 1} が${dead ? '脱落' : '復帰'}`);
-  // 脱落した相手の盤面はゲームから除く（死亡ではないので何も誘発しない）
-  if (dead) o.board = [];
+  // 脱落した相手の盤面はゲームから除く。死亡ではないので何も誘発しないが、戦場を離れたことにはなる（エレジーの見習いの虚空）
+  if (dead) {
+    s.flags.nonlandLeft = s.flags.nonlandLeft || o.board.length > 0;
+    o.board = [];
+  }
   if (aliveOpponents(s).length === 0) {
     s.phase = 'over';
     s.finishedAt = Date.now();

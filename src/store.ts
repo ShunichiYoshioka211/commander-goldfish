@@ -43,9 +43,10 @@ function writeJson(key: string, value: unknown) {
 
 const params = new URLSearchParams(location.search);
 const randomSeed = () => Math.floor(Math.random() * 1_000_000);
-const seatParam = params.get('seat');
-/** 相手ありモードの設定。URL の ?seat=1..4 で席を固定できる（テストでも使う） */
-const rivalsOption = (on: boolean): RivalsOption | null => (on ? { seat: seatParam === null ? null : Number(seatParam) } : null);
+const seatParam = Number(params.get('seat'));
+/** URL の ?seat=1..4 で席を固定できる（テストでも使う）。それ以外はシードで決める */
+const seat = Number.isInteger(seatParam) && seatParam >= 1 && seatParam <= 4 ? seatParam : null;
+const rivalsOption = (on: boolean): RivalsOption | null => (on ? { seat } : null);
 // URL の ?rivals=0|1 が優先、なければ前回選んだモード。既定は相手なし
 const initialRivals = params.get('rivals') !== null ? params.get('rivals') === '1' : readJson(RIVALS_KEY, false);
 

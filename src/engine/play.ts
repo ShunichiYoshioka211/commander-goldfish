@@ -42,11 +42,15 @@ export function targetOptions(s: GameState, target: NonNullable<CastSpec['target
   return [...rivalOptions(s), ...mine.map((c) => ({ label: nameJa(c), value: c.id, card: c.id }))];
 }
 
+/** 対象を取る呪文で、適正な対象が無い（相手ありモードだけ。唱えられない） */
+export function lacksTarget(s: GameState, card: CardInstance) {
+  const target = scriptOf(card).cast?.target;
+  return s.rivals !== null && target !== undefined && targetOptions(s, target).length === 0;
+}
+
 export function castModes(s: GameState, card: CardInstance): CastMode[] {
-  if (!idle(s) || isLand(card)) return [];
+  if (!idle(s) || isLand(card) || lacksTarget(s, card)) return [];
   const spec = scriptOf(card).cast ?? {};
-  // 対象を取る呪文は、適正な対象が無ければ唱えられない（相手ありモードだけ）
-  if (s.rivals && spec.target && targetOptions(s, spec.target).length === 0) return [];
   const fromGraveyard = card.zone === 'graveyard';
   const castableZone =
     card.zone === 'hand' || card.zone === 'command' || (card.zone === 'exile' && card.castable) || (fromGraveyard && !!spec.flashback);

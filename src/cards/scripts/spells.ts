@@ -43,9 +43,10 @@ export const SPELL_SCRIPTS: Record<string, CardScript> = {
   'Blasphemous Act': {
     cast: {
       reduce: (s) => creatures(s).length + rivalCreatures(s).length,
+      // 同時に死ぬので、相手のクリーチャーを先に処理し、病的な日和見主義者が見届けられるようにする
       resolve: (s) => {
-        destroyAll(s, creatures(s).map((c) => c.id));
         for (const { opp, p } of rivalCreatures(s)) destroyRival(s, opp, p.id);
+        destroyAll(s, creatures(s).map((c) => c.id));
       },
     },
   },

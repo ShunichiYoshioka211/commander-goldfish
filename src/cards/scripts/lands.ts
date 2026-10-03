@@ -71,11 +71,11 @@ export const LAND_SCRIPTS: Record<string, CardScript> = {
   'Temple of Malice': { etbTapped: () => true, onEnter: (s) => enqueue(s, '占術1', scry1) },
   'Lavaclaw Reaches': {
     etbTapped: () => true,
-    abilities: [{ label: '2/2 クリーチャーになる', cost: '{1}{B}{R}', run: (_s, c) => void (c.animated = { power: 2, toughness: 2 }) }],
+    abilities: [{ label: '2/2 クリーチャーになる', cost: '{1}{B}{R}', run: (_s, c) => void (c.animated = { power: 2, toughness: 2, keywords: [] }) }],
   },
   'Restless Vents': {
     etbTapped: () => true,
-    abilities: [{ label: '2/3 威迫クリーチャーになる', cost: '{1}{B}{R}', run: (_s, c) => void (c.animated = { power: 2, toughness: 3 }) }],
+    abilities: [{ label: '2/3 威迫クリーチャーになる', cost: '{1}{B}{R}', run: (_s, c) => void (c.animated = { power: 2, toughness: 3, keywords: ['Menace'] }) }],
   },
   'Dark Fortress': {
     mana: (s, c) => (c.sick || controls(s, c, 'Basic') ? [C, ...BR] : [C]),

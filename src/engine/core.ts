@@ -3,7 +3,7 @@ import { TOKENS } from '../cards/tokens';
 import { scriptOf } from '../cards/registry';
 import { shuffleWith } from './rng';
 import { defByName } from './deck';
-import type { CardDef, CardInstance, GameState, Prompt, ZoneId } from './types';
+import type { CardDef, CardInstance, GameState, Prompt, TurnFlags, ZoneId } from './types';
 
 export { defByName };
 export const def = (card: CardInstance): CardDef => defByName(card.name);
@@ -12,7 +12,8 @@ export const isCreature = (card: CardInstance) => typeOf(card, 'Creature') || ca
 export const isLand = (card: CardInstance) => typeOf(card, 'Land');
 export const isRed = (card: CardInstance) => def(card).colors.includes('R');
 export const isCommander = (s: GameState, card: CardInstance) => !card.token && s.commanders.includes(card.name);
-export const hasKeyword = (card: CardInstance, k: string) => def(card).keywords.includes(k);
+/** キーワード能力。クリーチャー化した土地は、そのときに得た能力も見る（不穏な火道の威迫） */
+export const hasKeyword = (card: CardInstance, k: string) => def(card).keywords.includes(k) || (card.animated?.keywords.includes(k) ?? false);
 export const nameJa = (card: CardInstance) => def(card).jaName;
 
 export const battlefield = (s: GameState) => s.zones.battlefield.map((id) => s.cards[id]);
@@ -33,6 +34,19 @@ export function toughness(card: CardInstance): number {
 
 export const canAttack = (card: CardInstance) =>
   isCreature(card) && !card.tapped && (!card.sick || card.haste || hasKeyword(card, 'Haste'));
+
+export const freshFlags = (): TurnFlags => ({
+  attacked: false, creaturesDied: 0, nonlandLeft: false, warped: false, noncombatToOpps: 0, morbidUsed: false, loyaltyUsed: [],
+});
+
+/**
+ * どのターンのクリンナップでも行うこと（CR 514.2）：ターン終了までの効果と、相手のクリーチャーが受けたダメージを消す。
+ * あなたのクリーチャーが受けたダメージは持たない（相手のクリーチャーからダメージを受けるのは戦闘だけで、その場で生死を決める）
+ */
+export function endOfTurnCleanup(s: GameState) {
+  for (const c of battlefield(s)) Object.assign(c, { tempPower: 0, haste: false, animated: null });
+  for (const o of s.opponents) for (const p of o.board) p.damage = 0;
+}
 
 export function log(s: GameState, text: string) {
   s.log.push(`T${s.turn} ${text}`);
@@ -88,6 +102,8 @@ export function moveTo(
   const trigger = opts.trigger ?? true;
   const card = s.cards[id];
   const from = card.zone;
+  // 蘇生・エレボスの鞭で戻したものは、戦場を離れるなら代わりに追放される（置換なので死亡しない）。編集の移動（誘発なし）は指定どおり
+  to = trigger && from === 'battlefield' && card.atEnd === 'exile' ? 'exile' : to;
   s.zones[from] = s.zones[from].filter((x) => x !== id);
   if (from === 'battlefield') leaveBattlefield(s, card, to, trigger, opts.observers ?? []);
   // 統率者が墓地か追放に行くなら統率領域に戻す
@@ -105,6 +121,8 @@ export function moveTo(
 
 function leaveBattlefield(s: GameState, card: CardInstance, to: ZoneId, trigger: boolean, observers: CardInstance[]) {
   if (!isLand(card)) s.flags.nonlandLeft = true;
+  // 戦場を離れた攻撃クリーチャーは戦闘から取り除かれる（ブロックされていた記録も消す）
+  delete s.blocks[card.id];
   if (!(trigger && isCreature(card) && to === 'graveyard')) return;
   s.flags.creaturesDied++;
   const wasAttacking = card.attacking !== null;

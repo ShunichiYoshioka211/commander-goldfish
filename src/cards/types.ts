@@ -1,4 +1,5 @@
 import type { ManaOption } from '../engine/mana';
+import type { DamageTo } from '../engine/damage';
 import type { CardInstance, GameState, ZoneId } from '../engine/types';
 
 export interface CastInfo {
@@ -6,6 +7,8 @@ export interface CastInfo {
   sacrificed: CardInstance | null;
   mode: number;
   from: ZoneId;
+  /** 唱えるときに選んだ対象（相手のクリーチャーかカードの ID）。相手なしモードでは選ばないので null */
+  target: string | null;
 }
 
 export type ExtraCost = 'sacCreature' | 'sacArtifactOrCreature' | 'discardOrLife';
@@ -20,6 +23,11 @@ export interface CastSpec {
   reduce?: (s: GameState) => number;
   /** 墓地から唱えられる（フラッシュバック）コスト */
   flashback?: string;
+  /**
+   * 相手ありモードで、唱えるときに選ぶ対象。相手のクリーチャーはいつも候補で、mine はあなたのパーマネントの条件。
+   * 適正な対象が無ければ唱えられない。相手なしモードでは対象を選ばない（今までどおり手動）
+   */
+  target?: { mine: (s: GameState, card: CardInstance) => boolean };
   resolve?: (s: GameState, card: CardInstance, info: CastInfo) => void;
 }
 
@@ -35,6 +43,8 @@ export interface Ability {
 
 /** カードごとの自動処理。書いていないカードは効果テキストを見て手動で処理する */
 export interface CardScript {
+  /** 相手ありモードのときだけ自動で処理する（除去）。カード詳細の表示が変わる */
+  rivalsOnly?: boolean;
   etbTapped?: (s: GameState, card: CardInstance) => boolean;
   mana?: (s: GameState, card: CardInstance) => ManaOption[];
   cast?: CastSpec;
@@ -53,8 +63,11 @@ export interface CardScript {
   onEndStep?: (s: GameState, card: CardInstance) => void;
   onDies?: (s: GameState, card: CardInstance) => void;
   onCreatureDies?: (s: GameState, card: CardInstance, died: CardInstance, wasAttacking: boolean) => void;
+  /** 相手ありモードで、相手のクリーチャーが死亡したとき */
+  onRivalCreatureDies?: (s: GameState, card: CardInstance) => void;
   onNoncombatDamage?: (s: GameState, card: CardInstance) => void;
   /** 自分の発生源が対戦相手に戦闘ダメージでないダメージを与えたとき（1回のダメージ・相手1人ごと） */
   onNoncombatDamageBy?: (s: GameState, card: CardInstance, source: CardInstance) => void;
-  damageBonus?: (s: GameState, card: CardInstance, source: CardInstance, combat: boolean) => number;
+  /** 増幅。to は受け手（対戦相手か、対戦相手のパーマネントか） */
+  damageBonus?: (s: GameState, card: CardInstance, source: CardInstance, combat: boolean, to: DamageTo) => number;
 }

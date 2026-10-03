@@ -4,21 +4,24 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import type { Action } from '../../src/engine/actions';
 import type { GameState, ZoneId } from '../../src/engine/types';
 
-/** 各テストの終わりに window.__coverage__ を .nyc_output に書き出す */
+/** 各テストの終わりに window.__coverage__ を .nyc_output に書き出す（ページを開き直す前にも書き出す） */
 export const test = base.extend<{ app: App }>({
   app: async ({ page }, use) => {
-    await use(new App(page));
-    const coverage = await page.evaluate(() => (window as unknown as { __coverage__?: unknown }).__coverage__);
-    if (coverage) {
-      mkdirSync('.nyc_output', { recursive: true });
-      writeFileSync(`.nyc_output/${randomUUID()}.json`, JSON.stringify(coverage));
-    }
+    const app = new App(page);
+    await use(app);
+    await app.saveCoverage();
   },
 });
 
 export { expect };
 
-type Snapshot = Pick<GameState, 'turn' | 'phase' | 'life' | 'zones' | 'opponents' | 'pool' | 'speed' | 'monarch' | 'landPlayed' | 'mulligans' | 'deckId'> & {
+/** 相手ありモード・1番手（1ターン目の相手の盤面は空）。シード1の相手はミッドレンジ・ミッドレンジ・トークンで、相手の1ターン目は何も出さない */
+export const RIVALS = 'rivals=1&seat=1&seed=1&images=0';
+
+type Snapshot = Pick<
+  GameState,
+  'turn' | 'phase' | 'life' | 'zones' | 'opponents' | 'pool' | 'speed' | 'monarch' | 'landPlayed' | 'mulligans' | 'deckId' | 'seed' | 'rivals' | 'blocks' | 'active' | 'flags' | 'log'
+> & {
   cards: Record<string, { name: string; zone: ZoneId; tapped: boolean; counters: Record<string, number>; token: boolean; attacking: number | null }>;
   prompt: { title: string; options: { label: string; value: string | number }[] } | null;
 };
@@ -26,8 +29,18 @@ type Snapshot = Pick<GameState, 'turn' | 'phase' | 'life' | 'zones' | 'opponents
 export class App {
   constructor(readonly page: Page) {}
 
+  /** 開き直すと計測したカバレッジが消えるので、先に書き出しておく（1つのテストで何度も開くとき） */
   async open(query = 'seed=1&images=0') {
+    await this.saveCoverage();
     await this.page.goto(`/?${query}`);
+  }
+
+  async saveCoverage() {
+    const coverage = await this.page.evaluate(() => (window as unknown as { __coverage__?: unknown }).__coverage__);
+    if (coverage) {
+      mkdirSync('.nyc_output', { recursive: true });
+      writeFileSync(`.nyc_output/${randomUUID()}.json`, JSON.stringify(coverage));
+    }
   }
 
   /** キープして1ターン目を始める */
@@ -61,6 +74,28 @@ export class App {
     const id = await this.id(name, zone);
     await this.dispatch({ type: 'move', id, to: zone, trigger });
     return id;
+  }
+
+  /** 相手の盤面に種類を指定してクリーチャーを出し、その ID を返す */
+  async rival(opp: number, kind: string) {
+    await this.dispatch({ type: 'rivalAdd', opp, kind });
+    return (await this.state()).opponents[opp].board.at(-1)!.id;
+  }
+
+  /** 相手のクリーチャーのチップ（同じ種類・状態のものはまとめて1つ） */
+  chip(id: string) {
+    return this.page.locator(`.rival-board [data-rival="${id}"]`);
+  }
+
+  /** 戦闘へ進み、攻撃できる全員で対戦相手 opp を攻撃する */
+  async attackAll(opp = 0) {
+    await this.dispatch({ type: 'toCombat' }, { type: 'planAll', opp }, { type: 'attack' });
+  }
+
+  async tokens(name: string) {
+    return Object.entries((await this.state()).cards)
+      .filter(([, c]) => c.token && c.name === name)
+      .map(([id]) => id);
   }
 
   async lands(...names: string[]) {

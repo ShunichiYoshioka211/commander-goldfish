@@ -11,16 +11,18 @@ interface Props {
   planned?: number;
   /** 唱えられる・起動できる（光らせる） */
   ready?: boolean;
+  /** 相手ありモードで、相手にブロックされている */
+  blocked?: boolean;
 }
 
 /** カード1枚。盤面全体の再描画を避けるため、表示に関わる値が変わったときだけ描き直す */
-function CardViewInner({ card, planned, ready }: Props) {
+function CardViewInner({ card, planned, ready, blocked }: Props) {
   const images = useStore((s) => s.images);
   const select = useStore((s) => s.set);
   const d = def(card);
   const drag = useDrag((info) => handleDrop(card, info), () => select({ selected: card.id }));
   const counters = Object.entries(card.counters).filter(([, n]) => n > 0);
-  const classes = ['card', card.tapped && 'tapped', ready && 'ready', planned !== undefined && 'planned', card.token && 'token']
+  const classes = ['card', card.tapped && 'tapped', ready && 'ready', planned !== undefined && 'planned', blocked && 'blocked', card.token && 'token']
     .filter(Boolean)
     .join(' ');
   return (
@@ -43,10 +45,11 @@ function CardViewInner({ card, planned, ready }: Props) {
         <span className="counters">{counters.map(([k, n]) => `${k}:${n}`).join(' ')}</span>
       )}
       {planned !== undefined && <span className="plan-badge">→{planned + 1}</span>}
+      {blocked && <span className="block-badge">ブロック</span>}
     </div>
   );
 }
 
-const key = (p: Props) => JSON.stringify([p.card, p.planned, p.ready]);
+const key = (p: Props) => JSON.stringify([p.card, p.planned, p.ready, p.blocked]);
 
 export const CardView = memo(CardViewInner, (a, b) => key(a) === key(b));

@@ -2,18 +2,21 @@
 import { create } from 'zustand';
 import { apply, type Action } from './engine/actions';
 import { DECKS } from './engine/deck';
-import { newGame } from './engine/turn';
+import { newGame, type RivalsOption } from './engine/turn';
 import type { GameState } from './engine/types';
 
 const HISTORY_LIMIT = 300;
 const RESULTS_KEY = 'goldfish.results';
 const IMAGES_KEY = 'goldfish.images';
 const DECK_KEY = 'goldfish.deck';
+const RIVALS_KEY = 'goldfish.rivals';
 /** デッキを複数持つ前の記録はすべてこのデッキのもの */
 const LEGACY_DECK = 'ingris';
 
 export interface GameResult {
   deck: string;
+  /** 相手ありモードの対局か（古い記録は相手なし） */
+  rivals: boolean;
   date: string;
   seed: number;
   turn: number;
@@ -40,6 +43,12 @@ function writeJson(key: string, value: unknown) {
 
 const params = new URLSearchParams(location.search);
 const randomSeed = () => Math.floor(Math.random() * 1_000_000);
+const seatParam = Number(params.get('seat'));
+/** URL の ?seat=1..4 で席を固定できる（テストでも使う）。それ以外はシードで決める */
+const seat = Number.isInteger(seatParam) && seatParam >= 1 && seatParam <= 4 ? seatParam : null;
+const rivalsOption = (on: boolean): RivalsOption | null => (on ? { seat } : null);
+// URL の ?rivals=0|1 が優先、なければ前回選んだモード。既定は相手なし
+const initialRivals = params.get('rivals') !== null ? params.get('rivals') === '1' : readJson(RIVALS_KEY, false);
 
 export type Panel = 'none' | 'log' | 'stats' | 'deck';
 
@@ -55,6 +64,8 @@ interface Store {
   selected: string | null;
   /** 一覧表示している領域 */
   viewing: 'library' | 'graveyard' | 'exile' | null;
+  /** 一覧表示している相手のクリーチャー（相手の番号） */
+  viewingRival: number | null;
   panel: Panel;
   results: GameResult[];
   toast: string | null;
@@ -69,12 +80,14 @@ interface Store {
   restart: (seed?: number) => void;
   /** デッキを切り替える（新しいゲームになる。履歴は消える） */
   switchDeck: (deckId: string) => void;
-  set: (patch: Partial<Pick<Store, 'editMode' | 'editTriggers' | 'images' | 'selected' | 'viewing' | 'panel' | 'toast'>>) => void;
+  /** 相手あり／なしを切り替える（同じシードで新しいゲームになる。履歴は消える） */
+  switchRivals: (on: boolean) => void;
+  set: (patch: Partial<Pick<Store, 'editMode' | 'editTriggers' | 'images' | 'selected' | 'viewing' | 'viewingRival' | 'panel' | 'toast'>>) => void;
 }
 
 export const useStore = create<Store>((set, get) => ({
   // URL の ?deck= が優先、なければ前回選んだデッキ。知らない ID なら既定のデッキになる
-  game: newGame(Number(params.get('seed') ?? randomSeed()), params.get('deck') ?? readJson(DECK_KEY, DECKS[0].id)),
+  game: newGame(Number(params.get('seed') ?? randomSeed()), params.get('deck') ?? readJson(DECK_KEY, DECKS[0].id), rivalsOption(initialRivals)),
   past: [],
   future: [],
   editMode: false,
@@ -82,9 +95,10 @@ export const useStore = create<Store>((set, get) => ({
   images: params.get('images') !== null ? params.get('images') === '1' : readJson(IMAGES_KEY, true),
   selected: null,
   viewing: null,
+  viewingRival: null,
   panel: 'none',
-  // 古い記録には deck が無い。保存済みの deck があれば後ろの ...r で上書きされる
-  results: readJson<Omit<GameResult, 'deck'>[]>(RESULTS_KEY, []).map((r) => ({ deck: LEGACY_DECK, ...r })),
+  // 古い記録には deck と rivals が無い。保存済みのものがあれば後ろの ...r で上書きされる
+  results: readJson<Omit<GameResult, 'deck' | 'rivals'>[]>(RESULTS_KEY, []).map((r) => ({ deck: LEGACY_DECK, rivals: false, ...r })),
   toast: null,
   update: null,
   setUpdate: (apply) => set({ update: apply }),
@@ -95,6 +109,7 @@ export const useStore = create<Store>((set, get) => ({
     if (game.phase !== 'over' && next.phase === 'over') {
       const result: GameResult = {
         deck: next.deckId,
+        rivals: next.rivals !== null,
         date: new Date().toISOString(),
         seed: next.seed,
         turn: next.turn,
@@ -121,10 +136,20 @@ export const useStore = create<Store>((set, get) => ({
     while (past[i].prompt) i--;
     set({ game: past[i], past: past.slice(0, i), future: [...past.slice(i + 1), game, ...future] });
   },
-  restart: (seed = randomSeed()) => set({ game: newGame(seed, get().game.deckId), past: [], future: [], selected: null, viewing: null }),
+  // 新しいゲーム・デッキの切り替えは、いまのモード（相手あり／なし）を引き継ぐ
+  restart: (seed = randomSeed()) => {
+    const { game } = get();
+    set({ game: newGame(seed, game.deckId, rivalsOption(game.rivals !== null)), past: [], future: [], selected: null, viewing: null, viewingRival: null });
+  },
   switchDeck: (deckId) => {
     writeJson(DECK_KEY, deckId);
-    set({ game: newGame(randomSeed(), deckId), past: [], future: [], selected: null, viewing: null, panel: 'none' });
+    const rivals = rivalsOption(get().game.rivals !== null);
+    set({ game: newGame(randomSeed(), deckId, rivals), past: [], future: [], selected: null, viewing: null, viewingRival: null, panel: 'none' });
+  },
+  switchRivals: (on) => {
+    writeJson(RIVALS_KEY, on);
+    const { game } = get();
+    set({ game: newGame(game.seed, game.deckId, rivalsOption(on)), past: [], future: [], selected: null, viewing: null, viewingRival: null });
   },
   set: (patch) => {
     if (patch.images !== undefined) writeJson(IMAGES_KEY, patch.images);

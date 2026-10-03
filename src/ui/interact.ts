@@ -1,6 +1,6 @@
 // カードのドラッグ・タップを操作（Action）に変換する。
 import { canAttack, isLand } from '../engine/core';
-import { canPlayLand, castModes } from '../engine/play';
+import { canPlayLand, castModes, lacksTarget } from '../engine/play';
 import type { CardInstance } from '../engine/types';
 import { useStore } from '../store';
 import type { DropInfo } from './useDrag';
@@ -21,7 +21,7 @@ export function play(card: CardInstance) {
     return;
   }
   const modes = castModes(game, card);
-  if (modes.length === 0) toast('いまは唱えられない（マナかタイミング）');
+  if (modes.length === 0) toast(lacksTarget(game, card) ? '対象にできるものがいない' : 'いまは唱えられない（マナかタイミング）');
   else if (modes.length === 1) dispatch({ type: 'cast', id: card.id, mode: modes[0].index });
   else set({ selected: card.id });
 }

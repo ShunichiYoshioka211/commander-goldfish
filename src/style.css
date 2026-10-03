@@ -138,13 +138,15 @@ button.picked {
 }
 
 /* ---- 対戦相手 ---- */
+/* 1fr のままだと、中身（相手の要約の1行など）の幅で列が広がり、スマホで横スクロールが出る */
 .opponents {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
 }
 
 .opponent {
+  min-width: 0;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -761,5 +763,152 @@ body.dragging-card .hand {
   .peek {
     max-height: 45dvh;
     overflow: auto;
+  }
+}
+
+/* ---- 相手ありモード ---- */
+.seat {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: -4px;
+}
+
+.rival-board {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+  min-width: 0;
+}
+
+.rival-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+  background: transparent;
+  border: 1px dashed var(--line);
+  min-height: 28px;
+}
+
+.rival-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-2);
+  padding: 1px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.rival-chip.tapped {
+  opacity: 0.45;
+}
+
+.rival-chip.sick {
+  border-style: dashed;
+}
+
+.rival-chip.blocking {
+  border-color: var(--red);
+  box-shadow: 0 0 0 1px var(--red);
+}
+
+.chip-kw {
+  color: var(--muted);
+}
+
+.kw-short,
+.chip-more {
+  display: none;
+}
+
+.chip-count {
+  font-weight: 700;
+}
+
+.recap {
+  color: var(--muted);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rival-list td {
+  vertical-align: top;
+}
+
+.rival-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.block-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+}
+
+.card.blocked {
+  box-shadow: 0 0 0 3px var(--opp2);
+}
+
+/* 右下の P/T・左上のカウンター・右上の攻撃先と重ならないよう、真ん中に出す */
+.block-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--opp2);
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+/* スマホ幅：名前を隠し、P/T と能力の頭文字だけを小さく出す。4個と「+N」で2行に収める */
+@media (max-width: 720px) {
+  .rival-chips {
+    gap: 2px;
+    padding: 2px;
+  }
+
+  .rival-chip {
+    font-size: 11px;
+    padding: 0 4px;
+    gap: 2px;
+  }
+
+  .chip-name,
+  .kw-long,
+  .rival-chips .rival-chip:nth-child(n + 5) {
+    display: none;
+  }
+
+  .kw-short,
+  .chip-more {
+    display: inline;
+  }
+
+  .chip-more {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .rival-view .chip-name,
+  .rival-view .kw-long {
+    display: inline;
+  }
+
+  .rival-view .kw-short {
+    display: none;
   }
 }

@@ -1,14 +1,17 @@
 // 盤面：対戦相手・戦場・手札・左右の情報欄。
-import { canAttack, isCreature, isLand } from '../engine/core';
-import { abilitiesOf, canActivate, canPlayLand, castModes } from '../engine/play';
-import type { CardInstance, GameState } from '../engine/types';
+import { isCreature, isLand } from '../engine/core';
+import { usable } from '../engine/play';
+import { STYLES } from '../engine/rivals/kinds';
+import type { GameState } from '../engine/types';
 import { useStore } from '../store';
 import { CardView } from './CardView';
+import { RivalBoard } from './Rivals';
 
 const PHASE_LABEL: Record<GameState['phase'], string> = {
   mulligan: 'マリガン',
   main1: 'メイン1',
   combat: '戦闘（攻撃宣言）',
+  declared: '戦闘（ブロック前）',
   attacking: '戦闘（ダメージ前）',
   afterDamage: '戦闘（ダメージ後）',
   main2: 'メイン2',
@@ -17,13 +20,21 @@ const PHASE_LABEL: Record<GameState['phase'], string> = {
 
 export function Opponents() {
   const opponents = useStore((s) => s.game.opponents);
+  const rivals = useStore((s) => s.game.rivals);
+  const blocks = useStore((s) => s.game.blocks);
   const editMode = useStore((s) => s.editMode);
   const dispatch = useStore((s) => s.dispatch);
+  const blocking = Object.values(blocks);
   return (
-    <section className="opponents">
+    <>
+      {rivals && <div className="seat" data-testid="seat">あなたは{rivals.seat}番手</div>}
+      <section className="opponents">
       {opponents.map((o, i) => (
         <div key={i} className={`opponent${o.deadTurn !== null ? ' dead' : ''}`} data-drop={`opp${i}`} data-testid={`opp${i}`}>
-          <div className="opp-name">対戦相手{i + 1}</div>
+          <div className="opp-name">
+            対戦相手{i + 1}
+            {rivals && `・${STYLES[rivals.styles[i]].name}`}
+          </div>
           <div className="opp-life" key={o.life}>
             {o.life}
           </div>
@@ -40,24 +51,24 @@ export function Opponents() {
               <button onClick={() => dispatch({ type: 'cmdDamage', opp: i, delta: -1 })}>統−1</button>
             </div>
           )}
+          {rivals && (
+            <RivalBoard opp={i} board={o.board} blocking={o.board.filter((p) => blocking.includes(p.id)).map((p) => p.id)} recap={rivals.recap[i]} />
+          )}
         </div>
       ))}
-    </section>
+      </section>
+    </>
   );
 }
 
-const ready = (s: GameState, card: CardInstance) =>
-  (card.zone === 'battlefield' && s.phase === 'combat' && canAttack(card)) ||
-  canPlayLand(s, card) ||
-  castModes(s, card).length > 0 ||
-  abilitiesOf(card).some((a) => canActivate(s, card, a));
+const ready = (s: GameState, id: string) => usable(s, s.cards[id]);
 
 function Row({ ids, label }: { ids: string[]; label: string }) {
   const game = useStore((s) => s.game);
   return (
     <div className="row" aria-label={label}>
       {ids.map((id) => (
-        <CardView key={id} card={game.cards[id]} planned={game.plan[id]} ready={ready(game, game.cards[id])} />
+        <CardView key={id} card={game.cards[id]} planned={game.plan[id]} blocked={id in game.blocks} ready={ready(game, id)} />
       ))}
     </div>
   );
@@ -83,7 +94,7 @@ export function Hand() {
   return (
     <section className="hand" data-drop="hand" data-testid="hand">
       {game.zones.hand.map((id) => (
-        <CardView key={id} card={game.cards[id]} ready={ready(game, game.cards[id])} />
+        <CardView key={id} card={game.cards[id]} ready={ready(game, id)} />
       ))}
     </section>
   );
@@ -134,7 +145,7 @@ export function Status() {
       </div>
       <div className="command" data-drop="command" data-testid="command">
         {game.zones.command.map((id) => (
-          <CardView key={id} card={game.cards[id]} ready={ready(game, game.cards[id])} />
+          <CardView key={id} card={game.cards[id]} ready={ready(game, id)} />
         ))}
         <span className="tax">統率者税 {2 * (game.commanderCasts[game.commanders[0]] ?? 0)}</span>
       </div>

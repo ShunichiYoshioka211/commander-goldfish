@@ -26,6 +26,13 @@ function explore(s: GameState, card: CardInstance) {
   confirm(s, `探検：「${nameJa(revealed)}」を墓地に置く？`, (st) => moveTo(st, top, 'graveyard'), [top]);
 }
 
+/** 病的な日和見主義者：ほかのクリーチャーが死亡したとき、1ターンに1回だけ1枚引く */
+function morbid(s: GameState) {
+  if (s.flags.morbidUsed) return;
+  s.flags.morbidUsed = true;
+  enqueue(s, '病的な日和見主義者', (st) => draw(st, 1));
+}
+
 export const ENGINE_SCRIPTS: Record<string, CardScript> = {
   'Goblin Assault': {
     onUpkeep: (s) => enqueue(s, 'ゴブリンの突撃', (st) => void createToken(st, 'Goblin', 1, { haste: true })),
@@ -176,11 +183,9 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
     ],
   },
   'Morbid Opportunist': {
-    onCreatureDies: (s) => {
-      if (s.flags.morbidUsed) return;
-      s.flags.morbidUsed = true;
-      enqueue(s, '病的な日和見主義者', (st) => draw(st, 1));
-    },
+    onCreatureDies: (s) => morbid(s),
+    // 相手のクリーチャーの死亡でも誘発する。相手のターンにも1回ずつ（相手のターンの始めに flags が戻る）
+    onRivalCreatureDies: (s) => morbid(s),
   },
   // ---- 戦闘ダメージ ----
   'Elegy Acolyte': {

@@ -2,9 +2,11 @@
 // 選択待ちをまたぐ続きの処理は、必ず引数で渡される最新の状態（st）を使う。
 import { scriptOf } from '../cards/registry';
 import type { Ability, CastInfo, ExtraCost } from '../cards/types';
-import { ask, def, drain, hasKeyword, isCreature, isLand, log, moveTo, nameJa, typeOf } from './core';
+import type { CastSpec } from '../cards/types';
+import { ask, battlefield, canAttack, def, drain, hasKeyword, isCreature, isLand, log, moveTo, nameJa, typeOf } from './core';
 import { canPay, parseCost, pay, type Cost } from './mana';
-import type { CardInstance, GameState } from './types';
+import { rivalOptions } from './rivals/board';
+import type { CardInstance, GameState, PromptOption } from './types';
 
 export interface CastMode {
   index: number;
@@ -34,8 +36,20 @@ export function playLand(s: GameState, id: string) {
 }
 
 /** いま唱えられる唱え方の一覧（タイミングが合い、マナが払えるものだけ） */
+/** 相手ありモードで、唱えるときに選べる対象 */
+export function targetOptions(s: GameState, target: NonNullable<CastSpec['target']>): PromptOption[] {
+  const mine = battlefield(s).filter((c) => target.mine(s, c));
+  return [...rivalOptions(s), ...mine.map((c) => ({ label: nameJa(c), value: c.id, card: c.id }))];
+}
+
+/** 対象を取る呪文で、適正な対象が無い（相手ありモードだけ。唱えられない） */
+export function lacksTarget(s: GameState, card: CardInstance) {
+  const target = scriptOf(card).cast?.target;
+  return s.rivals !== null && target !== undefined && targetOptions(s, target).length === 0;
+}
+
 export function castModes(s: GameState, card: CardInstance): CastMode[] {
-  if (!idle(s) || isLand(card)) return [];
+  if (!idle(s) || isLand(card) || lacksTarget(s, card)) return [];
   const spec = scriptOf(card).cast ?? {};
   const fromGraveyard = card.zone === 'graveyard';
   const castableZone =
@@ -63,8 +77,10 @@ export function cast(s: GameState, id: string, modeIndex: number) {
   const mode = castModes(s, card).find((m) => m.index === modeIndex)!;
   const spec = scriptOf(card).cast ?? {};
   const extra = spec.modes?.[modeIndex]?.extra ?? spec.extra;
-  const info: CastInfo = { x: 0, sacrificed: null, mode: modeIndex, from: card.zone };
-  const afterX = (st: GameState) => chooseExtra(st, id, extra, info, (st2) => finishCast(st2, id, mode, info));
+  const info: CastInfo = { x: 0, sacrificed: null, mode: modeIndex, from: card.zone, target: null };
+  // X を決め、対象を選び、追加コストを払う（CR 601.2b〜f の順）
+  const afterX = (st: GameState) =>
+    chooseTarget(st, id, spec, info, (st2) => chooseExtra(st2, id, extra, info, (st3) => finishCast(st3, id, mode, info)));
   if (spec.x) {
     const options = [];
     for (let x = 0; canPay(s, { ...mode.cost, generic: mode.cost.generic + x }); x++) options.push({ label: `X=${x}`, value: x });
@@ -83,6 +99,20 @@ export function cast(s: GameState, id: string, modeIndex: number) {
     afterX(s);
   }
   drain(s);
+}
+
+function chooseTarget(s: GameState, id: string, spec: CastSpec, info: CastInfo, next: (s: GameState) => void) {
+  if (!(s.rivals && spec.target)) return next(s);
+  ask(s, {
+    title: `${nameJa(s.cards[id])} の対象`,
+    options: targetOptions(s, spec.target),
+    min: 1,
+    max: 1,
+    resolve: (st, [v]) => {
+      info.target = v as string;
+      next(st);
+    },
+  });
 }
 
 function chooseExtra(s: GameState, id: string, extra: ExtraCost | undefined, info: CastInfo, next: (s: GameState) => void) {
@@ -167,3 +197,13 @@ export function activate(s: GameState, id: string, index: number) {
   a.run(s, card);
   drain(s);
 }
+
+/** いまプレイ・唱える・起動・攻撃の指定ができるか（カードを光らせる） */
+export const usable = (s: GameState, card: CardInstance) =>
+  (card.zone === 'battlefield' && s.phase === 'combat' && canAttack(card)) ||
+  canPlayLand(s, card) ||
+  castModes(s, card).length > 0 ||
+  abilitiesOf(card).some((a) => canActivate(s, card, a));
+
+/** インスタントか起動型能力を使えるか（相手のブロックの前に止まるかどうか） */
+export const canRespond = (s: GameState) => Object.values(s.cards).some((c) => usable(s, c));

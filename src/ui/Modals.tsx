@@ -9,10 +9,12 @@ import { useStore } from '../store';
 import { CardInfo, CardThumb } from './CardInfo';
 import { CardView } from './CardView';
 import { play } from './interact';
+import { RivalChip } from './Rivals';
 
 export function PromptModal() {
   const prompt = useStore((s) => s.game.prompt);
   const cards = useStore((s) => s.game.cards);
+  const opponents = useStore((s) => s.game.opponents);
   const deckId = useStore((s) => s.game.deckId);
   const dispatch = useStore((s) => s.dispatch);
   // ひとつ前の状態も選択待ちなら「1つ戻す」で前の選択に戻れる
@@ -51,6 +53,16 @@ export function PromptModal() {
         <div className="choices">
           {prompt.options.map((o, i) => {
             const picks = picked.includes(o.value) ? 'picked' : '';
+            // 相手のクリーチャーは、カードの絵の代わりにチップ（名前・P/T・能力）を出す
+            if (o.rival) {
+              const p = opponents[o.rival.opp].board.find((x) => x.id === o.rival!.id)!;
+              return (
+                <button key={`${o.value}-${i}`} className={`rival-choice ${picks}`} onClick={() => choose(o.value)}>
+                  <RivalChip p={p} />
+                  <span className="choice-label">{o.label}</span>
+                </button>
+              );
+            }
             const id = o.card;
             if (!id) {
               return (
@@ -126,7 +138,7 @@ export function PromptModal() {
  * 背景を押したら閉じる。click ではなく pointerdown で見るのは、タッチ操作のあとに遅れて届く
  * click が、開いたばかりの背景に当たって即座に閉じてしまうのを避けるため
  */
-const closeOnBack = (close: () => void) => (e: React.PointerEvent) => {
+export const closeOnBack = (close: () => void) => (e: React.PointerEvent) => {
   if (e.target === e.currentTarget) close();
 };
 
@@ -193,6 +205,10 @@ export function CardDetail() {
             ))}
           {game.plan[card.id] !== undefined && (
             <button onClick={act(() => dispatch({ type: 'plan', id: card.id, opp: null }))}>攻撃をやめる</button>
+          )}
+          {/* いとしいしとの装備など、近似で扱えないブロックの逃げ道 */}
+          {editMode && card.id in game.blocks && (
+            <button onClick={act(() => dispatch({ type: 'unblock', id: card.id }))}>ブロックを外す</button>
           )}
         </div>
         {editMode && (
@@ -266,7 +282,8 @@ export function ResultModal() {
       <div className="modal" role="dialog" aria-label="結果">
         <h2>{game.turn}ターン目に全員を倒した</h2>
         <p>
-          所要時間 {Math.floor(seconds / 60)}分{seconds % 60}秒・マリガン {game.mulligans}回・シード {game.seed}
+          {game.rivals ? `相手あり・${game.rivals.seat}番手` : '相手なし'}・所要時間 {Math.floor(seconds / 60)}分{seconds % 60}秒・マリガン{' '}
+          {game.mulligans}回・シード {game.seed}
         </p>
         <div className="actions">
           <button className="primary" onClick={() => restart()}>

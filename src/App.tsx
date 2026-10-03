@@ -5,6 +5,7 @@ import { Battlefield, Hand, Opponents, Status } from './ui/Board';
 import { Controls, EditToolbar } from './ui/Controls';
 import { CardDetail, PromptModal, ResultModal, Toast, ZoneViewer } from './ui/Modals';
 import { Panel } from './ui/Panels';
+import { RivalViewer } from './ui/Rivals';
 import { UpdateBanner } from './ui/UpdateBanner';
 
 function TopBar() {
@@ -14,7 +15,8 @@ function TopBar() {
   const canRedo = useStore((s) => s.future.length > 0);
   const seed = useStore((s) => s.game.seed);
   const deckId = useStore((s) => s.game.deckId);
-  const { undo, redo, restart, set, switchDeck } = useStore.getState();
+  const rivals = useStore((s) => s.game.rivals !== null);
+  const { undo, redo, restart, set, switchDeck, switchRivals } = useStore.getState();
   return (
     <header className="topbar">
       <select aria-label="デッキ" value={deckId} onChange={(e) => switchDeck(e.target.value)}>
@@ -23,6 +25,10 @@ function TopBar() {
             {d.name}
           </option>
         ))}
+      </select>
+      <select aria-label="対戦相手" value={rivals ? '1' : '0'} onChange={(e) => switchRivals(e.target.value === '1')}>
+        <option value="0">相手なし</option>
+        <option value="1">相手あり</option>
       </select>
       <button className={editMode ? 'picked' : ''} aria-pressed={editMode} onClick={() => set({ editMode: !editMode })}>
         編集モード
@@ -52,9 +58,13 @@ export default function App() {
   // Esc で選択をやめる／手前の画面を閉じる。Ctrl+Z / Ctrl+Y で Undo / Redo
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      const { game, selected, viewing, set, cancel } = useStore.getState();
+      const { game, selected, viewing, viewingRival, set, cancel } = useStore.getState();
       if (e.key === 'Escape' && game.prompt) return cancel();
-      if (e.key === 'Escape') return set(selected !== null ? { selected: null } : viewing !== null ? { viewing: null } : { panel: 'none' });
+      if (e.key === 'Escape') {
+        if (selected !== null) return set({ selected: null });
+        if (viewing !== null) return set({ viewing: null });
+        return set(viewingRival !== null ? { viewingRival: null } : { panel: 'none' });
+      }
       if (!(e.ctrlKey || e.metaKey)) return;
       const { past, future, undo, redo } = useStore.getState();
       if (e.key === 'z' && past.length > 0) undo();
@@ -77,6 +87,7 @@ export default function App() {
       <Hand />
       <PromptModal />
       <ZoneViewer />
+      <RivalViewer />
       <CardDetail />
       <ResultModal />
       <Panel />

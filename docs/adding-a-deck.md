@@ -63,6 +63,31 @@ Ingris のデッキと同じ形のスプレッドシート（`投入済み,和�
 CSV で書き出したファイルをそのまま `decks/<id>/` に置き、`config.json` の `csv` をそのファイル名にする。
 ほかの列（マナコスト・備考など）は読まないので残っていてよい。
 
+### 晴れる屋のデッキから作る場合
+
+晴れる屋のデッキのページ（`https://www.hareruyamtg.com/decks/<番号>?display_token=…`）は画面側で組み立てるので、
+ページをそのまま読んでもカードの一覧は無い。同じ番号と `display_token` で API を呼ぶと JSON が返る（限定公開のデッキも、URL の token があれば読める）。
+
+```bash
+curl -s "https://api.deck.hareruyamtg.com/api/deck/<番号>?display_token=<token>" -o deck.json
+```
+
+`cards` の各要素が `name_jp`・`name_en`・`count`・`board_id` を持つ。`board_id` は 1 がメイン、3 が統率者、4 が「検討中」
+（デッキの100枚には入らない）。統率者とメインを、`count` の数だけ行に並べて cards.csv にする：
+
+```bash
+node -e "
+const d = require('./deck.json');
+const q = (s) => (/[\",]/.test(s) ? '\"' + s.replace(/\"/g, '\"\"') + '\"' : s);
+const rows = ['投入済み,和名,英語名'];
+for (const c of [...d.cards.filter((c) => c.board_id === 3), ...d.cards.filter((c) => c.board_id === 1)])
+  for (let i = 0; i < c.count; i++) rows.push(['TRUE', q(c.name_jp), q(c.name_en)].join(','));
+require('fs').writeFileSync('decks/<id>/cards.csv', rows.join('\n') + '\n');
+"
+```
+
+和名は晴れる屋の表記（日本語版の正式名）がそのまま入る。賢きモスマンのデッキ（`decks/mothman/`）はこの手順で作った。
+
 ## 3. 取り込む
 
 ```bash

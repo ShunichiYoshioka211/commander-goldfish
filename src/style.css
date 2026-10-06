@@ -256,6 +256,11 @@ button.picked {
   margin-left: 6px;
 }
 
+/* 墓地・追放の中に、唱えられる・起動できるカードがある */
+.pile.ready {
+  box-shadow: 0 0 0 2px var(--ok);
+}
+
 .battlefield {
   background: var(--panel);
   border-radius: 10px;
@@ -282,8 +287,12 @@ button.picked {
   border-radius: 10px;
 }
 
-.hand .card {
-  margin: 0 -6px;
+/*
+ * 手札は枚数（--n）に応じて重ね、欄の幅に収める。少ないときは 12px だけ重ね、
+ * 多いときは (幅 − 枚数×カード幅) ÷ (枚数−1) だけ重ねる（カードの2割は見えるようにする）
+ */
+.hand .card + .card {
+  margin-left: clamp(calc(var(--card-w) * -0.8), calc((100% - var(--n) * var(--card-w)) / (var(--n) - 1)), -12px);
 }
 
 .hand .card:hover {
@@ -357,7 +366,8 @@ button.picked {
 
 .pt,
 .counters,
-.plan-badge {
+.plan-badge,
+.equip-badge {
   position: absolute;
   font-size: 11px;
   font-weight: 700;
@@ -382,6 +392,14 @@ button.picked {
   right: 2px;
   top: 2px;
   background: var(--red);
+}
+
+/* 右下の P/T と重ならないよう、左下に出す */
+.equip-badge {
+  left: 2px;
+  bottom: 2px;
+  font-size: 10px;
+  background: var(--ok);
 }
 
 /* ---- 操作欄 ---- */

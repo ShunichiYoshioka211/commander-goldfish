@@ -243,3 +243,19 @@ test('ホバーしただけではドラッグにならない', async ({ app, pag
   await page.mouse.up();
   await expect(page.getByRole('dialog')).toBeVisible();
 });
+
+test('手札は少ないときは少しだけ重ね、増えたら深く重ねて欄の幅に収める（一番右のカードまで見える）', async ({ app, page }) => {
+  await app.start();
+  const width = async () => (await page.getByTestId('hand').boundingBox())!;
+  const boxesOf = async () => Promise.all((await app.state()).zones.hand.map(async (id) => (await app.card(id).boundingBox())!));
+  // 7枚：12px ずつ重なるだけ
+  let boxes = await boxesOf();
+  expect(Math.round(boxes[1].x - boxes[0].x)).toBe(Math.round(boxes[0].width - 12));
+  const library = (await app.state()).zones.library;
+  for (const id of library.slice(0, 33)) await app.dispatch({ type: 'move', id, to: 'hand', trigger: false });
+  boxes = await boxesOf();
+  expect(boxes).toHaveLength(40);
+  const box = await width();
+  expect(boxes.at(-1)!.x + boxes.at(-1)!.width).toBeLessThanOrEqual(box.x + box.width + 1);
+  for (let i = 1; i < boxes.length; i++) expect(boxes[i].x - boxes[i - 1].x).toBeGreaterThanOrEqual(boxes[i].width * 0.2 - 1);
+});

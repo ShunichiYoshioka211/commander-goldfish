@@ -222,6 +222,7 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
   },
   'Gix, Yawgmoth Praetor': {
     onCombatDamage: (s, _card, hits) =>
+      // 戦闘ダメージを与えたクリーチャーの数ぶんの誘発を1つにまとめているので、しっぺ返しでコピーさせない（1体ぶんだけのコピーにならない）
       enqueue(s, 'ギックス', (st0) => ask(st0, {
         title: 'ギックス：1点ずつ払って何枚引く？',
         options: hits.map((_, i) => ({ label: `${i + 1}枚`, value: i + 1 })).concat({ label: '引かない', value: 0 }),
@@ -231,7 +232,7 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
           youLoseLife(st, v as number);
           draw(st, v as number);
         },
-      })),
+      }), false),
   },
   'Francisco, Fowl Marauder': {
     // 海賊がダメージを与えたプレイヤー1人につき1回探検する。戦闘ダメージは同時なので相手ごとにまとめ、
@@ -249,11 +250,12 @@ export const ENGINE_SCRIPTS: Record<string, CardScript> = {
     onAttackFromGraveyard: (s, card, attackers) => {
       if (attackers.length < 3) return;
       const opp = attackers[0].attacking;
+      // コピーが解決するとき雛はもう墓地に無い（何も起きない）ので、しっぺ返しの候補に出さない
       enqueue(s, 'フェニックスの雛', (st0) => confirm(st0, 'フェニックスの雛：{R}{R} を払って戦場に戻す？', (st) => {
         if (!pay(st, parseCost('{R}{R}'))) return;
         moveTo(st, card.id, 'battlefield', { tapped: true });
         Object.assign(st.cards[card.id], { attacking: opp, counters: { '+1/+1': 1 } });
-      }));
+      }), false);
     },
   },
   'Whip of Erebos': {

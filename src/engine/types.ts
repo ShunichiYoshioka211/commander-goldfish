@@ -58,6 +58,8 @@ export interface CardInstance {
   castable: boolean;
   /** 部屋の開いている扉 */
   doors: string[];
+  /** 装備品が付いているクリーチャー */
+  attachedTo: string | null;
 }
 
 export interface Opponent {
@@ -135,6 +137,14 @@ export interface Prompt {
 export interface Trigger {
   label: string;
   run: (s: GameState) => void;
+  /** しっぺ返しでコピーできる（カードの誘発型能力）。ターンの進行などは false */
+  copy: boolean;
+}
+
+/** しっぺ返しでコピーできる、直前に解決した誘発型能力・呪文 */
+export interface Copyable {
+  label: string;
+  run: (s: GameState) => void;
 }
 
 export interface DamageEvent {
@@ -196,9 +206,11 @@ export interface GameState {
   /** 相手ありモードの状態。null は相手なし（一人回し） */
   rivals: RivalState | null;
   /** 自分の攻撃クリーチャー → ブロックしている相手のクリーチャー */
-  blocks: Record<string, string>;
+  blocks: Record<string, string[]>;
   /** 手番の相手。null はあなたの手番 */
   active: number | null;
+  /** 直前の操作で解決した、コピーできる誘発型能力・呪文（しっぺ返し） */
+  recent: Copyable[];
   startedAt: number;
   finishedAt: number | null;
 }

@@ -1,5 +1,6 @@
 // UI から来る操作をすべてここで受ける。状態は操作ごとに複製してから書き換える（Undo のため）。
 // 誘発キューのクロージャは古い状態のオブジェクトを読むことはあっても書き換えないこと。
+import { scriptOf } from '../cards/registry';
 import { aliveOpponents, createToken, creatures, destroyAll, drain, log, moveTo, nameJa, shuffleLibrary } from './core';
 import { updateDeath } from './damage';
 import { tapForMana } from './mana';
@@ -89,7 +90,8 @@ export function cloneState(s: GameState): GameState {
       cmdCasts: [...s.rivals.cmdCasts],
       recap: [...s.rivals.recap],
     },
-    blocks: { ...s.blocks },
+    blocks: Object.fromEntries(Object.entries(s.blocks).map(([a, bs]) => [a, [...bs]])),
+    recent: [...s.recent],
   };
 }
 
@@ -104,10 +106,18 @@ const MOVE_LABEL: Record<MoveTarget, string> = {
   command: '統率領域',
 };
 
+/** しっぺ返しでコピーできるのは、直前の操作で解決したものだけ。この操作をしても記録を残すか */
+const keepsRecent = (s: GameState, action: Action) =>
+  action.type === 'answer' ||
+  action.type === 'tapMana' ||
+  action.type === 'pool' ||
+  (action.type === 'cast' && scriptOf(s.cards[action.id]).cast?.keepsRecent === true);
+
 export function apply(prev: GameState, action: Action): GameState {
   // 選択を待っている間は答え以外を受け付けない
   if (prev.prompt && action.type !== 'answer') return prev;
   const s = cloneState(prev);
+  if (!keepsRecent(s, action)) s.recent = [];
   switch (action.type) {
     case 'mulligan': mulligan(s); break;
     case 'keep': keep(s); break;

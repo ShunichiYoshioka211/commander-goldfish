@@ -103,4 +103,7 @@ export const KEYWORD_JA: Record<string, { name: string; short: string; text: str
   Trample: { name: 'トランプル', short: 'ト', text: 'ブロックされても、超えた分のダメージはプレイヤーに入る' },
   Defender: { name: '防衛', short: '防', text: '攻撃しない（ブロックはする）' },
   Lifelink: { name: '絆魂', short: '絆', text: '与えたダメージの分、その相手がライフを得る' },
+  // 以下は装備品があなたのクリーチャーに与えるもの（いとしいしと）
+  Hexproof: { name: '呪禁', short: '呪', text: '対戦相手の呪文や能力の対象にならない' },
+  Unblockable: { name: 'ブロックされない', short: '不', text: 'ブロックされない' },
 };

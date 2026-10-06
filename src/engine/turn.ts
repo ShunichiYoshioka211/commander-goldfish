@@ -35,7 +35,7 @@ export function newGame(seed: number, deckId: string, rivals: RivalsOption | nul
     })),
     pool: emptyPool(), landPlayed: false, commanderCasts: {}, monarch: false, speed: 0, speedUpTurn: 0,
     mulligans: 0, plan: {}, queue: [], fresh: [], prompt: null, flags: freshFlags(), log: [], damage: [],
-    rivals: rivals && initRivals(seed, rivals.seat, OPPONENTS), blocks: {}, active: null,
+    rivals: rivals && initRivals(seed, rivals.seat, OPPONENTS), blocks: {}, active: null, recent: [],
     startedAt: Date.now(), finishedAt: null,
   };
   if (s.rivals) {
@@ -77,7 +77,7 @@ export function keep(s: GameState) {
 /** 相手ありなら、あなたより前の席の相手が先に1ターン進む */
 function beginGame(s: GameState) {
   if (s.rivals) preRound(s);
-  enqueue(s, '1ターン目', startTurn);
+  enqueue(s, '1ターン目', startTurn, false);
   drain(s);
 }
 
@@ -92,14 +92,16 @@ function startTurn(s: GameState) {
   s.pool = emptyPool();
   s.flags = freshFlags();
   s.active = null;
+  // 前のターンに解決したものは、もうコピーできない
+  s.recent = [];
   log(s, `—— ${s.turn}ターン目 ——`);
   eachPermanent(s, (c) => Object.assign(c, { tapped: false, sick: false }));
   eachPermanent(s, (c) => scriptOf(c).onUpkeep?.(s, c));
   enqueue(s, 'ドロー', (st) => {
     if (st.turn > 1) draw(st, 1);
-  });
+  }, false);
   // 最初のメイン・フェイズの開始時
-  enqueue(s, 'RADカウンター', radYou);
+  enqueue(s, 'RADカウンター', radYou, false);
   drain(s);
 }
 
@@ -158,7 +160,7 @@ export function combatDamage(s: GameState) {
   // 脱落も全員分のダメージのあとで判定する（途中で盤面が消えて、後ろのブロックがなくならないように）
   s.opponents.forEach((_, i) => updateDeath(s, i));
   // 戦闘ダメージのあとも、戦闘終了までは攻撃している扱い（ここで生け贄にすればガルナで引ける）
-  enqueue(s, '戦闘ダメージ後', (st) => void (st.phase = 'afterDamage'));
+  enqueue(s, '戦闘ダメージ後', (st) => void (st.phase = 'afterDamage'), false);
   drain(s);
 }
 
@@ -186,8 +188,8 @@ export function endTurn(s: GameState) {
       moveTo(st, c.id, 'exile');
       if (c.atEnd === 'warp') st.cards[c.id].castable = true;
     }
-  });
-  enqueue(s, 'クリンナップ', cleanup);
+  }, false);
+  enqueue(s, 'クリンナップ', cleanup, false);
   drain(s);
 }
 
@@ -208,6 +210,6 @@ function cleanup(s: GameState) {
 function nextTurn(s: GameState) {
   if (s.rivals) rivalRound(s);
   else s.opponents.forEach((_, i) => enqueueOpponentTurn(s, i, []));
-  enqueue(s, '次のターン', startTurn);
+  enqueue(s, '次のターン', startTurn, false);
 }
 

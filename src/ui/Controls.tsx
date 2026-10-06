@@ -16,11 +16,13 @@ function BlockList({ game }: { game: GameState }) {
   if (blocks.length === 0) return <div className="hint">ブロックされなかった</div>;
   return (
     <div className="block-list" data-testid="block-list">
-      {blocks.slice(0, SHOWN_BLOCKS).map(([a, b]) => {
-        const rival = findRival(game, b);
+      {blocks.slice(0, SHOWN_BLOCKS).map(([a, bs]) => {
+        // 2体以上でブロックされたら「熊・騎士（相手1）」。ダメージの前に除去されたものは除く
+        const rivals = bs.flatMap((b) => findRival(game, b) ?? []);
         return (
           <div key={a}>
-            {nameJa(game.cards[a])} ← {rival ? `${rivalLabel(rival.p)}（相手${rival.opp + 1}）` : '（除去済み）'}
+            {nameJa(game.cards[a])} ←{' '}
+            {rivals.length > 0 ? `${rivals.map((r) => rivalLabel(r.p)).join('・')}（相手${rivals[0].opp + 1}）` : '（除去済み）'}
           </div>
         );
       })}

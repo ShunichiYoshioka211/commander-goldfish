@@ -1,5 +1,5 @@
 // 生け贄を追加コストにするドロー呪文と、生け贄の受け皿、除去。
-import { chooseCards, createToken, creatures, def, destroyAll, draw, isCreature, sacrifice, typeOf } from '../../engine/core';
+import { ask, chooseCards, createToken, creatures, def, destroyAll, draw, isCreature, log, nameJa, sacrifice, typeOf } from '../../engine/core';
 import { youLoseLife } from '../../engine/damage';
 import { destroyRival, destroyTarget } from '../../engine/rivals';
 import { findRival, kindOf, rivalCreatures } from '../../engine/rivals/board';
@@ -89,6 +89,23 @@ export const SPELL_SCRIPTS: Record<string, CardScript> = {
   },
   'Bitter Triumph': removal((_s, c) => isCreature(c) || typeOf(c, 'Planeswalker'), () => 0, 'discardOrLife'),
   'My Precious // Allure of Power': {
+    // 装備しているクリーチャーは呪禁を持ち、ブロックされない
+    equipKeywords: ['Hexproof', 'Unblockable'],
+    abilities: [
+      {
+        label: '装備（2点のライフを支払う）',
+        cost: '{2}',
+        sorcery: true,
+        // ライフは持っている分までしか払えない（CR 119.4）。付いている先とは別のクリーチャーが要る
+        can: (s, card) => s.life >= 2 && creatures(s).some((c) => c.id !== card.attachedTo),
+        run: (s, card) =>
+          chooseCards(s, 'いとしいしと：装備するクリーチャー', creatures(s).filter((c) => c.id !== card.attachedTo).map((c) => c.id), 1, 1, (st, [id]) => {
+            youLoseLife(st, 2);
+            st.cards[card.id].attachedTo = id;
+            log(st, `いとしいしとを${nameJa(st.cards[id])}に装備`);
+          }),
+      },
+    ],
     cast: {
       modes: [
         { label: 'いとしいしと', cost: '{3}' },
@@ -96,6 +113,36 @@ export const SPELL_SCRIPTS: Record<string, CardScript> = {
       ],
       resolve: (s, _c, info) => {
         if (info.mode === 1) draw(s, 2);
+      },
+    },
+  },
+  // 放題：コピー（{1}）・対象の変更（{1}）。コピーできるのは、直前の操作で解決した誘発型能力と、対象を取らないインスタント・ソーサリーの効果
+  // （本来はスタックにある間に唱えるが、このアプリには優先権が無いので、解決した直後に唱える近似）。
+  // 起動型能力・対象を取る呪文のコピーと、対象の変更は手動
+  'Return the Favor': {
+    cast: {
+      keepsRecent: true,
+      modes: [
+        { label: 'しっぺ返し（コピー）', cost: '{1}{R}{R}' },
+        { label: 'しっぺ返し（対象の変更）', cost: '{1}{R}{R}' },
+        { label: 'しっぺ返し（コピーと対象の変更）', cost: '{2}{R}{R}' },
+      ],
+      resolve: (s, _card, info) => {
+        if (info.mode === 1) return;
+        // 同じ名前の誘発（攻撃したゴブリンごとの1点など）は1つにまとめる。イングリスのデッキでは、名前が同じなら効果も同じ
+        const items = [...new Map(info.recent.map((it) => [it.label, it])).values()];
+        ask(s, {
+          title: 'しっぺ返し：コピーする誘発型能力か呪文',
+          options: [...items.map((it, i) => ({ label: it.label, value: i })), { label: '手動で処理する（起動型能力・対象を取る呪文など）', value: -1 }],
+          min: 1,
+          max: 1,
+          resolve: (st, [i]) => {
+            const item = items[i as number];
+            if (!item) return void log(st, 'しっぺ返しのコピーは手動で処理する');
+            log(st, `しっぺ返しで「${item.label}」をコピー`);
+            item.run(st);
+          },
+        });
       },
     },
   },

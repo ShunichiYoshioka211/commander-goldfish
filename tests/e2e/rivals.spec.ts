@@ -123,7 +123,7 @@ test('ブロックの前で止まり、「ブロックへ」で熊がゴブリ�
   await expect(page.getByTestId('turn')).toContainText('戦闘（ブロック前）');
   await expect(page.locator('.controls')).toContainText('ブロックの前。インスタントで相手のクリーチャーを除去できる');
   await page.getByRole('button', { name: 'ブロックへ' }).click();
-  expect((await app.state()).blocks).toEqual({ [goblin]: bear });
+  expect((await app.state()).blocks).toEqual({ [goblin]: [bear] });
   await expect(app.card(goblin).locator('.block-badge')).toHaveText('ブロック');
   await expect(page.getByTestId('block-list')).toContainText('ゴブリン ← 熊 2/2（相手1）');
   await expect(app.chip(bear)).toHaveClass(/blocking/);
@@ -168,7 +168,7 @@ test('ブロックの前に冥府の掌握で熊を除去すれば、ゴブリ�
   await app.attackAll();
   s = await app.state();
   expect(s.phase).toBe('attacking');
-  expect(s.blocks).toEqual({ [g2]: bear2 });
+  expect(s.blocks).toEqual({ [g2]: [bear2] });
 
   // ブロッカーがいないときも止まらない
   await app.start(RIVALS);
@@ -195,7 +195,7 @@ test('トーブランがいると熊はゴブリンを止めない。チャン�
   const [rager] = await app.tokens('Lightning Rager');
   const bear = await app.rival(0, 'bear');
   await attackWith(app, [rager]);
-  expect((await app.state()).blocks).toEqual({ [rager]: bear });
+  expect((await app.state()).blocks).toEqual({ [rager]: [bear] });
   await app.dispatch({ type: 'damage' });
   const s = await app.state();
   expect(s.opponents[0].life).toBe(2);
@@ -204,7 +204,7 @@ test('トーブランがいると熊はゴブリンを止めない。チャン�
   expect(s.cards[rager]).toBeUndefined();
 });
 
-test('飛行・到達・威迫：イングリスは蜘蛛が止めて熊は止めない。海賊と不穏な火道（威迫）は壁でも止めない', async ({ app }) => {
+test('飛行・到達・威迫：イングリスは蜘蛛が止めて熊は止めない。海賊と不穏な火道（威迫）は壁1体では止めない', async ({ app }) => {
   await app.start(RIVALS);
   const ingris = await app.put('Ingris Stingerquill', 'battlefield');
   const vents = await app.put('Restless Vents', 'battlefield');
@@ -217,10 +217,63 @@ test('飛行・到達・威迫：イングリスは蜘蛛が止めて熊は止�
   const spider = await app.rival(0, 'spider');
   await app.rival(1, 'wall');
   await app.dispatch({ type: 'toCombat' }, { type: 'plan', id: ingris, opp: 0 }, { type: 'plan', id: pirate, opp: 1 }, { type: 'plan', id: vents, opp: 1 }, { type: 'attack' });
-  expect((await app.state()).blocks).toEqual({ [ingris]: spider });
+  expect((await app.state()).blocks).toEqual({ [ingris]: [spider] });
   await app.dispatch({ type: 'damage' });
   // イングリスの攻撃時の1点×3体ぶんと、海賊1点・火道2点
   expect(await app.oppLife()).toEqual([37, 34, 37]);
+});
+
+test('2体で囲めば倒せるなら囲む：イングリスは蜘蛛2体に倒される。威迫の不穏な火道は壁2体で止める。一覧とログに2体とも出る', async ({ app, page }) => {
+  await app.start(RIVALS);
+  const ingris = await app.put('Ingris Stingerquill', 'battlefield');
+  const vents = await app.put('Restless Vents', 'battlefield');
+  await app.endTurn();
+  await app.dispatch({ type: 'pool', color: 'B', delta: 1 }, { type: 'pool', color: 'R', delta: 1 }, { type: 'pool', color: 'C', delta: 1 });
+  await app.dispatch({ type: 'activate', id: vents, index: 0 });
+  const [s1, s2] = [await app.rival(0, 'spider'), await app.rival(0, 'spider')];
+  const [w1, w2] = [await app.rival(1, 'wall'), await app.rival(1, 'wall')];
+  await app.dispatch({ type: 'toCombat' }, { type: 'plan', id: ingris, opp: 0 }, { type: 'plan', id: vents, opp: 1 }, { type: 'attack' });
+  let s = await app.state();
+  expect(s.blocks).toEqual({ [ingris]: [s1, s2], [vents]: [w1, w2] });
+  expect(s.log.some((l) => l.includes('イングリス・スティンガークイル ← 相手1の蜘蛛 2/4 到達・蜘蛛 2/4 到達'))).toBe(true);
+  await expect(page.getByTestId('block-list')).toContainText('イングリス・スティンガークイル ← 蜘蛛 2/4 到達・蜘蛛 2/4 到達（相手1）');
+  await expect(page.getByTestId('block-list')).toContainText('不穏な火道 ← 壁 0/4 防衛・壁 0/4 防衛（相手2）');
+  await expect(app.chip(s1)).toHaveClass(/blocking/);
+  await app.dispatch({ type: 'damage' });
+  s = await app.state();
+  // イングリス（1/4）は蜘蛛2体の4点で倒れて統率領域へ。1点は先頭の蜘蛛へ。火道（2/3）は壁を倒せず、壁も0点
+  expect(s.cards[ingris].zone).toBe('command');
+  expect(s.opponents[0].board.map((p) => p.damage)).toEqual([1, 0]);
+  expect(s.opponents[1].board.map((p) => p.damage)).toEqual([2, 0]);
+  expect(s.cards[vents].zone).toBe('battlefield');
+  // ブロッカーを1体除去しても、残った1体とだけ戦う（ブロックされたまま）
+  await app.start(RIVALS);
+  const ingris2 = await app.put('Ingris Stingerquill', 'battlefield');
+  await app.endTurn();
+  const [s3, s4] = [await app.rival(0, 'spider'), await app.rival(0, 'spider')];
+  await app.dispatch({ type: 'toCombat' }, { type: 'plan', id: ingris2, opp: 0 }, { type: 'attack' });
+  expect((await app.state()).blocks).toEqual({ [ingris2]: [s3, s4] });
+  await app.dispatch({ type: 'rivalRemove', opp: 0, id: s3, trigger: false });
+  await expect(page.getByTestId('block-list')).toContainText('イングリス・スティンガークイル ← 蜘蛛 2/4 到達（相手1）');
+  await app.dispatch({ type: 'damage' });
+  s = await app.state();
+  expect([s.cards[ingris2].zone, s.opponents[0].board.map((p) => p.damage), s.opponents[0].life]).toEqual(['battlefield', [1], 39]);
+});
+
+test('通すと致死なら、2体で囲まずに1体ずつで止める（イングリスとゴブリンを蜘蛛2体で）', async ({ app }) => {
+  await app.start(RIVALS);
+  const ingris = await app.put('Ingris Stingerquill', 'battlefield');
+  await app.dispatch({ type: 'token', name: 'Goblin', count: 1 });
+  await app.endTurn();
+  const [goblin] = await app.tokens('Goblin');
+  const [s1, s2] = [await app.rival(0, 'spider'), await app.rival(0, 'spider')];
+  // 攻撃時の誘発で2点受けると残り1。蜘蛛2体でイングリスを囲むと、ゴブリンの1点が致死になる
+  await app.dispatch({ type: 'oppLife', opp: 0, delta: -37 });
+  await app.dispatch({ type: 'toCombat' }, { type: 'plan', id: ingris, opp: 0 }, { type: 'plan', id: goblin, opp: 0 }, { type: 'attack' });
+  expect((await app.state()).blocks).toEqual({ [ingris]: [s1], [goblin]: [s2] });
+  await app.dispatch({ type: 'damage' });
+  const s = await app.state();
+  expect([s.opponents[0].life, s.opponents[0].deadTurn, s.cards[ingris].zone, s.cards[goblin]]).toEqual([1, null, 'battlefield', undefined]);
 });
 
 test('壁はゴブリンを止める（倒せなくても生き残る）。ブロックが多いと「ほか N 件」', async ({ app, page }) => {
@@ -245,7 +298,7 @@ test('接死の蛇は獣も倒す。致死ならチャンプブロックする�
   const wall = await app.rival(0, 'wall');
   // 獣は蛇と相討ち、壁は蛇に倒されるだけなので、普通はどちらも止めない。通すと致死なので、価値の小さい壁でチャンプブロックする
   await app.attackAll();
-  expect((await app.state()).blocks).toEqual({ [snake]: wall });
+  expect((await app.state()).blocks).toEqual({ [snake]: [wall] });
   await app.dispatch({ type: 'damage' });
   let s = await app.state();
   expect(s.opponents[0].board.map((p) => p.id)).toEqual([beast]);
@@ -257,7 +310,7 @@ test('接死の蛇は獣も倒す。致死ならチャンプブロックする�
   for (const p of (await app.state()).opponents[0].board) await app.dispatch({ type: 'rivalRemove', opp: 0, id: p.id, trigger: false });
   const beast2 = await app.rival(0, 'beast');
   await attackWith(app, [snake]);
-  expect((await app.state()).blocks).toEqual({ [snake]: beast2 });
+  expect((await app.state()).blocks).toEqual({ [snake]: [beast2] });
   await app.dispatch({ type: 'damage' });
   s = await app.state();
   expect(s.opponents[0].board).toEqual([]);
@@ -270,7 +323,7 @@ test('接死の蛇は獣も倒す。致死ならチャンプブロックする�
   await app.dispatch({ type: 'cmdDamage', opp: 0, delta: 20 });
   const bird = await app.rival(0, 'bird');
   await attackWith(app, [ingris]);
-  expect((await app.state()).blocks).toEqual({ [ingris]: bird });
+  expect((await app.state()).blocks).toEqual({ [ingris]: [bird] });
   await app.dispatch({ type: 'damage' });
   s = await app.state();
   expect(s.opponents[0].commanderDamage).toBe(20);
@@ -283,7 +336,7 @@ test('相手の天使の絆魂でライフが増え、イングリスは倒さ�
   await app.endTurn();
   const angel = await app.rival(0, 'angel');
   await attackWith(app, [ingris]);
-  expect((await app.state()).blocks).toEqual({ [ingris]: angel });
+  expect((await app.state()).blocks).toEqual({ [ingris]: [angel] });
   await app.dispatch({ type: 'damage' });
   let s = await app.state();
   // 攻撃時の1点で39、天使の絆魂で+4
@@ -298,7 +351,7 @@ test('相手の天使の絆魂でライフが増え、イングリスは倒さ�
   const [horror] = await app.tokens('Phyrexian Horror');
   const bear = await app.rival(0, 'bear');
   await app.attackAll();
-  expect((await app.state()).blocks).toEqual({ [horror]: bear });
+  expect((await app.state()).blocks).toEqual({ [horror]: [bear] });
   await app.dispatch({ type: 'damage' });
   s = await app.state();
   expect(s.opponents[0].board[0].damage).toBe(0);
@@ -314,7 +367,7 @@ test('ブロックのあとにブロッカーを除去すると、トランプ�
   const knight = await app.rival(0, 'knight');
   await app.attackAll();
   // 熊はゴブリンを止め、騎士は（通すと致死なので）憤怒獣をチャンプブロックする
-  expect((await app.state()).blocks).toEqual({ [goblin]: bear, [rager]: knight });
+  expect((await app.state()).blocks).toEqual({ [goblin]: [bear], [rager]: [knight] });
   await app.lands('Swamp', 'Swamp', 'Swamp', 'Swamp');
   await app.act(await app.put('Infernal Grasp', 'hand'), /唱える/);
   await app.choose('相手1の 熊');
@@ -340,7 +393,7 @@ test('ブロックされたトークンを村の儀式で生け贄にすると�
   // 村の儀式を唱えられるので、ブロックの前で止まる
   expect((await app.state()).phase).toBe('declared');
   await app.dispatch({ type: 'toBlocks' });
-  expect((await app.state()).blocks).toEqual({ [goblin]: bear });
+  expect((await app.state()).blocks).toEqual({ [goblin]: [bear] });
   const hand = await handSize(app);
   await app.act(rites, /唱える/);
   await app.choose('ゴブリン');
@@ -354,7 +407,7 @@ test('ブロックされたトークンを村の儀式で生け贄にすると�
   const beast = await app.rival(0, 'beast');
   const bear2 = await app.rival(0, 'bear');
   await attackWith(app, [garna, goblin2]);
-  expect((await app.state()).blocks).toEqual({ [garna]: beast, [goblin2]: bear2 });
+  expect((await app.state()).blocks).toEqual({ [garna]: [beast], [goblin2]: [bear2] });
   const before = await handSize(app);
   await app.dispatch({ type: 'damage' });
   const s = await app.state();
@@ -571,7 +624,7 @@ test('戦闘ダメージは同時：相手のライフが途中で0になって�
   await app.dispatch({ type: 'oppLife', opp: 0, delta: -38 });
   const bear = await app.rival(0, 'bear');
   await attackWith(app, [knight, goblin]);
-  expect((await app.state()).blocks).toEqual({ [goblin]: bear });
+  expect((await app.state()).blocks).toEqual({ [goblin]: [bear] });
   const hand = await handSize(app);
   await app.dispatch({ type: 'damage' });
   const s = await app.state();
@@ -589,7 +642,7 @@ test('同時に死ぬ病的な日和見主義者も、相手のクリーチャ�
   // 日和見主義者（1/3、価値8）を毒蛇（1/1 接死）が相討ちで止める
   const viper = await app.rival(0, 'viper');
   await attackWith(app, [morbid]);
-  expect((await app.state()).blocks).toEqual({ [morbid]: viper });
+  expect((await app.state()).blocks).toEqual({ [morbid]: [viper] });
   let hand = await handSize(app);
   await app.dispatch({ type: 'damage' });
   let s = await app.state();
@@ -619,7 +672,7 @@ test('相手の天使の絆魂でライフが減らなくても、戦闘ダメ�
   const angel = await app.rival(0, 'angel');
   await attackWith(app, [rager]);
   // 通すと致死なので天使がチャンプブロック
-  expect((await app.state()).blocks).toEqual({ [rager]: angel });
+  expect((await app.state()).blocks).toEqual({ [rager]: [angel] });
   const before = await app.state();
   await app.dispatch({ type: 'damage' });
   const s = await app.state();
@@ -641,7 +694,7 @@ test('クリーチャー化した土地にもエレボスの鞭の絆魂が乗�
   await app.rival(1, 'bear');
   await app.dispatch({ type: 'toCombat' }, { type: 'plan', id: reaches, opp: 0 }, { type: 'plan', id: freya, opp: 1 }, { type: 'attack' });
   // 辺境（2/2）は壁が止める。フライヤは自分のターンは飛行なので、熊は止めない
-  expect((await app.state()).blocks).toEqual({ [reaches]: wall });
+  expect((await app.state()).blocks).toEqual({ [reaches]: [wall] });
   const life = (await app.state()).life;
   await app.dispatch({ type: 'damage' });
   const s = await app.state();
@@ -660,7 +713,7 @@ test('蘇生で戻したクリーチャーは、戦闘で死ぬときも追放�
   // 門番（2/3、価値8）を騎士（3/2）が相討ちで止める
   const knight = await app.rival(0, 'knight');
   await attackWith(app, [gate]);
-  expect((await app.state()).blocks).toEqual({ [gate]: knight });
+  expect((await app.state()).blocks).toEqual({ [gate]: [knight] });
   const before = await app.state();
   await app.dispatch({ type: 'damage' });
   const s = await app.state();

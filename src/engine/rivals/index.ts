@@ -2,14 +2,14 @@
 // turn.ts を import しない（turn.ts がここを使う）。モードの判定（if (s.rivals)）は呼ぶ側の入口でだけ行う。
 import { scriptOf } from '../../cards/registry';
 import {
-  aliveOpponents, battlefield, def, enqueue, hasKeyword, isCommander, log, moveTo, nameJa, power, toughness,
+  aliveOpponents, battlefield, def, enqueue, grantedKeyword, hasKeyword, isCommander, log, moveTo, nameJa, power, toughness,
 } from '../core';
 import { boosted, damageOpponent, damageRival } from '../damage';
 import { enqueueOpponentTurn } from '../opponents';
 import { canRespond } from '../play';
 import type { CardInstance, GameState, RivalPermanent, RivalState } from '../types';
 import { findRival, kindOf, rivalLabel } from './board';
-import { assignBlocks, canBlock, lethalTo, resolveFight, type Fighter } from './combat';
+import { assignBlocks, canBeBlocked, resolveFight, type Fighter } from './combat';
 import { KINDS, MAX_CREATURES, ROLLS_PER_STEP, STYLES } from './kinds';
 import { commanderLeft, pickStyle, planRivalTurn, rolls, simulateBoard } from './plan';
 
@@ -137,6 +137,7 @@ export function fighterOf(s: GameState, card: CardInstance): Fighter {
     power: p,
     hit: boosted(s, card, p, true, 'permanent'),
     face: boosted(s, card, p, true, 'player'),
+    bonus: boosted(s, card, 1, true, 'permanent') - 1,
     toughness: toughness(card),
     // 跳躍（フライヤ）はあなたのターンだけ飛行。第1段階では戦闘はあなたのターンにしか起きない
     flying: hasKeyword(card, 'Flying') || hasKeyword(card, 'Jump'),
@@ -144,6 +145,7 @@ export function fighterOf(s: GameState, card: CardInstance): Fighter {
     deathtouch: hasKeyword(card, 'Deathtouch'),
     menace: hasKeyword(card, 'Menace'),
     trample: hasKeyword(card, 'Trample'),
+    unblockable: grantedKeyword(s, card, 'Unblockable'),
     value: cardValue(s, card),
     commander: isCommander(s, card),
   };
@@ -157,12 +159,14 @@ export function rivalFighter(p: RivalPermanent): Fighter {
     power: k.power,
     hit: k.power,
     face: k.power,
+    bonus: 0,
     toughness: k.toughness - p.damage,
     flying: has('Flying'),
     reach: has('Reach'),
     deathtouch: has('Deathtouch'),
     menace: false,
     trample: has('Trample'),
+    unblockable: false,
     value: k.value,
     commander: k.commander === true,
   };
@@ -170,9 +174,9 @@ export function rivalFighter(p: RivalPermanent): Fighter {
 
 const attackersOf = (s: GameState) => battlefield(s).filter((c) => c.attacking !== null);
 
-/** ブロックできる相手のクリーチャーがいるか */
+/** ブロックできる相手のクリーチャーがいるか（威迫は2体） */
 const blockable = (s: GameState) =>
-  attackersOf(s).some((c) => s.opponents[c.attacking!].board.some((p) => !p.tapped && canBlock(fighterOf(s, c), rivalFighter(p))));
+  attackersOf(s).some((c) => canBeBlocked(fighterOf(s, c), s.opponents[c.attacking!].board.filter((p) => !p.tapped).map(rivalFighter)));
 
 /**
  * 攻撃時の誘発のあとに積む。インスタントか起動型能力を使えて、ブロックできる相手がいるときだけ
@@ -182,7 +186,7 @@ export function beforeBlocks(s: GameState) {
   enqueue(s, '相手のブロック', (st) => {
     if (canRespond(st) && blockable(st)) st.phase = 'declared';
     else declareBlocks(st);
-  });
+  }, false);
 }
 
 const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
@@ -200,30 +204,30 @@ export function declareBlocks(s: GameState) {
       sum(unblocked.filter((f) => f.commander).map((f) => f.face)) + o.commanderDamage >= 21;
     Object.assign(s.blocks, assignBlocks(attackers, blockers, lethal, s.rivals!.styles[opp] !== 'aggro'));
   }
-  for (const [a, b] of Object.entries(s.blocks)) {
-    const { opp, p } = findRival(s, b)!;
-    log(s, `${nameJa(s.cards[a])} ← 相手${opp + 1}の${rivalLabel(p)}`);
+  for (const [a, bs] of Object.entries(s.blocks)) {
+    const rivals = bs.map((b) => findRival(s, b)!);
+    log(s, `${nameJa(s.cards[a])} ← 相手${rivals[0].opp + 1}の${rivals.map((r) => rivalLabel(r.p)).join('・')}`);
   }
 }
 
 /**
  * ブロックされた攻撃クリーチャーの戦闘ダメージ。死ぬものは deaths に入れ、死亡はあとでまとめて処理する。
- * ブロッカーがダメージの前に除去されていても、攻撃クリーチャーはブロックされたまま
+ * ブロッカーがダメージの前に除去されていても、攻撃クリーチャーはブロックされたまま（残ったブロッカーとだけ戦う）
  */
 export function fightBlocked(s: GameState, a: CardInstance, deaths: string[]): number {
   const opp = a.attacking!;
   const o = s.opponents[opp];
-  const f = fighterOf(s, a);
-  const p = o.board.find((x) => x.id === s.blocks[a.id]);
-  if (!p) return damageOpponent(s, a, opp, resolveFight(f, null).toPlayer, true);
-  const k = kindOf(p);
-  const res = resolveFight(f, rivalFighter(p));
-  // 相手の絆魂（天使）：与えたダメージの分、その相手がライフを得る
-  o.life += res.toAttacker * Number(k.keywords.includes('Lifelink'));
-  log(s, `相手${opp + 1}の${k.name} → ${nameJa(a)} に ${res.toAttacker}点`);
-  damageRival(s, a, opp, p.id, res.toBlocker, true);
+  const ps = s.blocks[a.id].map((id) => o.board.find((x) => x.id === id)).filter((p): p is RivalPermanent => p !== undefined);
+  const res = resolveFight(fighterOf(s, a), ps.map(rivalFighter));
+  ps.forEach((p, i) => {
+    const k = kindOf(p);
+    // 相手の絆魂（天使）：与えたダメージの分、その相手がライフを得る
+    o.life += k.power * Number(k.keywords.includes('Lifelink'));
+    log(s, `相手${opp + 1}の${k.name} → ${nameJa(a)} に ${k.power}点`);
+    damageRival(s, a, opp, p.id, res.toBlockers[i], true);
+  });
   const dealt = damageOpponent(s, a, opp, res.toPlayer, true);
-  if (lethalTo(res.toAttacker, k.keywords.includes('Deathtouch'), toughness(a))) deaths.push(a.id);
+  if (res.attackerDies) deaths.push(a.id);
   return dealt;
 }
 

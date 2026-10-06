@@ -3,7 +3,7 @@
 import { scriptOf } from '../cards/registry';
 import type { Ability, CastInfo, ExtraCost } from '../cards/types';
 import type { CastSpec } from '../cards/types';
-import { ask, battlefield, canAttack, def, drain, enqueue, hasKeyword, isCreature, isLand, log, moveTo, nameJa, typeOf } from './core';
+import { ask, battlefield, canAttack, def, drain, enqueue, hasKeyword, isCreature, isLand, log, moveTo, nameJa, remember, typeOf } from './core';
 import { youLoseLife } from './damage';
 import { canPay, parseCost, pay, type Cost } from './mana';
 import { rivalOptions } from './rivals/board';
@@ -83,7 +83,7 @@ export function cast(s: GameState, id: string, modeIndex: number) {
   const mode = castModes(s, card).find((m) => m.index === modeIndex)!;
   const spec = scriptOf(card).cast ?? {};
   const extra = spec.modes?.[modeIndex]?.extra ?? spec.extra;
-  const info: CastInfo = { x: 0, sacrificed: null, mode: modeIndex, from: card.zone, target: null };
+  const info: CastInfo = { x: 0, sacrificed: null, mode: modeIndex, from: card.zone, target: null, recent: [] };
   // X を決め、対象を選び、追加コストを払う（CR 601.2b〜f の順）
   const afterX = (st: GameState) =>
     chooseTarget(st, id, spec, info, (st2) => chooseExtra(st2, id, extra, info, (st3) => finishCast(st3, id, mode, info)));
@@ -159,8 +159,10 @@ function chooseExtra(s: GameState, id: string, extra: ExtraCost | undefined, inf
 }
 
 /** マナは castModes で払えることを確かめてあるので、ここでは失敗しない */
-function finishCast(s: GameState, id: string, mode: CastMode, info: CastInfo) {
+function finishCast(s: GameState, id: string, mode: CastMode, cast: CastInfo) {
   const card = s.cards[id];
+  // 生け贄や唱えたときの誘発より前の記録（しっぺ返しは、自分が起こした誘発をコピーできない）
+  const info = { ...cast, recent: [...s.recent] };
   pay(s, mode.cost);
   if (info.sacrificed) {
     log(s, `${nameJa(info.sacrificed)} を生け贄に`);
@@ -173,7 +175,7 @@ function finishCast(s: GameState, id: string, mode: CastMode, info: CastInfo) {
   s.flags.spellsCast++;
   const spent = mode.cost.generic + mode.cost.colors.length;
   for (const p of battlefield(s)) scriptOf(p).onCast?.(s, p, card, spent);
-  enqueue(s, `${mode.label}の解決`, (st) => resolveSpell(st, id, mode, info));
+  enqueue(s, `${mode.label}の解決`, (st) => resolveSpell(st, id, mode, info), false);
 }
 
 function resolveSpell(s: GameState, id: string, mode: CastMode, info: CastInfo) {
@@ -188,7 +190,11 @@ function resolveSpell(s: GameState, id: string, mode: CastMode, info: CastInfo) 
   moveTo(s, id, info.from === 'graveyard' || mode.instant ? 'exile' : 'graveyard');
   // 出来事で追放したカードは、あとでパーマネント側を唱えられる
   s.cards[id].castable = mode.instant;
-  spec?.resolve?.(s, s.cards[id], info);
+  const resolve = spec?.resolve;
+  if (!resolve) return;
+  resolve(s, s.cards[id], info);
+  // インスタント・ソーサリーの効果は、しっぺ返しでコピーできる（対象を取るものは新しい対象を選べないので外す）
+  if (!spec.target) remember(s, { label: `${mode.label}（呪文）`, run: (st) => resolve(st, st.cards[id], info) });
 }
 
 // ---- 起動型能力 ----

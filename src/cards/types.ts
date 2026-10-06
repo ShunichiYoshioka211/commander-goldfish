@@ -17,7 +17,9 @@ export type ExtraCost = 'sacCreature' | 'sacArtifactOrCreature' | 'discardOrLife
 
 export interface CastSpec {
   /** 出来事・部屋・ワープのように唱え方が複数あるもの。instant=true の面は戦場に出ない。hand=true は手札からのみ */
-  modes?: { label: string; cost: string; instant?: boolean; extra?: ExtraCost; hand?: boolean }[];
+  modes?: { label: string; cost: string; instant?: boolean; extra?: ExtraCost; hand?: boolean; copy?: boolean }[];
+  /** 唱えても、直前に解決したものの記録を消さない（しっぺ返し） */
+  keepsRecent?: boolean;
   /** 追加コスト */
   extra?: ExtraCost;
   x?: boolean;
@@ -49,6 +51,8 @@ export interface Ability {
 export interface CardScript {
   /** 相手ありモードのときだけ自動で処理する（除去）。カード詳細の表示が変わる */
   rivalsOnly?: boolean;
+  /** 装備品：装備しているクリーチャーが得るキーワード能力（英語。'Unblockable' はブロックされない） */
+  equipKeywords?: string[];
   etbTapped?: (s: GameState, card: CardInstance) => boolean;
   mana?: (s: GameState, card: CardInstance) => ManaOption[];
   cast?: CastSpec;

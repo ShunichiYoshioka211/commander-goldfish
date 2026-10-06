@@ -1,11 +1,13 @@
 // 重ねて出す画面：選択の問い合わせ・カード詳細・領域の一覧・結果・通知。
 import { useEffect, useState } from 'react';
 import type { MoveTarget } from '../engine/actions';
-import type { Prompt } from '../engine/types';
-import { aliveOpponents, canAttack, def } from '../engine/core';
+import type { CardInstance, GameState, Prompt } from '../engine/types';
+import { scriptOf } from '../cards/registry';
+import { aliveOpponents, canAttack, def, equipmentOn, nameJa } from '../engine/core';
 import { COUNTER_JA } from '../engine/counters';
 import { canTapForMana, costText, manaOptions } from '../engine/mana';
-import { abilitiesOf, canActivate, canPlayLand, castModes } from '../engine/play';
+import { abilitiesOf, canActivate, canPlayLand, castModes, usable } from '../engine/play';
+import { KEYWORD_JA } from '../engine/rivals/kinds';
 import { useStore } from '../store';
 import { CardInfo, CardThumb } from './CardInfo';
 import { CardView } from './CardView';
@@ -156,6 +158,23 @@ const MOVES: [MoveTarget, string][] = [
 ];
 const COUNTERS = ['+1/+1', 'loyalty', 'fire', 'oil', 'quest'];
 
+/** 装備の状態：装備品なら付いている先、クリーチャーなら付いている装備品と得ている能力 */
+function EquipInfo({ game, card }: { game: GameState; card: CardInstance }) {
+  const host = card.attachedTo === null ? [] : [`装備先：${nameJa(game.cards[card.attachedTo])}`];
+  const gear = equipmentOn(game, card).map(
+    (e) => `装備：${nameJa(e)}（${scriptOf(e).equipKeywords!.map((k) => KEYWORD_JA[k].name).join('・')}）`,
+  );
+  const lines = [...host, ...gear];
+  if (lines.length === 0) return null;
+  return (
+    <div className="equip-info" data-testid="equip-info">
+      {lines.map((l) => (
+        <div key={l}>{l}</div>
+      ))}
+    </div>
+  );
+}
+
 export function CardDetail() {
   const id = useStore((s) => s.selected);
   const game = useStore((s) => s.game);
@@ -176,6 +195,7 @@ export function CardDetail() {
     <div className="modal-back" onPointerDown={closeOnBack(close)}>
       <div className="modal detail" role="dialog" aria-label={d.jaName}>
         <CardInfo card={card} deckId={game.deckId} />
+        <EquipInfo game={game} card={card} />
         <div className="actions">
           {canPlayLand(game, card) && <button className="primary" onClick={act(() => play(card))}>プレイ</button>}
           {castModes(game, card).map((m) => (
@@ -208,7 +228,7 @@ export function CardDetail() {
           {game.plan[card.id] !== undefined && (
             <button onClick={act(() => dispatch({ type: 'plan', id: card.id, opp: null }))}>攻撃をやめる</button>
           )}
-          {/* いとしいしとの装備など、近似で扱えないブロックの逃げ道 */}
+          {/* 近似で扱えないブロックの逃げ道 */}
           {editMode && card.id in game.blocks && (
             <button onClick={act(() => dispatch({ type: 'unblock', id: card.id }))}>ブロックを外す</button>
           )}
@@ -262,7 +282,7 @@ export function ZoneViewer() {
         </h2>
         <div className="row wrap">
           {game.zones[zone].map((cid) => (
-            <CardView key={cid} card={game.cards[cid]} />
+            <CardView key={cid} card={game.cards[cid]} ready={usable(game, game.cards[cid])} />
           ))}
         </div>
         <button onClick={close}>閉じる</button>

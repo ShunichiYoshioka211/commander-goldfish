@@ -66,10 +66,15 @@ test('Eviscerator’s Insight はフラッシュバックで墓地から唱え�
   const ev = await castFromHand(app, "Eviscerator's Insight");
   await app.choose('ネズミ');
   expect((await app.state()).cards[ev].zone).toBe('graveyard');
+  // 墓地から唱えられるカードがあると、墓地の山と一覧のカードが光る
+  await expect(app.page.getByTestId('pile-graveyard')).toHaveClass(/ready/);
   await app.page.getByTestId('pile-graveyard').click();
+  await expect(app.card(ev)).toHaveClass(/ready/);
   await app.act(ev, /唱える/);
   await app.choose('ネズミ');
   expect((await app.state()).cards[ev].zone).toBe('exile');
+  await expect(app.page.getByTestId('pile-graveyard')).not.toHaveClass(/ready/);
+  await expect(app.page.getByTestId('pile-exile')).not.toHaveClass(/ready/);
 });
 
 test('Bitter Triumph：ライフか手札で追加コスト', async ({ app }) => {
@@ -94,6 +99,7 @@ test('My Precious：出来事で引いてから、追放から装備品を唱え
   await app.page.getByRole('dialog').getByRole('button', { name: /力の魅惑/ }).click();
   await app.choose('ネズミ');
   expect((await app.state()).cards[mp].zone).toBe('exile');
+  await expect(app.page.getByTestId('pile-exile')).toHaveClass(/ready/);
   await app.page.getByTestId('pile-exile').click();
   await app.card(mp).click();
   await expect(app.page.getByRole('dialog').getByRole('button', { name: /力の魅惑/ })).toHaveCount(0);

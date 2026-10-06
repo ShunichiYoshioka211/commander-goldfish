@@ -1,5 +1,5 @@
 // 盤面：対戦相手・戦場・手札・左右の情報欄。
-import { isCreature, isLand } from '../engine/core';
+import { equipmentOn, isCreature, isLand } from '../engine/core';
 import { usable } from '../engine/play';
 import { STYLES } from '../engine/rivals/kinds';
 import type { GameState } from '../engine/types';
@@ -24,7 +24,7 @@ export function Opponents() {
   const blocks = useStore((s) => s.game.blocks);
   const editMode = useStore((s) => s.editMode);
   const dispatch = useStore((s) => s.dispatch);
-  const blocking = Object.values(blocks);
+  const blocking = Object.values(blocks).flat();
   return (
     <>
       {rivals && <div className="seat" data-testid="seat">あなたは{rivals.seat}番手</div>}
@@ -76,7 +76,14 @@ function Row({ ids, label }: { ids: string[]; label: string }) {
   return (
     <div className="row" aria-label={label}>
       {ids.map((id) => (
-        <CardView key={id} card={game.cards[id]} planned={game.plan[id]} blocked={id in game.blocks} ready={ready(game, id)} />
+        <CardView
+          key={id}
+          card={game.cards[id]}
+          planned={game.plan[id]}
+          blocked={id in game.blocks}
+          ready={ready(game, id)}
+          equipped={equipmentOn(game, game.cards[id]).length > 0}
+        />
       ))}
     </div>
   );
@@ -99,8 +106,10 @@ export function Battlefield() {
 
 export function Hand() {
   const game = useStore((s) => s.game);
+  // 枚数を CSS に渡し、枚数が多いほどカードを深く重ねて欄の幅に収める（右のカードが外に出ないように）
+  const style = { '--n': game.zones.hand.length } as React.CSSProperties;
   return (
-    <section className="hand" data-drop="hand" data-testid="hand">
+    <section className="hand" data-drop="hand" data-testid="hand" style={style}>
       {game.zones.hand.map((id) => (
         <CardView key={id} card={game.cards[id]} ready={ready(game, id)} />
       ))}
@@ -110,11 +119,19 @@ export function Hand() {
 
 function Pile({ zone, label }: { zone: 'library' | 'graveyard' | 'exile'; label: string }) {
   const count = useStore((s) => s.game.zones[zone].length);
+  // 中に唱えられる・起動できるカード（フラッシュバック・蘇生・追放から唱えられるものなど）があれば光らせる
+  const usableInside = useStore((s) => s.game.zones[zone].some((id) => usable(s.game, s.game.cards[id])));
   const editMode = useStore((s) => s.editMode);
   const set = useStore((s) => s.set);
   const locked = zone === 'library' && !editMode;
   return (
-    <button className="pile" data-drop={zone} data-testid={`pile-${zone}`} disabled={locked} onClick={() => set({ viewing: zone })}>
+    <button
+      className={`pile${usableInside ? ' ready' : ''}`}
+      data-drop={zone}
+      data-testid={`pile-${zone}`}
+      disabled={locked}
+      onClick={() => set({ viewing: zone })}
+    >
       {label}
       <b>{count}</b>
     </button>

@@ -31,7 +31,7 @@ export function opponentTurnEnd(s: GameState, opp: number) {
  * 3つに分けて積むので、始めの切削で誘発したもの（賢きモスマンなど）は、盤面の動きと終了ステップより先に解決する
  */
 export function enqueueOpponentTurn(s: GameState, opp: number, body: ((st: GameState) => void)[]) {
-  enqueue(s, `相手${opp + 1}のターン`, (st) => opponentTurnStart(st, opp));
-  for (const run of body) enqueue(s, `相手${opp + 1}のターン（盤面）`, run);
-  enqueue(s, `相手${opp + 1}のターンの終わり`, (st) => opponentTurnEnd(st, opp));
+  enqueue(s, `相手${opp + 1}のターン`, (st) => opponentTurnStart(st, opp), false);
+  for (const run of body) enqueue(s, `相手${opp + 1}のターン（盤面）`, run, false);
+  enqueue(s, `相手${opp + 1}のターンの終わり`, (st) => opponentTurnEnd(st, opp), false);
 }

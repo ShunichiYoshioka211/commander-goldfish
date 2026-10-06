@@ -7,8 +7,8 @@ import { newGame } from '../../src/engine/turn';
 import { Game } from './helpers';
 
 const fighter = (id: string, over: Partial<Fighter> = {}): Fighter => ({
-  id, power: 1, hit: 1, face: 1, toughness: 1, flying: false, reach: false, deathtouch: false, menace: false, trample: false,
-  value: 0, commander: false, ...over,
+  id, power: 1, hit: 1, face: 1, bonus: 0, toughness: 1, flying: false, reach: false, deathtouch: false, menace: false, trample: false,
+  unblockable: false, value: 0, commander: false, ...over,
 });
 const goblin = (over: Partial<Fighter> = {}) => fighter('goblin', over);
 const rival = (kind: string, id = kind): Fighter => {
@@ -23,17 +23,26 @@ const never = () => false;
 
 describe('相手のブロック（assignBlocks）', () => {
   it.each([
-    ['1/1 は熊に止められる', [goblin()], [rival('bear')], true, { goblin: 'bear' }],
-    ['トーブランがいると熊は相討ちになるので、価値0のトークンは止めない', [goblin({ hit: 3, face: 3 })], [rival('bear')], true, {}],
+    ['1/1 は熊に止められる', [goblin()], [rival('bear')], true, { goblin: ['bear'] }],
+    ['トーブランがいると熊は相討ちになるので、価値0のトークンは止めない', [goblin({ hit: 3, face: 3, bonus: 2 })], [rival('bear')], true, {}],
     ['飛行は熊では止めない', [goblin({ flying: true })], [rival('bear')], true, {}],
-    ['飛行は到達で止める', [goblin({ flying: true })], [rival('spider')], true, { goblin: 'spider' }],
-    ['飛行は飛行で止める', [goblin({ flying: true })], [rival('drake')], true, { goblin: 'drake' }],
-    ['威迫は止めない', [goblin({ menace: true })], [rival('wall')], true, {}],
-    ['壁は倒せなくても生き残るなら止める', [goblin()], [rival('wall')], true, { goblin: 'wall' }],
+    ['飛行は到達で止める', [goblin({ flying: true })], [rival('spider')], true, { goblin: ['spider'] }],
+    ['飛行は飛行で止める', [goblin({ flying: true })], [rival('drake')], true, { goblin: ['drake'] }],
+    ['ブロックされない（いとしいしと）は止めない', [goblin({ unblockable: true })], [rival('wall'), rival('bear')], true, {}],
+    ['威迫は1体では止めない', [goblin({ menace: true })], [rival('wall')], true, {}],
+    ['威迫は2体で止める', [goblin({ menace: true })], [rival('wall'), rival('bear')], true, { goblin: ['wall', 'bear'] }],
+    ['壁は倒せなくても生き残るなら止める', [goblin()], [rival('wall')], true, { goblin: ['wall'] }],
     ['接死の攻撃には「生き残る」が成り立たない', [goblin({ deathtouch: true })], [rival('wall'), rival('beast')], true, {}],
-    ['相討ちは攻撃側の価値がブロッカー以上のとき', [fighter('elf', { power: 3, hit: 3, face: 3, toughness: 2, value: 8 })], [rival('knight')], true, { elf: 'knight' }],
+    ['相討ちは攻撃側の価値がブロッカー以上のとき', [fighter('elf', { power: 3, hit: 3, face: 3, toughness: 2, value: 8 })], [rival('knight')], true, { elf: ['knight'] }],
     ['アグロは相討ちしない', [fighter('elf', { power: 3, hit: 3, face: 3, toughness: 2, value: 8 })], [rival('knight')], false, {}],
-    ['同じブロッカーを2度使わない', [goblin(), fighter('goblin2')], [rival('bear')], true, { goblin: 'bear' }],
+    ['同じブロッカーを2度使わない', [goblin(), fighter('goblin2')], [rival('bear')], true, { goblin: ['bear'] }],
+    // 3/3 は蜘蛛（2/4）も守護者（2/5）も1体では倒せないが、2体で囲めば4点で倒せて、どちらも死なない
+    ['2体で囲めば誰も死なずに倒せるなら囲む', [fighter('ogre', { power: 3, hit: 3, face: 3, toughness: 3, value: 8 })], [rival('spider'), rival('guardian')], false, { ogre: ['spider', 'guardian'] }],
+    // 壁と熊で囲むと、3点は熊に割り当てられて熊が死ぬ（3/3 も倒せない）。壁だけで止める
+    ['囲むと失うだけなら、生き残る1体で止める', [fighter('ogre', { power: 3, hit: 3, face: 3, toughness: 3, value: 8 })], [rival('bear'), rival('wall')], true, { ogre: ['wall'] }],
+    // 3/3 は熊1体なら熊が死ぬだけ。2体で囲めば片方が死ぬが倒せる（相討ち）
+    ['囲むと1体失うときは、相討ちと同じ扱い（アグロはしない）', [fighter('ogre', { power: 3, hit: 3, face: 3, toughness: 3, value: 8 })], [rival('bear'), rival('bear', 'bear2')], false, {}],
+    ['囲むと1体失うが、失う価値が攻撃側以下なら囲む', [fighter('ogre', { power: 3, hit: 3, face: 3, toughness: 3, value: 8 })], [rival('bear'), rival('bear', 'bear2')], true, { ogre: ['bear', 'bear2'] }],
   ])('%s', (_label, attackers, blockers, trades, expected) => {
     expect(assignBlocks(attackers, blockers, never, trades)).toEqual(expected);
   });
@@ -41,14 +50,22 @@ describe('相手のブロック（assignBlocks）', () => {
   it('価値の大きい攻撃から見て、倒せて生き残る中で価値の小さいブロッカーを選ぶ', () => {
     const blocks = assignBlocks([goblin(), fighter('ingris', { power: 1, hit: 1, toughness: 4, flying: true, value: 18 })], [rival('beast'), rival('spider')], never, true);
     // イングリス（1/4 飛行）は蜘蛛（2/4 到達）が止める（生き残るだけ）。ゴブリンは獣が止める
-    expect(blocks).toEqual({ ingris: 'spider', goblin: 'beast' });
+    expect(blocks).toEqual({ ingris: ['spider'], goblin: ['beast'] });
   });
 
-  it('致死ならチャンプブロックする（点の大きい攻撃から、価値の小さいブロッカーで）', () => {
+  it('1体で倒せて生き残るなら、2体では囲まない', () => {
+    expect(assignBlocks([goblin()], [rival('bear'), rival('beast')], never, true)).toEqual({ goblin: ['bear'] });
+  });
+
+  it('致死ならチャンプブロックする（点の大きい攻撃から、価値の小さいブロッカーで。威迫は2体で）', () => {
     const lethal = (unblocked: Fighter[]) => unblocked.reduce((n, f) => n + f.face, 0) >= 3;
     // 鳥はゴブリンとも騎士とも相討ちになるので普通は止めない。2体通すと3点で致死なので、騎士をチャンプブロックする
     const blocks = assignBlocks([goblin(), fighter('knight', { power: 2, hit: 2, face: 2, toughness: 1 })], [rival('bird'), rival('bird', 'bird2')], lethal, true);
-    expect(blocks).toEqual({ knight: 'bird' });
+    expect(blocks).toEqual({ knight: ['bird'] });
+    const menace = fighter('knight', { power: 3, hit: 3, face: 3, toughness: 1, menace: true });
+    expect(assignBlocks([menace], [rival('bird'), rival('bird', 'bird2')], lethal, true)).toEqual({ knight: ['bird', 'bird2'] });
+    // 1体しか残っていなければ、威迫はチャンプブロックもできない
+    expect(assignBlocks([menace], [rival('bird')], lethal, true)).toEqual({});
   });
 
   it('入力が同じなら結果も同じ', () => {
@@ -58,21 +75,44 @@ describe('相手のブロック（assignBlocks）', () => {
 });
 
 describe('ブロックされた戦闘の割り当て（resolveFight）', () => {
+  const pick = (r: ReturnType<typeof resolveFight>) => ({ toBlockers: r.toBlockers, toPlayer: r.toPlayer, toAttacker: r.toAttacker });
+
   it('トランプルは基本のパワーで致死量を割り当てる（増幅は受け手ごとにあとで足す）', () => {
     // 巡り合わせたる火の力 X=3：2/1 トランプルが壁 0/4 に止められても、本体へは0点
-    expect(resolveFight(goblin({ power: 2, hit: 5, trample: true }), rival('wall'))).toEqual({ toBlocker: 2, toPlayer: 0, toAttacker: 0 });
+    expect(pick(resolveFight(goblin({ power: 2, hit: 5, bonus: 3, trample: true }), [rival('wall')]))).toEqual({ toBlockers: [2], toPlayer: 0, toAttacker: 0 });
     // 稲妻の憤怒獣 5/1 トランプルが熊 2/2 に止められた：熊に2、本体に3
-    expect(resolveFight(goblin({ power: 5, hit: 7, trample: true }), rival('bear'))).toEqual({ toBlocker: 2, toPlayer: 3, toAttacker: 2 });
+    expect(pick(resolveFight(goblin({ power: 5, hit: 7, bonus: 2, trample: true }), [rival('bear')]))).toEqual({ toBlockers: [2], toPlayer: 3, toAttacker: 2 });
+    // 2体に止められたら、2体とも致死量を割り当ててから本体へ
+    expect(pick(resolveFight(goblin({ power: 5, trample: true }), [rival('bear'), rival('scout')]))).toEqual({ toBlockers: [2, 1], toPlayer: 2, toAttacker: 4 });
   });
 
   it('接死は1点で致死。トランプルでなければ全点をブロッカーへ', () => {
-    expect(resolveFight(goblin({ power: 3, deathtouch: true, trample: true }), rival('beast'))).toEqual({ toBlocker: 1, toPlayer: 2, toAttacker: 4 });
-    expect(resolveFight(goblin({ power: 3 }), rival('beast'))).toEqual({ toBlocker: 3, toPlayer: 0, toAttacker: 4 });
+    expect(pick(resolveFight(goblin({ power: 3, deathtouch: true, trample: true }), [rival('beast')]))).toEqual({ toBlockers: [1], toPlayer: 2, toAttacker: 4 });
+    expect(pick(resolveFight(goblin({ power: 3 }), [rival('beast')]))).toEqual({ toBlockers: [3], toPlayer: 0, toAttacker: 4 });
   });
 
-  it('ブロッカーが除去されていたら、トランプルなら全点が本体へ、そうでなければ0', () => {
-    expect(resolveFight(goblin({ power: 5, trample: true }), null)).toEqual({ toBlocker: 0, toPlayer: 5, toAttacker: 0 });
-    expect(resolveFight(goblin({ power: 5 }), null)).toEqual({ toBlocker: 0, toPlayer: 0, toAttacker: 0 });
+  it('2体以上には、倒せる価値が最大になるように割り当て、余りは先頭へ（増幅込みで倒せるかを見る）', () => {
+    // 3点：熊（2/2）と騎士（3/2）は両方は倒せないので、価値の大きい騎士にタフネスの2を割り当て、余りの1は先頭の熊へ
+    const r = resolveFight(goblin({ power: 3 }), [rival('bear'), rival('knight')]);
+    expect([r.toBlockers, r.killed]).toEqual([[1, 2], [false, true]]);
+    // トーブラン（+2）がいれば1点ずつで熊も騎士も倒せる
+    const t = resolveFight(goblin({ power: 2, bonus: 2 }), [rival('bear'), rival('knight')]);
+    expect([t.toBlockers, t.killed]).toEqual([[1, 1], [true, true]]);
+    // トランプルでも全員に致死量が届かなければ本体へは行かない
+    const u = resolveFight(goblin({ power: 3, trample: true }), [rival('bear'), rival('knight')]);
+    expect([u.toPlayer, u.killed]).toEqual([0, [false, true]]);
+  });
+
+  it('攻撃クリーチャーは、ブロッカーの点の合計か接死で死ぬ', () => {
+    expect(resolveFight(fighter('ogre', { power: 3, toughness: 3 }), [rival('bear')]).attackerDies).toBe(false);
+    expect(resolveFight(fighter('ogre', { power: 3, toughness: 3 }), [rival('bear'), rival('scout')]).attackerDies).toBe(true);
+    expect(resolveFight(fighter('ogre', { power: 3, toughness: 9 }), [rival('viper')]).attackerDies).toBe(true);
+    expect(resolveFight(fighter('ogre', { power: 3, toughness: 9 }), [rival('wall')]).attackerDies).toBe(false);
+  });
+
+  it('ブロッカーが全員除去されていたら、トランプルなら全点が本体へ、そうでなければ0', () => {
+    expect(pick(resolveFight(goblin({ power: 5, trample: true }), []))).toEqual({ toBlockers: [], toPlayer: 5, toAttacker: 0 });
+    expect(pick(resolveFight(goblin({ power: 5 }), []))).toEqual({ toBlockers: [], toPlayer: 0, toAttacker: 0 });
   });
 });
 
@@ -184,10 +224,13 @@ describe('相手ありモードの乱数', () => {
   it('複製した状態の相手の盤面・ブロック・相手の状態は、元と独立している', () => {
     const g = new Game(1, { seat: 1 }).start();
     g.rival(0, 'bear');
+    g.s.blocks = { a: ['b'] };
     const copy = cloneState(g.s);
+    copy.blocks.a.push('c');
     copy.opponents[0].board[0].tapped = true;
     copy.opponents[0].board.pop();
-    copy.blocks.x = 'y';
+    copy.blocks.x = ['y'];
+    copy.recent.push({ label: 'x', run: () => {} });
     copy.rivals!.turns[0] = 9;
     copy.rivals!.recap[0] = 'x';
     copy.rivals!.cmdReady[0] = 99;
@@ -195,7 +238,8 @@ describe('相手ありモードの乱数', () => {
     copy.rivals!.styles[0] = 'aggro';
     expect(g.s.opponents[0].board).toHaveLength(1);
     expect(g.s.opponents[0].board[0].tapped).toBe(false);
-    expect(g.s.blocks).toEqual({});
+    expect(g.s.blocks).toEqual({ a: ['b'] });
+    expect(g.s.recent).toEqual([]);
     expect(g.s.rivals!.turns[0]).toBe(0);
     expect(g.s.rivals!.recap[0]).toBe('');
     expect(g.s.rivals!.cmdReady[0]).not.toBe(99);
@@ -228,7 +272,7 @@ describe('相手ありモードの戦闘', () => {
     const wall = g.rival(0, 'wall');
     attack(g);
     expect(g.s.phase).toBe('attacking');
-    expect(Object.values(g.s.blocks)).toEqual([wall]);
+    expect(Object.values(g.s.blocks)).toEqual([[wall]]);
     g.do({ type: 'damage' });
     expect(g.s.opponents[0].board[0].damage).toBe(3);
     expect(g.oppLife).toEqual([40, 40, 40]);
@@ -252,7 +296,7 @@ describe('相手ありモードの戦闘', () => {
     const rager = g.tokens('Lightning Rager')[0].id;
     const bear = g.rival(0, 'bear');
     attack(g);
-    expect(g.s.blocks).toEqual({ [rager]: bear });
+    expect(g.s.blocks).toEqual({ [rager]: [bear] });
     g.do({ type: 'damage' });
     expect(g.oppLife[0]).toBe(2);
     expect(g.s.opponents[0].board).toEqual([]);
@@ -278,6 +322,6 @@ describe('相手ありモードの戦闘', () => {
     };
     expect(ingrisAttack(0).h.s.blocks).toEqual({});
     const { h, bird } = ingrisAttack(20);
-    expect(h.s.blocks).toEqual({ [h.id('Ingris Stingerquill')]: bird });
+    expect(h.s.blocks).toEqual({ [h.id('Ingris Stingerquill')]: [bird] });
   });
 });

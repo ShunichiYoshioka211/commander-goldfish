@@ -3,7 +3,7 @@
 import { scriptOf } from '../cards/registry';
 import type { Ability, CastInfo, ExtraCost } from '../cards/types';
 import type { CastSpec } from '../cards/types';
-import { ask, battlefield, canAttack, def, drain, enqueue, hasKeyword, isCreature, isLand, log, moveTo, nameJa, typeOf } from './core';
+import { ask, battlefield, canAttack, def, drain, enqueue, hasKeyword, isCreature, isLand, log, moveTo, nameJa, remember, typeOf } from './core';
 import { youLoseLife } from './damage';
 import { canPay, parseCost, pay, type Cost } from './mana';
 import { rivalOptions } from './rivals/board';
@@ -60,7 +60,7 @@ export function castModes(s: GameState, card: CardInstance): CastMode[] {
   const castableZone =
     card.zone === 'hand' || card.zone === 'command' || (card.zone === 'exile' && card.castable) || (fromGraveyard && !!spec.flashback);
   if (!castableZone) return [];
-  const raw = spec.modes ?? [{ label: nameJa(card), cost: def(card).manaCost }];
+  const raw: NonNullable<CastSpec['modes']> = spec.modes ?? [{ label: nameJa(card), cost: def(card).manaCost }];
   const modes: CastMode[] = raw.map((m, index) => ({
     index,
     label: m.label,
@@ -70,6 +70,7 @@ export function castModes(s: GameState, card: CardInstance): CastMode[] {
   }));
   return modes.filter((m) => {
     if ((card.zone === 'exile' && m.instant) || (m.hand && card.zone !== 'hand')) return false;
+    if (raw[m.index].copy && s.recent.length === 0) return false;
     if (!(isInstantType(card) || m.instant || isMain(s))) return false;
     // 統率者税を足してから、軽くする効果（このカード自身のものと、戦場の水のクリスタルなど）を引く
     const tax = card.zone === 'command' ? 2 * (s.commanderCasts[card.name] ?? 0) : 0;
@@ -173,7 +174,7 @@ function finishCast(s: GameState, id: string, mode: CastMode, info: CastInfo) {
   s.flags.spellsCast++;
   const spent = mode.cost.generic + mode.cost.colors.length;
   for (const p of battlefield(s)) scriptOf(p).onCast?.(s, p, card, spent);
-  enqueue(s, `${mode.label}の解決`, (st) => resolveSpell(st, id, mode, info));
+  enqueue(s, `${mode.label}の解決`, (st) => resolveSpell(st, id, mode, info), false);
 }
 
 function resolveSpell(s: GameState, id: string, mode: CastMode, info: CastInfo) {
@@ -188,7 +189,11 @@ function resolveSpell(s: GameState, id: string, mode: CastMode, info: CastInfo) 
   moveTo(s, id, info.from === 'graveyard' || mode.instant ? 'exile' : 'graveyard');
   // 出来事で追放したカードは、あとでパーマネント側を唱えられる
   s.cards[id].castable = mode.instant;
-  spec?.resolve?.(s, s.cards[id], info);
+  const resolve = spec?.resolve;
+  if (!resolve) return;
+  resolve(s, s.cards[id], info);
+  // インスタント・ソーサリーの効果は、しっぺ返しでコピーできる（対象を取るものは新しい対象を選べないので外す）
+  if (!spec.target) remember(s, { label: `${mode.label}（呪文）`, run: (st) => resolve(st, st.cards[id], info) });
 }
 
 // ---- 起動型能力 ----

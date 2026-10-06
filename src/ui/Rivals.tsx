@@ -85,7 +85,7 @@ export function RivalViewer() {
   if (opp === null) return null;
   const o = game.opponents[opp];
   const rivals = game.rivals!;
-  const blocking = Object.values(game.blocks);
+  const blocking = Object.values(game.blocks).flat();
   const close = () => set({ viewingRival: null });
   return (
     <div className="modal-back" onPointerDown={closeOnBack(close)}>

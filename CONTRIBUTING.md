@@ -81,6 +81,10 @@ tests/fixtures/decks/ テスト用デッキ（統率者が単色のクレート�
 ### 4.2 誘発キューと選択待ち
 
 - 誘発は `enqueue(s, label, run)` で積み、`drain(s)` で解決する。解決中に積まれた誘発は待っているものより先に解決する（スタックと同じ順）
+- **解決した誘発は、しっぺ返しでコピーできるものとして `s.recent` に残る**（`label` が選択肢に出る）。カードの誘発型能力そのものでないもの
+  （ターンの進行・呪文の解決・相手のターン・遅延誘発・同じ誘発の後半を分けて積んだもの）は第4引数を `false` にして積む。
+  `s.recent` は操作のたびに空になる（選択への答え・マナを出す・しっぺ返しを唱える操作は除く。`actions.ts` の `keepsRecent`）。
+  対象を取らないインスタント・ソーサリーの `resolve` も残る（`play.ts` の `resolveSpell`）
 - **カードのスクリプトから直接 `ask` / `confirm` / `chooseCards` を呼ばない。必ず `enqueue` の中で呼ぶ。**
   同時に2つの選択を出すと、あとの選択が前の選択を上書きして消える
   （例外：プレイヤーの操作そのものが選択を出す場合。`cast` の X や追加コスト、起動型能力の `run`）
@@ -144,7 +148,7 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
    カバレッジ 100% を保てなくなる（統率者が倒れたときの `commanderLeft` のように、「起きなければ何も変わらない式」にする）
 4. **相手のクリーチャーへのダメージは `damageRival`、死亡は `destroyRival` を通す。** 増幅・絆魂・接死と、死亡の誘発・このターンに死亡した数がここに集まっている。
    脱落・作り直し・編集で誘発なしに消すときは、死亡として扱わない
-5. **新しいフィールドは `cloneState` にも足す。** `opponents[].board` の要素、`rivals` の配列、`blocks`、`animated.keywords` も複製している
+5. **新しいフィールドは `cloneState` にも足す。** `opponents[].board` の要素、`rivals` の配列、`blocks`（攻撃クリーチャー → ブロッカーの配列。中の配列も）、`animated.keywords`、`recent` も複製している
 6. **モードの判定（`if (s.rivals)`）は入口だけにする。** ターンの区切り（`nextTurn`）・キープ（`beginGame`）・攻撃宣言（`beforeBlocks`）・除去の対象（`chooseTarget`）。
    `board` / `blocks` / `active` は相手なしでも必ず持たせ（空配列・`{}`・`null`）、`?.` の分岐を増やさない
 7. **ターンの終わりの処理は、相手のターンも `endOfTurnCleanup` を通す**（ターン終了までの効果と、相手のクリーチャーが受けたダメージを消す。CR 514.2）
@@ -168,6 +172,8 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
    - 切削は `engine/mill.ts` の `millYou` / `millOpponents`（`onMilled` が誘発する）
    - **あなたのライフを減らすときは `youLoseLife`**（湖の町の統領が誘発する）。対戦相手のダメージでない喪失は `oppLoseLife`
    - 「毎ターン1回」の誘発は `once(s, key)`（相手のターンの始めにも戻る）
+   - 装備品は `CardInstance.attachedTo`（付いている先の ID）と `equipKeywords`（装備したクリーチャーが得るキーワード）。
+     付いている装備品は `equipmentOn`、得ている能力は `grantedKeyword`。付いている先が戦場を離れると外れる（`leaveBattlefield`）
    - 仕組みは [docs/rad-and-counters.md](docs/rad-and-counters.md)
 4. 対戦相手へのダメージは必ず `damageOpponent` を通す（増幅・絆魂・スピード・脱落判定がここに集まっている）
 5. e2e のテストを書き、カバレッジ 100% を保つ（7 節）

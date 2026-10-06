@@ -87,3 +87,12 @@ test('好奇のタリスマンの色マナは1点受け、溢れかえる果樹�
   await page.getByRole('button', { name: 'ログ' }).click();
   await expect(page.getByTestId('log')).toContainText('マナ・プールに {G} か {U} が必要');
 });
+
+test('スクリプトの無いインスタント（対抗呪文）は唱えると墓地へ行き、しっぺ返しでコピーできるものには数えない', async ({ app }) => {
+  await app.start(MOTHMAN);
+  const counter = await app.put('Counterspell', 'hand');
+  await app.dispatch({ type: 'pool', color: 'U', delta: 2 });
+  await app.act(counter, /唱える/);
+  const s = await app.state();
+  expect([s.cards[counter].zone, s.recent]).toEqual(['graveyard', []]);
+});

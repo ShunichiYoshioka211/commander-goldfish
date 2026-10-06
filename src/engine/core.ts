@@ -61,10 +61,25 @@ export function log(s: GameState, text: string) {
   s.log.push(`T${s.turn} ${text}`);
 }
 
-/** 誘発を積む。解決中に積まれたものは、すでに待っているものより先に解決する（スタックと同じ順） */
-export function enqueue(s: GameState, label: string, run: (s: GameState) => void) {
-  s.fresh.push({ label, run });
+/**
+ * 誘発を積む。解決中に積まれたものは、すでに待っているものより先に解決する（スタックと同じ順）。
+ * copy=false はターンの進行や呪文の解決など、しっぺ返しでコピーできないもの（エンジンが使う）
+ */
+export function enqueue(s: GameState, label: string, run: (s: GameState) => void, copy = true) {
+  s.fresh.push({ label, run, copy });
 }
+
+/** 解決したものを、しっぺ返しでコピーできるように覚える */
+export function remember(s: GameState, item: { label: string; run: (s: GameState) => void }) {
+  s.recent.push({ label: item.label, run: item.run });
+}
+
+/** そのクリーチャーに付いている装備品 */
+export const equipmentOn = (s: GameState, card: CardInstance) => battlefield(s).filter((e) => e.attachedTo === card.id);
+
+/** 装備品から得ているキーワード能力（いとしいしとの「ブロックされない」など） */
+export const grantedKeyword = (s: GameState, card: CardInstance, k: string) =>
+  equipmentOn(s, card).some((e) => scriptOf(e).equipKeywords?.includes(k));
 
 export function ask(s: GameState, prompt: Prompt) {
   s.prompt = prompt;
@@ -74,7 +89,9 @@ export function ask(s: GameState, prompt: Prompt) {
 export function drain(s: GameState) {
   s.queue.unshift(...s.fresh.splice(0));
   while (!s.prompt && s.queue.length > 0 && s.phase !== 'over') {
-    s.queue.shift()!.run(s);
+    const item = s.queue.shift()!;
+    item.run(s);
+    if (item.copy) remember(s, item);
     // 状況起因処理：タフネスが0以下のクリーチャーは死亡する（CR 704.5f）
     destroyAll(s, creatures(s).filter((c) => toughness(c) <= 0).map((c) => c.id));
     s.queue.unshift(...s.fresh.splice(0));
@@ -99,7 +116,7 @@ export function draw(s: GameState, n: number) {
 export function blankInstance(id: string, name: string, token: boolean, zone: ZoneId): CardInstance {
   return {
     id, name, token, zone, tapped: false, counters: {}, sick: false, haste: false, attacking: null,
-    tempPower: 0, tempToughness: 0, atEnd: null, animated: null, castable: false, doors: [],
+    tempPower: 0, tempToughness: 0, atEnd: null, animated: null, castable: false, doors: [], attachedTo: null,
   };
 }
 
@@ -138,6 +155,8 @@ function leaveBattlefield(s: GameState, card: CardInstance, to: ZoneId, trigger:
   if (!isLand(card)) s.flags.nonlandLeft = true;
   // 戦場を離れた攻撃クリーチャーは戦闘から取り除かれる（ブロックされていた記録も消す）
   delete s.blocks[card.id];
+  // 付いていた装備品は外れる（装備品が離れたときは、移動先で作り直されるので自然に外れる）
+  for (const e of equipmentOn(s, card)) e.attachedTo = null;
   if (!(trigger && isCreature(card) && to === 'graveyard')) return;
   s.flags.creaturesDied++;
   const wasAttacking = card.attacking !== null;

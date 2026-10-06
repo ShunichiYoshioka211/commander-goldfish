@@ -123,7 +123,8 @@ export const DAMAGE_SCRIPTS: Record<string, CardScript> = {
     onUpkeep: (s, card) =>
       enqueue(s, 'エンバレスの宮廷', (st) => {
         createToken(st, 'Knight', 1);
-        if (st.monarch) enqueue(st, 'エンバレスの宮廷：クリーチャーの数だけ', (st2) => damageEach(st2, card, creatures(st2).length));
+        // 同じ誘発の後半なので、これだけをしっぺ返しでコピーさせない（コピーするなら宮廷の誘発ごと）
+        if (st.monarch) enqueue(st, 'エンバレスの宮廷：クリーチャーの数だけ', (st2) => damageEach(st2, card, creatures(st2).length), false);
       }),
   },
   'Garna, Bloodfist of Keld': {

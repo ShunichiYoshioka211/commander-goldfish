@@ -86,10 +86,10 @@ export function resolveFight(a: Fighter, blockers: Fighter[]): FightResult {
   return { toBlockers, killed, toPlayer: 0, toAttacker, attackerDies };
 }
 
-/** 1体か2体の組。威迫は2体の組だけ */
-function blockerSets(a: Fighter, able: Fighter[]): Fighter[][] {
-  const pairs = able.flatMap((b, i) => able.slice(i + 1).map((c) => [b, c]));
-  return [...able.filter(() => !a.menace).map((b) => [b]), ...pairs];
+/** 1体か2体の組。威迫は2体の組だけ。pairs=false なら、威迫のほかは1体だけ */
+function blockerSets(a: Fighter, able: Fighter[], pairs: boolean): Fighter[][] {
+  const twos = able.flatMap((b, i) => able.slice(i + 1).map((c) => [b, c])).filter(() => pairs || a.menace);
+  return [...able.filter(() => !a.menace).map((b) => [b]), ...twos];
 }
 
 /**
@@ -107,7 +107,8 @@ function judge(a: Fighter, bs: Fighter[], trades: boolean) {
 /**
  * 相手1人のブロックを決める（攻撃クリーチャー → ブロッカーの並び）。攻撃クリーチャーを価値の大きい順に見て、
  * 1体か2体の組から judge の順位でいちばん良いものを選ぶ（2体で囲めば誰も死なずに倒せるなら囲む。威迫は2体で止める）。
- * 最後に、ブロックされない攻撃で致死になるなら、残りのブロッカーで点の大きい攻撃から順にチャンプブロックする
+ * そのあと、ブロックされない攻撃で致死になるなら、残りのブロッカーで点の大きい攻撃から順にチャンプブロックする。
+ * 2体で囲んだせいでチャンプブロックに回すブロッカーが足りず、それでも致死なら、1体ずつ（威迫には2体）で決め直す
  */
 export function assignBlocks(
   attackers: Fighter[],
@@ -115,25 +116,28 @@ export function assignBlocks(
   lethal: (unblocked: Fighter[]) => boolean,
   trades: boolean,
 ): Record<string, string[]> {
-  const blocks: Record<string, string[]> = {};
-  let free = [...blockers];
-  const take = (a: Fighter, bs: Fighter[]) => {
-    blocks[a.id] = bs.map((b) => b.id);
-    free = free.filter((x) => !bs.includes(x));
+  const unblocked = (blocks: Record<string, string[]>) => attackers.filter((a) => !(a.id in blocks));
+  const plan = (pairs: boolean) => {
+    const blocks: Record<string, string[]> = {};
+    let free = [...blockers];
+    const take = (a: Fighter, bs: Fighter[]) => {
+      blocks[a.id] = bs.map((b) => b.id);
+      free = free.filter((x) => !bs.includes(x));
+    };
+    for (const a of [...attackers].sort((x, y) => y.value - x.value)) {
+      const ranked = blockerSets(a, free.filter((b) => canBlock(a, b)), pairs)
+        .map((bs) => judge(a, bs, trades))
+        .filter((x) => x.rank < 3)
+        .sort((x, y) => x.key - y.key);
+      if (ranked.length > 0) take(a, ranked[0].bs);
+    }
+    for (const a of [...attackers].sort((x, y) => y.face - x.face)) {
+      if (!lethal(unblocked(blocks))) break;
+      const chump = free.filter((b) => !(a.id in blocks) && canBlock(a, b)).sort((x, y) => x.value - y.value).slice(0, needed(a));
+      if (chump.length === needed(a)) take(a, chump);
+    }
+    return blocks;
   };
-  const byValue = [...attackers].sort((x, y) => y.value - x.value);
-  for (const a of byValue) {
-    const ranked = blockerSets(a, free.filter((b) => canBlock(a, b)))
-      .map((bs) => judge(a, bs, trades))
-      .filter((x) => x.rank < 3)
-      .sort((x, y) => x.key - y.key);
-    if (ranked.length > 0) take(a, ranked[0].bs);
-  }
-  const unblocked = () => attackers.filter((a) => !(a.id in blocks));
-  for (const a of [...attackers].sort((x, y) => y.face - x.face)) {
-    if (!lethal(unblocked())) break;
-    const chump = free.filter((b) => !(a.id in blocks) && canBlock(a, b)).sort((x, y) => x.value - y.value).slice(0, needed(a));
-    if (chump.length === needed(a)) take(a, chump);
-  }
-  return blocks;
+  const ganged = plan(true);
+  return lethal(unblocked(ganged)) ? plan(false) : ganged;
 }

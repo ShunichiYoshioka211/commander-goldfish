@@ -260,6 +260,22 @@ test('2体で囲めば倒せるなら囲む：イングリスは蜘蛛2体に倒
   expect([s.cards[ingris2].zone, s.opponents[0].board.map((p) => p.damage), s.opponents[0].life]).toEqual(['battlefield', [1], 39]);
 });
 
+test('通すと致死なら、2体で囲まずに1体ずつで止める（イングリスとゴブリンを蜘蛛2体で）', async ({ app }) => {
+  await app.start(RIVALS);
+  const ingris = await app.put('Ingris Stingerquill', 'battlefield');
+  await app.dispatch({ type: 'token', name: 'Goblin', count: 1 });
+  await app.endTurn();
+  const [goblin] = await app.tokens('Goblin');
+  const [s1, s2] = [await app.rival(0, 'spider'), await app.rival(0, 'spider')];
+  // 攻撃時の誘発で2点受けると残り1。蜘蛛2体でイングリスを囲むと、ゴブリンの1点が致死になる
+  await app.dispatch({ type: 'oppLife', opp: 0, delta: -37 });
+  await app.dispatch({ type: 'toCombat' }, { type: 'plan', id: ingris, opp: 0 }, { type: 'plan', id: goblin, opp: 0 }, { type: 'attack' });
+  expect((await app.state()).blocks).toEqual({ [ingris]: [s1], [goblin]: [s2] });
+  await app.dispatch({ type: 'damage' });
+  const s = await app.state();
+  expect([s.opponents[0].life, s.opponents[0].deadTurn, s.cards[ingris].zone, s.cards[goblin]]).toEqual([1, null, 'battlefield', undefined]);
+});
+
 test('壁はゴブリンを止める（倒せなくても生き残る）。ブロックが多いと「ほか N 件」', async ({ app, page }) => {
   await app.start(RIVALS);
   await readyTokens(app, 'Goblin', 5);

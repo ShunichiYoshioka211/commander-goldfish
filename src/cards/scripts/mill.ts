@@ -198,12 +198,17 @@ export const MILL_SCRIPTS: Record<string, CardScript> = {
     },
   },
   'Mariposa Military Base': {
+    // 「タップ状態で出してもよい」は誘発型能力ではないので、しっぺ返しの候補に出さない
     onEnter: (s, card) =>
-      enqueue(s, 'マリポーサ軍事基地', (st) =>
-        confirm(st, 'マリポーサ軍事基地：タップ状態で出して、RADカウンター2個を得る？', (st2) => {
-          st2.cards[card.id].tapped = true;
-          youGetRad(st2, 2);
-        }),
+      enqueue(
+        s,
+        'マリポーサ軍事基地',
+        (st) =>
+          confirm(st, 'マリポーサ軍事基地：タップ状態で出して、RADカウンター2個を得る？', (st2) => {
+            st2.cards[card.id].tapped = true;
+            youGetRad(st2, 2);
+          }),
+        false,
       ),
   },
 

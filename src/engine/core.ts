@@ -54,6 +54,8 @@ export function once(s: GameState, key: string) {
  */
 export function endOfTurnCleanup(s: GameState) {
   for (const c of battlefield(s)) Object.assign(c, { tempPower: 0, tempToughness: 0, haste: false, animated: null });
+  // クリーチャーでなくなったもの（ミシュラランド）に付いていた装備品は外れる（状況起因処理。CR 704.5n）
+  for (const c of battlefield(s).filter((x) => !isCreature(x))) for (const e of equipmentOn(s, c)) e.attachedTo = null;
   for (const o of s.opponents) for (const p of o.board) p.damage = 0;
 }
 

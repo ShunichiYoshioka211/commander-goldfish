@@ -84,7 +84,8 @@ tests/fixtures/decks/ テスト用デッキ（統率者が単色のクレート�
 - **解決した誘発は、しっぺ返しでコピーできるものとして `s.recent` に残る**（`label` が選択肢に出る）。カードの誘発型能力そのものでないもの
   （ターンの進行・呪文の解決・相手のターン・遅延誘発・同じ誘発の後半を分けて積んだもの）は第4引数を `false` にして積む。
   `s.recent` は操作のたびに空になる（選択への答え・マナを出す・しっぺ返しを唱える操作は除く。`actions.ts` の `keepsRecent`）。
-  対象を取らないインスタント・ソーサリーの `resolve` も残る（`play.ts` の `resolveSpell`）
+  対象を取らないインスタント・ソーサリーの `resolve` も残る（`play.ts` の `resolveSpell`）。しっぺ返しが見るのは、唱え終えた時点の記録（`CastInfo.recent`）。
+  **コピーすると正しく動かない誘発も `false` にする**（墓地から戻すフェニックスの雛、複数体ぶんを1つにまとめたギックス）
 - **カードのスクリプトから直接 `ask` / `confirm` / `chooseCards` を呼ばない。必ず `enqueue` の中で呼ぶ。**
   同時に2つの選択を出すと、あとの選択が前の選択を上書きして消える
   （例外：プレイヤーの操作そのものが選択を出す場合。`cast` の X や追加コスト、起動型能力の `run`）
@@ -173,7 +174,7 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
    - **あなたのライフを減らすときは `youLoseLife`**（湖の町の統領が誘発する）。対戦相手のダメージでない喪失は `oppLoseLife`
    - 「毎ターン1回」の誘発は `once(s, key)`（相手のターンの始めにも戻る）
    - 装備品は `CardInstance.attachedTo`（付いている先の ID）と `equipKeywords`（装備したクリーチャーが得るキーワード）。
-     付いている装備品は `equipmentOn`、得ている能力は `grantedKeyword`。付いている先が戦場を離れると外れる（`leaveBattlefield`）
+     付いている装備品は `equipmentOn`、得ている能力は `grantedKeyword`。付いている先が戦場を離れると外れる（`leaveBattlefield`）。クリーチャーでなくなったとき（ミシュラランド）はターンの終わりに外れる（`endOfTurnCleanup`）
    - 仕組みは [docs/rad-and-counters.md](docs/rad-and-counters.md)
 4. 対戦相手へのダメージは必ず `damageOpponent` を通す（増幅・絆魂・スピード・脱落判定がここに集まっている）
 5. e2e のテストを書き、カバレッジ 100% を保つ（7 節）

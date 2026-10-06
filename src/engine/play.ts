@@ -60,7 +60,7 @@ export function castModes(s: GameState, card: CardInstance): CastMode[] {
   const castableZone =
     card.zone === 'hand' || card.zone === 'command' || (card.zone === 'exile' && card.castable) || (fromGraveyard && !!spec.flashback);
   if (!castableZone) return [];
-  const raw: NonNullable<CastSpec['modes']> = spec.modes ?? [{ label: nameJa(card), cost: def(card).manaCost }];
+  const raw = spec.modes ?? [{ label: nameJa(card), cost: def(card).manaCost }];
   const modes: CastMode[] = raw.map((m, index) => ({
     index,
     label: m.label,
@@ -70,7 +70,6 @@ export function castModes(s: GameState, card: CardInstance): CastMode[] {
   }));
   return modes.filter((m) => {
     if ((card.zone === 'exile' && m.instant) || (m.hand && card.zone !== 'hand')) return false;
-    if (raw[m.index].copy && s.recent.length === 0) return false;
     if (!(isInstantType(card) || m.instant || isMain(s))) return false;
     // 統率者税を足してから、軽くする効果（このカード自身のものと、戦場の水のクリスタルなど）を引く
     const tax = card.zone === 'command' ? 2 * (s.commanderCasts[card.name] ?? 0) : 0;
@@ -84,7 +83,7 @@ export function cast(s: GameState, id: string, modeIndex: number) {
   const mode = castModes(s, card).find((m) => m.index === modeIndex)!;
   const spec = scriptOf(card).cast ?? {};
   const extra = spec.modes?.[modeIndex]?.extra ?? spec.extra;
-  const info: CastInfo = { x: 0, sacrificed: null, mode: modeIndex, from: card.zone, target: null };
+  const info: CastInfo = { x: 0, sacrificed: null, mode: modeIndex, from: card.zone, target: null, recent: [] };
   // X を決め、対象を選び、追加コストを払う（CR 601.2b〜f の順）
   const afterX = (st: GameState) =>
     chooseTarget(st, id, spec, info, (st2) => chooseExtra(st2, id, extra, info, (st3) => finishCast(st3, id, mode, info)));
@@ -160,8 +159,10 @@ function chooseExtra(s: GameState, id: string, extra: ExtraCost | undefined, inf
 }
 
 /** マナは castModes で払えることを確かめてあるので、ここでは失敗しない */
-function finishCast(s: GameState, id: string, mode: CastMode, info: CastInfo) {
+function finishCast(s: GameState, id: string, mode: CastMode, cast: CastInfo) {
   const card = s.cards[id];
+  // 生け贄や唱えたときの誘発より前の記録（しっぺ返しは、自分が起こした誘発をコピーできない）
+  const info = { ...cast, recent: [...s.recent] };
   pay(s, mode.cost);
   if (info.sacrificed) {
     log(s, `${nameJa(info.sacrificed)} を生け贄に`);

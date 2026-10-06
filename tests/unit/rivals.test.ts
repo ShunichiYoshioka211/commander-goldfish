@@ -68,6 +68,16 @@ describe('相手のブロック（assignBlocks）', () => {
     expect(assignBlocks([menace], [rival('bird')], lethal, true)).toEqual({});
   });
 
+  it('2体で囲むとチャンプブロックに回せず致死になるなら、1体ずつで止める', () => {
+    const ingris = fighter('ingris', { power: 1, hit: 1, face: 1, toughness: 4, flying: true, value: 18, commander: true });
+    const ogre = fighter('ogre', { power: 3, hit: 3, face: 3, toughness: 3 });
+    const spiders = [rival('spider'), rival('spider', 'spider2')];
+    // 致死でなければ、蜘蛛2体でイングリスを囲んで倒す
+    expect(assignBlocks([ingris, ogre], spiders, never, true)).toEqual({ ingris: ['spider', 'spider2'] });
+    const lethal = (unblocked: Fighter[]) => unblocked.reduce((n, f) => n + f.face, 0) >= 3;
+    expect(assignBlocks([ingris, ogre], spiders, lethal, true)).toEqual({ ingris: ['spider'], ogre: ['spider2'] });
+  });
+
   it('入力が同じなら結果も同じ', () => {
     const run = () => assignBlocks([goblin(), fighter('a', { value: 3 })], [rival('bear'), rival('wall')], never, true);
     expect(run()).toEqual(run());

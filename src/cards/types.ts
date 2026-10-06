@@ -2,7 +2,7 @@ import type { ManaOption } from '../engine/mana';
 import type { CounterTarget } from '../engine/counters';
 import type { DamageTo } from '../engine/damage';
 import type { MillEvent } from '../engine/mill';
-import type { CardInstance, GameState, ZoneId } from '../engine/types';
+import type { CardInstance, Copyable, GameState, ZoneId } from '../engine/types';
 
 export interface CastInfo {
   x: number;
@@ -11,13 +11,15 @@ export interface CastInfo {
   from: ZoneId;
   /** 唱えるときに選んだ対象（相手のクリーチャーかカードの ID）。相手なしモードでは選ばないので null */
   target: string | null;
+  /** 唱え終えた時点で、しっぺ返しでコピーできたもの（唱えたことで起きた誘発は入らない） */
+  recent: Copyable[];
 }
 
 export type ExtraCost = 'sacCreature' | 'sacArtifactOrCreature' | 'discardOrLife';
 
 export interface CastSpec {
   /** 出来事・部屋・ワープのように唱え方が複数あるもの。instant=true の面は戦場に出ない。hand=true は手札からのみ */
-  modes?: { label: string; cost: string; instant?: boolean; extra?: ExtraCost; hand?: boolean; copy?: boolean }[];
+  modes?: { label: string; cost: string; instant?: boolean; extra?: ExtraCost; hand?: boolean }[];
   /** 唱えても、直前に解決したものの記録を消さない（しっぺ返し） */
   keepsRecent?: boolean;
   /** 追加コスト */

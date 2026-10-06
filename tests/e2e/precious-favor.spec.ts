@@ -3,6 +3,7 @@ import { expect, RIVALS, test, type App } from './fixtures';
 
 const handSize = async (app: App) => (await app.state()).zones.hand.length;
 const recent = async (app: App) => (await app.state()).recent.map((r) => r.label);
+const MANUAL = '手動で処理する（起動型能力・対象を取る呪文など）';
 
 test('いとしいしと：装備（{2}・2点）で印と詳細に出て、相手は装備したクリーチャーをブロックしない。クリーチャーが離れると外れる', async ({ app, page }) => {
   await app.start(RIVALS);
@@ -31,10 +32,10 @@ test('いとしいしと：装備（{2}・2点）で印と詳細に出て、相�
   await app.card(goblin).click();
   await expect(page.getByTestId('equip-info')).toHaveCount(0);
   await page.keyboard.press('Escape');
-  // 熊はゴブリンだけを止める（イングリスはブロックされない）
-  const bear = await app.rival(0, 'bear');
+  // 蜘蛛（到達）は装備していなければ価値の大きいイングリスを止めるが、ブロックされないのでゴブリンを止める
+  const spider = await app.rival(0, 'spider');
   await app.dispatch({ type: 'toCombat' }, { type: 'plan', id: ingris, opp: 0 }, { type: 'plan', id: goblin, opp: 0 }, { type: 'attack' });
-  expect((await app.state()).blocks).toEqual({ [goblin]: [bear] });
+  expect((await app.state()).blocks).toEqual({ [goblin]: [spider] });
   await app.dispatch({ type: 'damage' }, { type: 'endCombat' });
   // 攻撃時の1点×2体と、イングリスの戦闘ダメージ1点
   expect(await app.oppLife()).toEqual([37, 38, 38]);
@@ -50,29 +51,57 @@ test('いとしいしと：装備（{2}・2点）で印と詳細に出て、相�
   await expect(app.card(mp).locator('.equip-badge')).toHaveCount(0);
 });
 
-test('いとしいしと：装備はメイン・フェイズだけ。付け替えられ、2体ともいれば相手は付いていない方をブロックする', async ({ app, page }) => {
+test('いとしいしと：装備はメイン・フェイズだけ・ライフが2未満なら払えない。付け替えられ、相手は付いていない方をブロックする', async ({ app, page }) => {
   await app.start(RIVALS);
   await app.dispatch({ type: 'token', name: 'Goblin', count: 2 });
   const mp = await app.put('My Precious // Allure of Power', 'battlefield');
   await app.lands('Swamp', 'Swamp', 'Swamp', 'Swamp');
   await app.endTurn();
   const [g1, g2] = await app.tokens('Goblin');
+  // ライフが2未満なら払えないので装備できない
+  await app.dispatch({ type: 'life', delta: -39 });
+  await app.card(mp).click();
+  await expect(page.getByRole('dialog').getByRole('button', { name: /装備/ })).toHaveCount(0);
+  await page.keyboard.press('Escape');
+  await app.dispatch({ type: 'life', delta: 39 });
   await app.act(mp, /装備/);
-  await app.dispatch({ type: 'answer', values: [g1] });
+  await app.dispatch({ type: 'answer', values: [g2] });
   await app.act(mp, /装備/);
   // 付いている先は選べない
-  expect((await app.state()).prompt!.options.map((o) => o.value)).toEqual([g2]);
-  await app.dispatch({ type: 'answer', values: [g2] });
-  expect([(await app.state()).cards[mp].attachedTo, (await app.state()).life]).toEqual([g2, 36]);
+  expect((await app.state()).prompt!.options.map((o) => o.value)).toEqual([g1]);
+  await app.dispatch({ type: 'answer', values: [g1] });
+  expect([(await app.state()).cards[mp].attachedTo, (await app.state()).life]).toEqual([g1, 36]);
   // 戦闘中はマナがあっても装備できない
   await app.dispatch({ type: 'toCombat' }, { type: 'pool', color: 'C', delta: 2 });
   await app.card(mp).click();
   await expect(page.getByRole('dialog').getByRole('button', { name: /装備/ })).toHaveCount(0);
   await page.keyboard.press('Escape');
   await app.dispatch({ type: 'pool', color: 'C', delta: -2 });
+  // 同じ価値なら熊は並びが先の g1 を止めるが、g1 はブロックされないので g2 を止める
   const bear = await app.rival(0, 'bear');
   await app.dispatch({ type: 'planAll', opp: 0 }, { type: 'attack' });
-  expect((await app.state()).blocks).toEqual({ [g1]: [bear] });
+  expect((await app.state()).blocks).toEqual({ [g2]: [bear] });
+});
+
+test('いとしいしと：クリーチャーでなくなった土地（不穏な火道）からはターンの終わりに外れ、クリーチャーからは外れない', async ({ app }) => {
+  await app.start();
+  const vents = await app.put('Restless Vents', 'battlefield');
+  const mp = await app.put('My Precious // Allure of Power', 'battlefield');
+  await app.dispatch({ type: 'token', name: 'Goblin', count: 1 });
+  const [goblin] = await app.tokens('Goblin');
+  await app.dispatch({ type: 'pool', color: 'B', delta: 1 }, { type: 'pool', color: 'R', delta: 1 }, { type: 'pool', color: 'C', delta: 3 });
+  await app.dispatch({ type: 'activate', id: vents, index: 0 });
+  await app.act(mp, /装備/);
+  await app.dispatch({ type: 'answer', values: [vents] });
+  expect((await app.state()).cards[mp].attachedTo).toBe(vents);
+  await app.endTurn();
+  expect((await app.state()).cards[mp].attachedTo).toBeNull();
+  await expect(app.card(vents).locator('.equip-badge')).toHaveCount(0);
+  await app.dispatch({ type: 'pool', color: 'C', delta: 2 });
+  await app.act(mp, /装備/);
+  await app.dispatch({ type: 'answer', values: [goblin] });
+  await app.endTurn();
+  expect((await app.state()).cards[mp].attachedTo).toBe(goblin);
 });
 
 test('しっぺ返し：直前に解決した誘発をコピーする（同じ名前は1つにまとめる）。ほかの操作をするとコピーできず、対象の変更だけ唱えられる', async ({ app, page }) => {
@@ -82,11 +111,8 @@ test('しっぺ返し：直前に解決した誘発をコピーする（同じ�
   const rtf = await app.put('Return the Favor', 'hand');
   await app.lands('Mountain', 'Mountain', 'Mountain');
   await app.endTurn();
-  // ターンの進行（ドロー・RADカウンター）はコピーできないので、まだコピーの面は出ない
+  // ターンの進行（ドロー・RADカウンター）はコピーの候補にならない
   expect(await recent(app)).toEqual([]);
-  await app.card(rtf).click();
-  await expect(page.getByRole('dialog').getByRole('button', { name: /唱える/ })).toHaveText(['唱える：しっぺ返し（対象の変更）（{1}{R}{R}）']);
-  await page.keyboard.press('Escape');
   await app.dispatch({ type: 'toCombat' }, { type: 'planAll', opp: 0 }, { type: 'attack' });
   expect(await app.oppLife()).toEqual([37, 37, 37]);
   expect(await recent(app)).toEqual([
@@ -101,15 +127,24 @@ test('しっぺ返し：直前に解決した誘発をコピーする（同じ�
   const prompt = (await app.state()).prompt!;
   expect([prompt.title, prompt.options.map((o) => o.label)]).toEqual([
     'しっぺ返し：コピーする誘発型能力か呪文',
-    ['イングリス・スティンガークイル の攻撃：各対戦相手に1点', 'ゴブリン の攻撃：各対戦相手に1点'],
+    ['イングリス・スティンガークイル の攻撃：各対戦相手に1点', 'ゴブリン の攻撃：各対戦相手に1点', MANUAL],
   ]);
   await app.choose('ゴブリン の攻撃：各対戦相手に1点');
   let s = await app.state();
   expect(s.opponents.map((o) => o.life)).toEqual([36, 36, 36]);
   expect(s.log.some((l) => l.includes('しっぺ返しで「ゴブリン の攻撃：各対戦相手に1点」をコピー'))).toBe(true);
-  // ほかの操作（ここでは編集で手札に戻す）をすると記録は消える。対象の変更は何もしない（手動）
+  // ほかの操作（ここでは編集で手札に戻す）をすると記録は消える。コピーの面は唱えられるが、選べるのは「手動で処理する」だけ
   await app.put('Return the Favor', 'hand');
   expect(await recent(app)).toEqual([]);
+  await app.dispatch({ type: 'pool', color: 'R', delta: 2 }, { type: 'pool', color: 'C', delta: 1 });
+  await app.act(rtf, '唱える：しっぺ返し（コピー）（{1}{R}{R}）');
+  expect((await app.state()).prompt!.options.map((o) => o.label)).toEqual([MANUAL]);
+  await app.choose(MANUAL);
+  s = await app.state();
+  expect([s.cards[rtf].zone, s.opponents[0].life]).toEqual(['graveyard', 36]);
+  expect(s.log.some((l) => l.includes('しっぺ返しのコピーは手動で処理する'))).toBe(true);
+  // 対象の変更は何もしない（手動）
+  await app.put('Return the Favor', 'hand');
   await app.dispatch({ type: 'pool', color: 'R', delta: 2 }, { type: 'pool', color: 'C', delta: 1 });
   await app.act(rtf, '唱える：しっぺ返し（対象の変更）（{1}{R}{R}）');
   s = await app.state();

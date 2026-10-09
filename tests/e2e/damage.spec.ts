@@ -182,6 +182,11 @@ test('Wildfire Elemental と Chandra’s Incinerator の軽減', async ({ app })
   const inc = await app.put("Chandra's Incinerator", 'hand');
   await app.act(inc, /唱える/);
   expect((await app.state()).cards[inc].zone).toBe('battlefield');
+  // 相手なしモードでは、焼却者が誘発しても相手にクリーチャーがいないので何も起きない（選択も出ない）
+  await app.dispatch({ type: 'token', name: 'Goblin', count: 1 });
+  const s = await app.state();
+  // 衝撃の震えで3回ぶん（最初のゴブリン・焼却者・このゴブリン）
+  expect([s.prompt, s.opponents.map((o) => o.life)]).toEqual([null, [37, 37, 37]]);
 });
 
 test('Molten Gatekeeper の蘇生は終了時に追放', async ({ app }) => {

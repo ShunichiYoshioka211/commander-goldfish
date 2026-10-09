@@ -439,6 +439,49 @@ test('冒涜の行動：相手のクリーチャーも数えて軽くなり、�
   expect(s.zones.hand.length).toBe(hand);
 });
 
+test('チャンドラの焼却者：戦闘でないダメージを受けた相手ごとに、その相手のクリーチャーを毎回選んで同じ点数を与える。拷問部屋の+2は相手のクリーチャーには乗らない', async ({ app, page }) => {
+  await app.start(RIVALS);
+  const ingris = await app.put('Ingris Stingerquill', 'battlefield');
+  await app.put("Chandra's Incinerator", 'battlefield');
+  await app.endTurn();
+  await app.rival(0, 'scout');
+  const beast = await app.rival(0, 'beast');
+  const bear = await app.rival(2, 'bear');
+  await app.dispatch({ type: 'toCombat' }, { type: 'plan', id: ingris, opp: 0 }, { type: 'attack' });
+  // イングリスの1点で3人ぶん誘発する。相手1と相手3の分は対象を選び、クリーチャーのいない相手2の分は何も起きない
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toContainText('チャンドラの焼却者：1点を与える相手1のクリーチャー');
+  await expect(dialog.locator('.rival-choice')).toHaveCount(2);
+  await app.choose('相手1の 斥候 2/1');
+  await expect(dialog).toContainText('チャンドラの焼却者：1点を与える相手3のクリーチャー');
+  await expect(dialog.locator('.rival-choice')).toHaveCount(1);
+  await app.choose('相手3の 熊 2/2');
+  let s = await app.state();
+  expect(s.prompt).toBeNull();
+  expect(s.opponents[0].board.map((p) => p.id)).toEqual([beast]);
+  expect(s.opponents[2].board.map((p) => [p.id, p.damage])).toEqual([[bear, 1]]);
+  expect(s.log.some((l) => l.includes('相手1の斥候が死亡'))).toBe(true);
+  expect(s.log.some((l) => l.includes('チャンドラの焼却者 → 相手3の熊 に 1点'))).toBe(true);
+  await app.dispatch({ type: 'damage' }, { type: 'endCombat' });
+  expect(await app.oppLife()).toEqual([38, 39, 39]);
+
+  // 拷問部屋を開けてから衝撃の震え：相手には 1+2=3点。焼却者も3点を与えるが、相手のクリーチャーには +2 が乗らない
+  await app.lands('Mountain', 'Mountain', 'Mountain', 'Mountain');
+  const room = await app.put('Spiked Corridor // Torture Pit', 'hand');
+  await app.card(room).click();
+  await dialog.getByRole('button', { name: /唱える：拷問部屋/ }).click();
+  await app.put('Impact Tremors', 'battlefield');
+  await app.dispatch({ type: 'token', name: 'Goblin', count: 1 });
+  await expect(dialog).toContainText('チャンドラの焼却者：3点を与える相手1のクリーチャー');
+  await app.choose('相手1の 獣 4/4');
+  await app.choose('相手3の 熊 2/2（1）');
+  s = await app.state();
+  expect(s.opponents.map((o) => o.life)).toEqual([35, 36, 36]);
+  expect(s.opponents[0].board.map((p) => [p.id, p.damage])).toEqual([[beast, 3]]);
+  expect(s.opponents[2].board).toEqual([]);
+  await expect(app.chip(beast)).toContainText('4/4（3）');
+});
+
 test('除去：対象は唱えるときに選ぶ。大群への給餌は相手のクリーチャーだけ・マナ総量ぶん失う。自分のものも壊せる', async ({ app, page }) => {
   await app.start(RIVALS);
   await app.lands('Swamp', 'Swamp', 'Swamp', 'Swamp', 'Swamp', 'Swamp', 'Swamp', 'Swamp');

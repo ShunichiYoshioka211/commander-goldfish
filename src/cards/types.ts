@@ -76,7 +76,8 @@ export interface CardScript {
   onCreatureDies?: (s: GameState, card: CardInstance, died: CardInstance, wasAttacking: boolean) => void;
   /** 相手ありモードで、相手のクリーチャーが死亡したとき */
   onRivalCreatureDies?: (s: GameState, card: CardInstance) => void;
-  onNoncombatDamage?: (s: GameState, card: CardInstance) => void;
+  /** 対戦相手が戦闘ダメージでないダメージを受けたとき（1回のダメージ・相手1人ごと。amount は増幅込みで与えた点数） */
+  onNoncombatDamage?: (s: GameState, card: CardInstance, opp: number, amount: number) => void;
   /** 自分の発生源が対戦相手に戦闘ダメージでないダメージを与えたとき（1回のダメージ・相手1人ごと） */
   onNoncombatDamageBy?: (s: GameState, card: CardInstance, source: CardInstance) => void;
   // ---- 切削・RADカウンター・カウンター（賢きモスマンのデッキ） ----

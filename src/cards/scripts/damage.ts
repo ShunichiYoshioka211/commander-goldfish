@@ -1,6 +1,8 @@
 // ダメージ源と増幅。このデッキの勝ち筋の中心。
-import { createToken, creatures, draw, enqueue, isCreature, isRed, moveTo, nameJa, typeOf } from '../../engine/core';
-import { damageAny, damageEach } from '../../engine/damage';
+import { ask, createToken, creatures, draw, enqueue, isCreature, isRed, moveTo, nameJa, typeOf } from '../../engine/core';
+import { damageAny, damageEach, damageRival } from '../../engine/damage';
+import { sweepRivals } from '../../engine/rivals';
+import { rivalOptions } from '../../engine/rivals/board';
 import type { GameState } from '../../engine/types';
 import type { CardScript } from '../types';
 
@@ -62,7 +64,8 @@ export const DAMAGE_SCRIPTS: Record<string, CardScript> = {
         },
       },
     ],
-    damageBonus: (_s, card, _source, combat) => (card.doors.includes('Torture Pit') && !combat ? 2 : 0),
+    // 拷問部屋は対戦相手（プレイヤー）への戦闘でないダメージだけ。相手のクリーチャーには乗らない
+    damageBonus: (_s, card, _source, combat, to) => (card.doors.includes('Torture Pit') && !combat && to === 'player' ? 2 : 0),
   },
   Devil: { onDies: (s, card) => enqueue(s, 'デビル：1点', (st) => damageAny(st, card, 1)) },
   'Impact Tremors': { onCreatureEnters: pingOnEnter(1) },
@@ -140,5 +143,24 @@ export const DAMAGE_SCRIPTS: Record<string, CardScript> = {
         for (const c of creatures(st)) c.tempPower++;
       }),
   },
-  "Chandra's Incinerator": { cast: { reduce: (s) => s.flags.noncombatToOpps } },
+  "Chandra's Incinerator": {
+    cast: { reduce: (s) => s.flags.noncombatToOpps },
+    // 対戦相手が戦闘ダメージでないダメージを受けるたび、その相手のクリーチャーに同じ点数（対象は毎回選ぶ）。
+    // 相手なしモードでは相手にクリーチャーがいないので、対象が無く何も起きない（CR 603.3d）
+    onNoncombatDamage: (s, card, opp, n) =>
+      enqueue(s, `チャンドラの焼却者：相手${opp + 1}のクリーチャーに${n}点`, (st) => {
+        const options = rivalOptions(st).filter((o) => o.rival!.opp === opp);
+        if (options.length === 0) return;
+        ask(st, {
+          title: `チャンドラの焼却者：${n}点を与える相手${opp + 1}のクリーチャー`,
+          options,
+          min: 1,
+          max: 1,
+          resolve: (st2, [id]) => {
+            damageRival(st2, card, opp, id as string, n, false);
+            sweepRivals(st2);
+          },
+        });
+      }),
+  },
 };

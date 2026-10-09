@@ -155,7 +155,7 @@ onCombatStart: (s, card) => enqueue(s, '溶鉱炉', () => { card.counters.oil++;
 7. **ターンの終わりの処理は、相手のターンも `endOfTurnCleanup` を通す**（ターン終了までの効果と、相手のクリーチャーが受けたダメージを消す。CR 514.2）
 8. `engine/rivals/index.ts` は `turn.ts` を import しない（`turn.ts` がここを使う）。`rivals/kinds.ts` は葉のモジュールに保つ
 9. 増幅（`damageBonus`）は受け手 `to`（`'player'` / `'permanent'`）を受け取る。「対戦相手か、対戦相手のパーマネント」に乗る増幅は `to` を見ない。
-   プレイヤーにだけ乗るもの（拷問部屋）は第2段階で `to === 'player'` を足す
+   プレイヤーにだけ乗るもの（拷問部屋）は `to === 'player'` を見る（チャンドラの焼却者が相手のクリーチャーに与える点には乗らない）
 
 ## 5. カードの自動処理を足す
 
